@@ -1,0 +1,15 @@
+zh_CN:
+  hello: "你好世界"
+  welcome: "欢迎!"
+  activerecord:
+    models:
+      message:
+        one: '信息'
+        other: '留言内容'
+      comment: '评论'
+    attributes:
+      message:
+        name: '姓名'
+        content: '内容'
+      comment:
+        content: '内容'

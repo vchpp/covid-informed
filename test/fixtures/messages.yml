@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_name: MyString
+  en_content: MyString
+  zh_cn_name: MyString
+  zh_cn_content: MyString
+  zh_tw_name: MyString
+  zh_tw_content: MyString
+  vi_name: MyString
+  vi_content: MyString
+  hmn_name: MyString
+  hmn_content: MyString
+
+two:
+  en_name: MyString
+  en_content: MyString
+  zh_cn_name: MyString
+  zh_cn_content: MyString
+  zh_tw_name: MyString
+  zh_tw_content: MyString
+  vi_name: MyString
+  vi_content: MyString
+  hmn_name: MyString
+  hmn_content: MyString

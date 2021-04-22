@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= Message.model_name.human(count:2) %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Message.human_attribute_name("name")  %></th>
+      <th><%= Message.human_attribute_name("content") %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <%   case %>
+          <%  when params[:locale] == "en" %>
+            <td><%= message.en_name %></td>
+            <td><%= message.en_content %></td>
+          <%  when params[:locale] == "zh_TW" %>
+            <td><%= message.zh_tw_name %></td>
+            <td><%= message.zh_tw_content %></td>
+          <%  when params[:locale] == "zh_CN" %>
+            <td><%= message.zh_cn_name %></td>
+            <td><%= message.zh_cn_content %></td>
+          <%  when params[:locale] == "vi" %>
+            <td><%= message.vi_name %></td>
+            <td><%= message.vi_content %></td>
+          <%  when params[:locale] == "hmn" %>
+            <td><%= message.hmn_name %></td>
+            <td><%= message.hmn_content %></td>
+        <% end %>
+        <td><%= link_to 'Show', message %></td>
+        <% if @current_user.try(:admin?) %>
+          <td><%= link_to 'Edit', edit_message_path(message) %></td>
+          <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @current_user.try(:admin?) %>
+  <%= link_to 'New Message', new_message_path %>
+<% end %>

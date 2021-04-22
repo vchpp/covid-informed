@@ -1,0 +1,15 @@
+vi:
+  hello: "Chào thế giới"
+  welcome: "chào mừng!"
+  activerecord:
+    models:
+      message:
+        one: 'Thông điệp'
+        other: 'Tin nhắn'
+      comment: 'Bình luận'
+    attributes:
+      message:
+        name: 'Tên'
+        content: 'Nội dung'
+      comment:
+        content: 'Nội dung'

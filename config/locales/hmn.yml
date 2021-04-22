@@ -1,0 +1,15 @@
+hmn:
+  hello: "nyob zoo ntiaj teb"
+  welcome: "txais tos!"
+  activerecord:
+    models:
+      message:
+        one: 'Xov'
+        other: 'Lus'
+      comment: 'Tswv yim'
+    attributes:
+      message:
+        name: 'Npe'
+        content: 'Cov Ntsiab Lus'
+      comment:
+        content: 'Cov Ntsiab Lus'
