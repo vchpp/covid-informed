@@ -21,7 +21,10 @@ class VotesController < ApplicationController
 
   # POST /votes or /votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @message = Message.find(params[:message_id])
+    @comment = Comment.find(params[:comment_id])
+    @vote = @message.comments.vote.new(vote_params)
+    @vote.rct = cookies[:rct] || '0'
 
     respond_to do |format|
       if @vote.save
@@ -64,6 +67,6 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
-      params.require(:vote).permit(:up, :down, :comment_id)
+      params.require(:vote).permit(:up, :down, :rct, :message_id, :comment_id)
     end
 end

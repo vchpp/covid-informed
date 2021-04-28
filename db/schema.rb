@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_063023) do
   create_table "votes", force: :cascade do |t|
     t.string "up"
     t.string "down"
+    t.string "rct"
     t.bigint "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
