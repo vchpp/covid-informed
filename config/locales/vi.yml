@@ -1,6 +1,7 @@
 vi:
   hello: "Chào thế giới"
   welcome: "chào mừng!"
+  locale: "Tiếng Việt"
   activerecord:
     models:
       message:

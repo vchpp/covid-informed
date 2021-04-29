@@ -58,7 +58,7 @@
             <li><a href="/messages">Messages</a></li>
             <li><a href="/resources">Resources</a></li>
             <li>
-              <a href="#" class="fh5co-sub-ddown"><%=params[:locale]%></a>
+              <a href="#" class="fh5co-sub-ddown"><%= t('locale') %></a>
                <ul class="fh5co-sub-menu">
                 <li><%= link_to 'English', root_path(locale: :en) %></li>
                 <li><%= link_to '繁體中文', root_path(locale: :zh_TW) %></li>
@@ -74,20 +74,59 @@
     </header>
 
     <!-- START #fh5co-hero -->
-    <aside id="fh5co-hero" style="background-image: url(display/images/hero4.jpg);">
+    <aside id="fh5co-hero" style="background-image: url(display/images/hero2.jpg);">
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="fh5co-hero-wrap">
               <div class="fh5co-hero-intro">
-                  <h2>We Are Creative People<span></span></h2>
-                  <h1>Display Creative Studio</h1>
+                  <h2>A bunch of<span></span></h2>
+                  <h1>Useful Elements</h1>
               </div>
             </div>
           </div>
         </div>
       </div>
     </aside>
+
+    <div id="fh5co-main">
+
+
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-lead-wrap">
+              <h2 class="fh5co-uppercase-heading-sm text-center">Beautiful Intro Text with button</h2>
+              <h3 class="fh5co-serif fh5co-lead">Lorem <a href="#">ipsum</a> dolor sit amet, consectetur adipisicing elit. Dolores commodi ut odit repudiandae culpa dicta quia neque consectetur error eveniet. </h3>
+            <div class="fh5co-spacer fh5co-spacer-sm"></div>
+            <p><a href="#" class="btn btn-outline btn-lg">Outlined Button</a></p>
+            </div>
+
+          </div>
+
+          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="fh5co-uppercase-heading-sm text-center">Heading with sub text</h2>
+            </div>
+            <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
+              <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">Sapiente voluptatem distinctio</h1>
+              <h4 class="h5 fh5co-heading-sub">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente voluptatem distinctio neque, a, id debitis tenetur aspernatur? Natus, voluptate alias.</h4>
+              <div class="fh5co-spacer fh5co-spacer-sm"></div>
+            </div>
+          </div>
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        </div>
+      </section>
 
 
     <%= yield %>
