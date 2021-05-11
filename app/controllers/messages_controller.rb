@@ -30,6 +30,8 @@ class MessagesController < ApplicationController
         @message_content = Message.find(params[:id]).hmn_content
     end
     p @message_content
+    up_likes
+    down_likes
   end
 
   # GET /messages/new
@@ -93,5 +95,19 @@ class MessagesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def message_params
       params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content)
+    end
+
+    def up_likes
+      message = Message.find(params[:id])
+      likes = message.likes.all
+      up = likes.map do |like| like.up end
+      @up_likes = up.map(&:to_i).reduce(0, :+)
+    end
+
+    def down_likes
+      message = Message.find(params[:id])
+      likes = message.likes.all
+      down = likes.map do |like| like.down end
+      @down_likes = down.map(&:to_i).reduce(0, :+)
     end
 end
