@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     devise_for :users
 
-    get '/admin', to: 'application#admin'
+    get '/admin', to: 'admin#index'
     get '/resources', to: 'resources#index'
     get '/about', to: 'about#index'
     root 'about#index'

@@ -1,5 +1,6 @@
 class Message < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :en_name, presence: true, uniqueness: true
   validates :en_content, presence: true, uniqueness: true
   validates :zh_tw_name, presence: true, uniqueness: true

@@ -21,11 +21,13 @@ class LikesController < ApplicationController
 
   # POST /likes or /likes.json
   def create
-    @like = Like.new(like_params)
-
+    @message = Message.find(params[:message_id])
+    @like = @message.likes.new(like_params)
+    @like.rct = cookies[:rct] || '0'
+    p @like
     respond_to do |format|
       if @like.save
-        format.html { redirect_to @like, notice: "Like was successfully created." }
+        format.html { redirect_to @message, notice: "Like was successfully created." }
         format.json { render :show, status: :created, location: @like }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class LikesController < ApplicationController
   def update
     respond_to do |format|
       if @like.update(like_params)
-        format.html { redirect_to @like, notice: "Like was successfully updated." }
+        format.html { redirect_to @message, notice: "Like was successfully updated." }
         format.json { render :show, status: :ok, location: @like }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +53,7 @@ class LikesController < ApplicationController
   def destroy
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to likes_url, notice: "Like was successfully destroyed." }
+      format.html { redirect_to messages_url, notice: "Like was successfully destroyed." }
       format.json { head :no_content }
     end
   end

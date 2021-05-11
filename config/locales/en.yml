@@ -32,7 +32,8 @@
 en:
   hello: "Hello world"
   welcome: "Welcome!"
-  locale: "English"
+  language: "English"
+  locale: "en"
   activerecord:
     models:
       message: 'Message'
