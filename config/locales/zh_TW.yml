@@ -1,7 +1,8 @@
 zh_TW:
   hello: "你好世界"
   welcome: "歡迎!"
-  locale: "中國傳統的"
+  language: "中國傳統的"
+  locale: "zh_tw"
   activerecord:
     models:
       message:

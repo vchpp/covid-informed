@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Likes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Up</th>
+      <th>Down</th>
+      <th>Rct</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @likes.each do |like| %>
+      <tr>
+        <td><%= like.up %></td>
+        <td><%= like.down %></td>
+        <td><%= like.rct %></td>
+        <td><%= like.message_id %></td>
+        <td><%= link_to 'Show', like %></td>
+        <td><%= link_to 'Edit', edit_like_path(like) %></td>
+        <td><%= link_to 'Destroy', like, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Like', new_like_path %>

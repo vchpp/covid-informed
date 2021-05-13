@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true
   before_action :set_locale, :count_visits, :set_visitor
 
-	def admin
-		authenticate_admin!
-    cookies[:rct] = 0
-	end
-
 private
 
   def authenticate_admin!

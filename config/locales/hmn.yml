@@ -1,7 +1,8 @@
 hmn:
   hello: "nyob zoo ntiaj teb"
   welcome: "txais tos!"
-  locale: "kwv tij hmoob"
+  language: "kwv tij hmoob"
+  locale: "hmn"
   activerecord:
     models:
       message:
