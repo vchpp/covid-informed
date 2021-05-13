@@ -32,12 +32,8 @@
   <%= link_to 'Edit', edit_message_path(@message) %> |
 <% end %>
 
-<% if @up_likes %>
-  <%= @up_likes %>
-<% end %>
-<% if @down_likes %>
-  <%= @down_likes %>
-<% end %>
+<%= @up_likes %>
+<%= @down_likes %>
 
 <%= form_with model: [ @message, @message.likes.build ] do |form| %>
   <div class="field">

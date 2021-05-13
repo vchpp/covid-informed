@@ -2,7 +2,7 @@
 /*
 //////////////////////////////////////////////////////
 
-FREE HTML5 TEMPLATE 
+FREE HTML5 TEMPLATE
 DESIGNED & DEVELOPED by FREEHTML5.CO
 
 CREDITS:
@@ -19,15 +19,14 @@ Themify Icons
 
 @font-face {
 	font-family: 'themify';
-	src:url('../fonts/themify/themify.eot?-fvbane');
-	src:url('../fonts/themify/themify.eot?#iefix-fvbane') format('embedded-opentype'),
-		url('../fonts/themify/themify.woff?-fvbane') format('woff'),
-		url('../fonts/themify/themify.ttf?-fvbane') format('truetype'),
-		url('../fonts/themify/themify.svg?-fvbane#themify') format('svg');
+	src:asset-path('themify.eot?-fvbane');
+	src:asset-path('themify.eot?#iefix-fvbane') format('embedded-opentype'),
+		asset-path('/fonts/themify/themify.woff?-fvbane') format('woff'),
+		asset-path('/fonts/themify/themify.ttf?-fvbane') format('truetype'),
+		asset-path('/fonts/themify/themify.svg?-fvbane#themify') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 
 // Override Variables
@@ -90,7 +89,7 @@ body {
 
 ::-webkit-selection { color: $brand-white;  background: $brand-primary; }
 ::-moz-selection { color: $brand-white;  background: $brand-primary; }
-::selection      { color: $brand-white;  background: $brand-primary; } 
+::selection      { color: $brand-white;  background: $brand-primary; }
 
 a {
 	@include transition(.2s);
@@ -113,7 +112,7 @@ input {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 	margin: 0 0 20px 0;
-	padding: 0;	
+	padding: 0;
 }
 h1, .h1 {
 	font-size: 30px;
@@ -204,7 +203,7 @@ textarea {
 	left: 0!important;
 	right: 0;
 	z-index: 103;
-	
+
 	&.fh5co-scrolled {
 		padding: 0px 0;
 		background: rgba(0, 0, 0, .8);
@@ -222,7 +221,7 @@ textarea {
 				}
 			}
 		}
-		
+
 		#fh5co-menu-wrap {
 			.sf-menu a {
 				color: $brand-darker;
@@ -238,14 +237,14 @@ textarea {
 				padding-top: 2em;
 				padding-bottom: 2em;
 			}
-		
+
 		}
 	}
 }
 #fh5co-logo {
 	font-size: 20px;
 	margin: 16px 0 0 0;
-	padding: 0;	
+	padding: 0;
 	font-weight: bold;
 	a {
 		border-bottom: none!important;
@@ -272,8 +271,8 @@ textarea {
 .sf-menu ul {
 	box-shadow: none;
 	border: transparent;
-	min-width: 8em; 
-	*width: 8em; 
+	min-width: 8em;
+	*width: 8em;
 }
 
 .sf-menu a {
@@ -284,10 +283,10 @@ textarea {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	border-left: none;
-	border-top: none; 
+	border-top: none;
 	border-top: none;
 	text-decoration: none;
-	zoom: 1; 
+	zoom: 1;
 	font-size: 13px;
 	border-bottom: none!important;
 }
@@ -301,7 +300,7 @@ textarea {
 .sf-menu ul li a,
 .sf-menu ul ul li a {
 	text-transform: none;
-	padding: .75em 1em;	
+	padding: .75em 1em;
 	letter-spacing: 1px;
 }
 .sf-menu li:hover a,
@@ -333,13 +332,13 @@ textarea {
 	height: 0;
 	width: 0;
 	border: 5px solid transparent;
-	border-top-color: #ccc; 
+	border-top-color: #ccc;
 }
 
 .sf-arrows > li > .sf-with-ul:focus:after,
 .sf-arrows > li:hover > .sf-with-ul:after,
 .sf-arrows > .sfHover > .sf-with-ul:after {
-	border-top-color: #ccc; 
+	border-top-color: #ccc;
 }
 .sf-arrows ul .sf-with-ul:after {
 	margin-top: -5px;
@@ -378,7 +377,7 @@ textarea {
 				// top: 15px;
 				top: 50%;
 				margin-top: -7px;
-				content: "\e64b";	
+				content: "\e64b";
 				color: rgba(0,0,0,.5);
 			}
 		}
@@ -399,7 +398,7 @@ textarea {
 				}
 			}
 		}
-	}	
+	}
 }
 #fh5co-primary-menu .fh5co-sub-menu {
 	padding:7px 0 3px;
@@ -448,7 +447,7 @@ textarea {
 	border-color:#ebebeb;
 	box-shadow:0 0 0 1px rgba(0,0,0,0.19);
 	&:before {
-		display:none;	
+		display:none;
 	}
 }
 #fh5co-primary-menu .fh5co-sub-menu a {
@@ -497,10 +496,10 @@ textarea {
 	z-index: 10002;
 	background: #181920;
 	padding: 0.75em 1.25em;
-	
+
 	#fh5co-mobile-menu-ul {
 		padding: 0;
-		margin: 0;	
+		margin: 0;
 		li {
 			list-style: none;
 			&.active {
@@ -524,12 +523,12 @@ textarea {
 			position: relative;
 		}
 		.fh5co-sub-ddown:after {
-			
+
 			@include themify();
 			position: absolute;
 			right: 0;
 			margin-top: 2px;
-			content: "\e64b";	
+			content: "\e64b";
 		}
 
 		.fh5co-sub-menu {
@@ -562,13 +561,13 @@ textarea {
 	-ms-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 	-o-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 	box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
-	
+
 	h1 {
 		padding: 0;
 		margin: 0;
 		font-size: 20px;
 		// margin: 12px 0 0 0;
-		// padding: 0;	
+		// padding: 0;
 		font-weight: bold;
 		a {
 			border-bottom: none!important;
@@ -580,7 +579,7 @@ textarea {
 }
 
 
-// Layouts 
+// Layouts
 #fh5co-feature {
 	background: #f6f9fa;
 	padding: 5em 0;
@@ -667,7 +666,7 @@ body {
 				padding-top: 50px;
 				height: 400px;
 			}
-		}	
+		}
 	}
 }
 
@@ -698,13 +697,13 @@ body {
 				padding-top: 20px;
 			}
 		}
-	}	
+	}
 }
 
 
 
 
-#fh5co-hero, 
+#fh5co-hero,
 #fh5co-main,
 #fh5co-logo-mobile-wrap {
 	-moz-transform: translateX(0px);
@@ -795,16 +794,16 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
 	&:hover {
 		opacity: .7;
 	}
-} 
+}
 
 
 
 
 
-/* 
+/*
 ========================================
 
-Components 
+Components
 
 ========================================
 */
@@ -866,18 +865,18 @@ Components
 .btn-warning {
 	background: $brand-warning;
 }
-.btn-primary, 
-.btn-success, 
-.btn-info, 
-.btn-warning, 
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
 .btn-danger {
 	border-color: transparent;
 }
-.btn-default, 
-.btn-primary, 
-.btn-success, 
-.btn-info, 
-.btn-warning, 
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
 .btn-danger {
 	&:hover, &:active, &:focus {
 		background: $brand-darker-2;
@@ -885,11 +884,11 @@ Components
 	}
 }
 
-// Input Text 
+// Input Text
 .form-control {
 	box-shadow: none!important;
 	border: 2px solid #ccc;
-	&:hover, 
+	&:hover,
 	&:focus,
 	&:active {
 		outline: none;
@@ -959,7 +958,7 @@ Components
 					@media screen and (max-width: $screen-xs) {
 						width: 20%;
 					}
-					
+
 				}
 				.fh5co-feature-blurb-title {
 					letter-spacing: 2px;
@@ -972,7 +971,7 @@ Components
 
 /* Feature 2*/
 .fh5co-feature-2 {
-	
+
 	.fh5co-feature-item {
 		margin-bottom: 30px;
 	}
@@ -1010,9 +1009,9 @@ Components
 
 /* Feature 3 */
 .fh5co-feature-3 {
-	
+
 	.fh5co-feature-item {
-		margin-bottom: 20px;	
+		margin-bottom: 20px;
 		@media screen and (max-width: $screen-sm) {
 			display: block;
 		}
@@ -1028,7 +1027,7 @@ Components
 			font-size: 30px;
 			color: $brand-primary;
 		}
-		
+
 	}
 	.fh5co-feature-blurb {
 		float: right;
@@ -1071,7 +1070,7 @@ Components
 }
 .resp-content-active, .resp-accordion-active {
     display: block;
-    
+
 }
 .fh5co-tab-menu-icon {
 	font-size: 20px;
@@ -1153,8 +1152,8 @@ Components
 	}
 	.fh5co-uppercase-heading-sm {
 		color: rgba(0,0,0,.4);
-	}	
-	
+	}
+
 }
 
 #fh5co-footer {
@@ -1197,10 +1196,10 @@ Components
 					@include themify();
 					color: $brand-darker!important;
 					position: absolute;
-					content: "\e61a";	
+					content: "\e61a";
 					right: 15px;
 					top: 16px;
-				}	
+				}
 			}
 		}
 	}
@@ -1265,7 +1264,7 @@ Components
 			margin-bottom: 20px!important;
 		}
 		@media screen and (max-width: $screen-sm) {
-			margin-bottom: 20px!important;	
+			margin-bottom: 20px!important;
 			float: left;
 			width: 100%;
 		}
@@ -1313,11 +1312,11 @@ Components
 			border-top: none;
 			ul {
 				padding: 0;
-				margin: 0;	
+				margin: 0;
 				li {
 					list-style: none;
 					padding: 0;
-					margin: 0 0 10px 0;	
+					margin: 0 0 10px 0;
 				}
 			}
 		}
@@ -1327,7 +1326,7 @@ Components
 				border-top: none;
 			}
 		}
-		
+
 	}
 }
 
@@ -1345,9 +1344,9 @@ Components
 				a {
 					color:$brand-darker;
 					border-bottom: 2px solid $brand-primary;
-				}	
+				}
 			}
-			
+
 		}
 	}
 }
@@ -1409,7 +1408,7 @@ Components
 	}
 	&:hover {
 		i {
-			color: $brand-black;		
+			color: $brand-black;
 		}
 	}
 }
@@ -1452,7 +1451,7 @@ Components
 	text-align: center;
 }
 .owl-carousel-fullwidth.owl-theme .owl-dots {
-	bottom: 0;	
+	bottom: 0;
 	margin-bottom: -2.5em;
 }
 .owl-theme .owl-dots .owl-dot span {
@@ -1475,7 +1474,7 @@ Components
 
 img {
 	&.fh5co-align-right {
-		float:right; 
+		float:right;
 		margin:0 0 .5em 1em;
 		@media screen and (max-width: $screen-xs) {
 			width: 100%;
