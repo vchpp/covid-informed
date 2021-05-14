@@ -13,11 +13,11 @@ Themify Icons
 */
 @font-face {
 	font-family: 'themify';
-	src:font-url('themify.eot?-fvbane');
-	src:font-url('themify.eot?#iefix-fvbane') format('embedded-opentype'),
-		src:font-url('/fonts/themify/themify.woff?-fvbane') format('woff'),
-		src:font-url('/fonts/themify/themify.ttf?-fvbane') format('truetype'),
-		src:font-url('/fonts/themify/themify.svg?-fvbane#themify') format('svg');
+	src:asset-url('themify.eot?-fvbane');
+	src:asset-url('themify.eot?#iefix-fvbane') format('embedded-opentype'),
+		src:asset-url('themify/themify.woff?-fvbane') format('woff'),
+		src:asset-url('themify/themify.ttf?-fvbane') format('truetype'),
+		src:asset-url('themify/themify.svg?-fvbane#themify') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
