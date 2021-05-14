@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'aws-sdk-s3'
 gem 'dotenv-rails'
+gem 'rails_12factor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
