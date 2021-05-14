@@ -43,7 +43,6 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
     authenticate_admin!
-    @message = Message.find_by_id(params[:message_id])
   end
 
   # POST /messages or /messages.json

@@ -1,5 +1,6 @@
 
 // ...
+//= require activestorage
 //= require jquery
 //= require jquery_ujs
 //= require popper
@@ -23,11 +24,33 @@ $(document).on('turbolinks:load', function(){
 });
 
 function eventListeners(){
-  submitTags();
+  upVote();
+  downVote();
 }
 
-// submit a tag to an image
-function submitTags(){
+// upvote a message
+function upVote(){
+ $('.tags').on('submit', function(e){
+   e.preventDefault();
+   $(this).siblings('.del').toggle();
+   var tags, postUrl, data;
+   tags = $(this);
+   postUrl = $(this).attr('action');
+   data = $(this).children(':first').serialize();
+   $.ajax({
+     url: postUrl,
+     method: 'PUT',
+     data: data
+   }).done(function(data) {
+     tags.toggle();
+     $('.tag-value').empty();
+     $('.tag-value').prepend(data);
+   });
+ })
+};
+
+// downvote a message
+function downVote(){
  $('.tags').on('submit', function(e){
    e.preventDefault();
    $(this).siblings('.del').toggle();
