@@ -11,11 +11,11 @@
 
 @font-face {
 	font-family: 'themify';
-	src:asset-path('themify.eot?-fvbane');
-	src:asset-path('themify.eot?#iefix-fvbane') format('embedded-opentype'),
-		asset-path('/fonts/themify/themify.woff?-fvbane') format('woff'),
-		asset-path('/fonts/themify/themify.ttf?-fvbane') format('truetype'),
-		asset-path('/fonts/themify/themify.svg?-fvbane#themify') format('svg');
+	src:font-url('themify.eot?-fvbane');
+	src:font-url('themify.eot?#iefix-fvbane') format('embedded-opentype'),
+		font-url('/fonts/themify/themify.woff?-fvbane') format('woff'),
+		font-url('/fonts/themify/themify.ttf?-fvbane') format('truetype'),
+		font-url('/fonts/themify/themify.svg?-fvbane#themify') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
