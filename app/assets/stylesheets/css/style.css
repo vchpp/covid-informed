@@ -1,7 +1,7 @@
 /*
 //////////////////////////////////////////////////////
 
-FREE HTML5 TEMPLATE 
+FREE HTML5 TEMPLATE
 DESIGNED & DEVELOPED by FREEHTML5.CO
 
 CREDITS:
@@ -12,12 +12,16 @@ Themify Icons
 //////////////////////////////////////////////////////
 */
 @font-face {
-  font-family: 'themify';
-  src: url("../fonts/themify/themify.eot?-fvbane");
-  src: url("../fonts/themify/themify.eot?#iefix-fvbane") format("embedded-opentype"), url("../fonts/themify/themify.woff?-fvbane") format("woff"), url("../fonts/themify/themify.ttf?-fvbane") format("truetype"), url("../fonts/themify/themify.svg?-fvbane#themify") format("svg");
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'themify';
+	src:asset-path('themify.eot?-fvbane');
+	src:asset-path('themify.eot?#iefix-fvbane') format('embedded-opentype'),
+		asset-path('/fonts/themify/themify.woff?-fvbane') format('woff'),
+		asset-path('/fonts/themify/themify.ttf?-fvbane') format('truetype'),
+		asset-path('/fonts/themify/themify.svg?-fvbane#themify') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
+
 html.fh5co-overflow, body.fh5co-overflow {
   overflow-x: auto;
 }
@@ -669,7 +673,7 @@ body.inner-page #fh5co-hero .fh5co-hero-wrap {
 }
 
 #fh5co-main {
-  margin-top: 600px;
+  margin-top: 160px;
   padding-top: 50px;
   z-index: 102;
   position: relative;
@@ -800,10 +804,10 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
   opacity: .7;
 }
 
-/* 
+/*
 ========================================
 
-Components 
+Components
 
 ========================================
 */

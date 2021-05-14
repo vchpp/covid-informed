@@ -51,10 +51,10 @@
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
             <li class="active">
-              <a href="about">About</a>
+              <a href="/<%=params[:locale]%>/about">About</a>
             </li>
-            <li><a href="messages">Messages</a></li>
-            <li><a href="resources">Resources</a></li>
+            <li><a href="/<%=params[:locale]%>/messages">Messages</a></li>
+            <li><a href="/<%=params[:locale]%>/resources">Resources</a></li>
             <li>
               <a href="#" class="fh5co-sub-ddown"><%= t('language') %></a>
                <ul class="fh5co-sub-menu">
@@ -71,25 +71,9 @@
       </div>
     </header>
 
-    <!-- START #fh5co-hero -->
-    <aside id="fh5co-hero" style="background-image: url('/assets/hero2.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="fh5co-hero-wrap">
-              <div class="fh5co-hero-intro">
-                  <h2>A bunch of<span></span></h2>
-                  <h1>Useful Elements</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </aside>
+
 
     <div id="fh5co-main">
-
-
 
       <section>
         <div class="container">
@@ -126,28 +110,20 @@
         </div>
       </section>
 
+    </div>
 
     <%= yield %>
   </body>
   <footer>
-    <!-- jQuery -->
-    <!-- <script src="display/javascripts/jquery-1.10.2.min.js"></script> -->
-    <!-- jQuery Easing -->
-    <!-- <script src="display/javascripts/jquery.easing.1.3.js"></script> -->
-    <!-- Bootstrap -->
-    <!-- <script src="display/javascripts/bootstrap.js"></script> -->
-    <!-- Owl carousel -->
-    <!-- <script src="display/javascripts/owl.carousel.min.js"></script> -->
-    <!-- Magnific Popup -->
-    <!-- <script src="display/javascripts/jquery.magnific-popup.min.js"></script> -->
-    <!-- Superfish -->
-    <!-- <script src="display/javascripts/hoverIntent.js"></script> -->
-    <!-- <script src="display/javascripts/superfish.js"></script> -->
-    <!-- Easy Responsive Tabs -->
-    <!-- <script src="display/javascripts/easyResponsiveTabs.js"></script> -->
-    <!-- FastClick for Mobile/Tablets -->
-    <!-- <script src="display/javascripts/fastclick.js"></script> -->
-    <!-- Main JS -->
-    <!-- <script src="display/javascripts/main.js"></script> -->
+    <div class="container">
+
+      <ul class="fh5co-social-icons">
+        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+        <li><a href="#"><i class="ti-facebook"></i></a></li>
+        <li><a href="#"><i class="ti-github"></i></a></li>
+        <li><a href="#"><i class="ti-linkedin"></i></a></li>
+      </ul>
+
+    </div>
   </footer>
 </html>

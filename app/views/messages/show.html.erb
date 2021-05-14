@@ -10,6 +10,12 @@
   <%= @message_content %>
 </p>
 
+<% if @message.image.attached? %>
+  <p>
+    <%= image_tag @message.image.variant(resize: "500x500") %>
+  </p>
+<% end %>
+
 <% if @comments %>
   <% @comments.each do |comment| %>
   <li>  <%= comment.content %> </li>
@@ -28,7 +34,7 @@
 
 <% end %>
 
-<% if @current_user.try(:admin?) %>
+<% if current_user.try(:admin?) %>
   <%= link_to 'Edit', edit_message_path(@message) %> |
 <% end %>
 
