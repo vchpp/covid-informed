@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.all.with_attached_image
     # if @message.empty? redirect to new_message_path
   end
 
@@ -50,6 +50,7 @@ class MessagesController < ApplicationController
   def create
     authenticate_admin!
     @message = Message.new(message_params)
+    @message.image.attach(params[:message][:images])
 
     respond_to do |format|
       if @message.save
@@ -94,7 +95,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content)
+      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content, :image)
     end
 
     def up_likes
