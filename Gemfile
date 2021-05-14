@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
-gem 'aws-sdk-s3'
+gem "aws-sdk-s3", require: false
 gem 'dotenv-rails'
 gem 'rails_12factor'
 
