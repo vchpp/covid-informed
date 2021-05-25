@@ -16,18 +16,23 @@ class MessagesController < ApplicationController
       when params[:locale] == "en"
         @message_name = Message.find(params[:id]).en_name
         @message_content = Message.find(params[:id]).en_content
+        @message_rtf = Message.find(params[:id]).en_rtf
       when params[:locale] == "zh_TW"
         @message_name = Message.find(params[:id]).zh_tw_name
         @message_content = Message.find(params[:id]).zh_tw_content
+        @message_rtf = Message.find(params[:id]).zh_tw_rtf
       when params[:locale] == "zh_CN"
         @message_name = Message.find(params[:id]).zh_cn_name
         @message_content = Message.find(params[:id]).zh_cn_content
+        @message_rtf = Message.find(params[:id]).zh_cn_rtf
       when params[:locale] == "vi"
         @message_name = Message.find(params[:id]).vi_name
         @message_content = Message.find(params[:id]).vi_content
+        @message_rtf = Message.find(params[:id]).vi_rtf
       when params[:locale] == "hmn"
         @message_name = Message.find(params[:id]).hmn_name
         @message_content = Message.find(params[:id]).hmn_content
+        @message_rtf = Message.find(params[:id]).hmn_rtf
     end
     p @message_content
     up_likes
@@ -94,7 +99,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content, :image)
+      params.require(:message).permit(:en_name, :en_content, :en_rtf, :zh_tw_name, :zh_tw_content, :zh_tw_rtf, :zh_cn_name, :zh_cn_content, :zh_cn_rtf, :vi_name, :vi_content, :vi_rtf, :hmn_name, :hmn_content, :hmn_rtf, :image)
     end
 
     def up_likes
