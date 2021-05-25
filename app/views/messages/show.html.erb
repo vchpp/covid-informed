@@ -10,6 +10,11 @@
   <%= @message_content %>
 </p>
 
+<p>
+  <strong><%= Message.human_attribute_name("content") %>:</strong>
+  <%= @message_rtf %>
+</p>
+
 <% if @message.image.attached? %>
   <p>
     <%= image_tag @message.image.variant(resize: "500x500") %>

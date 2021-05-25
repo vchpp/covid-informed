@@ -17,7 +17,7 @@ private
   end
 
   def set_visitor
-    if request.query_parameters[1..200]
+    if request.query_parameters[1..300]
       cookies[:rct] ||= {
         value: request.query_parameters['rct'],
         path: '/',
@@ -25,7 +25,7 @@ private
       }
     else
       cookies[:rct] ||= {
-        value: rand(10000..99999),
+        value: rand(10000..99999999),
         path: '/',
         SameSite: 'Lax'
       }
