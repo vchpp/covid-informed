@@ -1,66 +1,121 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= Message.human_attribute_name("name")  %>:</strong>
-  <%= @message_name %>
-</p>
-
-<p>
-  <strong><%= Message.human_attribute_name("content") %>:</strong>
-  <%= @message_content %>
-</p>
-
-<p>
-  <strong><%= Message.human_attribute_name("content") %>:</strong>
-  <%= @message_rtf %>
-</p>
-
 <% if @message.image.attached? %>
-  <p>
-    <%= image_tag @message.image.variant(resize: "500x500") %>
-  </p>
+  <section id="fh5co-testimonial" >
+      <%= image_tag @message.image, :style => "background: #000 no-repeat center center;"%>
+  </section>
 <% end %>
 
-<% if @comments %>
-  <% @comments.each do |comment| %>
-  <li>  <%= comment.content %> </li>
-  <% end %>
-<% end %>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="fh5co-uppercase-heading-sm text-center" id="notice"><%= notice %></h2>
+      </div>
 
-
-<%= form_with model: [ @message, @message.comments.build ] do |form| %>
-  <div class="field">
-    <%= form.label "Add a comment" %>
-    <%= form.text_field :content %>
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
+        <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
+        <% if @message_rtf %>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <h4 class="h5 fh5co-heading-sub"><%= @message_rtf %></h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="fh5co-spacer fh5co-spacer-sm"></div>
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</section>
 
-<% end %>
+<!-- like buttons -->
+<section>
+  <div class="container">
+    <div class="row">
+
+      <%= form_with model: [ @message, @message.likes.build ] do |form| %>
+        <div class="field">
+          <%= form.label :up%>
+          <%= form.text_field :up %>
+        </div>
+
+        <div class="field">
+          <%= form.label :down %>
+          <%= form.text_field :down %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+
+      <div class="col-md-4">
+        <a href="#" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-up"></i> <%= @up_likes %></a>
+        <a href="#" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-down"></i> <%= @down_likes %></a>
+      </div>
+
+    </div>
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row fh5co-feature-3"">
+      <div class="col-md-12">
+        <h2 class="fh5co-uppercase-heading-sm text-center">Comments</h2>
+      </div>
+
+    	<div class="fh5co-spacer fh5co-spacer-sm"></div>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+					<div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="fh5co-feature-item">
+                <span class="fh5co-feature-icon"><i class="ti-comment"></i></span>
+                <div class="fh5co-feature-blurb">
+                  <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
+</section>
+
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
+          <div class="field form-group">
+            <%= form_with model: [ @message, @message.comments.build ] do |form| %>
+            <div class="field">
+              <%= form.label :content, class: 'sr-only'%>
+              <%= form.text_field :content, class: 'form-control input-lg', placeholder: "leave a comment", style: "height; 4;"  %>
+            </div>
+    <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+            <div class="col-md-12">
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+              </div>
+            <div class="col-md-12">
+
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% if current_user.try(:admin?) %>
   <%= link_to 'Edit', edit_message_path(@message) %> |
 <% end %>
 
-<%= @up_likes %>
-<%= @down_likes %>
 
-<%= form_with model: [ @message, @message.likes.build ] do |form| %>
-  <div class="field">
-    <%= form.label :up %>
-    <%= form.text_field :up %>
-  </div>
-
-  <div class="field">
-    <%= form.label :down %>
-    <%= form.text_field :down %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 
 
 <%= link_to 'Back', messages_path %>

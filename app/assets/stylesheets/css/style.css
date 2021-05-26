@@ -1132,7 +1132,6 @@ Components
 
 #fh5co-testimonial {
   padding: 10em 0;
-  background: #000 url(../images/hero2.jpg) no-repeat center center;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
