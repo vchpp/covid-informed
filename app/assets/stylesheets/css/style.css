@@ -1131,12 +1131,10 @@ Components
 }
 
 #fh5co-testimonial {
-  padding: 10em 0;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
   #fh5co-testimonial {
-    padding: 3em 0;
   }
 }
 #fh5co-testimonial blockquote {

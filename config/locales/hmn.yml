@@ -3,6 +3,10 @@ hmn:
   welcome: "txais tos!"
   language: "kwv tij hmoob"
   locale: "hmn"
+  navbar:
+    about: "hais txog"
+    messages: "lus"
+    resources: "cov khoom siv"
   activerecord:
     models:
       message:

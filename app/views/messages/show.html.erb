@@ -1,7 +1,8 @@
 <% if @message.image.attached? %>
   <section id="fh5co-testimonial" >
-      <%= image_tag @message.image, :style => "background: #000 no-repeat center center;"%>
+      <%= image_tag @message.image, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
   </section>
+  <div class="fh5co-spacer fh5co-spacer-md"></div>
 <% end %>
 
 <section>
@@ -15,12 +16,15 @@
         <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
         <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
+      </div>
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <% if @message_rtf %>
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
-          <h4 class="h5 fh5co-heading-sub"><%= @message_rtf %></h4>
+        <div class="h5 fh5co-heading-sub"><%= @message_rtf %></div>
         <% end %>
       </div>
     </div>
+    <div class="fh5co-spacer fh5co-spacer-sm"></div>
   </div>
 </section>
 
@@ -28,29 +32,25 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 text-center">
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
         <div class="field">
-          <%= form.label :up%>
-          <%= form.text_field :up %>
+          <%= form.label :up, class: 'sr-only' %>
+          <%= form.button :up, id: "uplike", class: "btn btn-outline fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
+          <a href="" id="uplike" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-up"></i> <%= @up_likes %></a>
         </div>
 
         <div class="field">
-          <%= form.label :down %>
+          <%= form.label :down, class: 'sr-only' %>
           <%= form.text_field :down %>
+          <a href="" id="downlike" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-down"></i> <%= @down_likes %></a>
         </div>
 
         <div class="actions">
           <%= form.submit %>
         </div>
       <% end %>
-
-
-        <p>
-          <a href="#" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-up"></i> <%= @up_likes %></a>
-          <a href="#" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-down"></i> <%= @down_likes %></a>
-        </p>
 
       </div>
     </div>
@@ -96,7 +96,7 @@
             <%= form_with model: [ @message, @message.comments.build ] do |form| %>
             <div class="field">
               <%= form.label :content, class: 'sr-only'%>
-              <%= form.text_field :content, class: 'form-control input-lg', placeholder: "leave a comment", style: "height; 4;"  %>
+              <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: "leave a comment" %>
             </div>
             <div class="fh5co-spacer fh5co-spacer-xxs"></div>
             <div class="col-md-12">
@@ -116,12 +116,13 @@
             </div>
 
             <div class="col-md-12">
-          <div class="actions">
-            <%= link_to 'Back', messages_path, class: "btn btn-outline btn-lg btn-block" %>
-          </div>
+              <div class="actions">
+                <%= link_to 'Back', messages_path, class: "btn btn-outline btn-lg btn-block" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

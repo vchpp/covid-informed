@@ -34,9 +34,18 @@ en:
   welcome: "Welcome!"
   language: "English"
   locale: "en"
+  navbar:
+    about: "About"
+    messages: "Messages"
+    resources: "Resources"
+  buttons:
+    message_index:
+      read_more: "Read Morea"
   activerecord:
     models:
-      message: 'Message'
+      message:
+        one: 'Message'
+        other: 'Messages'
       comment: 'Comment'
     attributes:
       message:

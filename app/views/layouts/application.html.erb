@@ -50,11 +50,9 @@
         <!-- START #fh5co-menu-wrap -->
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
-            <li class="active">
-              <a href="/<%=params[:locale]%>/about">About</a>
-            </li>
-            <li><a href="/<%=params[:locale]%>/messages">Messages</a></li>
-            <li><a href="/<%=params[:locale]%>/resources">Resources</a></li>
+            <li><a href="/<%=params[:locale]%>/about"><%= t('navbar.about') %></a></li>
+            <li><a href="/<%=params[:locale]%>/messages"><%= t('navbar.messages') %></a></li>
+            <li><a href="/<%=params[:locale]%>/resources"><%= t('navbar.resources') %></a></li>
             <li>
               <a href="#" class="fh5co-sub-ddown"><%= t('language') %></a>
                <ul class="fh5co-sub-menu">

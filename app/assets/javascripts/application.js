@@ -27,13 +27,33 @@ $(document).on('turbolinks:load', function(){
 });
 
 function eventListeners(){
-  upVote();
-  downVote();
+  upLike();
+  downLike();
+  expand();
 }
 
-// upvote a message
-function upVote(){
- $('.tags').on('submit', function(e){
+// upLike a message
+function upLike(){
+ $('.uplike').on('submit', function(e){
+   e.preventDefault();
+   var value, postUrl, data;
+   value = 1;
+   postUrl = $(this).attr('action');
+   data = $(this).serialize();
+   $.ajax({
+     url: postUrl,
+     method: 'PUT',
+     data: data
+   }).done(function(data) {
+     $('.uplike').empty();
+     $('.uplike').prepend(data);
+   });
+ })
+};
+
+// downLike a message
+function downLike(){
+ $('.downlike').on('submit', function(e){
    e.preventDefault();
    $(this).siblings('.del').toggle();
    var tags, postUrl, data;
@@ -52,23 +72,6 @@ function upVote(){
  })
 };
 
-// downvote a message
-function downVote(){
- $('.tags').on('submit', function(e){
-   e.preventDefault();
-   $(this).siblings('.del').toggle();
-   var tags, postUrl, data;
-   tags = $(this);
-   postUrl = $(this).attr('action');
-   data = $(this).children(':first').serialize();
-   $.ajax({
-     url: postUrl,
-     method: 'PUT',
-     data: data
-   }).done(function(data) {
-     tags.toggle();
-     $('.tag-value').empty();
-     $('.tag-value').prepend(data);
-   });
- })
+function expand(){
+  $('.expand').autoGrow();
 };

@@ -3,6 +3,10 @@ zh_TW:
   welcome: "歡迎!"
   language: "中國傳統的"
   locale: "zh_tw"
+  navbar:
+    about: "關於"
+    messages: "訊息"
+    resources: "資源"
   activerecord:
     models:
       message:
