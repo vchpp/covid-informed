@@ -50,11 +50,9 @@
         <!-- START #fh5co-menu-wrap -->
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
-            <li class="active">
-              <a href="/<%=params[:locale]%>/about">About</a>
-            </li>
-            <li><a href="/<%=params[:locale]%>/messages">Messages</a></li>
-            <li><a href="/<%=params[:locale]%>/resources">Resources</a></li>
+            <li><a href="/<%=params[:locale]%>/about"><%= t('navbar.about') %></a></li>
+            <li><a href="/<%=params[:locale]%>/messages"><%= t('navbar.messages') %></a></li>
+            <li><a href="/<%=params[:locale]%>/resources"><%= t('navbar.resources') %></a></li>
             <li>
               <a href="#" class="fh5co-sub-ddown"><%= t('language') %></a>
                <ul class="fh5co-sub-menu">
@@ -77,36 +75,8 @@
 
       <section>
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-
-            </div>
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-lead-wrap">
-              <h2 class="fh5co-uppercase-heading-sm text-center">Beautiful Intro Text with button</h2>
-              <h3 class="fh5co-serif fh5co-lead">Lorem <a href="#">ipsum</a> dolor sit amet, consectetur adipisicing elit. Dolores commodi ut odit repudiandae culpa dicta quia neque consectetur error eveniet. </h3>
-            <div class="fh5co-spacer fh5co-spacer-sm"></div>
-            <p><a href="#" class="btn btn-outline btn-lg">Outlined Button</a></p>
-            </div>
-
-          </div>
 
           <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-        </div>
-      </section>
-
-      <section>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="fh5co-uppercase-heading-sm text-center">Heading with sub text</h2>
-            </div>
-            <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
-              <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">Sapiente voluptatem distinctio</h1>
-              <h4 class="h5 fh5co-heading-sub">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente voluptatem distinctio neque, a, id debitis tenetur aspernatur? Natus, voluptate alias.</h4>
-              <div class="fh5co-spacer fh5co-spacer-sm"></div>
-            </div>
-          </div>
-          <div class="fh5co-spacer fh5co-spacer-sm"></div>
         </div>
       </section>
 
@@ -116,7 +86,7 @@
   </body>
   <footer>
     <div class="container">
-
+      <div class="fh5co-spacer fh5co-spacer-xs"></div>
       <ul class="fh5co-social-icons">
         <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
         <li><a href="#"><i class="ti-facebook"></i></a></li>

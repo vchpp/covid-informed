@@ -3,6 +3,10 @@ vi:
   welcome: "chào mừng!"
   language: "Tiếng Việt"
   locale: "vi"
+  navbar:
+    about: "trong khoảng"
+    messages: "tin nhắn"
+    resources: "tài nguyên"
   activerecord:
     models:
       message:
