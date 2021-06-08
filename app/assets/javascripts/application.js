@@ -1,9 +1,6 @@
 
 // ...
 //= require activestorage
-//= require trix
-//= require trix-core
-//= require actiontext
 //= require jquery
 //= require jquery_ujs
 //= require popper
