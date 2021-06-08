@@ -25,6 +25,8 @@ vi:
     leave_comment: "Để lại một bình luận"
     submit: "Gửi đi"
     back: "trở lại"
+  resources:
+    resources:  "tài nguyên"
   activerecord:
     models:
       message:

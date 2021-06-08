@@ -25,16 +25,17 @@ zh_TW:
     leave_comment: "發表評論"
     submit: "提交"
     back: "背部"
-  resources: "資源"
-activerecord:
-  models:
-    message:
-      one: '信息'
-      other: '留言內容'
-    comment: '評論'
-  attributes:
-    message:
-      name: '姓名'
-      content: '內容'
-    comment:
-      content: '內容'
+  resources:
+    resources: "資源"
+  activerecord:
+    models:
+      message:
+        one: '信息'
+        other: '留言內容'
+      comment: '評論'
+    attributes:
+      message:
+        name: '姓名'
+        content: '內容'
+      comment:
+        content: '內容'

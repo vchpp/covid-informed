@@ -25,16 +25,17 @@ hmn:
     leave_comment: "Ncua Lus Saib"
     submit: "Muab Xa"
     back: "rov qab"
-  resources: "cov khoom siv"
-activerecord:
-  models:
-    message:
-      one: 'Xov'
-      other: 'Lus'
-    comment: 'Tswv yim'
-  attributes:
-    message:
-      name: 'Npe'
-      content: 'Cov Ntsiab Lus'
-    comment:
-      content: 'Cov Ntsiab Lus'
+  resources:
+    resources: "cov khoom siv"
+  activerecord:
+    models:
+      message:
+        one: 'Xov'
+        other: 'Lus'
+      comment: 'Tswv yim'
+    attributes:
+      message:
+        name: 'Npe'
+        content: 'Cov Ntsiab Lus'
+      comment:
+        content: 'Cov Ntsiab Lus'
