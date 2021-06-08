@@ -586,7 +586,7 @@ textarea {
   background-repeat: no-repeat;
   background-position: center left;
   height: 600px;
-  position: fixed;
+  background-image: url('/assets/covid-virus.jpg');
   top: 0;
   left: 0;
   right: 0;

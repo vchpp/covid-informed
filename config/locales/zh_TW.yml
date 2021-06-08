@@ -5,17 +5,36 @@ zh_TW:
   locale: "zh_tw"
   navbar:
     about: "關於"
-    messages: "訊息"
+    messages: "消息"
     resources: "資源"
-  activerecord:
-    models:
-      message:
-        one: '信息'
-        other: '留言內容'
-      comment: '評論'
-    attributes:
-      message:
-        name: '姓名'
-        content: '內容'
-      comment:
-        content: '內容'
+  about:
+    research_team: "研究團隊"
+    research_team_titles:
+      co_investigator: "共同調查員"
+      executive_director: "執行董事"
+      student_intern: "實習生"
+      principal_investigator: "首席研究員"
+      research_staff: "研究人員"
+      community_coordinator: "社區協調員"
+      study_coordinator: "學習協調員"
+    cab_members: "社區顧問委員會成員"
+  messages:
+    messages: "消息"
+    read_more: "閱讀更多"
+    comments: "註釋"
+    leave_comment: "發表評論"
+    submit: "提交"
+    back: "背部"
+  resources: "資源"
+activerecord:
+  models:
+    message:
+      one: '信息'
+      other: '留言內容'
+    comment: '評論'
+  attributes:
+    message:
+      name: '姓名'
+      content: '內容'
+    comment:
+      content: '內容'

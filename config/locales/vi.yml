@@ -7,6 +7,24 @@ vi:
     about: "trong khoảng"
     messages: "tin nhắn"
     resources: "tài nguyên"
+  about:
+    research_team: "Nhóm nghiên cứu"
+    research_team_titles:
+      co_investigator: "Người đồng điều tra"
+      executive_director: "Giám đốc điều hành"
+      student_intern: "Thực tập sinh"
+      principal_investigator: "Điều tra viên chính"
+      research_staff: "Nhân viên nghiên cứu"
+      community_coordinator: "Điều phối viên cộng đồng"
+      study_coordinator: "Điều phối viên nghiên cứu"
+    cab_members: "Thành viên Ban Cố vấn Cộng đồng"
+  messages:
+    messages: "tin nhắn"
+    read_more: "đọc thêm"
+    comments: "bình luận"
+    leave_comment: "Để lại một bình luận"
+    submit: "Gửi đi"
+    back: "trở lại"
   activerecord:
     models:
       message:

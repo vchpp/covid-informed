@@ -24,7 +24,6 @@
         <% end %>
       </div>
     </div>
-    <div class="fh5co-spacer fh5co-spacer-sm"></div>
   </div>
 </section>
 
@@ -62,7 +61,7 @@
   <div class="container">
     <div class="row fh5co-feature-3"">
       <div class="col-md-12">
-        <h2 class="fh5co-uppercase-heading-sm text-center">Comments</h2>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%></h2>
       </div>
 
     	<div class="fh5co-spacer fh5co-spacer-sm"></div>
@@ -96,7 +95,7 @@
             <%= form_with model: [ @message, @message.comments.build ] do |form| %>
             <div class="field">
               <%= form.label :content, class: 'sr-only'%>
-              <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: "leave a comment" %>
+              <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
             </div>
             <div class="fh5co-spacer fh5co-spacer-xxs"></div>
             <div class="col-md-12">
@@ -117,7 +116,7 @@
 
             <div class="col-md-12">
               <div class="actions">
-                <%= link_to 'Back', messages_path, class: "btn btn-outline btn-lg btn-block" %>
+                <%= link_to t('messages.back'), messages_path, class: "btn btn-outline btn-lg btn-block" %>
               </div>
             </div>
           </div>

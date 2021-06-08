@@ -32,8 +32,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application' %> %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
-    <%= javascript_pack_tag 'application' %>
     	<!-- Google Webfont -->
   	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
   </head>
@@ -69,18 +69,6 @@
       </div>
     </header>
 
-
-
-    <div id="fh5co-main">
-
-      <section>
-        <div class="container">
-
-          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-        </div>
-      </section>
-
-    </div>
 
     <%= yield %>
   </body>

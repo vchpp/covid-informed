@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_044946) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "up"
-    t.string "down"
+    t.string "up", default: "0"
+    t.string "down", default: "0"
     t.string "rct"
     t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_044946) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.string "up"
-    t.string "down"
+    t.string "up", default: "0"
+    t.string "down", default: "0"
     t.string "rct"
     t.bigint "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -1,3 +1,19 @@
+<!-- START #fh5co-hero -->
+<aside id="fh5co-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="fh5co-hero-wrap">
+          <div class="fh5co-hero-intro">
+            <h1>Covid Informed</h1>
+              <h2>An Acronym<span></span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
 <section>
   <!-- START FEATURE 2 -->
 <div class="container">
@@ -5,7 +21,7 @@
   <div class="row fh5co-feature-2">
 
     <div class="col-md-12">
-      <h2 class="fh5co-uppercase-heading-sm text-center"><%= Message.model_name.human(count:2) %></h2>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= Message.model_name.human(count:2) %></h2>
       <div class="fh5co-spacer fh5co-spacer-sm"></div>
     </div>
 
@@ -41,7 +57,7 @@
               <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.hmn_name %></h2>
             <% end %>
 
-              <p class="text-center"><%= link_to 'Read more', message, class: "btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to t('messages.read_more'), message, class: "btn btn-primary btn-sm" %></p>
             <% if current_user.try(:admin?) %>
               <p class="text-center"><%= link_to 'Edit this message', edit_message_path(message), class:"btn btn-primary btn-sm" %></p>
               <p class="text-center"><%= link_to 'Delete this message', message, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
@@ -51,7 +67,7 @@
 
     <div class="col-md-8 col-md-offset-2">
       <div class="actions">
-        <%= link_to 'Back', messages_path, class: "btn btn-outline btn-lg btn-block" %>
+        <%= link_to t('messages.back'), messages_path, class: "btn btn-outline btn-lg btn-block" %>
       </div>
     </div>
 
