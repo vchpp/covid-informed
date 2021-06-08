@@ -38,9 +38,24 @@ en:
     about: "About"
     messages: "Messages"
     resources: "Resources"
-  buttons:
-    message_index:
-      read_more: "Read Morea"
+  about:
+    research_team: "Research Team"
+    research_team_titles:
+      co_investigator: "Co-investigator"
+      executive_director: "Executive Director"
+      student_intern: "Student Intern"
+      principal_investigator: "Principal Investigator"
+      research_staff: "Research Staff"
+      community_coordinator: "Community Coordinator"
+      study_coordinator: "Study Coordinator"
+    cab_members: "Community Advisor Board Members"
+  messages:
+    messages: "Messages"
+    read_more: "Read More"
+    comments: "Comments"
+    leave_comment: "Leave a Comment"
+    submit: "Submit"
+    back: "back"
   activerecord:
     models:
       message:

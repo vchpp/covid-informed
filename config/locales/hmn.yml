@@ -7,15 +7,34 @@ hmn:
     about: "hais txog"
     messages: "lus"
     resources: "cov khoom siv"
-  activerecord:
-    models:
-      message:
-        one: 'Xov'
-        other: 'Lus'
-      comment: 'Tswv yim'
-    attributes:
-      message:
-        name: 'Npe'
-        content: 'Cov Ntsiab Lus'
-      comment:
-        content: 'Cov Ntsiab Lus'
+  about:
+    research_team: "kev tshawb fawb pab neeg"
+    research_team_titles:
+      co_investigator: "Tus Neeg Soj Ntsuam"
+      executive_director: "Tus Thawj Coj Thawj Coj"
+      student_intern: "Tub Ntxhais Kawm Tawm Kev Kawm"
+      principal_investigator: "Tus Tshawb Fawb Chaw Haujlwm"
+      research_staff: "Tshawb Fawb Cov Neeg Ua Haujlwm"
+      community_coordinator: "Tus Tuav Haujlwm Zej Zog"
+      study_coordinator: "Tus Tuav Kev Kawm"
+    cab_members: "Cov Tswv Cuab Hauv Zej Zog Cov Tswv Cuab"
+  messages:
+    messages: "lus"
+    read_more: "nyeem ntxiv"
+    comments: "lus"
+    leave_comment: "Ncua Lus Saib"
+    submit: "Muab Xa"
+    back: "rov qab"
+  resources: "cov khoom siv"
+activerecord:
+  models:
+    message:
+      one: 'Xov'
+      other: 'Lus'
+    comment: 'Tswv yim'
+  attributes:
+    message:
+      name: 'Npe'
+      content: 'Cov Ntsiab Lus'
+    comment:
+      content: 'Cov Ntsiab Lus'

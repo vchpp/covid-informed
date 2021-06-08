@@ -5,17 +5,36 @@ zh_CN:
   locale: "zh_cn"
   navbar:
     about: "关于"
-    messages: "讯息"
+    messages: "消息"
     resources: "资源"
-  activerecord:
-    models:
-      message:
-        one: '信息'
-        other: '留言内容'
-      comment: '评论'
-    attributes:
-      message:
-        name: '姓名'
-        content: '内容'
-      comment:
-        content: '内容'
+  about:
+    research_team: "研究团队"
+    research_team_titles:
+      co_investigator: "共同调查员"
+      executive_director: "执行董事"
+      student_intern: "实习生"
+      principal_investigator: "首席研究员"
+      research_staff: "研究人员"
+      community_coordinator: "社区协调员"
+      study_coordinator: "学习协调员"
+    cab_members: "社区顾问委员会成员"
+  messages:
+    messages: "消息"
+    read_more: "阅读更多"
+    comments: "注释"
+    leave_comment: "发表评论"
+    submit: "提交"
+    back: "背部"
+  resources: "资源"
+activerecord:
+  models:
+    message:
+      one: '信息'
+      other: '留言内容'
+    comment: '评论'
+  attributes:
+    message:
+      name: '姓名'
+      content: '内容'
+    comment:
+      content: '内容'
