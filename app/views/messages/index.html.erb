@@ -5,8 +5,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="fh5co-hero-wrap">
           <div class="fh5co-hero-intro">
-            <h1>Covid Informed</h1>
-              <h2>An Acronym<span></span></h2>
+            <h1><%= t('messages.messages')%> </h1>
           </div>
         </div>
       </div>
@@ -20,13 +19,13 @@
 
   <div class="row fh5co-feature-2">
 
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
       <h2 class="fh5co-uppercase-heading-lg text-center"><%= Message.model_name.human(count:2) %></h2>
-      <div class="fh5co-spacer fh5co-spacer-sm"></div>
-    </div>
+    </div> -->
 
     <div class="col-md-8 col-md-offset-2">
       <% if current_user.try(:admin?) %>
+      <div class="fh5co-spacer fh5co-spacer-sm"></div>
         <div class="actions">
           <%= link_to 'New Message', new_message_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>
