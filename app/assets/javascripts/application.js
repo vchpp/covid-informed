@@ -32,6 +32,7 @@ function eventListeners(){
 // upLike a message
 function upLike(){
  $('.uplike').on('submit', function(e){
+  console.log("prevented uplike")
    e.preventDefault();
    var value, postUrl, data;
    value = 1;
@@ -51,6 +52,7 @@ function upLike(){
 // downLike a message
 function downLike(){
  $('.downlike').on('submit', function(e){
+   console.log("prevented downlike")
    e.preventDefault();
    $(this).siblings('.del').toggle();
    var tags, postUrl, data;

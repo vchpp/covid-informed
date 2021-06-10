@@ -31,23 +31,17 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-8 col-md-offset-2 text-center">
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
-        <div class="field">
+        <div class="field col-md-6">
           <%= form.label :up, class: 'sr-only' %>
-          <%= form.button :up, id: "uplike", class: "btn btn-outline fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
-          <a href="" id="uplike" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-up"></i> <%= @up_likes %></a>
+          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes + 1 %>
         </div>
 
-        <div class="field">
+        <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
-          <%= form.text_field :down %>
-          <a href="" id="downlike" class="btn btn-outline fh5co-btn-icon fh5co-btn-icon"><i class="ti-thumb-down"></i> <%= @down_likes %></a>
-        </div>
-
-        <div class="actions">
-          <%= form.submit %>
+          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @down_likes + 1 %>
         </div>
       <% end %>
 
