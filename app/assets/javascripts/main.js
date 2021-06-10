@@ -1,15 +1,15 @@
 ;(function () {
-	
+
 	'use strict';
 
-	// iPad and iPod detection	
+	// iPad and iPod detection
 	var isiPad = function(){
 	  return (navigator.platform.indexOf("iPad") != -1);
 	}
 
 	var isiPhone = function(){
     return (
-      (navigator.platform.indexOf("iPhone") != -1) || 
+      (navigator.platform.indexOf("iPhone") != -1) ||
       (navigator.platform.indexOf("iPod") != -1)
     );
 	}
@@ -20,7 +20,7 @@
 			$('html,body').addClass('fh5co-overflow');
 
 			if ( $('#fh5co-mobile-menu').length < 1 ) {
-				
+
 				var clone = $('#fh5co-primary-menu').clone().attr({
 					id: 'fh5co-mobile-menu-ul',
 					class: ''
@@ -80,11 +80,11 @@
 		$(document).on('click', '#fh5co-mobile-menu-btn', function(e){
 			e.preventDefault();
 			if ( $('body').hasClass('fh5co-mobile-menu-visible') ) {
-				$('body').removeClass('fh5co-mobile-menu-visible');	
+				$('body').removeClass('fh5co-mobile-menu-visible');
 			} else {
 				$('body').addClass('fh5co-mobile-menu-visible');
 			}
-			
+
 		});
 	};
 
@@ -157,28 +157,28 @@
 
 	// Easy Repsonsive Tabs
 	var responsiveTabs = function(){
-		
+
 		$('#fh5co-tab-feature').easyResponsiveTabs({
       type: 'default',
-      width: 'auto', 
-      fit: true, 
+      width: 'auto',
+      fit: true,
       inactive_bg: '',
       active_border_color: '',
       active_content_border_color: '',
       closed: 'accordion',
       tabidentify: 'hor_1'
-            
+
     });
     $('#fh5co-tab-feature-center').easyResponsiveTabs({
       type: 'default',
       width: 'auto',
-      fit: true, 
+      fit: true,
       inactive_bg: '',
       active_border_color: '',
       active_content_border_color: '',
-      closed: 'accordion', 
-      tabidentify: 'hor_1' 
-      
+      closed: 'accordion',
+      tabidentify: 'hor_1'
+
     });
     $('#fh5co-tab-feature-vertical').easyResponsiveTabs({
       type: 'vertical',
@@ -194,7 +194,7 @@
 
 	// Owl Carousel
 	var owlCrouselFeatureSlide = function() {
-		
+
 		var owl2 = $('.owl-carousel-2');
 		owl2.owlCarousel({
 				items: 1,

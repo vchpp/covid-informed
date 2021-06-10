@@ -21,13 +21,15 @@ private
       cookies[:rct] ||= {
         value: request.query_parameters['rct'],
         path: '/',
-        SameSite: 'Lax'
+        SameSite: 'none',
+        secure: 'true'
       }
     else
       cookies[:rct] ||= {
         value: rand(10000..99999999),
         path: '/',
-        SameSite: 'Lax'
+        SameSite: 'none',
+        secure: 'true'
       }
     end
   end
