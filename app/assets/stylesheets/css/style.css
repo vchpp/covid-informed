@@ -182,7 +182,9 @@ textarea {
 /* Header */
 #fh5co-header-section {
   width: 100%;
-  padding: 40px 0 30px 0;
+  padding: 10px 0 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  background: white;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -228,13 +230,13 @@ textarea {
 
 #fh5co-logo {
   font-size: 20px;
-  margin: 16px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 0;
   font-weight: bold;
 }
 #fh5co-logo a {
   border-bottom: none !important;
-  color: #fff;
+  color: #2e2e2e;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -263,7 +265,7 @@ textarea {
 }
 
 .sf-menu a {
-  color: rgba(255, 255, 255, 0.4);
+  color: #2e2e2e;
   padding: .75em 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -272,7 +274,7 @@ textarea {
   border-top: none;
   text-decoration: none;
   zoom: 1;
-  font-size: 13px;
+  font-size: 16px;
   border-bottom: none !important;
 }
 
@@ -296,7 +298,7 @@ textarea {
 .sf-menu ul li:hover a,
 .sf-menu ul li.sfHover a,
 .sf-menu li.active a {
-  color: #ffffff;
+  color: #28bbf8 !important;
 }
 
 .sf-menu ul li:hover,

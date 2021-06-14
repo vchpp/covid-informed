@@ -22,16 +22,22 @@ class LikesController < ApplicationController
   # POST /likes or /likes.json
   def create
     @message = Message.find(params[:message_id])
+    existing_likes = []
+    @message.likes.each { |like| existing_likes.push(like.rct)}
     @like = @message.likes.new(like_params)
     @like.rct = cookies[:rct] || '0'
-    p @like
-    respond_to do |format|
-      if @like.save
-        format.html { redirect_to @message, notice: "Like was successfully created." }
-        format.json { render :show, status: :created, location: @like }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
+    p existing_likes
+    if existing_likes.include?(@like.rct)
+      redirect_to @message
+    else
+      respond_to do |format|
+        if @like.save
+          format.html { redirect_to @message, notice: "Like was successfully created." }
+          format.json { render :show, status: :created, location: @like }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @like.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

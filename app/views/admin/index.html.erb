@@ -1,18 +1,28 @@
-<% if user_signed_in? %>
-  <li class="nav-item">
-    <%= link_to 'Create a new message', new_message_path %>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<%=edit_user_registration_path%>">Settings</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<%=destroy_user_session_path%>" data-method="delete">Logout</a>
-  </li>
-<% else %>
-  <li class="nav-item">
-    <a class="nav-link" href="<%=new_user_registration_path%>">Sign Up</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<%=new_user_session_path%>">Login</a>
-  </li>
-<% end %>
+<div class="fh5co-spacer fh5co-spacer-xlg"></div>
+<div class="fh5co-spacer fh5co-spacer-xlg"></div>
+<section>
+  <div class="container">
+    <div class="row">
+			<div class="col-md-8 col-md-offset-2">
+      <% if user_signed_in? %>
+        <div class="nav-item col-md-12">
+          <%= link_to 'Create a new message', new_message_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+        <div class="nav-item col-md-12">
+          <a class="nav-link btn btn-primary btn-lg btn-block" href="<%=edit_user_registration_path%>">Settings</a>
+        </div>
+        <div class="nav-item col-md-12">
+          <a class="nav-link btn btn-primary btn-lg btn-block" href="<%=destroy_user_session_path%>" data-method="delete">Logout</a>
+        </div>
+      <% else %>
+        <div class="nav-item col-md-12">
+          <a class="nav-link btn btn-primary btn-lg btn-block" href="<%=new_user_registration_path%>">Sign Up</a>
+        </div>
+        <div class="nav-item col-md-12">
+          <a class="nav-link btn btn-primary btn-lg btn-block" href="<%=new_user_session_path%>">Login</a>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</section>
