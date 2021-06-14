@@ -89,12 +89,14 @@
 
 <div class="col-md-12">
   <div class="field form-group">
-    <% if @message.image.attached? %>
-      <%= image_tag @message.image, class: 'sr-only'  %>
+    <% if @message.images.attached? %>
+      <% @message.images.each do |img| %>
+        <%= image_tag img, class: 'sr-only'  %>
+      <% end %>
     <% end %>
 
     <%= form.label :image, class: 'sr-only' %>
-    <%= form.file_field :image, direct_upload: true, class: "form-control input-lg" %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
   </div>
 <div>
 
