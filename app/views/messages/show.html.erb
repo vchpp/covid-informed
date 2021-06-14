@@ -41,7 +41,9 @@
           <%= form.hidden_field :up, value: 1 %>
           <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
         </div>
-
+      <% end %>
+      
+      <%= form_with model: [ @message, @message.likes.build ] do |form| %>
         <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
           <%= form.hidden_field :down, value: 1 %>
