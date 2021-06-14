@@ -1,6 +1,8 @@
-<% if @message.image.attached? %>
+<% if @message.images.attached? %>
   <section id="fh5co-testimonial" >
-      <%= image_tag @message.image, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+    <% @message.images.each do |img| %>
+      <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+    <% end %>
   </section>
   <div class="fh5co-spacer fh5co-spacer-md"></div>
 <% end %>
@@ -36,12 +38,14 @@
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
         <div class="field col-md-6">
           <%= form.label :up, class: 'sr-only' %>
-          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes + 1 %>
+          <%= form.hidden_field :up, value: 1 %>
+          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
         </div>
 
         <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
-          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @down_likes + 1 %>
+          <%= form.hidden_field :down, value: 1 %>
+          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @down_likes %>
         </div>
       <% end %>
 

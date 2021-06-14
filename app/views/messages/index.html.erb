@@ -38,7 +38,7 @@
     <% @messages.each do |message| %>
 
         <div class="col-md-3 col-sm-6 fh5co-feature-item">
-          <span class="fh5co-feature-icon"><i><%= image_tag message.image, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i></span>
+          <span class="fh5co-feature-icon"><i><%= image_tag message.images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i></span>
             <% case %>
               <%  when params[:locale] == "en" %>
               <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.en_name %></h2>

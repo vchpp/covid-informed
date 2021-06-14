@@ -3,14 +3,15 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all.with_attached_image
+    @messages = Message.all.with_attached_images
     # if @message.empty? redirect to new_message_path
   end
 
   # GET /messages/1 or /messages/1.json
   def show
     p "***** LOCALE IS ****** " + params[:locale]
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
+    @message = Message.with_attached_images.find(params[:id])
     @comments = Message.find(params[:id]).comments
     case
       when params[:locale] == "en"
@@ -94,7 +95,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content, :image)
+      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content, images: [])
     end
 
     def up_likes
