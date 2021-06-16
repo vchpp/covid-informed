@@ -50,7 +50,7 @@ class MessagesController < ApplicationController
   def create
     authenticate_admin!
     @message = Message.new(message_params)
-    @message.image.attach(params[:message][:images])
+    @message.images.attach(params[:message][:images])
 
     respond_to do |format|
       if @message.save
