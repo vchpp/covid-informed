@@ -51,6 +51,10 @@ class MessagesController < ApplicationController
     authenticate_admin!
     @message = Message.new(message_params)
     @message.images.attach(params[:message][:images])
+    @message.images.attach(params[:message][:vi_images])
+    @message.images.attach(params[:message][:zh_cn_images])
+    @message.images.attach(params[:message][:zh_tw_images])
+    @message.images.attach(params[:message][:hmn_images])
 
     respond_to do |format|
       if @message.save
@@ -95,7 +99,21 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:en_name, :en_content, :zh_tw_name, :zh_tw_content, :zh_cn_name, :zh_cn_content, :vi_name, :vi_content, :hmn_name, :hmn_content, images: [])
+      params.require(:message).permit(:en_name,
+                                      :en_content,
+                                      :zh_tw_name,
+                                      :zh_tw_content,
+                                      :zh_cn_name,
+                                      :zh_cn_content,
+                                      :vi_name,
+                                      :vi_content,
+                                      :hmn_name,
+                                      :hmn_content,
+                                      images: [],
+                                      vi_images: [],
+                                      zh_tw_images: [],
+                                      zh_cn_images: [],
+                                      hmn_images: [],)
     end
 
     def up_likes

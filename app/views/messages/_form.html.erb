@@ -17,96 +17,183 @@
           </div>
         <% end %>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :en_name, class: 'sr-only'%>
-    <%= form.text_field :en_name, class: 'form-control input-lg', placeholder: "en_name" %>
-  </div>
-</div>
+        <div id="fh5co-tab-feature-vertical" class="fh5co-tab text-center">
+          <ul class="resp-tabs-list hor_1">
+            <li> English (en)</li>
+            <li> Chinese Traditional (zh_tw)</li>
+            <li> Chinese Simplified (zh_cn)</li>
+            <li> Hmong (hmn)</li>
+            <li> Vietnamese (vi)</li>
+          </ul>
+          <div class="resp-tabs-container hor_1">
+            <div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :en_name, class: 'sr-only'%>
+                    <%= form.text_field :en_name, class: 'form-control input-lg', placeholder: "en_name" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :en_content, class: 'sr-only' %>
-    <%= form.text_field :en_content, class: 'form-control input-lg', placeholder: "en_content"  %>
-  </div>
-</div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :en_content, class: 'sr-only' %>
+                    <%= form.text_field :en_content, class: 'form-control input-lg', placeholder: "en_content"  %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :zh_tw_name, class: 'sr-only'   %>
-    <%= form.text_field :zh_tw_name, class: 'form-control input-lg', placeholder: "zh_tw_name" %>
-  </div>
-</div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.images.attached? %>
+                      <% @message.images.each do |img| %>
+                        <%= image_tag img, class: 'sr-only'  %>
+                      <% end %>
+                    <% end %>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :zh_tw_content, class: 'sr-only'   %>
-    <%= form.text_field :zh_tw_content, class: 'form-control input-lg', placeholder: "zh_tw_content" %>
-  </div>
-</div>
+                    <%= form.label :image, class: 'sr-only' %>
+                    <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :zh_cn_name, class: 'sr-only'   %>
-    <%= form.text_field :zh_cn_name, class: 'form-control input-lg', placeholder: "zh_cn_name" %>
-  </div>
-</div>
+              </div>
+            </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :zh_cn_content, class: 'sr-only'   %>
-    <%= form.text_field :zh_cn_content, class: 'form-control input-lg', placeholder: "zh_cn_content" %>
-  </div>
-</div>
+            <div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :zh_tw_name, class: 'sr-only'   %>
+                    <%= form.text_field :zh_tw_name, class: 'form-control input-lg', placeholder: "zh_tw_name" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :vi_name, class: 'sr-only'   %>
-    <%= form.text_field :vi_name, class: 'form-control input-lg', placeholder: "vi_name" %>
-  </div>
-</div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :zh_tw_content, class: 'sr-only'   %>
+                    <%= form.text_field :zh_tw_content, class: 'form-control input-lg', placeholder: "zh_tw_content" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :vi_content, class: 'sr-only'   %>
-    <%= form.text_field :vi_content, class: 'form-control input-lg', placeholder: "vi_content" %>
-  </div>
-</div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.zh_tw_images.attached? %>
+                      <% @message.zh_tw_images.each do |img| %>
+                        <%= image_tag img, class: 'sr-only'  %>
+                      <% end %>
+                    <% end %>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :hmn_name, class: 'sr-only'   %>
-    <%= form.text_field :hmn_name, class: 'form-control input-lg', placeholder: "hmn_name" %>
-  </div>
-</div>
+                    <%= form.label :zh_tw_images, class: 'sr-only' %>
+                    <%= form.file_field :zh_tw_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <%= form.label :hmn_content, class: 'sr-only'   %>
-    <%= form.text_field :hmn_content, class: 'form-control input-lg', placeholder: "hmn_content" %>
-  </div>
-</div>
+              </div>
+            </div>
 
-<div class="col-md-12">
-  <div class="field form-group">
-    <% if @message.images.attached? %>
-      <% @message.images.each do |img| %>
-        <%= image_tag img, class: 'sr-only'  %>
-      <% end %>
-    <% end %>
+            <div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :zh_cn_name, class: 'sr-only'   %>
+                    <%= form.text_field :zh_cn_name, class: 'form-control input-lg', placeholder: "zh_cn_name" %>
+                  </div>
+                </div>
 
-    <%= form.label :image, class: 'sr-only' %>
-    <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
-  </div>
-<div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :zh_cn_content, class: 'sr-only'   %>
+                    <%= form.text_field :zh_cn_content, class: 'form-control input-lg', placeholder: "zh_cn_content" %>
+                  </div>
+                </div>
 
-<div class="col-md-12">
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
-    <%= link_to 'Back', messages_path, class: "btn btn-primary btn-lg btn-block" %>
-  </div>
-</div>
-<% end %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.zh_cn_images.attached? %>
+                      <% @message.zh_cn_images.each do |img| %>
+                        <%= image_tag img, class: 'sr-only'  %>
+                      <% end %>
+                    <% end %>
+
+                    <%= form.label :zh_cn_images, class: 'sr-only' %>
+                    <%= form.file_field :zh_cn_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :hmn_name, class: 'sr-only'   %>
+                    <%= form.text_field :hmn_name, class: 'form-control input-lg', placeholder: "hmn_name" %>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :hmn_content, class: 'sr-only'   %>
+                    <%= form.text_field :hmn_content, class: 'form-control input-lg', placeholder: "hmn_content" %>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.hmn_images.attached? %>
+                      <% @message.hmn_images.each do |img| %>
+                        <%= image_tag img, class: 'sr-only'  %>
+                      <% end %>
+                    <% end %>
+
+                    <%= form.label :hmn_images, class: 'sr-only' %>
+                    <%= form.file_field :hmn_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :vi_name, class: 'sr-only'   %>
+                    <%= form.text_field :vi_name, class: 'form-control input-lg', placeholder: "vi_name" %>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <%= form.label :vi_content, class: 'sr-only'   %>
+                    <%= form.text_field :vi_content, class: 'form-control input-lg', placeholder: "vi_content" %>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.vi_images.attached? %>
+                      <% @message.vi_images.each do |img| %>
+                        <%= image_tag img, class: 'sr-only'  %>
+                      <% end %>
+                    <% end %>
+
+                    <%= form.label :image, class: 'sr-only' %>
+                    <%= form.file_field :vi_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="actions">
+            <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+            <%= link_to 'Back', messages_path, class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+        </div>
+        <% end %>
 
 				<div class="fh5co-spacer fh5co-spacer-sm"></div>
 			</div>
