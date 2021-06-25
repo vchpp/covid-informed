@@ -1,16 +1,6 @@
 <!-- START #fh5co-hero -->
 <aside id="fh5co-hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="fh5co-hero-wrap">
-          <div class="fh5co-hero-intro">
-            <h1><%= t('messages.messages')%> </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- literally just for the image -->
 </aside>
 
 <section>
@@ -19,9 +9,9 @@
 
   <div class="row fh5co-feature-2">
 
-    <!-- <div class="col-md-12">
+    <div class="col-md-12">
       <h2 class="fh5co-uppercase-heading-lg text-center"><%= Message.model_name.human(count:2) %></h2>
-    </div> -->
+    </div>
 
     <div class="col-md-8 col-md-offset-2">
       <% if current_user.try(:admin?) %>
@@ -44,7 +34,7 @@
                   <% if message.images.attached? %>
                     <i><%= image_tag message.images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
-                    <i class="ti-layout-placeholder"></i>
+                    <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
                 </span>
                 <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.en_name %></h2>
