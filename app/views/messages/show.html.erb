@@ -1,11 +1,51 @@
-<% if @message.images.attached? %>
-  <section id="fh5co-testimonial" >
-    <% @message.images.each do |img| %>
-      <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+<% case %>
+  <%  when params[:locale] == "en" %>
+    <% if @message.images.attached? %>
+      <section id="fh5co-testimonial" >
+        <% @message.images.each do |img| %>
+          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+        <% end %>
+      </section>
     <% end %>
-  </section>
-  <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+  <%  when params[:locale] == "vi" %>
+    <% if @message.vi_images.attached? %>
+      <section id="fh5co-testimonial" >
+        <% @message.vi_images.each do |img| %>
+          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+        <% end %>
+      </section>
+    <% end %>
+
+  <%  when params[:locale] == "zh_CN" %>
+    <% if @message.zh_cn_images.attached? %>
+      <section id="fh5co-testimonial" >
+        <% @message.zh_cn_images.each do |img| %>
+          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+        <% end %>
+      </section>
+    <% end %>
+
+  <%  when params[:locale] == "zh_TW" %>
+    <% if @message.zh_tw_images.attached? %>
+      <section id="fh5co-testimonial" >
+        <% @message.zh_tw_images.each do |img| %>
+          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+        <% end %>
+      </section>
+    <% end %>
+
+  <%  when params[:locale] == "hmn" %>
+    <% if @message.hmn_images.attached? %>
+      <section id="fh5co-testimonial" >
+        <% @message.hmn_images.each do |img| %>
+          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+        <% end %>
+      </section>
+    <% end %>
+
 <% end %>
+<div class="fh5co-spacer fh5co-spacer-md"></div>
 
 <section>
   <div class="container">
@@ -19,12 +59,7 @@
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
         <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
       </div>
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
-        <% if @message_rtf %>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <div class="h5 fh5co-heading-sub"><%= @message_rtf %></div>
-        <% end %>
-      </div>
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header"></div>
     </div>
   </div>
 </section>
@@ -42,7 +77,7 @@
           <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
         </div>
       <% end %>
-      
+
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
         <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
@@ -70,10 +105,12 @@
 					<div class="col-md-8 col-md-offset-2">
             <div class="row">
               <div class="fh5co-feature-item">
-                <span class="fh5co-feature-icon"><i class="ti-comment"></i></span>
+                <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
                 <div class="fh5co-feature-blurb">
                   <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
                 </div>
+                <% if current_user.try(:admin?) %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -93,16 +130,16 @@
         <div class="col-md-12">
           <div class="field form-group">
             <%= form_with model: [ @message, @message.comments.build ] do |form| %>
-            <div class="field">
-              <%= form.label :content, class: 'sr-only'%>
-              <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
-            </div>
-            <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-            <div class="col-md-12">
-              <div class="actions">
-                <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+              <div class="field">
+                <%= form.label :content, class: 'sr-only'%>
+                <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
               </div>
-            </div>
+              <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+              <div class="col-md-12">
+                <div class="actions">
+                  <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                </div>
+              </div>
             <% end %>
 
             <div class="fh5co-spacer fh5co-spacer-xs"></div>

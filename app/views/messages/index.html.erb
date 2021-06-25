@@ -38,23 +38,57 @@
     <% @messages.each do |message| %>
 
         <div class="col-md-3 col-sm-6 fh5co-feature-item">
-          <span class="fh5co-feature-icon"><i><%= image_tag message.images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i></span>
             <% case %>
               <%  when params[:locale] == "en" %>
-              <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.en_name %></h2>
+                <span class="fh5co-feature-icon">
+                  <% if message.images.attached? %>
+                    <i><%= image_tag message.images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                  <% else %>
+                    <i class="ti-layout-placeholder"></i>
+                  <% end %>
+                </span>
+                <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.en_name %></h2>
 
               <%  when params[:locale] == "zh_TW" %>
-              <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.zh_tw_name %></h2>
+                <span class="fh5co-feature-icon">
+                  <% if message.zh_tw_images.attached? %>
+                    <i><%= image_tag message.zh_tw_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                  <% else %>
+                    <i class="ti-layout-placeholder"></i>
+                  <% end %>
+                </span>
+                <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.zh_tw_name %></h2>
 
               <%  when params[:locale] == "zh_CN" %>
-              <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.zh_cn_name %></h2>
+                <span class="fh5co-feature-icon">
+                  <% if message.zh_cn_images.attached? %>
+                    <i><%= image_tag message.zh_cn_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                  <% else %>
+                    <i class="ti-layout-placeholder"></i>
+                  <% end %>
+                </span>
+                <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.zh_cn_name %></h2>
 
               <%  when params[:locale] == "vi" %>
-              <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.vi_name %></h2>
+                <span class="fh5co-feature-icon">
+                  <% if message.vi_images.attached? %>
+                    <i><%= image_tag message.vi_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                  <% else %>
+                    <i class="ti-layout-placeholder"></i>
+                  <% end %>
+                </span>
+                <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.vi_name %></h2>
 
               <%  when params[:locale] == "hmn" %>
-              <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.hmn_name %></h2>
-            <% end %>
+                <span class="fh5co-feature-icon">
+                  <% if message.hmn_images.attached? %>
+                    <i><%= image_tag message.hmn_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                  <% else %>
+                    <i class="ti-layout-placeholder"></i>
+                  <% end %>
+                </span>
+                <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= message.hmn_name %></h2>
+              <% end %>
 
               <p class="text-center"><%= link_to t('messages.read_more'), message, class: "btn btn-primary btn-sm" %></p>
             <% if current_user.try(:admin?) %>
