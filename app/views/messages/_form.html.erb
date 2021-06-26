@@ -30,15 +30,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :en_name, class: 'sr-only'%>
-                    <%= form.text_field :en_name, class: 'form-control input-lg', placeholder: "en_name" %>
+                    <%= form.label :en_name, class: 'sr-only' %>
+                    <%= form.text_area :en_name, size:'70x5', class: 'form-control input-lg', placeholder: "en_name" %>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :en_content, class: 'sr-only' %>
-                    <%= form.text_field :en_content, class: 'form-control input-lg', placeholder: "en_content"  %>
+                    <%= form.text_area :en_content,size:'70x5', class: 'form-control input-lg', placeholder: "en_content"  %>
                   </div>
                 </div>
 
@@ -46,11 +46,11 @@
                   <div class="field form-group">
                     <% if @message.images.attached? %>
                       <% @message.images.each do |img| %>
-                        <%= image_tag img, class: 'sr-only'  %>
+                        <%= image_tag img, class: "img-fluid" %>
                       <% end %>
                     <% end %>
 
-                    <%= form.label :image, class: 'sr-only' %>
+                    <%= form.label :en_images %>
                     <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
                   </div>
                 </div>
@@ -62,15 +62,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :zh_tw_name, class: 'sr-only'   %>
-                    <%= form.text_field :zh_tw_name, class: 'form-control input-lg', placeholder: "zh_tw_name" %>
+                    <%= form.label :zh_tw_name, class: 'sr-only' %>
+                    <%= form.text_area :zh_tw_name, size: '70x5', class: 'form-control input-lg', placeholder: "zh_tw_name" %>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :zh_tw_content, class: 'sr-only'   %>
-                    <%= form.text_field :zh_tw_content, class: 'form-control input-lg', placeholder: "zh_tw_content" %>
+                    <%= form.label :zh_tw_content, class: 'sr-only' %>
+                    <%= form.text_area :zh_tw_content, size: '70x5', class: 'form-control input-lg', placeholder: "zh_tw_content" %>
                   </div>
                 </div>
 
@@ -78,11 +78,11 @@
                   <div class="field form-group">
                     <% if @message.zh_tw_images.attached? %>
                       <% @message.zh_tw_images.each do |img| %>
-                        <%= image_tag img, class: 'sr-only'  %>
+                        <%= image_tag img, class: "img-fluid" %>
                       <% end %>
                     <% end %>
 
-                    <%= form.label :zh_tw_images, class: 'sr-only' %>
+                    <%= form.label :zh_tw_images %>
                     <%= form.file_field :zh_tw_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
                   </div>
                 </div>
@@ -94,15 +94,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :zh_cn_name, class: 'sr-only'   %>
-                    <%= form.text_field :zh_cn_name, class: 'form-control input-lg', placeholder: "zh_cn_name" %>
+                    <%= form.label :zh_cn_name, class: 'sr-only' %>
+                    <%= form.text_area :zh_cn_name, size: '70x5', class: 'form-control input-lg', placeholder: "zh_cn_name" %>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :zh_cn_content, class: 'sr-only'   %>
-                    <%= form.text_field :zh_cn_content, class: 'form-control input-lg', placeholder: "zh_cn_content" %>
+                    <%= form.label :zh_cn_content, class: 'sr-only' %>
+                    <%= form.text_area :zh_cn_content, size: '70x5', class: 'form-control input-lg', placeholder: "zh_cn_content" %>
                   </div>
                 </div>
 
@@ -110,11 +110,11 @@
                   <div class="field form-group">
                     <% if @message.zh_cn_images.attached? %>
                       <% @message.zh_cn_images.each do |img| %>
-                        <%= image_tag img, class: 'sr-only'  %>
+                        <%= image_tag img, class: "img-fluid" %>
                       <% end %>
                     <% end %>
 
-                    <%= form.label :zh_cn_images, class: 'sr-only' %>
+                    <%= form.label :zh_cn_images %>
                     <%= form.file_field :zh_cn_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
                   </div>
                 </div>
@@ -126,15 +126,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :hmn_name, class: 'sr-only'   %>
-                    <%= form.text_field :hmn_name, class: 'form-control input-lg', placeholder: "hmn_name" %>
+                    <%= form.label :hmn_name, class: 'sr-only' %>
+                    <%= form.text_area :hmn_name, size: '70x5', class: 'form-control input-lg', placeholder: "hmn_name" %>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :hmn_content, class: 'sr-only'   %>
-                    <%= form.text_field :hmn_content, class: 'form-control input-lg', placeholder: "hmn_content" %>
+                    <%= form.label :hmn_content, class: 'sr-only' %>
+                    <%= form.text_area :hmn_content, size: '70x5', class: 'form-control input-lg', placeholder: "hmn_content" %>
                   </div>
                 </div>
 
@@ -142,11 +142,11 @@
                   <div class="field form-group">
                     <% if @message.hmn_images.attached? %>
                       <% @message.hmn_images.each do |img| %>
-                        <%= image_tag img, class: 'sr-only'  %>
+                        <%= image_tag img, class: "img-fluid" %>
                       <% end %>
                     <% end %>
 
-                    <%= form.label :hmn_images, class: 'sr-only' %>
+                    <%= form.label :hmn_images %>
                     <%= form.file_field :hmn_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
                   </div>
                 </div>
@@ -158,15 +158,15 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :vi_name, class: 'sr-only'   %>
-                    <%= form.text_field :vi_name, class: 'form-control input-lg', placeholder: "vi_name" %>
+                    <%= form.label :vi_name, class: 'sr-only' %>
+                    <%= form.text_area :vi_name, size: '70x5', class: 'form-control input-lg', placeholder: "vi_name" %>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <%= form.label :vi_content, class: 'sr-only'   %>
-                    <%= form.text_field :vi_content, class: 'form-control input-lg', placeholder: "vi_content" %>
+                    <%= form.label :vi_content, class: 'sr-only' %>
+                    <%= form.text_area :vi_content, size: '70x5', class: 'form-control input-lg', placeholder: "vi_content" %>
                   </div>
                 </div>
 
@@ -174,11 +174,11 @@
                   <div class="field form-group">
                     <% if @message.vi_images.attached? %>
                       <% @message.vi_images.each do |img| %>
-                        <%= image_tag img, class: 'sr-only'  %>
+                      <%= image_tag img, class: "img-fluid" %>
                       <% end %>
                     <% end %>
 
-                    <%= form.label :image, class: 'sr-only' %>
+                    <%= form.label :vi_image %>
                     <%= form.file_field :vi_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
                   </div>
                 </div>
