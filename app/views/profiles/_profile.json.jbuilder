@@ -1,0 +1,2 @@
+json.extract! profile, :id, :firstname, :middlename, :middlename2, :lastname, :position, :external_links, :en_project_title, :zh_tw_project_title, :zh_cn_project_title, :vi_project_title, :hmn_project_title, :en_affiliation, :zh_tw_affiliation, :zh_cn_affiliation, :vi_affiliation, :hmn_affiliation, :en_bio, :zh_tw_bio, :zh_cn_bio, :vi_bio, :hmn_bio, :created_at, :updated_at
+json.url profile_url(profile, format: :json)

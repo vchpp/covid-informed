@@ -1,0 +1,201 @@
+<div class="fh5co-spacer fh5co-spacer-lg"></div>
+
+<section>
+  <div class="container">
+    <div class="row">
+			<div class="col-md-8 col-md-offset-2">
+        <%= form_with(model: profile) do |form| %>
+          <% if profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+              <ul>
+                <% profile.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :firstname %>
+                <%= form.text_field :firstname, class: 'form-control input-lg', placeholder: "firstname" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :middlename %>
+                <%= form.text_field :middlename, class: 'form-control input-lg', placeholder: "firstname" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :middlename2 %>
+                <%= form.text_field :middlename2, class: 'form-control input-lg', placeholder: "firstname" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :lastname %>
+                <%= form.text_field :lastname, class: 'form-control input-lg', placeholder: "firstname" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :profile_type %>:<br />
+                <%= form.label :profile_type, "Researcher", :value => "researcher" %>
+                <%= form.radio_button :profile_type, "Researcher", :checked => true%>
+                <%= form.label :profile_type, "CAB member", :value => "cab" %>
+                <%= form.radio_button :profile_type, "Cab member" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :comma_separated_external_links %>
+                <%= form.text_area :external_links, size:'70x5', class: 'form-control input-lg', placeholder: "external_links" %>
+              </div>
+
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <% if @profile.headshot.attached? %>
+                    <%= image_tag headshot, class: "img-fluid" %>
+                  <% end %>
+
+                  <%= form.label :headshot %>
+                  <%= form.file_field :heashot, direct_upload: true, class: "form-control input-lg" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="fh5co-tab-feature-vertical" class="fh5co-tab text-center">
+            <ul class="resp-tabs-list hor_1">
+              <li> English (en)</li>
+              <li> Chinese Traditional (zh_tw)</li>
+              <li> Chinese Simplified (zh_cn)</li>
+              <li> Hmong (hmn)</li>
+              <li> Vietnamese (vi)</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_project_title %>
+                      <%= form.text_field :en_project_title, class: 'form-control input-lg', placeholder: "en_project_title"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_affiliation %>
+                      <%= form.text_field :en_affiliation, class: 'form-control input-lg', placeholder: "en_affiliation"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_bio %>
+                      <%= form.text_area :en_bio, size: '70x5', class: 'form-control input-lg', placeholder: "en_bio"  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_project_title %>
+                      <%= form.text_field :zh_tw_project_title, class: 'form-control input-lg', placeholder: "zh_tw_project_title"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_affiliation %>
+                      <%= form.text_field :zh_tw_affiliation, class: 'form-control input-lg', placeholder: "zh_tw_affiliation"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_bio %>
+                      <%= form.text_area :zh_tw_bio, size: '70x5', class: 'form-control input-lg', placeholder: "zh_tw_bio"  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_project_title %>
+                      <%= form.text_field :zh_cn_project_title, class: 'form-control input-lg', placeholder: "zh_cn_project_title"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_affiliation %>
+                      <%= form.text_field :zh_cn_affiliation, class: 'form-control input-lg', placeholder: "zh_cn_affiliation"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_bio %>
+                      <%= form.text_area :zh_cn_bio, size: '70x5', class: 'form-control input-lg', placeholder: "zh_cn_bio"  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_project_title %>
+                      <%= form.text_field :vi_project_title, class: 'form-control input-lg', placeholder: "vi_project_title"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_affiliation %>
+                      <%= form.text_field :vi_affiliation, class: 'form-control input-lg', placeholder: "vi_affiliation"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_bio %>
+                      <%= form.text_area :vi_bio, size: '70x5', class: 'form-control input-lg', placeholder: "vi_bio"  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_project_title %>
+                      <%= form.text_field :hmn_project_title, class: 'form-control input-lg', placeholder: "hmn_project_title"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_affiliation %>
+                      <%= form.text_field :hmn_affiliation, class: 'form-control input-lg', placeholder: "hmn_affiliation"  %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_bio %>
+                      <%= form.text_area :hmn_bio, size: '70x5', class: 'form-control input-lg', placeholder: "hmn_bio"  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12">
+            <div class="actions">
+              <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+              <%= link_to 'Back', profiles_path, class: "btn btn-primary btn-lg btn-block" %>
+            </div>
+          </div>
+        <% end %>
+  	  <div class="fh5co-spacer fh5co-spacer-sm"></div>
+		</div>
+	 </div>
+	</div>
+</section>

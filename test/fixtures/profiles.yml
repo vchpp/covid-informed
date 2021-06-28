@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  middlename: MyString
+  middlename2: MyString
+  lastname: MyString
+  type: 
+  external_links: MyString
+  en_project_title: MyString
+  zh_tw_project_title: MyString
+  zh_cn_project_title: MyString
+  vi_project_title: MyString
+  hmn_project_title: MyString
+  en_affiliation: MyString
+  zh_tw_affiliation: MyString
+  zh_cn_affiliation: MyString
+  vi_affiliation: MyString
+  hmn_affiliation: MyString
+  en_bio: MyString
+  zh_tw_bio: MyString
+  zh_cn_bio: MyString
+  vi_bio: MyString
+  hmn_bio: MyString
+
+two:
+  firstname: MyString
+  middlename: MyString
+  middlename2: MyString
+  lastname: MyString
+  type: 
+  external_links: MyString
+  en_project_title: MyString
+  zh_tw_project_title: MyString
+  zh_cn_project_title: MyString
+  vi_project_title: MyString
+  hmn_project_title: MyString
+  en_affiliation: MyString
+  zh_tw_affiliation: MyString
+  zh_cn_affiliation: MyString
+  vi_affiliation: MyString
+  hmn_affiliation: MyString
+  en_bio: MyString
+  zh_tw_bio: MyString
+  zh_cn_bio: MyString
+  vi_bio: MyString
+  hmn_bio: MyString

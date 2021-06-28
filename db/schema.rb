@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_044946) do
+ActiveRecord::Schema.define(version: 2021_06_28_034236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,32 @@ ActiveRecord::Schema.define(version: 2021_05_25_044946) do
     t.string "vi_content"
     t.string "hmn_name"
     t.string "hmn_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "firstname"
+    t.string "middlename"
+    t.string "middlename2"
+    t.string "lastname"
+    t.string "profile_type"
+    t.string "external_links", array: true
+    t.string "en_project_title"
+    t.string "zh_tw_project_title"
+    t.string "zh_cn_project_title"
+    t.string "vi_project_title"
+    t.string "hmn_project_title"
+    t.string "en_affiliation"
+    t.string "zh_tw_affiliation"
+    t.string "zh_cn_affiliation"
+    t.string "vi_affiliation"
+    t.string "hmn_affiliation"
+    t.string "en_bio"
+    t.string "zh_tw_bio"
+    t.string "zh_cn_bio"
+    t.string "vi_bio"
+    t.string "hmn_bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

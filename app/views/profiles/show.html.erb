@@ -1,0 +1,109 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <strong>Middlename:</strong>
+  <%= @profile.middlename %>
+</p>
+
+<p>
+  <strong>Middlename2:</strong>
+  <%= @profile.middlename2 %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @profile.lastname %>
+</p>
+
+<p>
+  <strong>Profile Type:</strong>
+  <%= @profile.profile_type %>
+</p>
+
+<p>
+  <strong>External links:</strong>
+  <%= @profile.external_links %>
+</p>
+
+<p>
+  <strong>En project title:</strong>
+  <%= @profile.en_project_title %>
+</p>
+
+<p>
+  <strong>Zh tw project title:</strong>
+  <%= @profile.zh_tw_project_title %>
+</p>
+
+<p>
+  <strong>Zh cn project title:</strong>
+  <%= @profile.zh_cn_project_title %>
+</p>
+
+<p>
+  <strong>Vi project title:</strong>
+  <%= @profile.vi_project_title %>
+</p>
+
+<p>
+  <strong>Hmn project title:</strong>
+  <%= @profile.hmn_project_title %>
+</p>
+
+<p>
+  <strong>En affiliation:</strong>
+  <%= @profile.en_affiliation %>
+</p>
+
+<p>
+  <strong>Zh tw affiliation:</strong>
+  <%= @profile.zh_tw_affiliation %>
+</p>
+
+<p>
+  <strong>Zh cn affiliation:</strong>
+  <%= @profile.zh_cn_affiliation %>
+</p>
+
+<p>
+  <strong>Vi affiliation:</strong>
+  <%= @profile.vi_affiliation %>
+</p>
+
+<p>
+  <strong>Hmn affiliation:</strong>
+  <%= @profile.hmn_affiliation %>
+</p>
+
+<p>
+  <strong>En bio:</strong>
+  <%= @profile.en_bio %>
+</p>
+
+<p>
+  <strong>Zh tw bio:</strong>
+  <%= @profile.zh_tw_bio %>
+</p>
+
+<p>
+  <strong>Zh cn bio:</strong>
+  <%= @profile.zh_cn_bio %>
+</p>
+
+<p>
+  <strong>Vi bio:</strong>
+  <%= @profile.vi_bio %>
+</p>
+
+<p>
+  <strong>Hmn bio:</strong>
+  <%= @profile.hmn_bio %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
