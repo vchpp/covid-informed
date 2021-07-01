@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|zh_CN|zh_TW|hmn|vi/ do
+    resources :profiles
     resources :messages do
       resources :likes
       resources :comments do

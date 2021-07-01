@@ -1,0 +1,56 @@
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @profile.firstname %>
+</p>
+
+<section>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%=@profile.firstname%> <%= @profile.lastname%></h2>
+
+        <% case %>
+          <%  when params[:locale] == "en" %>
+            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.en_project_title %></h2>
+          <%  when params[:locale] == "zh_TW" %>
+            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.zh_tw_project_title %></h2>
+          <%  when params[:locale] == "zh_CN" %>
+            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.zh_cn_project_title %></h2>
+          <%  when params[:locale] == "vi" %>
+            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.vi_project_title %></h2>
+          <%  when params[:locale] == "hmn" %>
+            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.hmn_project_title %></h2>
+        <% end %>
+
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      </div>
+      <div class="col-md-12">
+        <% if @profile.headshot.attached? %>
+          <%= image_tag @profile.headshot, class: "fh5co-align-left img-responsive"%>
+        <% else %>
+          <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+        <% end %>
+
+        <% case %>
+          <%  when params[:locale] == "en" %>
+            <p><%= @profile.en_bio%> </p>
+          <%  when params[:locale] == "zh_TW" %>
+            <p><%= @profile.zh_tw_bio%> </p>
+          <%  when params[:locale] == "zh_CN" %>
+            <p><%= @profile.zh_cn_bio%> </p>
+          <%  when params[:locale] == "vi" %>
+            <p><%= @profile.vi_bio%> </p>
+          <%  when params[:locale] == "hmn" %>
+            <p><%= @profile.hmn_bio%> </p>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
+  </div>
+</section>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', root_path %>
