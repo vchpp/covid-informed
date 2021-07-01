@@ -36,25 +36,22 @@
                 <%= form.text_field :lastname, class: 'form-control input-lg', placeholder: "firstname" %>
               </div>
               <div class="field form-group">
-                <%= form.label :profile_type %>:<br />
-                <%= form.label :profile_type, "Researcher", :value => "researcher" %>
-                <%= form.radio_button :profile_type, "Researcher", :checked => true%>
-                <%= form.label :profile_type, "CAB member", :value => "cab" %>
-                <%= form.radio_button :profile_type, "Cab member" %>
+                <%= form.label :external_link %>
+                <%= form.text_field :external_link, class: 'form-control input-lg', placeholder: "external_link" %>
               </div>
               <div class="field form-group">
-                <%= form.label :comma_separated_external_links %>
-                <%= form.text_area :external_links, size:'70x5', class: 'form-control input-lg', placeholder: "external_links" %>
+                <%= form.label :profile_type %><br>
+                <%= form.select :profile_type, ["Research Team Member", "CAB member"], class: 'form-control input-lg' %>
               </div>
 
               <div class="col-md-12">
                 <div class="field form-group">
                   <% if @profile.headshot.attached? %>
-                    <%= image_tag headshot, class: "img-fluid" %>
+                    <%= image_tag @profile.headshot.variant(resize_to_limit: [100, 100]), class: "img-fluid" %>
                   <% end %>
-
+                  <br>
                   <%= form.label :headshot %>
-                  <%= form.file_field :heashot, direct_upload: true, class: "form-control input-lg" %>
+                  <%= form.file_field :headshot, direct_upload: true, class: "form-control input-lg" %>
                 </div>
               </div>
             </div>
@@ -65,8 +62,8 @@
               <li> English (en)</li>
               <li> Chinese Traditional (zh_tw)</li>
               <li> Chinese Simplified (zh_cn)</li>
-              <li> Hmong (hmn)</li>
               <li> Vietnamese (vi)</li>
+              <li> Hmong (hmn)</li>
             </ul>
             <div class="resp-tabs-container hor_1">
               <div>

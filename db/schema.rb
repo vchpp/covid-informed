@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_06_28_034236) do
     t.string "filename", null: false
     t.string "content_type"
     t.text "metadata"
-    t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
@@ -93,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_034236) do
     t.string "middlename2"
     t.string "lastname"
     t.string "profile_type"
-    t.string "external_links", array: true
+    t.string "external_link"
     t.string "en_project_title"
     t.string "zh_tw_project_title"
     t.string "zh_cn_project_title"

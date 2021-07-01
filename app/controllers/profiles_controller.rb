@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
+    authenticate_admin!
     @profiles = Profile.all
   end
 
@@ -12,19 +13,19 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    authenticate_admin!
     @profile = Profile.new
   end
 
   # GET /profiles/1/edit
   def edit
+    authenticate_admin!
   end
 
   # POST /profiles or /profiles.json
   def create
+    authenticate_admin!
     @profile = Profile.new(profile_params)
-    p "********* external links are **********" + @profile.external_links
-    @profile["external_links"] = @profile["external_links"].split(',')
-
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: "Profile was successfully created." }
@@ -38,6 +39,7 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
+    authenticate_admin!
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: "Profile was successfully updated." }
@@ -51,6 +53,8 @@ class ProfilesController < ApplicationController
 
   # DELETE /profiles/1 or /profiles/1.json
   def destroy
+    authenticate_admin!
+    @profile.headshot.purge
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
@@ -66,6 +70,27 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:firstname, :middlename, :middlename2, :lastname, :profile_type, :external_links, :en_project_title, :zh_tw_project_title, :zh_cn_project_title, :vi_project_title, :hmn_project_title, :en_affiliation, :zh_tw_affiliation, :zh_cn_affiliation, :vi_affiliation, :hmn_affiliation, :en_bio, :zh_tw_bio, :zh_cn_bio, :vi_bio, :hmn_bio, :headshot)
+      params.require(:profile).permit(:firstname,
+                                      :middlename,
+                                      :middlename2,
+                                      :lastname,
+                                      :profile_type,
+                                      :en_project_title,
+                                      :zh_tw_project_title,
+                                      :zh_cn_project_title,
+                                      :vi_project_title,
+                                      :hmn_project_title,
+                                      :en_affiliation,
+                                      :zh_tw_affiliation,
+                                      :zh_cn_affiliation,
+                                      :vi_affiliation,
+                                      :hmn_affiliation,
+                                      :en_bio,
+                                      :zh_tw_bio,
+                                      :zh_cn_bio,
+                                      :vi_bio,
+                                      :hmn_bio,
+                                      :headshot,
+                                      :external_link)
     end
 end

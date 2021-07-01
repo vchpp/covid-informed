@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[6.1]
       t.string :middlename2
       t.string :lastname
       t.string :profile_type
-      t.string :external_links, array: true
+      t.string :external_link
       t.string :en_project_title
       t.string :zh_tw_project_title
       t.string :zh_cn_project_title

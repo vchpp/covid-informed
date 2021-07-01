@@ -3,14 +3,12 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all.with_attached_images
+    @messages = Message.all.with_attached_images.sort_by(&:created_at)
     # if @message.empty? redirect to new_message_path
   end
 
   # GET /messages/1 or /messages/1.json
   def show
-    p "***** LOCALE IS ****** " + params[:locale]
-    # @message = Message.find(params[:id])
     @message = Message.with_attached_images.find(params[:id])
     @comments = Message.find(params[:id]).comments
     case
@@ -30,7 +28,6 @@ class MessagesController < ApplicationController
         @message_name = Message.find(params[:id]).hmn_name
         @message_content = Message.find(params[:id]).hmn_content
     end
-    p @message_content
     up_likes
     down_likes
   end
@@ -70,6 +67,11 @@ class MessagesController < ApplicationController
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
     authenticate_admin!
+    @message.images.purge
+    @message.zh_tw_images.purge
+    @message.zh_cn_images.purge
+    @message.vi_images.purge
+    @message.hmn_images.purge
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }
@@ -84,6 +86,11 @@ class MessagesController < ApplicationController
   # DELETE /messages/1 or /messages/1.json
   def destroy
     authenticate_admin!
+    @message.images.purge
+    @message.zh_tw_images.purge
+    @message.zh_cn_images.purge
+    @message.vi_images.purge
+    @message.hmn_images.purge
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
