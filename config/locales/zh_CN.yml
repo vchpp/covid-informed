@@ -25,6 +25,8 @@ zh_CN:
     leave_comment: "发表评论"
     submit: "提交"
     back: "背部"
+    show:
+      action_item_more_info: "有关更多信息，您可以访问:"    
   resources:
     resources: "资源"
   activerecord:
