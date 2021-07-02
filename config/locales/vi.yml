@@ -25,6 +25,8 @@ vi:
     leave_comment: "Để lại một bình luận"
     submit: "Gửi đi"
     back: "trở lại"
+    show:
+      action_item_more_info: "Để biết thêm thông tin, bạn có thể truy cập:"
   resources:
     resources:  "tài nguyên"
   activerecord:

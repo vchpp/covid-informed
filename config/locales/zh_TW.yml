@@ -25,6 +25,8 @@ zh_TW:
     leave_comment: "發表評論"
     submit: "提交"
     back: "背部"
+    show:
+      action_item_more_info: "有關更多信息，您可以訪問:"    
   resources:
     resources: "資源"
   activerecord:

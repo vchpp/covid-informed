@@ -25,6 +25,8 @@ hmn:
     leave_comment: "Ncua Lus Saib"
     submit: "Muab Xa"
     back: "rov qab"
+    show:
+      action_item_more_info: "Yog xav paub ntxiv koj tuaj yeem tuaj xyuas:"
   resources:
     resources: "cov khoom siv"
   activerecord:
