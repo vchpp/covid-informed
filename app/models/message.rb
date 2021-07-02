@@ -6,14 +6,4 @@ class Message < ApplicationRecord
   has_many_attached :zh_cn_images, dependent: :destroy
   has_many_attached :zh_tw_images, dependent: :destroy
   has_many_attached :hmn_images, dependent: :destroy
-  validates :en_name, uniqueness: true
-  validates :en_content, uniqueness: true
-  validates :zh_tw_name, uniqueness: true
-  validates :zh_tw_content, uniqueness: true
-  validates :zh_cn_name, uniqueness: true
-  validates :zh_cn_content, uniqueness: true
-  validates :vi_name, uniqueness: true
-  validates :vi_content, uniqueness: true
-  validates :hmn_name, uniqueness: true
-  validates :hmn_content, uniqueness: true
 end

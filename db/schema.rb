@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_034236) do
+ActiveRecord::Schema.define(version: 2021_07_02_042502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_034236) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -84,6 +85,12 @@ ActiveRecord::Schema.define(version: 2021_06_28_034236) do
     t.string "hmn_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "en_action_item"
+    t.string "zh_tw_action_item"
+    t.string "zh_cn_action_item"
+    t.string "vi_action_item"
+    t.string "hmn_action_item"
+    t.string "external_links", default: [], array: true
   end
 
   create_table "profiles", force: :cascade do |t|
