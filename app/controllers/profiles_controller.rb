@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    @profile = Profile.with_attached_image.friendly.find(params[:id])
   end
 
   # GET /profiles/new
@@ -65,7 +66,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
