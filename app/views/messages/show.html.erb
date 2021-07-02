@@ -58,7 +58,19 @@
         <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
         <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
+
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <h4 class="fh5co-serif fh5co-lead"><%= @message_action_item %></h4>
+
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <h4 class="h5 fh5co-heading-sub">For more info you can visit:</h4>
+          <% @message.external_links.each do |l| %>
+            <ul><%= link_to l, l, target: "_blank" %></ul>
+          <% end %>
+
       </div>
+
+
       <div class="col-md-8 col-md-offset-2 clearfix fh5co-header"></div>
     </div>
   </div>
@@ -122,8 +134,6 @@
       </div>
     <div class="fh5co-spacer fh5co-spacer-md"></div>
 </section>
-
-
 
 <section>
   <div class="container">

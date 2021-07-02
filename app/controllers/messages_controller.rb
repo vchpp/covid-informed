@@ -15,18 +15,23 @@ class MessagesController < ApplicationController
       when params[:locale] == "en"
         @message_name = Message.find(params[:id]).en_name
         @message_content = Message.find(params[:id]).en_content
+        @message_action_item = Message.find(params[:id]).en_action_item
       when params[:locale] == "zh_TW"
         @message_name = Message.find(params[:id]).zh_tw_name
         @message_content = Message.find(params[:id]).zh_tw_content
+        @message_action_item = Message.find(params[:id]).zh_tw_action_item
       when params[:locale] == "zh_CN"
         @message_name = Message.find(params[:id]).zh_cn_name
         @message_content = Message.find(params[:id]).zh_cn_content
+        @message_action_item = Message.find(params[:id]).zh_cn_action_item
       when params[:locale] == "vi"
         @message_name = Message.find(params[:id]).vi_name
         @message_content = Message.find(params[:id]).vi_content
+        @message_action_item = Message.find(params[:id]).vi_action_item
       when params[:locale] == "hmn"
         @message_name = Message.find(params[:id]).hmn_name
         @message_content = Message.find(params[:id]).hmn_content
+        @message_action_item = Message.find(params[:id]).hmn_action_item
     end
     up_likes
     down_likes
@@ -47,6 +52,7 @@ class MessagesController < ApplicationController
   def create
     authenticate_admin!
     @message = Message.new(message_params)
+    @message.internal_links = params[:message][:external_links].first.split("\r\n").map(&:strip)
     @message.images.attach(params[:message][:images])
     @message.images.attach(params[:message][:vi_images])
     @message.images.attach(params[:message][:zh_cn_images])
@@ -67,11 +73,19 @@ class MessagesController < ApplicationController
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
     authenticate_admin!
-    @message.images.purge
-    @message.zh_tw_images.purge
-    @message.zh_cn_images.purge
-    @message.vi_images.purge
-    @message.hmn_images.purge
+    @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
+    case
+      when params[:images].present?
+          @message.images.purge
+        when params[:zh_tw_images].present?
+          @message.zh_tw_images.purge
+        when params[:zh_cn_images].present?
+          @message.zh_cn_images.purge
+        when params[:vi_images].present?
+          @message.vi_images.purge
+        when params[:hmn_images].present?
+          @message.hmn_images.purge
+        end
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }
@@ -108,19 +122,26 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:en_name,
                                       :en_content,
+                                      :en_action_item,
                                       :zh_tw_name,
                                       :zh_tw_content,
+                                      :zh_tw_action_item,
                                       :zh_cn_name,
                                       :zh_cn_content,
+                                      :zh_cn_action_item,
                                       :vi_name,
                                       :vi_content,
+                                      :vi_action_item,
                                       :hmn_name,
                                       :hmn_content,
+                                      :hmn_action_item,
+                                      :external_links,
                                       images: [],
                                       vi_images: [],
                                       zh_tw_images: [],
                                       zh_cn_images: [],
-                                      hmn_images: [],)
+                                      hmn_images: [],
+                                    )
     end
 
     def up_likes
