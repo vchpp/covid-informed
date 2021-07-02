@@ -13,25 +13,25 @@ class MessagesController < ApplicationController
     @comments = Message.friendly.find(params[:id]).comments
     case
       when params[:locale] == "en"
-        @message_name = Message.friendly.find(params[:id]).en_name
-        @message_content = Message.friendly.find(params[:id]).en_content
-        @message_action_item = Message.friendly.find(params[:id]).en_action_item
+        @message_name = @message.en_name
+        @message_content = @message.en_content
+        @message_action_item = @message.en_action_item
       when params[:locale] == "zh_TW"
-        @message_name = Message.friendly.find(params[:id]).zh_tw_name
-        @message_content = Message.friendly.find(params[:id]).zh_tw_content
-        @message_action_item = Message.friendly.find(params[:id]).zh_tw_action_item
+        @message_name = @message.zh_tw_name
+        @message_content = @message.zh_tw_content
+        @message_action_item = @message.zh_tw_action_item
       when params[:locale] == "zh_CN"
-        @message_name = Message.friendly.find(params[:id]).zh_cn_name
-        @message_content = Message.friendly.find(params[:id]).zh_cn_content
-        @message_action_item = Message.friendly.find(params[:id]).zh_cn_action_item
+        @message_name = @message.zh_cn_name
+        @message_content = @message.zh_cn_content
+        @message_action_item = @message.zh_cn_action_item
       when params[:locale] == "vi"
-        @message_name = Message.friendly.find(params[:id]).vi_name
-        @message_content = Message.friendly.find(params[:id]).vi_content
-        @message_action_item = Message.friendly.find(params[:id]).vi_action_item
+        @message_name = @message.vi_name
+        @message_content = @message.vi_content
+        @message_action_item = @message.vi_action_item
       when params[:locale] == "hmn"
-        @message_name = Message.friendly.find(params[:id]).hmn_name
-        @message_content = Message.friendly.find(params[:id]).hmn_content
-        @message_action_item = Message.friendly.find(params[:id]).hmn_action_item
+        @message_name = @message.hmn_name
+        @message_content = @message.hmn_content
+        @message_action_item = @message.hmn_action_item
     end
     up_likes
     down_likes

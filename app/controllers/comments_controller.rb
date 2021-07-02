@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @message = Message.find(params[:message_id])
+    @message = Message.friendly.find(params[:message_id])
     @comment = @message.comments.new(comment_params)
     @comment.rct = cookies[:rct] || '0'
     p @comment
@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     authenticate_admin!
-    @message = Message.find(params[:message_id])
+    @message = Message.friendly.find(params[:message_id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to message_path(@message), notice: "Comment was successfully destroyed." }
