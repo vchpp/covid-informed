@@ -9,29 +9,29 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
-    @message = Message.with_attached_images.find(params[:id])
-    @comments = Message.find(params[:id]).comments
+    @message = Message.with_attached_images.friendly.find(params[:id])
+    @comments = Message.friendly.find(params[:id]).comments
     case
       when params[:locale] == "en"
-        @message_name = Message.find(params[:id]).en_name
-        @message_content = Message.find(params[:id]).en_content
-        @message_action_item = Message.find(params[:id]).en_action_item
+        @message_name = Message.friendly.find(params[:id]).en_name
+        @message_content = Message.friendly.find(params[:id]).en_content
+        @message_action_item = Message.friendly.find(params[:id]).en_action_item
       when params[:locale] == "zh_TW"
-        @message_name = Message.find(params[:id]).zh_tw_name
-        @message_content = Message.find(params[:id]).zh_tw_content
-        @message_action_item = Message.find(params[:id]).zh_tw_action_item
+        @message_name = Message.friendly.find(params[:id]).zh_tw_name
+        @message_content = Message.friendly.find(params[:id]).zh_tw_content
+        @message_action_item = Message.friendly.find(params[:id]).zh_tw_action_item
       when params[:locale] == "zh_CN"
-        @message_name = Message.find(params[:id]).zh_cn_name
-        @message_content = Message.find(params[:id]).zh_cn_content
-        @message_action_item = Message.find(params[:id]).zh_cn_action_item
+        @message_name = Message.friendly.find(params[:id]).zh_cn_name
+        @message_content = Message.friendly.find(params[:id]).zh_cn_content
+        @message_action_item = Message.friendly.find(params[:id]).zh_cn_action_item
       when params[:locale] == "vi"
-        @message_name = Message.find(params[:id]).vi_name
-        @message_content = Message.find(params[:id]).vi_content
-        @message_action_item = Message.find(params[:id]).vi_action_item
+        @message_name = Message.friendly.find(params[:id]).vi_name
+        @message_content = Message.friendly.find(params[:id]).vi_content
+        @message_action_item = Message.friendly.find(params[:id]).vi_action_item
       when params[:locale] == "hmn"
-        @message_name = Message.find(params[:id]).hmn_name
-        @message_content = Message.find(params[:id]).hmn_content
-        @message_action_item = Message.find(params[:id]).hmn_action_item
+        @message_name = Message.friendly.find(params[:id]).hmn_name
+        @message_content = Message.friendly.find(params[:id]).hmn_content
+        @message_action_item = Message.friendly.find(params[:id]).hmn_action_item
     end
     up_likes
     down_likes
@@ -115,7 +115,7 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = Message.find(params[:id])
+      @message = Message.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -145,14 +145,14 @@ class MessagesController < ApplicationController
     end
 
     def up_likes
-      message = Message.find(params[:id])
+      message = Message.friendly.find(params[:id])
       likes = message.likes.all
       up = likes.map do |like| like.up end
       @up_likes = up.map(&:to_i).reduce(0, :+)
     end
 
     def down_likes
-      message = Message.find(params[:id])
+      message = Message.friendly.find(params[:id])
       likes = message.likes.all
       down = likes.map do |like| like.down end
       @down_likes = down.map(&:to_i).reduce(0, :+)
