@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
   # POST /likes or /likes.json
   def create
-    @message = Message.find(params[:message_id])
+    @message = Message.friendly.find(params[:message_id])
     existing_likes = []
     @message.likes.each { |like| existing_likes.push(like.rct)}
     @like = @message.likes.new(like_params)
