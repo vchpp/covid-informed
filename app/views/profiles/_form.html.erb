@@ -25,19 +25,23 @@
               </div>
               <div class="field form-group">
                 <%= form.label :middlename %>
-                <%= form.text_field :middlename, class: 'form-control input-lg', placeholder: "firstname" %>
+                <%= form.text_field :middlename, class: 'form-control input-lg', placeholder: "middlename" %>
               </div>
               <div class="field form-group">
                 <%= form.label :middlename2 %>
-                <%= form.text_field :middlename2, class: 'form-control input-lg', placeholder: "firstname" %>
+                <%= form.text_field :middlename2, class: 'form-control input-lg', placeholder: "middlename2" %>
               </div>
               <div class="field form-group">
                 <%= form.label :lastname %>
-                <%= form.text_field :lastname, class: 'form-control input-lg', placeholder: "firstname" %>
+                <%= form.text_field :lastname, class: 'form-control input-lg', placeholder: "lastname" %>
               </div>
               <div class="field form-group">
-                <%= form.label :external_link %>
-                <%= form.text_field :external_link, class: 'form-control input-lg', placeholder: "external_link" %>
+                <%= form.label :fullname %> For URL purposes only
+                <%= form.text_field :fullname, class: 'form-control input-lg', placeholder: "fullname" %>
+              </div>
+              <div class="field form-group">
+                <%= form.label :external_links %>
+                <%= form.text_area :external_links, name: 'profile[external_links][]', size: '70x5', class: 'form-control input-lg', placeholder: "external_links", value: form.object.external_links.join("\n") %>
               </div>
               <div class="field form-group">
                 <%= form.label :profile_type %><br>

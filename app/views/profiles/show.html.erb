@@ -46,6 +46,10 @@
             <p><%= @profile.hmn_bio%> </p>
         <% end %>
 
+        <% @profile.external_links.each do |l| %>
+          <ul><%= link_to l, l, target: "_blank" %></ul>
+        <% end %>
+
       </div>
     </div>
     <div class="fh5co-spacer fh5co-spacer-lg"></div>

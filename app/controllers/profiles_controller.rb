@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    @profile = Profile.with_attached_headshot.friendly.find(params[:id])
   end
 
   # GET /profiles/new
@@ -26,6 +27,7 @@ class ProfilesController < ApplicationController
   def create
     authenticate_admin!
     @profile = Profile.new(profile_params)
+    @profile[:external_links] = params[:profile][:external_links].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: "Profile was successfully created." }
@@ -40,6 +42,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
     authenticate_admin!
+    @profile[:external_links] = params[:profile][:external_links].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: "Profile was successfully updated." }
@@ -65,7 +68,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -74,6 +77,7 @@ class ProfilesController < ApplicationController
                                       :middlename,
                                       :middlename2,
                                       :lastname,
+                                      :fullname,
                                       :profile_type,
                                       :en_project_title,
                                       :zh_tw_project_title,
@@ -91,6 +95,7 @@ class ProfilesController < ApplicationController
                                       :vi_bio,
                                       :hmn_bio,
                                       :headshot,
-                                      :external_link)
+                                      :external_link,
+                                      :external_links,)
     end
 end
