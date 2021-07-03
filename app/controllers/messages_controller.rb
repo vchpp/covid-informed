@@ -52,7 +52,7 @@ class MessagesController < ApplicationController
   def create
     authenticate_admin!
     @message = Message.new(message_params)
-    @message.internal_links = params[:message][:external_links].first.split("\r\n").map(&:strip)
+    @message.external_links = params[:message][:external_links].first.split("\r\n").map(&:strip)
     @message.images.attach(params[:message][:images])
     @message.images.attach(params[:message][:vi_images])
     @message.images.attach(params[:message][:zh_cn_images])

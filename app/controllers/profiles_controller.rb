@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
-    @profile = Profile.with_attached_image.friendly.find(params[:id])
+    @profile = Profile.with_attached_headshot.friendly.find(params[:id])
   end
 
   # GET /profiles/new
@@ -75,6 +75,7 @@ class ProfilesController < ApplicationController
                                       :middlename,
                                       :middlename2,
                                       :lastname,
+                                      :fullname,
                                       :profile_type,
                                       :en_project_title,
                                       :zh_tw_project_title,
