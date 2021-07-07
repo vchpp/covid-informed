@@ -6,26 +6,9 @@
   <thead>
     <tr>
       <th>Firstname</th>
-      <th>Middlename</th>
-      <th>Middlename2</th>
       <th>Lastname</th>
       <th>Profile_type</th>
-      <th>External link</th>
       <th>En project title</th>
-      <th>Zh tw project title</th>
-      <th>Zh cn project title</th>
-      <th>Vi project title</th>
-      <th>Hmn project title</th>
-      <th>En affiliation</th>
-      <th>Zh tw affiliation</th>
-      <th>Zh cn affiliation</th>
-      <th>Vi affiliation</th>
-      <th>Hmn affiliation</th>
-      <th>En bio</th>
-      <th>Zh tw bio</th>
-      <th>Zh cn bio</th>
-      <th>Vi bio</th>
-      <th>Hmn bio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,26 +17,9 @@
     <% @profiles.each do |profile| %>
       <tr>
         <td><%= profile.firstname %></td>
-        <td><%= profile.middlename %></td>
-        <td><%= profile.middlename2 %></td>
         <td><%= profile.lastname %></td>
         <td><%= profile.profile_type %></td>
-        <td><%= profile.external_link %></td>
         <td><%= profile.en_project_title %></td>
-        <td><%= profile.zh_tw_project_title %></td>
-        <td><%= profile.zh_cn_project_title %></td>
-        <td><%= profile.vi_project_title %></td>
-        <td><%= profile.hmn_project_title %></td>
-        <td><%= profile.en_affiliation %></td>
-        <td><%= profile.zh_tw_affiliation %></td>
-        <td><%= profile.zh_cn_affiliation %></td>
-        <td><%= profile.vi_affiliation %></td>
-        <td><%= profile.hmn_affiliation %></td>
-        <td><%= profile.en_bio %></td>
-        <td><%= profile.zh_tw_bio %></td>
-        <td><%= profile.zh_cn_bio %></td>
-        <td><%= profile.vi_bio %></td>
-        <td><%= profile.hmn_bio %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>

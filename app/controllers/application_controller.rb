@@ -35,7 +35,7 @@ private
 
   # sets the locale language within the route
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0] || I18n.default_locale
   end
 
   # allows for the router to add /language/ as a default route
