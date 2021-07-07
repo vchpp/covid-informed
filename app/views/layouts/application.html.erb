@@ -20,6 +20,12 @@
     <meta name="twitter:card" content="" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      window.getCookie = function(rct) {
+        match = document.cookie.match(new RegExp(rct + '=([^;]+)'));
+        if (match) return match[1];
+      }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8T209GGMN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -27,6 +33,10 @@
       gtag('js', new Date());
 
       gtag('config', 'G-Q8T209GGMN');
+      gtag('send', 'pageview', {
+        'dimension1':  getCookie('LocationId')
+        });
+      gtag('send','event','eventCategory','eventAction');
     </script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -74,12 +84,6 @@
   <footer>
     <div class="container">
       <div class="fh5co-spacer fh5co-spacer-xs"></div>
-      <ul class="fh5co-social-icons">
-        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-        <li><a href="#"><i class="ti-facebook"></i></a></li>
-        <li><a href="#"><i class="ti-github"></i></a></li>
-        <li><a href="#"><i class="ti-linkedin"></i></a></li>
-      </ul>
 
     </div>
   </footer>

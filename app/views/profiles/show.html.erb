@@ -28,22 +28,22 @@
       </div>
       <div class="col-md-12">
         <% if @profile.headshot.attached? %>
-          <%= image_tag @profile.headshot.variant(resize_to_limit: [300, 300]), class: "fh5co-align-left img-responsive"%>
+          <%= image_tag @profile.headshot.variant(resize_to_limit: [250, 250]), class: "fh5co-align-left img-responsive"%>
         <% else %>
           <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
         <% end %>
 
         <% case %>
           <%  when params[:locale] == "en" %>
-            <p><%= @profile.en_bio%> </p>
+            <p style="font-size:22px"><%= @profile.en_bio%> </p>
           <%  when params[:locale] == "zh_TW" %>
-            <p><%= @profile.zh_tw_bio%> </p>
+            <p style="font-size:22px"><%= @profile.zh_tw_bio%> </p>
           <%  when params[:locale] == "zh_CN" %>
-            <p><%= @profile.zh_cn_bio%> </p>
+            <p style="font-size:22px"><%= @profile.zh_cn_bio%> </p>
           <%  when params[:locale] == "vi" %>
-            <p><%= @profile.vi_bio%> </p>
+            <p style="font-size:22px"><%= @profile.vi_bio%> </p>
           <%  when params[:locale] == "hmn" %>
-            <p><%= @profile.hmn_bio%> </p>
+            <p style="font-size:22px"><%= @profile.hmn_bio%> </p>
         <% end %>
 
         <% @profile.external_links.each do |l| %>
@@ -53,8 +53,19 @@
       </div>
     </div>
     <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <div class="fh5co-spacer fh5co-spacer-xs"></div>
+    <div class="col-md-12">
+    <% if current_user.try(:admin?) %>
+      <div class="actions">
+        <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="col-md-12">
+      <div class="actions">
+        <%= link_to t('messages.back'), root_path, class: "btn btn-outline btn-lg btn-block" %>
+      </div>
+    </div>
   </div>
 </section>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', root_path %>

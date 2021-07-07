@@ -32,7 +32,7 @@
               <%  when params[:locale] == "en" %>
                 <span class="fh5co-feature-icon">
                   <% if message.images.attached? %>
-                    <i><%= image_tag message.images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                    <i><%= image_tag message.images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
                     <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
@@ -42,7 +42,7 @@
               <%  when params[:locale] == "zh_TW" %>
                 <span class="fh5co-feature-icon">
                   <% if message.zh_tw_images.attached? %>
-                    <i><%= image_tag message.zh_tw_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                    <i><%= image_tag message.zh_tw_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
                     <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
@@ -52,7 +52,7 @@
               <%  when params[:locale] == "zh_CN" %>
                 <span class="fh5co-feature-icon">
                   <% if message.zh_cn_images.attached? %>
-                    <i><%= image_tag message.zh_cn_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                    <i><%= image_tag message.zh_cn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
                     <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
@@ -62,7 +62,7 @@
               <%  when params[:locale] == "vi" %>
                 <span class="fh5co-feature-icon">
                   <% if message.vi_images.attached? %>
-                    <i><%= image_tag message.vi_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                    <i><%= image_tag message.vi_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
                     <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
@@ -72,7 +72,7 @@
               <%  when params[:locale] == "hmn" %>
                 <span class="fh5co-feature-icon">
                   <% if message.hmn_images.attached? %>
-                    <i><%= image_tag message.hmn_images.first, class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
+                    <i><%= image_tag message.hmn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 100%; height: auto"%></i>
                   <% else %>
                     <i class="ti-layout-placeholder" style="color:red;"></i>
                   <% end %>
