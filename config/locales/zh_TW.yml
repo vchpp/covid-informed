@@ -1,7 +1,7 @@
 zh_TW:
   hello: "你好世界"
   welcome: "歡迎!"
-  language: "中國傳統的"
+  language: "繁體中文"
   locale: "zh_tw"
   navbar:
     about: "關於"
@@ -26,7 +26,7 @@ zh_TW:
     submit: "提交"
     back: "背部"
     show:
-      action_item_more_info: "有關更多信息，您可以訪問:"    
+      action_item_more_info: "有關更多信息，您可以訪問:"
   resources:
     resources: "資源"
   activerecord:
