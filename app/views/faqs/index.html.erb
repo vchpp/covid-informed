@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Faqs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>En question</th>
+      <th>En answer</th>
+      <th>Zh tw question</th>
+      <th>Zh tw answer</th>
+      <th>Zh cn question</th>
+      <th>Zh cn answer</th>
+      <th>Hmn question</th>
+      <th>Hmn answer</th>
+      <th>Vi question</th>
+      <th>Vi answer</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @faqs.each do |faq| %>
+      <tr>
+        <td><%= faq.en_question %></td>
+        <td><%= faq.en_answer %></td>
+        <td><%= faq.zh_tw_question %></td>
+        <td><%= faq.zh_tw_answer %></td>
+        <td><%= faq.zh_cn_question %></td>
+        <td><%= faq.zh_cn_answer %></td>
+        <td><%= faq.hmn_question %></td>
+        <td><%= faq.hmn_answer %></td>
+        <td><%= faq.vi_question %></td>
+        <td><%= faq.vi_answer %></td>
+        <td><%= faq.category %></td>
+        <td><%= link_to 'Show', faq %></td>
+        <td><%= link_to 'Edit', edit_faq_path(faq) %></td>
+        <td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Faq', new_faq_path %>

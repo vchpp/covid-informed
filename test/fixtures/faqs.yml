@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_question: MyString
+  zh_tw_question: MyString
+  zh_cn_question: MyString
+  hmn_question: MyString
+  vi_question: MyString
+  category: MyString
+
+two:
+  en_question: MyString
+  zh_tw_question: MyString
+  zh_cn_question: MyString
+  hmn_question: MyString
+  vi_question: MyString
+  category: MyString
