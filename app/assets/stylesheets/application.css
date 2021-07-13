@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require actiontext.scss
  *= require css/themify-icons
  *= require css/bootstrap
  *= require css/owl.carousel.min
