@@ -6,4 +6,5 @@ class Faq < ApplicationRecord
   has_rich_text :vi_answer
   extend FriendlyId
   friendly_id :en_question, use: :slugged
+  scope :filter_by_category, -> (category) { where category: category }
 end

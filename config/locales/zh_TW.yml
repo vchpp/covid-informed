@@ -7,6 +7,8 @@ zh_TW:
     about: "關於"
     messages: "消息"
     resources: "資源"
+    faqs: "FAQs"
+    all: "All"
   about:
     research_team: "研究團隊"
     research_team_titles:

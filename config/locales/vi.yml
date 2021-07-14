@@ -7,6 +7,8 @@ vi:
     about: "trong khoảng"
     messages: "tin nhắn"
     resources: "tài nguyên"
+    faqs: "FAQs"
+    all: "All"
   about:
     research_team: "Nhóm nghiên cứu"
     research_team_titles:
