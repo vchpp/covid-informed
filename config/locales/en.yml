@@ -39,7 +39,8 @@ en:
     messages: "Messages"
     resources: "Resources"
     faqs: "FAQs"
-    all: "All"
+    statistics: "Statistics"
+    external: "External"
   about:
     research_team: "Research Team"
     research_team_titles:
@@ -60,6 +61,7 @@ en:
     back: "back"
     show:
       action_item_more_info: "For more info you can visit:"
+      survey_link: "To take our survey, please visit:"
   resources:
     resources: "Resources"
   activerecord:

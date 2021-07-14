@@ -8,7 +8,8 @@ vi:
     messages: "tin nhắn"
     resources: "tài nguyên"
     faqs: "FAQs"
-    all: "All"
+    statistics: "Statistics"
+    external: "External"
   about:
     research_team: "Nhóm nghiên cứu"
     research_team_titles:
@@ -29,6 +30,7 @@ vi:
     back: "trở lại"
     show:
       action_item_more_info: "Để biết thêm thông tin, bạn có thể truy cập:"
+      survey_link: "To take our survey, please visit:"
   resources:
     resources:  "tài nguyên"
   activerecord:

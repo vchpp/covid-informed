@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Externals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>En title</th>
+      <th>En source</th>
+      <th>En content</th>
+      <th>En external link</th>
+      <th>En notes</th>
+      <th>Zh tw title</th>
+      <th>Zh tw source</th>
+      <th>Zh tw content</th>
+      <th>Zh tw external link</th>
+      <th>Zh tw notes</th>
+      <th>Zh cn title</th>
+      <th>Zh cn</th>
+      <th>Zh cn content</th>
+      <th>Zh cn external link</th>
+      <th>Zh cn notes</th>
+      <th>Vi title</th>
+      <th>Vi source</th>
+      <th>Vi content</th>
+      <th>Vi external link</th>
+      <th>Vi notes</th>
+      <th>Hmn title</th>
+      <th>Hmn source</th>
+      <th>Hmn content</th>
+      <th>Hmn external link</th>
+      <th>Hmn notes</th>
+      <th>Languages</th>
+      <th>Last version date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @externals.each do |external| %>
+      <tr>
+        <td><%= external.en_title %></td>
+        <td><%= external.en_source %></td>
+        <td><%= external.en_content %></td>
+        <td><%= external.en_external_link %></td>
+        <td><%= external.en_notes %></td>
+        <td><%= external.zh_tw_title %></td>
+        <td><%= external.zh_tw_source %></td>
+        <td><%= external.zh_tw_content %></td>
+        <td><%= external.zh_tw_external_link %></td>
+        <td><%= external.zh_tw_notes %></td>
+        <td><%= external.zh_cn_title %></td>
+        <td><%= external.zh_cn %></td>
+        <td><%= external.zh_cn_content %></td>
+        <td><%= external.zh_cn_external_link %></td>
+        <td><%= external.zh_cn_notes %></td>
+        <td><%= external.vi_title %></td>
+        <td><%= external.vi_source %></td>
+        <td><%= external.vi_content %></td>
+        <td><%= external.vi_external_link %></td>
+        <td><%= external.vi_notes %></td>
+        <td><%= external.hmn_title %></td>
+        <td><%= external.hmn_source %></td>
+        <td><%= external.hmn_content %></td>
+        <td><%= external.hmn_external_link %></td>
+        <td><%= external.hmn_notes %></td>
+        <td><%= external.languages %></td>
+        <td><%= external.last_version_date %></td>
+        <td><%= link_to 'Show', external %></td>
+        <td><%= link_to 'Edit', edit_external_path(external) %></td>
+        <td><%= link_to 'Destroy', external, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New External', new_external_path %>
