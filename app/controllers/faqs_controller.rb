@@ -4,6 +4,11 @@ class FaqsController < ApplicationController
   # GET /faqs or /faqs.json
   def index
     @faqs = Faq.all
+    @faq_categories = []
+    Faq.all.each do |faq|
+      @faq_categories << faq.category
+    end
+    @faq_categories = @faq_categories.uniq
   end
 
   # GET /faqs/1 or /faqs/1.json

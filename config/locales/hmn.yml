@@ -7,6 +7,8 @@ hmn:
     about: "hais txog"
     messages: "lus"
     resources: "cov khoom siv"
+    faqs: "FAQs"
+    all: "All"
   about:
     research_team: "kev tshawb fawb pab neeg"
     research_team_titles:

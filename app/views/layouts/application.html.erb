@@ -44,7 +44,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
     <%= javascript_pack_tag 'application' %>
-    
+
     	<!-- Google Webfont -->
   	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
   </head>
@@ -63,7 +63,15 @@
           <ul class="sf-menu" id="fh5co-primary-menu">
             <li><a href="/<%=params[:locale]%>/about"><%= t('navbar.about') %></a></li>
             <li><a href="/<%=params[:locale]%>/messages"><%= t('navbar.messages') %></a></li>
-            <li><a href="/<%=params[:locale]%>/resources"><%= t('navbar.resources') %></a></li>
+            <li>
+              <a href="#" class="fh5co-sub-ddown"><%= t('navbar.resources') %></a>
+              <ul class="fh5co-sub-menu">
+               <li>
+                 <a href="/<%=params[:locale]%>/resources"><%= t('navbar.all') %></a>
+                 <a href="/<%=params[:locale]%>/resources/faqs"><%= t('navbar.faqs') %></a>
+               </li>
+             </ul>
+            </li>
             <li>
               <a href="#" class="fh5co-sub-ddown"><%= t('language') %></a>
                <ul class="fh5co-sub-menu">

@@ -38,6 +38,8 @@ en:
     about: "About"
     messages: "Messages"
     resources: "Resources"
+    faqs: "FAQs"
+    all: "All"
   about:
     research_team: "Research Team"
     research_team_titles:
