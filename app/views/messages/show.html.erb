@@ -64,12 +64,18 @@
           <h4 class="fh5co-serif fh5co-lead"><%= @message_action_item %></h4>
         <% end %>
 
-        <% if @message.external_links %>
+        <% if @message.external_links.any? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.action_item_more_info')%></h4>
           <% @message.external_links.each do |l| %>
             <ul><a href="<%=l%>?rct=<%=cookies[:rct]%>", target="_blank"><%=l%></a></ul>
           <% end %>
+        <% end %>
+
+        <% if @message.survey_link %>
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.survey_link')%></h4>
+          <a href="<%=@message.survey_link%>?rct=<%=cookies[:rct]%>", target="_blank"><%=@message.survey_link%></a>
         <% end %>
 
       </div>
@@ -90,7 +96,7 @@
         <div class="field col-md-6">
           <%= form.label :up, class: 'sr-only' %>
           <%= form.hidden_field :up, value: 1 %>
-          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @up_likes %>
+          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon", value: @up_likes %>
         </div>
       <% end %>
 
@@ -98,7 +104,7 @@
         <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
           <%= form.hidden_field :down, value: 1 %>
-          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon fh5co-btn-icon", value: @down_likes %>
+          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon", value: @down_likes %>
         </div>
       <% end %>
 

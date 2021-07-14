@@ -136,6 +136,7 @@ class MessagesController < ApplicationController
                                       :hmn_content,
                                       :hmn_action_item,
                                       :external_links,
+                                      :survey_link,
                                       images: [],
                                       vi_images: [],
                                       zh_tw_images: [],

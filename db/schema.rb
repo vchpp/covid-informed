@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_185736) do
+ActiveRecord::Schema.define(version: 2021_07_14_200306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,38 @@ ActiveRecord::Schema.define(version: 2021_07_13_185736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["message_id"], name: "index_comments_on_message_id"
+  end
+
+  create_table "externals", force: :cascade do |t|
+    t.string "en_title"
+    t.string "en_source"
+    t.string "en_content"
+    t.string "en_external_link"
+    t.string "en_notes"
+    t.string "zh_tw_title"
+    t.string "zh_tw_source"
+    t.string "zh_tw_content"
+    t.string "zh_tw_external_link"
+    t.string "zh_tw_notes"
+    t.string "zh_cn_title"
+    t.string "zh_cn_source"
+    t.string "zh_cn_content"
+    t.string "zh_cn_external_link"
+    t.string "zh_cn_notes"
+    t.string "vi_title"
+    t.string "vi_source"
+    t.string "vi_content"
+    t.string "vi_external_link"
+    t.string "vi_notes"
+    t.string "hmn_title"
+    t.string "hmn_source"
+    t.string "hmn_content"
+    t.string "hmn_external_link"
+    t.string "hmn_notes"
+    t.string "languages", default: [], array: true
+    t.date "last_version_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "faqs", force: :cascade do |t|
@@ -116,6 +148,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_185736) do
     t.string "hmn_action_item"
     t.string "external_links", default: [], array: true
     t.string "slug"
+    t.string "survey_link"
     t.index ["slug"], name: "index_messages_on_slug", unique: true
   end
 

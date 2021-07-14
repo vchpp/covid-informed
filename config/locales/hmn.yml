@@ -8,7 +8,8 @@ hmn:
     messages: "lus"
     resources: "cov khoom siv"
     faqs: "FAQs"
-    all: "All"
+    statistics: "Statistics"
+    external: "External"
   about:
     research_team: "kev tshawb fawb pab neeg"
     research_team_titles:
@@ -29,6 +30,7 @@ hmn:
     back: "rov qab"
     show:
       action_item_more_info: "Yog xav paub ntxiv koj tuaj yeem tuaj xyuas:"
+      survey_link: "To take our survey, please visit:"
   resources:
     resources: "cov khoom siv"
   activerecord:

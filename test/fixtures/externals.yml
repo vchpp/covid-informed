@@ -1,0 +1,59 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_title: MyString
+  en_source: MyString
+  en_content: MyString
+  en_external_link: MyString
+  en_notes: MyString
+  zh_tw_title: MyString
+  zh_tw_source: MyString
+  zh_tw_content: MyString
+  zh_tw_external_link: MyString
+  zh_tw_notes: MyString
+  zh_cn_title: MyString
+  zh_cn: 
+  zh_cn_content: MyString
+  zh_cn_external_link: MyString
+  zh_cn_notes: MyString
+  vi_title: MyString
+  vi_source: MyString
+  vi_content: MyString
+  vi_external_link: MyString
+  vi_notes: MyString
+  hmn_title: MyString
+  hmn_source: MyString
+  hmn_content: MyString
+  hmn_external_link: MyString
+  hmn_notes: MyString
+  languages: MyString
+  last_version_date: 2021-07-14
+
+two:
+  en_title: MyString
+  en_source: MyString
+  en_content: MyString
+  en_external_link: MyString
+  en_notes: MyString
+  zh_tw_title: MyString
+  zh_tw_source: MyString
+  zh_tw_content: MyString
+  zh_tw_external_link: MyString
+  zh_tw_notes: MyString
+  zh_cn_title: MyString
+  zh_cn: 
+  zh_cn_content: MyString
+  zh_cn_external_link: MyString
+  zh_cn_notes: MyString
+  vi_title: MyString
+  vi_source: MyString
+  vi_content: MyString
+  vi_external_link: MyString
+  vi_notes: MyString
+  hmn_title: MyString
+  hmn_source: MyString
+  hmn_content: MyString
+  hmn_external_link: MyString
+  hmn_notes: MyString
+  languages: MyString
+  last_version_date: 2021-07-14
