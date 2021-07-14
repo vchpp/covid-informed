@@ -73,6 +73,6 @@ function downLike(){
 function submit_categories(){
   $('select').change(function(){
     console.log("select form")
-    $(this.form).submit();
+    $('#category').submit();
   });
 }
