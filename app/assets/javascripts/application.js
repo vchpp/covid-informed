@@ -18,15 +18,14 @@
 //= require fastclick
 //= require custom
 //= require main
-
-$(document).on('turbolinks:load', function(){
+window.addEventListener("load", () => {
   eventListeners();
 });
 
 function eventListeners(){
-  upLike();
-  downLike();
-  expand();
+  // upLike();
+  // downLike();
+  submit_categories();
 }
 
 // upLike a message
@@ -71,6 +70,9 @@ function downLike(){
  })
 };
 
-function expand(){
-  $('.expand').autoGrow();
-};
+function submit_categories(){
+  $('select').change(function(){
+    console.log("select form")
+    $(this.form).submit();
+  });
+}

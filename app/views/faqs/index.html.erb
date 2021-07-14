@@ -11,13 +11,16 @@
 			<div class="col-md-8 col-md-offset-2">
         <div class="col-md-12">
           <div class="form-group">
-            <label for="gender" class="sr-only">Category</label>
-            <select class="form-control input-lg" id="gender">
-              <option>All</option>
-              <% @faq_categories.each do |faq| %>
-                <option><%= faq %></option>
-              <% end %>
-            </select>
+            <label for="faq" class="sr-only">Category</label>
+            <form id="category" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+              <select class="form-control input-lg" name="category" >
+                <option>-- Category --</option>
+                <option>All</option>
+                <% @faq_categories.each do |faq| %>
+                  <option><%= faq %></option>
+                <% end %>
+              </select>
+            </form>
           </div>
         </div>
       </div>

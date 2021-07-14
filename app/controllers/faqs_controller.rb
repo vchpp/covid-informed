@@ -3,12 +3,9 @@ class FaqsController < ApplicationController
   before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   # GET /faqs or /faqs.json
   def index
-    @faqs = Faq.all
-    @faq_categories = []
-    Faq.all.each do |faq|
-      @faq_categories << faq.category
-    end
-    @faq_categories = @faq_categories.uniq
+    @faqs = Faq.where(nil) # creates an anonymous scope
+    set_faq_categories
+    @faqs = @faqs.filter_by_category(params[:category]) if (params[:category].present? && params[:category] != "All")
   end
 
   # GET /faqs/1 or /faqs/1.json
@@ -65,6 +62,14 @@ class FaqsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_faq
       @faq = Faq.friendly.find(params[:id])
+    end
+
+    def set_faq_categories
+      @faq_categories = []
+      @faqs.each do |faq|
+        @faq_categories << faq.category
+      end
+      @faq_categories = @faq_categories.uniq
     end
 
     # Only allow a list of trusted parameters through.
