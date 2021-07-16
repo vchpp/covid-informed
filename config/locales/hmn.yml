@@ -33,12 +33,15 @@ hmn:
       survey_link: "To take our survey, please visit:"
   resources:
     resources: "cov khoom siv"
+  faqs:
+    faq: "Frequently Asked Questions"
   activerecord:
     models:
       message:
         one: 'Xov'
         other: 'Lus'
       comment: 'Tswv yim'
+      faq: "Frequently Asked Questions"
     attributes:
       message:
         name: 'Npe'

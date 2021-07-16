@@ -5,6 +5,7 @@ class FaqsController < ApplicationController
   def index
     @faqs = Faq.where(nil) # creates an anonymous scope
     set_faq_categories
+    @faqs = @faqs.filter_by_search(params[:search]) if (params[:search].present?)
     @faqs = @faqs.filter_by_category(params[:category]) if (params[:category].present? && params[:category] != "All")
   end
 
@@ -74,6 +75,6 @@ class FaqsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def faq_params
-      params.require(:faq).permit(:en_question, :en_answer, :zh_tw_question, :zh_tw_answer, :zh_cn_question, :zh_cn_answer, :hmn_question, :hmn_answer, :vi_question, :vi_answer, :category)
+      params.require(:faq).permit(:en_question, :en_answer, :zh_tw_question, :zh_tw_answer, :zh_cn_question, :zh_cn_answer, :hmn_question, :hmn_answer, :vi_question, :vi_answer, :category, :search)
     end
 end

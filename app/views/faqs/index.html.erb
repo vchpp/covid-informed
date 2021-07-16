@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
 
 <section>
   <div class="container">
     <div class="row">
+      <div class="col-md-12">
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('faqs.faq') %></h2>
+      </div>
+
+      <p id="notice"><%= notice %></p>
 
       <div class="col-md-12">
         <div class="fh5co-spacer fh5co-spacer-md"></div>
@@ -11,15 +15,31 @@
 			<div class="col-md-8 col-md-offset-2">
         <div class="col-md-12">
           <div class="form-group">
-            <label for="faq" class="sr-only">Category</label>
+            <label for="faq" class="sr-only">Filter by Category</label>
             <form id="category" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
               <select class="form-control input-lg" name="category" >
-                <option>-- Category --</option>
+                <option>-- Filter By Category --</option>
                 <option>All</option>
                 <% @faq_categories.each do |faq| %>
                   <option><%= faq %></option>
                 <% end %>
               </select>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <h2 class="fh5co-uppercase-heading-sm text-center">or</h2>
+      </div>
+
+			<div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="faq" class="sr-only">Search</label>
+            <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search">
+              <input class="form-control btn btn-primary" type="submit" value="Submit">
             </form>
           </div>
         </div>
