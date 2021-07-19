@@ -98,101 +98,32 @@
       <h2 class="fh5co-uppercase-heading-lg text-center">INFORMED <%= t('about.research_team') %></h2>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
 
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Nancy Burke</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC Merced, UC San Francisco</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.executive_director')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Joyce Cheng</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">Chinese Community Health Resource Center</p>
-      </div>
+      <% @researchers.each do |r| %>
+      <a href="<%= profile_path(r) %>">
+        <div class="col-md-3 col-sm-6 fh5co-feature-item">
+          <span class="fh5co-feature-icon"><%= image_tag r.headshot.variant(resize_to_limit: [250, 250]), class: "img-responsive"%></span>
+          <p class="text-center fh5co-feature-description">
+            <%= r.en_project_title if params[:locale] == 'en'%>
+            <%= r.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+            <%= r.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+            <%= r.vi_project_title if params[:locale] == 'vi'%>
+            <%= r.hmn_project_title if params[:locale] == 'hmn'%>
+          </p>
+          <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= r.firstname%> <%= r.lastname %></h3>
+          <p class="text-center fh5co-feature-description text-uppercase">
+            <%= r.en_affiliation if params[:locale] == 'en' %>
+            <%= r.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+            <%= r.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+            <%= r.vi_affiliation if params[:locale] == 'vi' %>
+            <%= r.hmn_affiliation if params[:locale] == 'hmn' %>
+          </p>
+        </div>
+      </a>
+      <% end %>
 
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.student_intern')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Rianna Garcia</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">San Jose State</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Minji Kim</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
     </div>
     <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
-    <div class="row fh5co-feature-2">
 
-      <div class="fh5co-spacer fh5co-spacer-md"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.student_intern')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Nikita Madan</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">San Jose State</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Tung Nguyen</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Susan Stewart</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC Davis</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.principal_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Janice Y. Tsoh</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-    </div>
-    <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
-    <div class="row fh5co-feature-2">
-
-      <div class="fh5co-spacer fh5co-spacer-md"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.research_staff')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Ching Wong</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Alan Wu</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.community_coordinator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Kara Young</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">Chinese Community Health Resource Center</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.study_coordinator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Edgar Yu</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-    </div>
-    <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
 
   </div>
 </section>

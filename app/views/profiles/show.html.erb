@@ -1,9 +1,3 @@
-
-<p>
-  <strong>Firstname:</strong>
-  <%= @profile.firstname %>
-</p>
-
 <section>
   <div class="container">
     <p id="notice"><%= notice %></p>
@@ -11,18 +5,13 @@
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-lg text-center"><%=@profile.firstname%> <%= @profile.lastname%></h2>
 
-        <% case %>
-          <%  when params[:locale] == "en" %>
-            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.en_project_title %></h2>
-          <%  when params[:locale] == "zh_TW" %>
-            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.zh_tw_project_title %></h2>
-          <%  when params[:locale] == "zh_CN" %>
-            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.zh_cn_project_title %></h2>
-          <%  when params[:locale] == "vi" %>
-            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.vi_project_title %></h2>
-          <%  when params[:locale] == "hmn" %>
-            <h2 class="fh5co-uppercase-heading-md text-center"><%=@profile.hmn_project_title %></h2>
-        <% end %>
+        <h2 class="fh5co-uppercase-heading-md text-center">
+          <%=@profile.en_project_title if params[:locale] == "en"%>
+          <%=@profile.zh_tw_project_title if params[:locale] == "zh_TW"%>
+          <%=@profile.zh_cn_project_title if params[:locale] == "zh_CN" %>
+          <%=@profile.vi_project_title if params[:locale] == "vi"%>
+          <%=@profile.hmn_project_title if params[:locale] == "hmn"%>
+        </h2>
 
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
       </div>
@@ -33,18 +22,13 @@
           <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
         <% end %>
 
-        <% case %>
-          <%  when params[:locale] == "en" %>
-            <p style="font-size:22px"><%= @profile.en_bio%> </p>
-          <%  when params[:locale] == "zh_TW" %>
-            <p style="font-size:22px"><%= @profile.zh_tw_bio%> </p>
-          <%  when params[:locale] == "zh_CN" %>
-            <p style="font-size:22px"><%= @profile.zh_cn_bio%> </p>
-          <%  when params[:locale] == "vi" %>
-            <p style="font-size:22px"><%= @profile.vi_bio%> </p>
-          <%  when params[:locale] == "hmn" %>
-            <p style="font-size:22px"><%= @profile.hmn_bio%> </p>
-        <% end %>
+        <p style="font-size:22px">
+          <%= @profile.en_bio if params[:locale] == "en" %>
+          <%= @profile.zh_tw_bio if params[:locale] == "zh_TW" %>
+          <%= @profile.zh_cn_bio if params[:locale] == "zh_CN" %>
+          <%= @profile.vi_bio if params[:locale] == "vi" %>
+          <%= @profile.hmn_bio if params[:locale] == "hmn" %>
+        </p>
 
         <% @profile.external_links.each do |l| %>
           <ul><%= link_to l, l, target: "_blank" %></ul>
