@@ -11,8 +11,8 @@
       <div class="col-md-12">
         <div class="fh5co-spacer fh5co-spacer-md"></div>
       </div>
-
-			<div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
+			<div class="col-md-5">
         <div class="col-md-12">
           <div class="form-group">
             <label for="faq" class="sr-only">Filter by Category</label>
@@ -29,30 +29,36 @@
         </div>
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-2">
         <h2 class="fh5co-uppercase-heading-sm text-center">or</h2>
       </div>
 
-			<div class="col-md-8 col-md-offset-2">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="faq" class="sr-only">Search</label>
-            <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
-              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search">
-              <input class="form-control btn btn-primary" type="submit" value="Submit">
-            </form>
+			<div class="col-md-5">
+        <label for="faq" class="sr-only">Search</label>
+        <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+          <div class="col-md-8 form-group">
+            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for questions">
           </div>
-        </div>
+          <div class="col-md-4 form-group">
+            <input class="form-control btn btn-primary" type="submit" value="Submit">
+          </div>
+        </form>
       </div>
-      <div class="col-md-12">
-        <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+    </div>
 
-        <% @faqs.each do |faq| %>
-          <div class="panel panel-default ">
+    <div class="col-md-12">
+      <div class="panel<%  %>group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+        <div class="panel panel-default ">
+          <% @faqs.each do |faq| %>
             <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
               <h4 class="panel-title">
                 <a class="accordion-toggle">
-                  <%= faq.en_question %>
+                  <%= faq.en_question if params[:locale] == 'en' %>
+                  <%= faq.zh_cn_question if params[:locale] == 'zh_CN' %>
+                  <%= faq.zh_tw_question if params[:locale] == 'zh_TW' %>
+                  <%= faq.vi_question if params[:locale] == 'vi' %>
+                  <%= faq.hmn_question if params[:locale] == 'hmn' %>
                 </a>
                 <span style="float:right;padding-right: 40px">
                   <% if current_user.try(:admin?) %>
@@ -66,8 +72,15 @@
             </div>
             <div id="collapse<%=faq.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=faq.id%>">
               <div class="panel-body">
-                <%= faq.en_answer %>
+                <%= faq.en_answer if params[:locale] == 'en' %>
+                <%= faq.zh_cn_answer if params[:locale] == 'zh_CN' %>
+                <%= faq.zh_tw_answer if params[:locale] == 'zh_TW' %>
+                <%= faq.vi_answer if params[:locale] == 'vi' %>
+                <%= faq.hmn_answer if params[:locale] == 'hmn' %>
+              </div>
             </div>
-          </div>
 
-        <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
