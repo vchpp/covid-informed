@@ -33,12 +33,15 @@ vi:
       survey_link: "To take our survey, please visit:"
   resources:
     resources:  "tài nguyên"
+  faqs:
+    faq: "Frequently Asked Questions"
   activerecord:
     models:
       message:
         one: 'Thông điệp'
         other: 'Tin nhắn'
       comment: 'Bình luận'
+      faq: "Frequently Asked Questions"
     attributes:
       message:
         name: 'Tên'

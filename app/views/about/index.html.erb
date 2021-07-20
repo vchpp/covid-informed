@@ -38,22 +38,6 @@
 </section>
 
 
-<!-- <section>
-  <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4 text-center">
-      <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-      <a href="#" class="btn btn-primary btn-lg btn-block">Join the Study</a>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
-  <div class="fh5co-spacer fh5co-spacer-md"></div>
-</div>
-</section> -->
-
 <div class="fh5co-spacer fh5co-spacer-md"></div>
 
 <section id="fh5co-feature-slider">
@@ -109,106 +93,103 @@
 <!-- RESEARCH TEAM -->
 <section id="fh5co-feature">
   <div class="container">
-    <div class="row fh5co-feature-2">
 
       <h2 class="fh5co-uppercase-heading-lg text-center">INFORMED <%= t('about.research_team') %></h2>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
 
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Nancy Burke</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC Merced, UC San Francisco</p>
+      <% @researchers.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
+      <div class="row fh5co-feature-2">
+        <a href="<%= profile_path(item1) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item1.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item1.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item1.en_project_title if params[:locale] == 'en'%>
+              <%= item1.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item1.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item1.vi_project_title if params[:locale] == 'vi'%>
+              <%= item1.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.firstname%> <%= item1.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item1.en_affiliation if params[:locale] == 'en' %>
+              <%= item1.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item1.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item1.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item1.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% if item2 %>
+        <a href="<%= profile_path(item2) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item2.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item2.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item2.en_project_title if params[:locale] == 'en'%>
+              <%= item2.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item2.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item2.vi_project_title if params[:locale] == 'vi'%>
+              <%= item2.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.firstname%> <%= item2.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item2.en_affiliation if params[:locale] == 'en' %>
+              <%= item2.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item2.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item2.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item2.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
+        <% if item3 %>
+        <a href="<%= profile_path(item3) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item3.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item3.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item3.en_project_title if params[:locale] == 'en'%>
+              <%= item3.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item3.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item3.vi_project_title if params[:locale] == 'vi'%>
+              <%= item3.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item3.firstname%> <%= item3.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item3.en_affiliation if params[:locale] == 'en' %>
+              <%= item3.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item3.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item3.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item3.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
+        <% if item4 %>
+        <a href="<%= profile_path(item4) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item4.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item4.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item4.en_project_title if params[:locale] == 'en'%>
+              <%= item4.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item4.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item4.vi_project_title if params[:locale] == 'vi'%>
+              <%= item4.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item4.firstname%> <%= item4.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item4.en_affiliation if params[:locale] == 'en' %>
+              <%= item4.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item4.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item4.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item4.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
       </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.executive_director')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Joyce Cheng</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">Chinese Community Health Resource Center</p>
-      </div>
+      <% end %>
 
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.student_intern')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Rianna Garcia</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">San Jose State</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Minji Kim</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-    </div>
     <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
-    <div class="row fh5co-feature-2">
 
-      <div class="fh5co-spacer fh5co-spacer-md"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.student_intern')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Nikita Madan</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">San Jose State</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Tung Nguyen</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Susan Stewart</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC Davis</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.principal_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Janice Y. Tsoh</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-    </div>
-    <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
-    <div class="row fh5co-feature-2">
-
-      <div class="fh5co-spacer fh5co-spacer-md"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.research_staff')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Ching Wong</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.co_investigator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Alan Wu</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.community_coordinator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Kara Young</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">Chinese Community Health Resource Center</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <p class="text-center fh5co-feature-description"><%= t('about.research_team_titles.study_coordinator')%></p>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Edgar Yu</h3>
-        <p class="text-center fh5co-feature-description text-uppercase">UC San Francisco</p>
-      </div>
-    </div>
-    <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
 
   </div>
 </section>
@@ -218,66 +199,102 @@
 <!-- CAB MEMBERS -->
 <section>
   <div class="container">
-    <div class="row fh5co-feature-2">
-
+    <div class="fh5co-feature-2">
       <h2 class="fh5co-uppercase-heading-lg text-center">INFORMED <%= t('about.cab_members') %></h2>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
 
 
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Christy Calhoun</h3>
-        <p class="text-center fh5co-feature-description">Healthwise</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Eunice Cheng</h3>
-        <p class="text-center fh5co-feature-description">Asian Americans for Community Involvement</p>
-      </div>
 
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Mina Li</h3>
-        <p class="text-center fh5co-feature-description">KTSF Channel 26</p>
+      <% @cab_members.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
+      <div class="row">
+        <a href="<%= profile_path(item1) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item1.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item1.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item1.en_project_title if params[:locale] == 'en'%>
+              <%= item1.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item1.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item1.vi_project_title if params[:locale] == 'vi'%>
+              <%= item1.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.firstname%> <%= item1.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item1.en_affiliation if params[:locale] == 'en' %>
+              <%= item1.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item1.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item1.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item1.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% if item2 %>
+        <a href="<%= profile_path(item2) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item2.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item2.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item2.en_project_title if params[:locale] == 'en'%>
+              <%= item2.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item2.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item2.vi_project_title if params[:locale] == 'vi'%>
+              <%= item2.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.firstname%> <%= item2.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item2.en_affiliation if params[:locale] == 'en' %>
+              <%= item2.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item2.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item2.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item2.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
+        <% if item3 %>
+        <a href="<%= profile_path(item3) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item3.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item3.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item3.en_project_title if params[:locale] == 'en'%>
+              <%= item3.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item3.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item3.vi_project_title if params[:locale] == 'vi'%>
+              <%= item3.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item3.firstname%> <%= item3.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item3.en_affiliation if params[:locale] == 'en' %>
+              <%= item3.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item3.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item3.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item3.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
+        <% if item4 %>
+        <a href="<%= profile_path(item4) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <span class="fh5co-feature-icon"><%= image_tag item4.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item4.headshot.attached?%></span>
+            <p class="text-center fh5co-feature-description">
+              <%= item4.en_project_title if params[:locale] == 'en'%>
+              <%= item4.zh_cn_project_title if params[:locale] == 'zh_CN'%>
+              <%= item4.zh_tw_project_title if params[:locale] == 'zh_TW'%>
+              <%= item4.vi_project_title if params[:locale] == 'vi'%>
+              <%= item4.hmn_project_title if params[:locale] == 'hmn'%>
+            </p>
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item4.firstname%> <%= item4.lastname %></h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item4.en_affiliation if params[:locale] == 'en' %>
+              <%= item4.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
+              <%= item4.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
+              <%= item4.vi_affiliation if params[:locale] == 'vi' %>
+              <%= item4.hmn_affiliation if params[:locale] == 'hmn' %>
+            </p>
+          </div>
+        </a>
+        <% end %>
       </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Haley Mullins</h3>
-        <p class="text-center fh5co-feature-description">Healthwise</p>
-      </div>
-    </div>
-
-    <!-- <div class="fh5co-spacer fh5co-spacer-md"></div> -->
-
-    <div class="row fh5co-feature-2">
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Fiona Ng</h3>
-        <p class="text-center fh5co-feature-description">UC San Francisco</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Tony Nguyen</h3>
-        <p class="text-center fh5co-feature-description">Californai Healthy Nail Salon Collaborative</p>
-      </div>
-
-      <div class="clearfix visible-sm-block"></div>
-
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Marta Sylvia</h3>
-        <p class="text-center fh5co-feature-description">Healthwise</p>
-      </div>
-      <div class="col-md-3 col-sm-6 fh5co-feature-item">
-        <span class="fh5co-feature-icon"><i class="ti-user"></i></span>
-        <h3 class="text-center fh5co-feature-title h4 text-uppercase">Jennifer Xiong</h3>
-        <p class="text-center fh5co-feature-description">Hlub Hmong Center</p>
-      </div>
-
-      <div class="fh5co-spacer fh5co-spacer-md"></div>
+      <% end %>
 <!--
       <section>
         <div class="container">

@@ -7,4 +7,5 @@ class Faq < ApplicationRecord
   extend FriendlyId
   friendly_id :en_question, use: :slugged
   scope :filter_by_category, -> (category) { where category: category }
+  scope :filter_by_search, -> (search) { where("category like ?", "#{search}%") }
 end

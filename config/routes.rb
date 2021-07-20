@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: redirect("/#{I18n.locale}"), as: :redirected_root
   scope "(:locale)", locale: /en|zh_CN|zh_TW|hmn|vi/ do
     resources :profiles
     resources :messages do

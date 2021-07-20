@@ -36,12 +36,15 @@ zh_CN:
       survey_link: "To take our survey, please visit:"
   resources:
     resources: "资源"
+  faqs:
+    faq: "Frequently Asked Questions"
   activerecord:
     models:
       message:
         one: '信息'
         other: '留言内容'
       comment: '评论'
+      faq: "Frequently Asked Questions"
     attributes:
       message:
         name: '姓名'
