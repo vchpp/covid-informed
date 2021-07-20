@@ -8,6 +8,12 @@
 
       <p id="notice"><%= notice %></p>
 
+      <% if current_user.try(:admin?) %>
+        <div class="col-md-4 col-md-offset-4">
+          <%= link_to 'Create A New Faq', new_faq_path, class: "form-control btn btn-primary" %>
+        </div>
+      <% end %>
+
       <div class="col-md-12">
         <div class="fh5co-spacer fh5co-spacer-md"></div>
       </div>
@@ -62,7 +68,6 @@
                 </a>
                 <span style="float:right;padding-right: 40px">
                   <% if current_user.try(:admin?) %>
-                    <%= link_to 'New Faq', new_faq_path %> /
                     <%= link_to 'Show', faq %> /
                     <%= link_to 'Edit', edit_faq_path(faq) %> /
                     <%= link_to 'Delete', faq, method: :delete, data: { confirm: 'Are you sure?' } %>
