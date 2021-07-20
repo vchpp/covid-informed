@@ -119,6 +119,7 @@
             </p>
           </div>
         </a>
+        <% if item2 %>
         <a href="<%= profile_path(item2) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item2.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item2.headshot.attached?%></span>
@@ -139,6 +140,8 @@
             </p>
           </div>
         </a>
+        <% end %>
+        <% if item3 %>
         <a href="<%= profile_path(item3) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item3.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item3.headshot.attached?%></span>
@@ -159,6 +162,8 @@
             </p>
           </div>
         </a>
+        <% end %>
+        <% if item4 %>
         <a href="<%= profile_path(item4) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item4.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item4.headshot.attached?%></span>
@@ -179,6 +184,7 @@
             </p>
           </div>
         </a>
+        <% end %>
       </div>
       <% end %>
 
@@ -221,6 +227,7 @@
             </p>
           </div>
         </a>
+        <% if item2 %>
         <a href="<%= profile_path(item2) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item2.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item2.headshot.attached?%></span>
@@ -241,6 +248,8 @@
             </p>
           </div>
         </a>
+        <% end %>
+        <% if item3 %>
         <a href="<%= profile_path(item3) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item3.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item3.headshot.attached?%></span>
@@ -261,6 +270,8 @@
             </p>
           </div>
         </a>
+        <% end %>
+        <% if item4 %>
         <a href="<%= profile_path(item4) %>">
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item4.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item4.headshot.attached?%></span>
@@ -281,6 +292,7 @@
             </p>
           </div>
         </a>
+        <% end %>
       </div>
       <% end %>
 <!--
