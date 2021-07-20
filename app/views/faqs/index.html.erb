@@ -43,7 +43,7 @@
         <label for="faq" class="sr-only">Search</label>
         <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-8 form-group">
-            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for questions"> 
+            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for questions">
           </div>
           <div class="col-md-4 form-group">
             <input class="form-control btn btn-primary" type="submit" value="Search">
@@ -55,8 +55,8 @@
     <div class="col-md-12">
       <div class="panel<%  %>group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
-        <div class="panel panel-default ">
-          <% @faqs.each do |faq| %>
+        <% @faqs.each do |faq| %>
+          <div class="panel panel-default ">
             <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
               <h4 class="panel-title">
                 <a class="accordion-toggle">
@@ -85,7 +85,7 @@
               </div>
             </div>
 
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>

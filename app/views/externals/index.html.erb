@@ -1,79 +1,130 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Externals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>En title</th>
-      <th>En source</th>
-      <th>En content</th>
-      <th>En external link</th>
-      <th>En notes</th>
-      <th>Zh tw title</th>
-      <th>Zh tw source</th>
-      <th>Zh tw content</th>
-      <th>Zh tw external link</th>
-      <th>Zh tw notes</th>
-      <th>Zh cn title</th>
-      <th>Zh cn</th>
-      <th>Zh cn content</th>
-      <th>Zh cn external link</th>
-      <th>Zh cn notes</th>
-      <th>Vi title</th>
-      <th>Vi source</th>
-      <th>Vi content</th>
-      <th>Vi external link</th>
-      <th>Vi notes</th>
-      <th>Hmn title</th>
-      <th>Hmn source</th>
-      <th>Hmn content</th>
-      <th>Hmn external link</th>
-      <th>Hmn notes</th>
-      <th>Languages</th>
-      <th>Last version date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- RESEARCH TEAM -->
+<section id="fh5co-feature">
+  <div class="container">
 
-  <tbody>
-    <% @externals.each do |external| %>
-      <tr>
-        <td><%= external.en_title %></td>
-        <td><%= external.en_source %></td>
-        <td><%= external.en_content %></td>
-        <td><%= external.en_external_link %></td>
-        <td><%= external.en_notes %></td>
-        <td><%= external.zh_tw_title %></td>
-        <td><%= external.zh_tw_source %></td>
-        <td><%= external.zh_tw_content %></td>
-        <td><%= external.zh_tw_external_link %></td>
-        <td><%= external.zh_tw_notes %></td>
-        <td><%= external.zh_cn_title %></td>
-        <td><%= external.zh_cn %></td>
-        <td><%= external.zh_cn_content %></td>
-        <td><%= external.zh_cn_external_link %></td>
-        <td><%= external.zh_cn_notes %></td>
-        <td><%= external.vi_title %></td>
-        <td><%= external.vi_source %></td>
-        <td><%= external.vi_content %></td>
-        <td><%= external.vi_external_link %></td>
-        <td><%= external.vi_notes %></td>
-        <td><%= external.hmn_title %></td>
-        <td><%= external.hmn_source %></td>
-        <td><%= external.hmn_content %></td>
-        <td><%= external.hmn_external_link %></td>
-        <td><%= external.hmn_notes %></td>
-        <td><%= external.languages %></td>
-        <td><%= external.last_version_date %></td>
-        <td><%= link_to 'Show', external %></td>
-        <td><%= link_to 'Edit', edit_external_path(external) %></td>
-        <td><%= link_to 'Destroy', external, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <h2 class="fh5co-uppercase-heading-lg text-center">External Resources</h2>
+      <p id="notice"><%= notice %></p>
+
+      <div class="col-md-8 col-md-offset-2">
+        <% if current_user.try(:admin?) %>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <div class="actions">
+            <%= link_to 'New External Resource', new_external_path, class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <% end %>
+      </div>
+
+      <% @externals.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
+      <div class="row fh5co-feature-2">
+        <% if item1 %>
+        <a href="<%= external_path(item1) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase">
+              <%= item1.en_title if params[:locale] == 'en' %>
+              <%= item1.zh_cn_title if params[:locale] == 'zh_CN' %>
+              <%= item1.zh_tw_title if params[:locale] == 'zh_TW' %>
+              <%= item1.vi_title if params[:locale] == 'vi' %>
+              <%= item1.hmn_title if params[:locale] == 'hmn' %>
+            </h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item1.en_source if params[:locale] == 'en' %>
+              <%= item1.zh_cn_source if params[:locale] == 'zh_CN' %>
+              <%= item1.zh_tw_source if params[:locale] == 'zh_TW' %>
+              <%= item1.vi_source if params[:locale] == 'vi' %>
+              <%= item1.hmn_source if params[:locale] == 'hmn' %>
+            </p>
+            <p class="text-center"><%= link_to 'View', item1, class: "btn btn-primary btn-sm" %></p>
+            <% if current_user.try(:admin?) %>
+              <p class="text-center"><%= link_to 'Edit this resource', edit_external_path(item1), class:"btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to 'Delete this resource', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+            <% end %>
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+          </div>
+        </a>
+        <% end %>
+        <% if item2 %>
+        <a href="<%= external_path(item2) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase">
+              <%= item2.en_title if params[:locale] == 'en' %>
+              <%= item2.zh_cn_title if params[:locale] == 'zh_CN' %>
+              <%= item2.zh_tw_title if params[:locale] == 'zh_TW' %>
+              <%= item2.vi_title if params[:locale] == 'vi' %>
+              <%= item2.hmn_title if params[:locale] == 'hmn' %>
+            </h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item2.en_source if params[:locale] == 'en' %>
+              <%= item2.zh_cn_source if params[:locale] == 'zh_CN' %>
+              <%= item2.zh_tw_source if params[:locale] == 'zh_TW' %>
+              <%= item2.vi_source if params[:locale] == 'vi' %>
+              <%= item2.hmn_source if params[:locale] == 'hmn' %>
+            </p>
+            <p class="text-center"><%= link_to 'View', item2, class: "btn btn-primary btn-sm" %></p>
+            <% if current_user.try(:admin?) %>
+              <p class="text-center"><%= link_to 'Edit this resource', edit_external_path(item2), class:"btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to 'Delete this resource', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+            <% end %>
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+          </div>
+        </a>
+        <% end %>
+        <% if item3 %>
+        <a href="<%= external_path(item3) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase">
+              <%= item3.en_title if params[:locale] == 'en' %>
+              <%= item3.zh_cn_title if params[:locale] == 'zh_CN' %>
+              <%= item3.zh_tw_title if params[:locale] == 'zh_TW' %>
+              <%= item3.vi_title if params[:locale] == 'vi' %>
+              <%= item3.hmn_title if params[:locale] == 'hmn' %>
+            </h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item3.en_source if params[:locale] == 'en' %>
+              <%= item3.zh_cn_source if params[:locale] == 'zh_CN' %>
+              <%= item3.zh_tw_source if params[:locale] == 'zh_TW' %>
+              <%= item3.vi_source if params[:locale] == 'vi' %>
+              <%= item3.hmn_source if params[:locale] == 'hmn' %>
+            </p>
+            <p class="text-center"><%= link_to 'View', item3, class: "btn btn-primary btn-sm" %></p>
+            <% if current_user.try(:admin?) %>
+              <p class="text-center"><%= link_to 'Edit this resource', edit_external_path(item3), class:"btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to 'Delete this resource', item3, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+            <% end %>
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+          </div>
+        </a>
+        <% end %>
+        <% if item4 %>
+        <a href="<%= external_path(item4) %>">
+          <div class="col-md-3 col-sm-6 fh5co-feature-item">
+            <h3 class="text-center fh5co-feature-title h4 text-uppercase">
+              <%= item4.en_title if params[:locale] == 'en' %>
+              <%= item4.zh_cn_title if params[:locale] == 'zh_CN' %>
+              <%= item4.zh_tw_title if params[:locale] == 'zh_TW' %>
+              <%= item4.vi_title if params[:locale] == 'vi' %>
+              <%= item4.hmn_title if params[:locale] == 'hmn' %>
+            </h3>
+            <p class="text-center fh5co-feature-description text-uppercase">
+              <%= item4.en_source if params[:locale] == 'en' %>
+              <%= item4.zh_cn_source if params[:locale] == 'zh_CN' %>
+              <%= item4.zh_tw_source if params[:locale] == 'zh_TW' %>
+              <%= item4.vi_source if params[:locale] == 'vi' %>
+              <%= item4.hmn_source if params[:locale] == 'hmn' %>
+            </p>
+            <p class="text-center"><%= link_to 'View', item4, class: "btn btn-primary btn-sm" %></p>
+            <% if current_user.try(:admin?) %>
+              <p class="text-center"><%= link_to 'Edit this resource', edit_external_path(item4), class:"btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to 'Delete this resource', item4, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+            <% end %>
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+          </div>
+        </a>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New External', new_external_path %>
+  </div>
+</section>
