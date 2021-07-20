@@ -1,72 +1,140 @@
-<%= form_with(model: faq) do |form| %>
-  <% if faq.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(faq.errors.count, "error") %> prohibited this faq from being saved:</h2>
+<div class="fh5co-spacer fh5co-spacer-lg"></div>
 
-      <ul>
-        <% faq.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<section>
+  <div class="container">
+    <div class="row">
+			<div class="col-md-8 col-md-offset-2">
+        <%= form_with(model: faq) do |form| %>
+          <% if faq.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(faq.errors.count, "error") %> prohibited this faq from being saved:</h2>
+
+              <ul>
+                <% faq.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div id="fh5co-tab-feature" class="fh5co-tab text-center">
+            <ul class="resp-tabs-list hor_1">
+              <li> English (en)</li>
+              <li> Chinese Traditional (zh_tw)</li>
+              <li> Chinese Simplified (zh_cn)</li>
+              <li> Hmong (hmn)</li>
+              <li> Vietnamese (vi)</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_question %>
+                      <%= form.text_area :en_question, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_answer %>
+                      <%= form.rich_text_area :en_answer %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_question %>
+                      <%= form.text_area :zh_tw_question, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_answer %>
+                      <%= form.rich_text_area :zh_tw_answer %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_question %>
+                      <%= form.text_area :zh_cn_question, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_answer %>
+                      <%= form.rich_text_area :zh_cn_answer %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_question %>
+                      <%= form.text_area :hmn_question, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_answer %>
+                      <%= form.rich_text_area :hmn_answer %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_question %>
+                      <%= form.text_area :vi_question, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_answer %>
+                      <%= form.rich_text_area :vi_answer %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :category %>
+                <%= form.text_field :category %>
+              </div>
+
+
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                <%= link_to 'Back', faqs_path, class: "btn btn-primary btn-lg btn-block" %>
+              </div>
+            </div>
+
+          </div>
+
         <% end %>
-      </ul>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :en_question %>
-    <%= form.text_area :en_question, size:'70x5', class: 'form-control input-lg' %>
   </div>
-
-  <div class="field">
-    <%= form.label :en_answer %>
-    <%= form.rich_text_area :en_answer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_tw_question %>
-    <%= form.text_area :zh_tw_question, size:'70x5', class: 'form-control input-lg' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_tw_answer %>
-    <%= form.rich_text_area :zh_tw_answer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_cn_question %>
-    <%= form.text_area :zh_cn_question, size:'70x5', class: 'form-control input-lg' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_cn_answer %>
-    <%= form.rich_text_area :zh_cn_answer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hmn_question %>
-    <%= form.text_area :hmn_question, size:'70x5', class: 'form-control input-lg' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hmn_answer %>
-    <%= form.rich_text_area :hmn_answer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vi_question %>
-    <%= form.text_area :vi_question, size:'70x5', class: 'form-control input-lg' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vi_answer %>
-    <%= form.rich_text_area :vi_answer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>
