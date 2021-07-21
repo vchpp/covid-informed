@@ -24,7 +24,7 @@
             <label for="faq" class="sr-only">Filter by Category</label>
             <form id="category" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
               <select class="form-control input-lg" name="category" >
-                <option>-- Filter By Category --</option>
+                <option>-- <%= t('faqs.filter') %> --</option>
                 <option>All</option>
                 <% @faq_categories.each do |faq| %>
                   <option><%= faq %></option>
@@ -36,22 +36,22 @@
 
 
       <div class="col-md-12">
-        <h2 class="fh5co-uppercase-heading-sm text-center">or</h2>
+        <h2 class="fh5co-uppercase-heading-sm text-center"><%= t('faqs.or') %></h2>
       </div>
 
 			<div class="col-md-12">
-        <label for="faq" class="sr-only">Search</label>
+        <label for="faq" class="sr-only"><%= t('faqs.search') %></label>
         <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-8 form-group">
-            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for questions">
+            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
           </div>
           <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="Search">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.search') %>">
           </div>
         </form>
         <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="Reset">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.reset')%>">
           </div>
         </form>
       </div>

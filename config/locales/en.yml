@@ -40,7 +40,7 @@ en:
     resources: "Resources"
     faqs: "FAQs"
     statistics: "Statistics"
-    external: "External"
+    external: "External Resources"
   about:
     research_team: "Research Team"
     research_team_titles:
@@ -67,8 +67,24 @@ en:
       survey_link: "To take our survey, please visit:"
   resources:
     resources: "Resources"
+    external:
+      source: "Source"
+      external_resources: "External Resources"
+      search_for_resources: "Search For Resources"
+      view: "View"
+      search: "Search"
+      reset: "Reset"
+      contents_of_resources: "Contents Of Resources"
+      notes: "Notes"
+      external_links: "External Links"
+      last_updated: "Last Updated"
   faqs:
     faq: "Frequently Asked Questions"
+    filter: "Filter By Category"
+    or: "or"
+    search_for_questions: "Search For Questions"
+    search: "Search"
+    reset: "Reset"
   activerecord:
     models:
       message:

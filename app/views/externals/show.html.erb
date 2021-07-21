@@ -31,7 +31,7 @@
 
           <li>
             <div class="fh5co-feature-blurb-text">
-              <h2 >Contents of Resources:</h2>
+              <h2 ><%= t('resources.external.contents_of_resources')%>:</h2>
               <p class="fh5co-feature-blurb-title">
                 <%= @external.en_content if params[:locale] == 'en'%>
                 <%= @external.zh_cn_content if params[:locale] == 'zh_CN'%>
@@ -45,7 +45,7 @@
 
           <li>
             <div class="fh5co-feature-blurb-text">
-              <h2 >Notes:</h2>
+              <h2 ><%= t('resources.external.notes')%>:</h2>
               <p class="fh5co-feature-blurb-title">
                 <%= @external.en_notes if params[:locale] == 'en'%>
                 <%= @external.zh_cn_notes if params[:locale] == 'zh_CN'%>
@@ -59,7 +59,7 @@
 
           <li>
             <div class="fh5co-feature-blurb-text">
-              <h2 >Links:</h2>
+              <h2 ><%= t('resources.external.external_links')%>:</h2>
               <p class="fh5co-feature-blurb-title">
                 <%= link_to @external.en_external_link, @external.en_external_link, target: "_blank" if params[:locale] == 'en' %>
                 <%= link_to @external.zh_tw_external_link, @external.zh_tw_external_link, target: "_blank" if params[:locale] == 'zh_TW' %>
@@ -73,7 +73,7 @@
 
           <li>
             <div class="fh5co-feature-blurb-text">
-              <h2 >Last updated:</h2>
+              <h2 ><%= t('resources.external.last_updated')%>:</h2>
               <p class="fh5co-feature-blurb-title"><%= @external.last_version_date %></p>
             </div>
           </li>

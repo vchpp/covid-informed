@@ -7,9 +7,9 @@ hmn:
     about: "hais txog"
     messages: "lus"
     resources: "cov khoom siv"
-    faqs: "FAQs"
-    statistics: "Statistics"
-    external: "External"
+    faqs: "Cov lus nug"
+    statistics: "Txheeb cais"
+    external: "Cov Kev Pab Sab Nraud"
   about:
     research_team: "kev tshawb fawb pab neeg"
     research_team_titles:
@@ -30,18 +30,34 @@ hmn:
     back: "rov qab"
     show:
       action_item_more_info: "Yog xav paub ntxiv koj tuaj yeem tuaj xyuas:"
-      survey_link: "To take our survey, please visit:"
+      survey_link: "Los ua peb daim ntawv ntsuam xyuas, thov tuaj xyuas:"
   resources:
     resources: "cov khoom siv"
+    external:
+      source: "Qhov chaw"
+      external_resources: "cov peev txheej sab nraud"
+      search_for_resources: "nrhiav cov khoom siv"
+      view: "saib"
+      search: "kev tshawb"
+      reset: "rov pib dua"
+      contents_of_resources: "cov ntsiab lus ntawm cov khoom siv"
+      notes: "sau ntawv"
+      external_links: "txuas sab nraud"
+      last_updated: "kawg hloov tshiab"
   faqs:
-    faq: "Frequently Asked Questions"
+    faq: "Cov Lus Nquag Nug"
+    filter: "lim raws qeb"
+    or: "lossis"
+    search_for_questions: "tshawb cov lus nug"
+    search: "kev tshawb"
+    reset: "rov pib dua"
   activerecord:
     models:
       message:
         one: 'Xov'
         other: 'Lus'
       comment: 'Tswv yim'
-      faq: "Frequently Asked Questions"
+      faq: "Cov Lus Nquag Nug"
     attributes:
       message:
         name: 'Npe'

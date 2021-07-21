@@ -4,7 +4,7 @@
 <section id="fh5co-feature">
   <div class="container">
 
-      <h2 class="fh5co-uppercase-heading-lg text-center">External Resources</h2>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.external_resources')%></h2>
       <p id="notice"><%= notice %></p>
 
       <div class="col-md-8 col-md-offset-2">
@@ -19,18 +19,18 @@
 
       <div class="col-md-10 col-md-offset-1">
         <div class="col-md-12">
-          <label for="faq" class="sr-only">Search</label>
+          <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
           <form id="search" method="GET" action="/<%=params[:locale]%>/resources/externals" >
             <div class="col-md-8 form-group">
-              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for resources">
+              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('resources.external.search_for_resources')%>">
             </div>
             <div class="col-md-2 form-group">
-              <input class="form-control btn btn-primary" type="submit" value="Search">
+              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.search')%>">
             </div>
           </form>
           <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/externals" >
             <div class="col-md-2 form-group">
-              <input class="form-control btn btn-primary" type="submit" value="Reset">
+              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.reset')%>">
             </div>
           </form>
         </div>
@@ -58,7 +58,7 @@
                 <li><%= item1.hmn_content if params[:locale] == 'hmn' %></li>
               </ul>
               <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-              <p class="text-center"><%= link_to 'View', item1, class: "btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to t('resources.external.view'), item1, class: "btn btn-primary btn-sm" %></p>
               <% if current_user.try(:admin?) %>
                 <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item1), class:"btn btn-primary btn-sm" %></p>
                 <p class="text-center"><%= link_to 'Delete resource', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
@@ -87,7 +87,7 @@
                 <li><%= item2.hmn_content if params[:locale] == 'hmn' %></li>
               </ul>
               <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-              <p class="text-center"><%= link_to 'View', item2, class: "btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to t('resources.external.view'), item2, class: "btn btn-primary btn-sm" %></p>
               <% if current_user.try(:admin?) %>
                 <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item2), class:"btn btn-primary btn-sm" %></p>
                 <p class="text-center"><%= link_to 'Delete resource', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
@@ -116,7 +116,7 @@
                 <li><%= item3.hmn_content if params[:locale] == 'hmn' %></li>
               </ul>
               <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-              <p class="text-center"><%= link_to 'View', item3, class: "btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to t('resources.external.view'), item3, class: "btn btn-primary btn-sm" %></p>
               <% if current_user.try(:admin?) %>
                 <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item3), class:"btn btn-primary btn-sm" %></p>
                 <p class="text-center"><%= link_to 'Delete resource', item3, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
@@ -145,7 +145,7 @@
                 <li><%= item4.hmn_content if params[:locale] == 'hmn' %></li>
               </ul>
               <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-              <p class="text-center"><%= link_to 'View', item4, class: "btn btn-primary btn-sm" %></p>
+              <p class="text-center"><%= link_to t('resources.external.view'), item4, class: "btn btn-primary btn-sm" %></p>
               <% if current_user.try(:admin?) %>
                 <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item4), class:"btn btn-primary btn-sm" %></p>
                 <p class="text-center"><%= link_to 'Delete resource', item4, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>

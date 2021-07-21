@@ -7,9 +7,9 @@ zh_TW:
     about: "關於"
     messages: "消息"
     resources: "資源"
-    faqs: "FAQs"
-    statistics: "Statistics"
-    external: "External"
+    faqs: "常見問題"
+    statistics: "統計數據"
+    external: "統計數據"
   about:
     research_team: "研究團隊"
     research_team_titles:
@@ -33,18 +33,34 @@ zh_TW:
     back: "背部"
     show:
       action_item_more_info: "有關更多信息，您可以訪問:"
-      survey_link: "To take our survey, please visit:"
+      survey_link: "要參加我們的調查，請訪問:"
   resources:
     resources: "資源"
+    external:
+      source: "來源"
+      external_resources: "外部資源"
+      search_for_resources: "尋找資源"
+      view: "看法"
+      search: "搜索"
+      reset: "重啟"
+      contents_of_resources: "資源內容"
+      notes: "筆記"
+      external_links: "外部鏈接"
+      last_updated: "最近更新時間"
   faqs:
-    faq: "Frequently Asked Questions"
+    faq: "經常問的問題"
+    filter: "按類別過濾"
+    or: "或者"
+    search_for_questions: "尋找問題"
+    search: "搜索"
+    reset: "重啟"
   activerecord:
     models:
       message:
         one: '信息'
         other: '留言內容'
       comment: '評論'
-      faq: "Frequently Asked Questions"
+      faq: "經常問的問題"
     attributes:
       message:
         name: '姓名'
