@@ -74,18 +74,11 @@ class MessagesController < ApplicationController
   def update
     authenticate_admin!
     @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
-    case
-      when params[:images].present?
-          @message.images.purge
-        when params[:zh_tw_images].present?
-          @message.zh_tw_images.purge
-        when params[:zh_cn_images].present?
-          @message.zh_cn_images.purge
-        when params[:vi_images].present?
-          @message.vi_images.purge
-        when params[:hmn_images].present?
-          @message.hmn_images.purge
-        end
+    @message.images.purge if params[:images].present?
+    @message.zh_tw_images.purge if params[:zh_tw_images].present?
+    @message.zh_cn_images.purge if params[:zh_cn_images].present?
+    @message.vi_images.purge if params[:vi_images].present?
+    @message.hmn_images.purge if params[:hmn_images].present?
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }

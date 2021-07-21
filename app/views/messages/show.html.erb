@@ -45,10 +45,10 @@
     <% end %>
 
 <% end %>
-<div class="fh5co-spacer fh5co-spacer-md"></div>
 
-<section>
+<section id="fh5co-feature">
   <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
     <div class="row">
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-sm text-center" id="notice"><%= notice %></h2>
@@ -85,7 +85,7 @@
     </div>
   </div>
 </section>
-
+<div class="fh5co-spacer fh5co-spacer-sm"></div>
 <!-- like buttons -->
 <section>
   <div class="container">
@@ -96,7 +96,7 @@
         <div class="field col-md-6">
           <%= form.label :up, class: 'sr-only' %>
           <%= form.hidden_field :up, value: 1 %>
-          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary fh5co-btn-icon", value: @up_likes %>
+          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary btn-lg fh5co-btn-icon", value: @up_likes %>
         </div>
       <% end %>
 
@@ -104,7 +104,7 @@
         <div class="field col-md-6">
           <%= form.label :down, class: 'sr-only' %>
           <%= form.hidden_field :down, value: 1 %>
-          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary fh5co-btn-icon", value: @down_likes %>
+          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary btn-lg fh5co-btn-icon", value: @down_likes %>
         </div>
       <% end %>
 

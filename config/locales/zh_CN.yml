@@ -7,9 +7,9 @@ zh_CN:
     about: "关于"
     messages: "消息"
     resources: "资源"
-    faqs: "FAQs"
-    statistics: "Statistics"
-    external: "External"
+    faqs: "常见问题"
+    statistics: "统计数据"
+    external: "外部资源"
   about:
     research_team: "研究团队"
     research_team_titles:
@@ -33,18 +33,34 @@ zh_CN:
     back: "背部"
     show:
       action_item_more_info: "有关更多信息，您可以访问:"
-      survey_link: "To take our survey, please visit:"
+      survey_link: "要参加我们的调查，请访问:"
   resources:
     resources: "资源"
+    external:
+      source: "来源"
+      external_resources: "外部资源"
+      search_for_resources: "寻找资源"
+      view: "看法"
+      search: "搜索"
+      reset: "重启"
+      contents_of_resources: "资源内容"
+      notes: "笔记"
+      external_links: "外部链接"
+      last_updated: "最近更新时间"
   faqs:
-    faq: "Frequently Asked Questions"
+    faq: "经常问的问题"
+    filter: "按类别过滤"
+    or: "或者"
+    search_for_questions: "寻找问题"
+    search: "搜索"
+    reset: "重启"
   activerecord:
     models:
       message:
         one: '信息'
         other: '留言内容'
       comment: '评论'
-      faq: "Frequently Asked Questions"
+      faq: "经常问的问题"
     attributes:
       message:
         name: '姓名'

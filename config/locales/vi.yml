@@ -7,9 +7,9 @@ vi:
     about: "trong khoảng"
     messages: "tin nhắn"
     resources: "tài nguyên"
-    faqs: "FAQs"
-    statistics: "Statistics"
-    external: "External"
+    faqs: "Câu hỏi thường gặp"
+    statistics: "Số liệu thống kê"
+    external: "Nguồn lực bên ngoài"
   about:
     research_team: "Nhóm nghiên cứu"
     research_team_titles:
@@ -30,18 +30,34 @@ vi:
     back: "trở lại"
     show:
       action_item_more_info: "Để biết thêm thông tin, bạn có thể truy cập:"
-      survey_link: "To take our survey, please visit:"
+      survey_link: "Để tham gia cuộc khảo sát của chúng tôi, vui lòng truy cập:"
   resources:
     resources:  "tài nguyên"
+    external:
+      source: "Nguồn"
+      external_resources: "nguồn lực bên ngoài"
+      search_for_resources: "tìm kiếm tài nguyên"
+      view: "lượt xem"
+      search: "Tìm kiếm"
+      reset: "cài lại"
+      contents_of_resources: "nội dung của tài nguyên"
+      notes: "ghi chú"
+      external_links: "liện kết ngoại"
+      last_updated: "Cập nhật mới nhất"
   faqs:
-    faq: "Frequently Asked Questions"
+    faq: "Các câu hỏi thường gặp"
+    filter: "lọc theo danh mục"
+    or: "hoặc là"
+    search_for_questions: "tìm kiếm câu hỏi"
+    search: "Tìm kiếm"
+    reset: "cài lại"
   activerecord:
     models:
       message:
         one: 'Thông điệp'
         other: 'Tin nhắn'
       comment: 'Bình luận'
-      faq: "Frequently Asked Questions"
+      faq: "Các câu hỏi thường gặp"
     attributes:
       message:
         name: 'Tên'

@@ -1319,6 +1319,7 @@ Components
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-heading {
   background: #28bbf8;
   color: #ffffff;
+  height: 150px;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-heading h3 {
   font-size: 70px;
@@ -1347,6 +1348,16 @@ Components
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body {
   border: 2px solid #ccc;
   border-top: none;
+  height: 250px;
+}
+.fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body p {
+  position: absolute;
+  bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body ul {
   padding: 0;
