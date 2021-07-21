@@ -1,9 +1,9 @@
-<div class="fh5co-spacer fh5co-spacer-lg"></div>
 
-<section>
+<section id="fh5co-feature">
   <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
     <div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-12">
         <%= form_with(model: external) do |form| %>
           <% if external.errors.any? %>
             <div id="error_explanation">
@@ -219,7 +219,7 @@
                   <div class="col-md-12">
                     <div class="field form-group">
                       <%= form.label :languages %>
-                      <%= form.text_area :languages, name: 'external[languages][]', size: '70x5', class: 'form-control input-lg', placeholder: "languages", value: form.object.languages.join("\n") %>
+                      <%= form.text_area :languages, name: 'external[languages][]', size: '70x5', class: 'form-control input-lg', placeholder: "languages - one per line", value: form.object.languages.join("\n") %>
                     </div>
                   </div>
 

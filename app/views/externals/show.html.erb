@@ -1,139 +1,101 @@
-<p id="notice"><%= notice %></p>
+<section id="fh5co-feature">
+  <div class="container">
 
-<p>
-  <strong>En title:</strong>
-  <%= @external.en_title %>
-</p>
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <div class="row fh5co-feature-1">
+      <div class="col-md-12">
+        <p id="notice" class="fh5co-uppercase-heading-sm text-center"><%= notice %></p>
+      </div>
 
-<p>
-  <strong>En source:</strong>
-  <%= @external.en_source %>
-</p>
+      <div class="col-md-8 col-md-offset-2 fh5co-feature-blurb">
+        <ul>
+          <li>
+            <div class="fh5co-feature-blurb-text">
+              <h2 >
+                <%= @external.en_title if params[:locale] == 'en'%>
+                <%= @external.zh_cn_title if params[:locale] == 'zh_CN'%>
+                <%= @external.zh_tw_title if params[:locale] == 'zh_TW'%>
+                <%= @external.vi_title if params[:locale] == 'vi'%>
+                <%= @external.hmn_title if params[:locale] == 'hmn'%>
+              </h2>
+              <p class="fh5co-feature-blurb-title"><%= t('resources.external.source') %>:
+                <%= @external.en_source if params[:locale] == 'en'%>
+                <%= @external.zh_cn_source if params[:locale] == 'zh_CN'%>
+                <%= @external.zh_tw_source if params[:locale] == 'zh_TW'%>
+                <%= @external.vi_source if params[:locale] == 'vi'%>
+                <%= @external.hmn_source if params[:locale] == 'hmn'%>
+              </p>
+            </div>
+          </li>
 
-<p>
-  <strong>En content:</strong>
-  <%= @external.en_content %>
-</p>
 
-<p>
-  <strong>En external link:</strong>
-  <%= @external.en_external_link %>
-</p>
+          <li>
+            <div class="fh5co-feature-blurb-text">
+              <h2 >Contents of Resources:</h2>
+              <p class="fh5co-feature-blurb-title">
+                <%= @external.en_content if params[:locale] == 'en'%>
+                <%= @external.zh_cn_content if params[:locale] == 'zh_CN'%>
+                <%= @external.zh_tw_content if params[:locale] == 'zh_TW'%>
+                <%= @external.vi_content if params[:locale] == 'vi'%>
+                <%= @external.hmn_content if params[:locale] == 'hmn'%>
+              </p>
+            </div>
+          </li>
 
-<p>
-  <strong>En notes:</strong>
-  <%= @external.en_notes %>
-</p>
 
-<p>
-  <strong>Zh tw title:</strong>
-  <%= @external.zh_tw_title %>
-</p>
+          <li>
+            <div class="fh5co-feature-blurb-text">
+              <h2 >Notes:</h2>
+              <p class="fh5co-feature-blurb-title">
+                <%= @external.en_notes if params[:locale] == 'en'%>
+                <%= @external.zh_cn_notes if params[:locale] == 'zh_CN'%>
+                <%= @external.zh_tw_notes if params[:locale] == 'zh_TW'%>
+                <%= @external.vi_notes if params[:locale] == 'vi'%>
+                <%= @external.hmn_notes if params[:locale] == 'hmn'%>
+              </p>
+            </div>
+          </li>
 
-<p>
-  <strong>Zh tw source:</strong>
-  <%= @external.zh_tw_source %>
-</p>
 
-<p>
-  <strong>Zh tw content:</strong>
-  <%= @external.zh_tw_content %>
-</p>
+          <li>
+            <div class="fh5co-feature-blurb-text">
+              <h2 >Links:</h2>
+              <p class="fh5co-feature-blurb-title">
+                <%= link_to @external.en_external_link, @external.en_external_link, target: "_blank" if params[:locale] == 'en' %>
+                <%= link_to @external.zh_tw_external_link, @external.zh_tw_external_link, target: "_blank" if params[:locale] == 'zh_TW' %>
+                <%= link_to @external.zh_cn_external_link, @external.zh_cn_external_link, target: "_blank" if params[:locale] == 'zh_CN' %>
+                <%= link_to @external.vi_external_link, @external.vi_external_link, target: "_blank" if params[:locale] == 'vi' %>
+                <%= link_to @external.hmn_external_link, @external.hmn_external_link, target: "_blank" if params[:locale] == 'hmn' %>
+              </p>
+            </div>
+          </li>
 
-<p>
-  <strong>Zh tw external link:</strong>
-  <%= @external.zh_tw_external_link %>
-</p>
 
-<p>
-  <strong>Zh tw notes:</strong>
-  <%= @external.zh_tw_notes %>
-</p>
+          <li>
+            <div class="fh5co-feature-blurb-text">
+              <h2 >Last updated:</h2>
+              <p class="fh5co-feature-blurb-title"><%= @external.last_version_date %></p>
+            </div>
+          </li>
 
-<p>
-  <strong>Zh cn title:</strong>
-  <%= @external.zh_cn_title %>
-</p>
+        </ul>
 
-<p>
-  <strong>Zh cn:</strong>
-  <%= @external.zh_cn_source %>
-</p>
+      <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      <div class="col-md-12">
+        <% if current_user.try(:admin?) %>
+        <div class="actions">
+          <%= link_to 'Edit External Resource', edit_external_path(@external), class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Zh cn content:</strong>
-  <%= @external.zh_cn_content %>
-</p>
+      <div class="col-md-12">
+        <div class="actions">
+          <%= link_to t('messages.back'), externals_path, class: "btn btn-outline btn-lg btn-block" %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Zh cn external link:</strong>
-  <%= @external.zh_cn_external_link %>
-</p>
-
-<p>
-  <strong>Zh cn notes:</strong>
-  <%= @external.zh_cn_notes %>
-</p>
-
-<p>
-  <strong>Vi title:</strong>
-  <%= @external.vi_title %>
-</p>
-
-<p>
-  <strong>Vi source:</strong>
-  <%= @external.vi_source %>
-</p>
-
-<p>
-  <strong>Vi content:</strong>
-  <%= @external.vi_content %>
-</p>
-
-<p>
-  <strong>Vi external link:</strong>
-  <%= @external.vi_external_link %>
-</p>
-
-<p>
-  <strong>Vi notes:</strong>
-  <%= @external.vi_notes %>
-</p>
-
-<p>
-  <strong>Hmn title:</strong>
-  <%= @external.hmn_title %>
-</p>
-
-<p>
-  <strong>Hmn source:</strong>
-  <%= @external.hmn_source %>
-</p>
-
-<p>
-  <strong>Hmn content:</strong>
-  <%= @external.hmn_content %>
-</p>
-
-<p>
-  <strong>Hmn external link:</strong>
-  <%= @external.hmn_external_link %>
-</p>
-
-<p>
-  <strong>Hmn notes:</strong>
-  <%= @external.hmn_notes %>
-</p>
-
-<p>
-  <strong>Languages:</strong>
-  <%= @external.languages %>
-</p>
-
-<p>
-  <strong>Last version date:</strong>
-  <%= @external.last_version_date %>
-</p>
-
-<%= link_to 'Edit', edit_external_path(@external) %> |
-<%= link_to 'Back', externals_path %>
+    </div>
+  </div>
+</section>

@@ -1,7 +1,7 @@
-<div class="fh5co-spacer fh5co-spacer-lg"></div>
 
-<section>
+<section id="fh5co-feature">
   <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
     <div class="row">
 			<div class="col-md-8 col-md-offset-2">
         <%= form_with(model: profile) do |form| %>
@@ -191,7 +191,7 @@
           <div class="col-md-12">
             <div class="actions">
               <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
-              <%= link_to 'Back', profiles_path, class: "btn btn-primary btn-lg btn-block" %>
+              <%= link_to 'Back', profile_path, class: "btn btn-primary btn-lg btn-block" %>
             </div>
           </div>
         <% end %>

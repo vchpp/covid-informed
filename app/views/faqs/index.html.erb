@@ -1,5 +1,5 @@
 
-<section>
+<section id="fh5co-feature">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -17,8 +17,8 @@
       <div class="col-md-12">
         <div class="fh5co-spacer fh5co-spacer-md"></div>
       </div>
-    <div class="col-md-12">
-			<div class="col-md-5">
+    <div class="col-md-10 col-md-offset-1">
+
         <div class="col-md-12">
           <div class="form-group">
             <label for="faq" class="sr-only">Filter by Category</label>
@@ -33,20 +33,25 @@
             </form>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-2">
+
+      <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-sm text-center">or</h2>
       </div>
 
-			<div class="col-md-5">
+			<div class="col-md-12">
         <label for="faq" class="sr-only">Search</label>
         <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-8 form-group">
             <input class="form-control input-lg" type="text" id="search" name="search" placeholder="search for questions">
           </div>
-          <div class="col-md-4 form-group">
+          <div class="col-md-2 form-group">
             <input class="form-control btn btn-primary" type="submit" value="Search">
+          </div>
+        </form>
+        <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+          <div class="col-md-2 form-group">
+            <input class="form-control btn btn-primary" type="submit" value="Reset">
           </div>
         </form>
       </div>
