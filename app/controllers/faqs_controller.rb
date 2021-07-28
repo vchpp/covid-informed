@@ -3,10 +3,10 @@ class FaqsController < ApplicationController
   before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   # GET /faqs or /faqs.json
   def index
-    @faqs = Faq.where(nil) # creates an anonymous scope
+    @faqs = Faq.where(nil).sort_by(&:category) # creates an anonymous scope
     set_faq_categories
-    @faqs = @faqs.filter_by_search(params[:search]) if (params[:search].present?)
-    @faqs = @faqs.filter_by_category(params[:category]) if (params[:category].present? && params[:category] != "All")
+    @faqs = Faq.filter_by_search(params[:search]) if (params[:search].present?)
+    @faqs = Faq.filter_by_category(params[:category]) if (params[:category].present? && params[:category] != "All")
   end
 
   # GET /faqs/1 or /faqs/1.json
