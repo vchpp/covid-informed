@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
 
   # GET /messages or /messages.json
   def index
@@ -39,18 +40,15 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    authenticate_admin!
     @message = Message.new
   end
 
   # GET /messages/1/edit
   def edit
-    authenticate_admin!
   end
 
   # POST /messages or /messages.json
   def create
-    authenticate_admin!
     @message = Message.new(message_params)
     @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
     @message.images.attach(params[:message][:images])
@@ -72,7 +70,6 @@ class MessagesController < ApplicationController
 
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
-    authenticate_admin!
     @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
     @message.images.purge if params[:images].present?
     @message.zh_tw_images.purge if params[:zh_tw_images].present?
@@ -92,7 +89,6 @@ class MessagesController < ApplicationController
 
   # DELETE /messages/1 or /messages/1.json
   def destroy
-    authenticate_admin!
     @message.images.purge
     @message.zh_tw_images.purge
     @message.zh_cn_images.purge

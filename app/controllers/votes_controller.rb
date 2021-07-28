@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  
   # GET /votes or /votes.json
   def index
     @votes = Vote.all
