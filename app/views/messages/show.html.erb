@@ -59,7 +59,7 @@
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
         <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
 
-        <% if @message_action_item %>
+        <% if @message_action_item.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="fh5co-serif fh5co-lead"><%= @message_action_item %></h4>
         <% end %>
@@ -72,7 +72,7 @@
           <% end %>
         <% end %>
 
-        <% if @message.survey_link %>
+        <% if @message.survey_link.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.survey_link')%></h4>
           <a href="<%=@message.survey_link%>?rct=<%=cookies[:rct]%>", target="_blank"><%=@message.survey_link%></a>
