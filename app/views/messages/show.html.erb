@@ -117,12 +117,12 @@
 <section>
   <div class="container">
     <div class="row fh5co-feature-3"">
+      <% if @comments.any? %>
       <div class="col-md-12">
-        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%></h2>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%>:</h2>
       </div>
 
     	<div class="fh5co-spacer fh5co-spacer-sm"></div>
-      <% if @comments %>
         <% @comments.each do |comment| %>
 					<div class="col-md-8 col-md-offset-2">
             <div class="row">
