@@ -1,0 +1,297 @@
+<% if @callouts.any? %>
+<div class="fh5co-spacer fh5co-spacer-md"></div>
+  <section id="fh5co-feature-slider">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12">
+          <% if @callouts.length == 1 %>
+            <% @callouts.each do |c| %>
+              <div class="row">
+                <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+                  <div class="row">
+                    <% case %>
+                      <% when params[:locale] == "en" %>
+                      <!-- if any text and image -->
+                        <% if c.en_title? && c.en_image.attached?  %>
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                            <%= image_tag c.en_image, class: "img-responsive" %>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                            <h2><%= c.en_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.en_body %></p>
+                          </div>
+                        <% elsif c.en_title? && !c.en_image.attached? %>
+                          <!-- just the text -->
+                          <div class="col-md-12 fh5co-item-slide-text">
+                            <h2><%= c.en_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.en_body %></p>
+                          </div>
+
+                        <% else %>
+                          <!-- else just the large image -->
+                          <div class="col-md-12 fh5co-item-slide-img">
+                            <%= image_tag c.en_image, class: "img-responsive" if c.en_image.attached? %>
+                          </div>
+                        <% end %>
+
+                      <% when params[:locale] == "zh_TW" %>
+                      <!-- if any text and image -->
+                        <% if c.zh_tw_title? && c.zh_tw_image.attached?  %>
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                            <%= image_tag c.zh_tw_image, class: "img-responsive" %>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                            <h2><%= c.zh_tw_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.zh_tw_body %></p>
+                          </div>
+                        <% elsif c.zh_tw_title? && !c.zh_tw_image.attached? %>
+                          <!-- just the text -->
+                          <div class="col-md-12 fh5co-item-slide-text">
+                            <h2><%= c.zh_tw_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.zh_tw_body %></p>
+                          </div>
+
+                        <% else %>
+                          <!-- else just the large image -->
+                          <div class="col-md-12 fh5co-item-slide-img">
+                            <%= image_tag c.zh_tw_image, class: "img-responsive" if c.zh_tw_image.attached? %>
+                          </div>
+                        <% end %>
+
+                      <% when params[:locale] == "zh_CN" %>
+                      <!-- if any text and image -->
+                        <% if c.zh_cn_title? && c.zh_cn_image.attached?  %>
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                            <%= image_tag c.zh_cn_image, class: "img-responsive" %>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                            <h2><%= c.zh_cn_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.zh_cn_body %></p>
+                          </div>
+                        <% elsif c.zh_cn_title? && !c.zh_cn_image.attached? %>
+                          <!-- just the text -->
+                          <div class="col-md-12 fh5co-item-slide-text">
+                            <h2><%= c.zh_cn_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.zh_cn_body %></p>
+                          </div>
+
+                        <% else %>
+                          <!-- else just the large image -->
+                          <div class="col-md-12 fh5co-item-slide-img">
+                            <%= image_tag c.zh_cn_image, class: "img-responsive" if c.zh_cn_image.attached? %>
+                          </div>
+                        <% end %>
+
+                      <% when params[:locale] == "vi" %>
+                      <!-- if any text and image -->
+                        <% if c.vi_title? && c.vi_image.attached?  %>
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                            <%= image_tag c.vi_image, class: "img-responsive" %>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                            <h2><%= c.vi_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.vi_body %></p>
+                          </div>
+                        <% elsif c.vi_title? && !c.vi_image.attached? %>
+                          <!-- just the text -->
+                          <div class="col-md-12 fh5co-item-slide-text">
+                            <h2><%= c.vi_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.vi_body %></p>
+                          </div>
+
+                        <% else %>
+                          <!-- else just the large image -->
+                          <div class="col-md-12 fh5co-item-slide-img">
+                            <%= image_tag c.vi_image, class: "img-responsive" if c.vi_image.attached? %>
+                          </div>
+                        <% end %>
+
+                      <% when params[:locale] == "hmn" %>
+                      <!-- if any text and image -->
+                        <% if c.hmn_title? && c.hmn_image.attached?  %>
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                            <%= image_tag c.hmn_image, class: "img-responsive" %>
+                          </div>
+
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                            <h2><%= c.hmn_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.hmn_body %></p>
+                          </div>
+                        <% elsif c.hmn_title? && !c.hmn_image.attached? %>
+                          <!-- just the text -->
+                          <div class="col-md-12 fh5co-item-slide-text">
+                            <h2><%= c.hmn_title %><span class="fh5co-border"></span></h2>
+                            <p><%= c.hmn_body %></p>
+                          </div>
+
+                        <% else %>
+                          <!-- else just the large image -->
+                          <div class="col-md-12 fh5co-item-slide-img">
+                            <%= image_tag c.hmn_image, class: "img-responsive" if c.hmn_image.attached? %>
+                          </div>
+                        <% end %>
+
+                    <% end %> <!-- end I18n case -->
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          <% else %>
+    				<div class="owl-carousel-fullwidth owl-carousel-2">
+
+            <% @callouts.each do |c| %>
+    					<div class="item">
+    						<!-- <div class="container"> -->
+    							<div class="row">
+    								<div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+    									<div class="row">
+                        <% case %>
+                          <% when params[:locale] == "en" %>
+                          <!-- if any text and image -->
+                            <% if c.en_title? && c.en_image.attached?  %>
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                                <%= image_tag c.en_image, class: "img-responsive" %>
+          										</div>
+
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+          											<h2><%= c.en_title %><span class="fh5co-border"></span></h2>
+          											<p><%= c.en_body %></p>
+          										</div>
+                            <% elsif c.en_title? && !c.en_image.attached? %>
+                              <!-- just the text -->
+                              <div class="col-md-12 fh5co-item-slide-text">
+                                <h2><%= c.en_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.en_body %></p>
+                              </div>
+
+                            <% else %>
+                              <!-- else just the large image -->
+                              <div class="col-md-12 fh5co-item-slide-img">
+                                <%= image_tag c.en_image, class: "img-responsive" if c.en_image.attached? %>
+                              </div>
+                            <% end %>
+
+                          <% when params[:locale] == "zh_TW" %>
+                          <!-- if any text and image -->
+                            <% if c.zh_tw_title? && c.zh_tw_image.attached?  %>
+                              <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                                <%= image_tag c.zh_tw_image, class: "img-responsive" %>
+                              </div>
+
+                              <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                                <h2><%= c.zh_tw_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.zh_tw_body %></p>
+                              </div>
+                            <% elsif c.zh_tw_title? && !c.zh_tw_image.attached? %>
+                              <!-- just the text -->
+                              <div class="col-md-12 fh5co-item-slide-text">
+                                <h2><%= c.zh_tw_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.zh_tw_body %></p>
+                              </div>
+
+                            <% else %>
+                              <!-- else just the large image -->
+                              <div class="col-md-12 fh5co-item-slide-img">
+                                <%= image_tag c.zh_tw_image, class: "img-responsive" if c.zh_tw_image.attached? %>
+                              </div>
+                            <% end %>
+
+                          <% when params[:locale] == "zh_CN" %>
+                          <!-- if any text and image -->
+                            <% if c.zh_cn_title? && c.zh_cn_image.attached?  %>
+                              <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                                <%= image_tag c.zh_cn_image, class: "img-responsive" %>
+                              </div>
+
+                              <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+                                <h2><%= c.zh_cn_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.zh_cn_body %></p>
+                              </div>
+                            <% elsif c.zh_cn_title? && !c.zh_cn_image.attached? %>
+                              <!-- just the text -->
+                              <div class="col-md-12 fh5co-item-slide-text">
+                                <h2><%= c.zh_cn_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.zh_cn_body %></p>
+                              </div>
+
+                            <% else %>
+                              <!-- else just the large image -->
+                              <div class="col-md-12 fh5co-item-slide-img">
+                                <%= image_tag c.zh_cn_image, class: "img-responsive" if c.zh_cn_image.attached? %>
+                              </div>
+                            <% end %>
+
+                          <% when params[:locale] == "vi" %>
+                          <!-- if any text and image -->
+                            <% if c.vi_title? && c.vi_image.attached?  %>
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                                <%= image_tag c.vi_image, class: "img-responsive" %>
+          										</div>
+
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+          											<h2><%= c.vi_title %><span class="fh5co-border"></span></h2>
+          											<p><%= c.vi_body %></p>
+          										</div>
+                            <% elsif c.vi_title? && !c.vi_image.attached? %>
+                              <!-- just the text -->
+                              <div class="col-md-12 fh5co-item-slide-text">
+                                <h2><%= c.vi_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.vi_body %></p>
+                              </div>
+
+                            <% else %>
+                              <!-- else just the large image -->
+                              <div class="col-md-12 fh5co-item-slide-img">
+                                <%= image_tag c.vi_image, class: "img-responsive" if c.vi_image.attached? %>
+                              </div>
+                            <% end %>
+
+                          <% when params[:locale] == "hmn" %>
+                          <!-- if any text and image -->
+                            <% if c.hmn_title? && c.hmn_image.attached?  %>
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-img">
+                                <%= image_tag c.hmn_image, class: "img-responsive" %>
+          										</div>
+
+          										<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-slide-text">
+          											<h2><%= c.hmn_title %><span class="fh5co-border"></span></h2>
+          											<p><%= c.hmn_body %></p>
+          										</div>
+                            <% elsif c.hmn_title? && !c.hmn_image.attached? %>
+                              <!-- just the text -->
+                              <div class="col-md-12 fh5co-item-slide-text">
+                                <h2><%= c.hmn_title %><span class="fh5co-border"></span></h2>
+                                <p><%= c.hmn_body %></p>
+                              </div>
+
+                            <% else %>
+                              <!-- else just the large image -->
+                              <div class="col-md-12 fh5co-item-slide-img">
+                                <%= image_tag c.hmn_image, class: "img-responsive" if c.hmn_image.attached? %>
+                              </div>
+                            <% end %>
+
+                        <% end %> <!-- end I18n case -->
+
+    									</div>
+    								</div>
+    							</div>
+    						<!-- </div> -->
+    					</div>
+    					<!-- END .item -->
+            <% end %>
+
+    				</div>
+          <% end %>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+  <div class="fh5co-spacer fh5co-spacer-xlg"></div>
+<% end %>

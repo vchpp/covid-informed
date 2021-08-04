@@ -1,0 +1,132 @@
+<%= form_with(model: callout) do |form| %>
+  <% if callout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(callout.errors.count, "error") %> prohibited this callout from being saved:</h2>
+
+      <ul>
+        <% callout.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :en_title %>
+    <%= form.text_field :en_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_body %>
+    <%= form.text_field :en_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_link_name %>
+    <%= form.text_field :en_link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_title %>
+    <%= form.text_field :zh_tw_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_body %>
+    <%= form.text_field :zh_tw_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_link_name %>
+    <%= form.text_field :zh_tw_link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_title %>
+    <%= form.text_field :zh_cn_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_body %>
+    <%= form.text_field :zh_cn_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_link_name %>
+    <%= form.text_field :zh_cn_link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_title %>
+    <%= form.text_field :vi_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_body %>
+    <%= form.text_field :vi_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_link_name %>
+    <%= form.text_field :vi_link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_title %>
+    <%= form.text_field :hmn_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_body %>
+    <%= form.text_field :hmn_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_link_name %>
+    <%= form.text_field :hmn_link_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :external_link? %>
+    <%= form.check_box :external_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :archive? %>
+    <%= form.check_box :archive %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_image %>
+    <%= form.file_field :en_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_image %>
+    <%= form.file_field :zh_tw_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_image %>
+    <%= form.file_field :zh_cn_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_image %>
+    <%= form.file_field :vi_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_image %>
+    <%= form.file_field :hmn_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
