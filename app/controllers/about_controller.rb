@@ -9,6 +9,7 @@ class AboutController < ApplicationController
     end
     @researchers.delete(@janice)
     @researchers.unshift(@janice)
+    @callouts = Callout.where(archive: false).order('created_at DESC')
   end
 
 end
