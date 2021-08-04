@@ -21,23 +21,13 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
-      window.getCookie = function(rct) {
-        match = document.cookie.match(new RegExp(rct + '=([^;]+)'));
+      function getCookie(name) {
+        match = document.cookie.match(new RegExp(name + '=([^;]+)'));
         if (match) return match[1];
       }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8T209GGMN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-Q8T209GGMN');
-      gtag('send', 'pageview', {
-        'dimension1':  getCookie('LocationId')
-        });
-      gtag('send','event','eventCategory','eventAction');
-    </script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

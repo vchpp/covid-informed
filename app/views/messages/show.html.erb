@@ -57,27 +57,33 @@
       <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <h4 class="h5 fh5co-heading-sub"><%= @message_content %></h4>
+      </div>
 
+      <div class="col-md-8 col-md-offset-2">
+        <div><%= @message_content %></div>
+      </div>
+
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <% if @message_action_item.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
-          <h4 class="fh5co-serif fh5co-lead"><%= @message_action_item %></h4>
+          <h4 class="fh5co-heading-2"><%= @message_action_item %></h4>
         <% end %>
+      </div>
 
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <% if @message.external_links.any? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.action_item_more_info')%></h4>
           <% @message.external_links.each do |l| %>
-            <ul><a href="<%=l%>?rct=<%=cookies[:rct]%>", target="_blank"><%=l%></a></ul>
+            <ul><a href="<%=l%>?rct=<%=cookies[:rct]%>", target="_blank", style="fh5co-heading-sub-2"><%=l%></a></ul>
           <% end %>
         <% end %>
 
         <% if @message.survey_link.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.survey_link')%></h4>
-          <a href="<%=@message.survey_link%>?rct=<%=cookies[:rct]%>", target="_blank"><%=@message.survey_link%></a>
+          <a href="<%=@message.survey_link%>?rct=<%=cookies[:rct]%>", target="_blank", style="fh5co-heading-sub-2"><%=@message.survey_link%></a>
         <% end %>
-
       </div>
 
 
