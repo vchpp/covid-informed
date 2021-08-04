@@ -1,6 +1,6 @@
 class CalloutsController < ApplicationController
   before_action :set_callout, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new index show create edit update destroy ]
 
   # GET /callouts or /callouts.json
   def index

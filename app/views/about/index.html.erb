@@ -50,7 +50,10 @@
   </div>
 </section>
 
-<%= render 'carousel', collection: @callouts %>
+<% if @callouts.any? %>
+  <%= render 'carousel', collection: @callouts %>
+  <div class="fh5co-spacer fh5co-spacer-xlg"></div>
+<% end %>
 
 <%= render 'researchers', collection: @researchers %>
 

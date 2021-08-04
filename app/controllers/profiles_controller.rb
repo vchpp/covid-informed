@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new index create edit update destroy ]
 
   # GET /profiles or /profiles.json
   def index
