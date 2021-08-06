@@ -12,43 +12,40 @@
 
 
 <!-- START #fh5co-hero -->
-<aside id="fh5co-hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-      <% case %>
-        <% when params[:locale] == "zh_TW" || params[:locale] == "zh_CN" %>
-          <img class="fh5co-hero-wrap" src="/assets/CH_INFORMED Logo.png" alt="informed logo">
-        <% when params[:locale] == "vi" %>
-          <img class="fh5co-hero-wrap" src="/assets/VIET_INFORMED Logo.png" alt="informed logo">
-        <% when params[:locale] == "hmn" %>
-          <img class="fh5co-hero-wrap" src="/assets/HMONG_INFORMED Logo.png" alt="informed logo">
-        <% when params[:locale] == "en" %>
-          <img class="fh5co-hero-wrap" src="/assets/ENG_INFORMED Logo.png" alt="informed logo">
-        <% end %>
-      </div>
-    </div>
-  </div>
-</aside>
 
-<!-- intro block -->
-<section id="fh5co-feature">
   <div class="container">
     <div class="row">
-      <div class="fh5co-spacer fh5co-spacer-sm"></div>
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
-        <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= t('about.title') %></h1>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <h4 class="h5 fh5co-heading-sub"><%= t('about.mission1') %></h4>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <h4 class="h5 fh5co-heading-sub"><%= t('about.mission2') %></h4>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      <div class="col-md-12">
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+        <div class="col-md-6">
+          <% case %>
+            <% when params[:locale] == "zh_TW" || params[:locale] == "zh_CN" %>
+              <img class="fh5co-align-left img-responsive" src="/assets/CH_INFORMED Logo.png" alt="informed logo" >
+            <% when params[:locale] == "vi" %>
+              <img class="fh5co-align-left img-responsive" src="/assets/VIET_INFORMED Logo.png" alt="informed logo" >
+            <% when params[:locale] == "hmn" %>
+              <img class="fh5co-align-left img-responsive" src="/assets/HMONG_INFORMED Logo.png" alt="informed logo" >
+            <% when params[:locale] == "en" %>
+              <img class="fh5co-align-left img-responsive" src="/assets/ENG_INFORMED Logo.png" alt="informed logo" >
+            <% end %>
+        </div>
+        <div class="col-md-6 clearfix fh5co-header">
+          <div class="fh5co-spacer fh5co-spacer-lg"></div>
+          <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= t('about.title') %></h1>
+        </div>
+        <div class="clearfix fh5co-header">
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <h4 class="h5 fh5co-heading-sub"><%= t('about.mission1') %></h4>
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <h4 class="h5 fh5co-heading-sub"><%= t('about.mission2') %></h4>
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        </div>
       </div>
     </div>
-    <div class="fh5co-spacer fh5co-spacer-sm"></div>
   </div>
-</section>
+
+
 
 <% if @callouts.any? %>
   <%= render 'carousel', collection: @callouts %>
