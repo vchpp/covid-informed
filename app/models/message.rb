@@ -11,6 +11,11 @@ class Message < ApplicationRecord
   has_rich_text :zh_cn_content
   has_rich_text :vi_content
   has_rich_text :hmn_content
+  has_rich_text :en_external_rich_links
+  has_rich_text :zh_tw_external_rich_links
+  has_rich_text :zh_cn_external_rich_links
+  has_rich_text :vi_external_rich_links
+  has_rich_text :hmn_external_rich_links
   extend FriendlyId
   friendly_id :en_name, use: :slugged
 end

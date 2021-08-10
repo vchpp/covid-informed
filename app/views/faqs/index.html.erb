@@ -28,9 +28,10 @@
       <div class="col-md-12">
         <div class="fh5co-spacer fh5co-spacer-md"></div>
       </div>
-    <div class="col-md-10 col-md-offset-1">
 
-        <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1">
+
+        <!-- <div class="col-md-12">
           <div class="form-group">
             <label for="faq" class="sr-only">Filter by Category</label>
             <form id="category" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
@@ -43,12 +44,12 @@
               </select>
             </form>
           </div>
-        </div>
+        </div> -->
 
 
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-sm text-center"><%= t('faqs.or') %></h2>
-      </div>
+      </div> -->
 
 			<div class="col-md-12">
         <label for="faq" class="sr-only"><%= t('faqs.search') %></label>
@@ -57,7 +58,9 @@
             <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
           </div>
           <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.search') %>">
+            <button type="submit" class="form-control btn btn-primary">
+              <%= t('faqs.search') %>
+            </button>
           </div>
         </form>
         <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
@@ -69,7 +72,7 @@
     </div>
 
     <div class="col-md-12">
-      <div class="panel<%  %>group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
         <% @faqs.each do |faq| %>
           <div class="panel panel-default ">

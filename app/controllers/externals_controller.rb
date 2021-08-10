@@ -4,7 +4,7 @@ class ExternalsController < ApplicationController
 
   # GET /externals or /externals.json
   def index
-    @externals = External.where(nil) # creates an anonymous scope
+    @externals = External.where(nil).order('created_at ASC') # creates an anonymous scope
     @externals = @externals.filter_by_search(params[:search]) if (params[:search].present?)
   end
 
