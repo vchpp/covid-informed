@@ -1,5 +1,5 @@
 <% case %>
-  <%  when params[:locale] == "en" %>
+  <% when params[:locale] == "en" %>
     <% if @message.images.attached? %>
       <section id="fh5co-testimonial" >
         <% @message.images.each do |img| %>
@@ -8,7 +8,7 @@
       </section>
     <% end %>
 
-  <%  when params[:locale] == "vi" %>
+  <% when params[:locale] == "vi" %>
     <% if @message.vi_images.attached? %>
       <section id="fh5co-testimonial" >
         <% @message.vi_images.each do |img| %>
@@ -17,7 +17,7 @@
       </section>
     <% end %>
 
-  <%  when params[:locale] == "zh_CN" %>
+  <% when params[:locale] == "zh_CN" %>
     <% if @message.zh_cn_images.attached? %>
       <section id="fh5co-testimonial" >
         <% @message.zh_cn_images.each do |img| %>
@@ -26,7 +26,7 @@
       </section>
     <% end %>
 
-  <%  when params[:locale] == "zh_TW" %>
+  <% when params[:locale] == "zh_TW" %>
     <% if @message.zh_tw_images.attached? %>
       <section id="fh5co-testimonial" >
         <% @message.zh_tw_images.each do |img| %>
@@ -35,7 +35,7 @@
       </section>
     <% end %>
 
-  <%  when params[:locale] == "hmn" %>
+  <% when params[:locale] == "hmn" %>
     <% if @message.hmn_images.attached? %>
       <section id="fh5co-testimonial" >
         <% @message.hmn_images.each do |img| %>
@@ -43,7 +43,6 @@
         <% end %>
       </section>
     <% end %>
-
 <% end %>
 
 <section id="fh5co-feature">
@@ -70,27 +69,23 @@
         <% end %>
       </div>
 
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
-        <% if @message.external_links.any? %>
-          <div class="fh5co-spacer fh5co-spacer-sm"></div>
-          <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.action_item_more_info')%></h4>
-          <% @message.external_links.each do |l| %>
-            <ul><a href="<%=l%>?rct=<%=cookies[:rct]%>", target="_blank", style="fh5co-heading-sub-2"><%=l%></a></ul>
-          <% end %>
-        <% end %>
+      <div class="col-md-8 col-md-offset-2">
+        <div><%= @message_external_rich_links %></div>
+      </div>
 
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <% if @message.survey_link.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <h4 class="h5 fh5co-heading-sub"><%= t('messages.show.survey_link')%></h4>
           <a href="<%=@message.survey_link%>?rct=<%=cookies[:rct]%>", target="_blank", style="fh5co-heading-sub-2"><%=@message.survey_link%></a>
         <% end %>
       </div>
-
-
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header"></div>
     </div>
+
+    <div class="col-md-8 col-md-offset-2 clearfix fh5co-header"></div>
   </div>
 </section>
+
 <div class="fh5co-spacer fh5co-spacer-sm"></div>
 <!-- like buttons -->
 <section>
@@ -123,32 +118,32 @@
 <section>
   <div class="container">
     <div class="row fh5co-feature-3"">
-      <% if @comments.any? %>
+    <% if @comments.any? %>
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%>:</h2>
       </div>
 
     	<div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <% @comments.each do |comment| %>
+      <% @comments.each do |comment| %>
 					<div class="col-md-8 col-md-offset-2">
             <div class="row">
               <div class="fh5co-feature-item">
-                <% if current_user.try(:admin?) %>
-                  <span class="fh5co-feature-icon"><%= link_to '', [@message, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'ti-trash', style: "font-size: 30px;" %></span>
-                <% else %>
-                  <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
-                <% end %>
-                <div class="fh5co-feature-blurb">
-                  <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
-                </div>
+              <% if current_user.try(:admin?) %>
+                <span class="fh5co-feature-icon"><%= link_to '', [@message, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'ti-trash', style: "font-size: 30px;" %></span>
+              <% else %>
+                <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
+              <% end %>
+              <div class="fh5co-feature-blurb">
+                <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
               </div>
             </div>
           </div>
-          <% end %>
-        <% end %>
         </div>
-      </div>
-    <div class="fh5co-spacer fh5co-spacer-md"></div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+  <div class="fh5co-spacer fh5co-spacer-md"></div>
 </section>
 
 <section>

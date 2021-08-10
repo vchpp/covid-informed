@@ -16,22 +16,27 @@ class MessagesController < ApplicationController
       when params[:locale] == "en"
         @message_name = @message.en_name
         @message_content = @message.en_content
+        @message_external_rich_links = @message.en_external_rich_links
         @message_action_item = @message.en_action_item
       when params[:locale] == "zh_TW"
         @message_name = @message.zh_tw_name
         @message_content = @message.zh_tw_content
+        @message_external_rich_links = @message.zh_tw_external_rich_links
         @message_action_item = @message.zh_tw_action_item
       when params[:locale] == "zh_CN"
         @message_name = @message.zh_cn_name
         @message_content = @message.zh_cn_content
+        @message_external_rich_links = @message.zh_cn_external_rich_links
         @message_action_item = @message.zh_cn_action_item
       when params[:locale] == "vi"
         @message_name = @message.vi_name
         @message_content = @message.vi_content
+        @message_external_rich_links = @message.vi_external_rich_links
         @message_action_item = @message.vi_action_item
       when params[:locale] == "hmn"
         @message_name = @message.hmn_name
         @message_content = @message.hmn_content
+        @message_external_rich_links = @message.hmn_external_rich_links
         @message_action_item = @message.hmn_action_item
     end
     up_likes
@@ -125,6 +130,11 @@ class MessagesController < ApplicationController
                                       :hmn_content,
                                       :hmn_action_item,
                                       :external_links,
+                                      :en_external_rich_links,
+                                      :zh_tw_external_rich_links,
+                                      :zh_cn_external_rich_links,
+                                      :vi_external_rich_links,
+                                      :hmn_external_rich_links,
                                       :survey_link,
                                       images: [],
                                       vi_images: [],
