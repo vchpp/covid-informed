@@ -11,6 +11,11 @@ class Message < ApplicationRecord
   has_rich_text :zh_cn_content
   has_rich_text :vi_content
   has_rich_text :hmn_content
+  has_rich_text :en_action_item
+  has_rich_text :zh_tw_action_item
+  has_rich_text :zh_cn_action_item
+  has_rich_text :vi_action_item
+  has_rich_text :hmn_action_item
   has_rich_text :en_external_rich_links
   has_rich_text :zh_tw_external_rich_links
   has_rich_text :zh_cn_external_rich_links

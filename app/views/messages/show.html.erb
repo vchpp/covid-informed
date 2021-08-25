@@ -62,10 +62,10 @@
         <div><%= @message_content %></div>
       </div>
 
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
+      <div class="col-md-8 col-md-offset-2">
         <% if @message_action_item.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
-          <h4 class="fh5co-heading-2"><%= @message_action_item %></h4>
+          <div><%= @message_action_item %></div>
         <% end %>
       </div>
 

@@ -52,7 +52,7 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :en_action_item %>
-                    <%= form.text_area :en_action_item, size:'70x5', class: 'form-control input-lg', placeholder: "en_action_item"  %>
+                    <%= form.rich_text_area :en_action_item, placeholder: "en_action_item"  %>
                   </div>
                 </div>
 
@@ -98,7 +98,7 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :zh_tw_action_item %>
-                    <%= form.text_area :zh_tw_action_item, size: '70x5', class: 'form-control input-lg', placeholder: "zh_tw_action_item" %>
+                    <%= form.rich_text_area :zh_tw_action_item, placeholder: "zh_tw_action_item" %>
                   </div>
                 </div>
 
@@ -144,7 +144,7 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :zh_cn_action_item %>
-                    <%= form.text_area :zh_cn_action_item, size: '70x5', class: 'form-control input-lg', placeholder: "zh_cn_action_item" %>
+                    <%= form.rich_text_area :zh_cn_action_item, placeholder: "zh_cn_action_item" %>
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :hmn_action_item %>
-                    <%= form.text_area :hmn_action_item, size: '70x5', class: 'form-control input-lg', placeholder: "hmn_action_item" %>
+                    <%= form.rich_text_area :hmn_action_item, placeholder: "hmn_action_item" %>
                   </div>
                 </div>
 
@@ -236,7 +236,7 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <%= form.label :vi_action_item %>
-                    <%= form.text_area :vi_action_item, size: '70x5', class: 'form-control input-lg', placeholder: "vi_action_item" %>
+                    <%= form.rich_text_area :vi_action_item, placeholder: "vi_action_item" %>
                   </div>
                 </div>
 
@@ -256,13 +256,13 @@
             </div>
           </div>
         </div>
-
+<!--
         <div class="col-md-8 col-md-offset-2">
           <div class="field form-group">
             <%= form.label :external_links %> NOT USED ANYMORE
             <%= form.text_area :external_links, name: 'message[external_links][]', size: '70x5', class: 'form-control input-lg', placeholder: "external_links", value: form.object.external_links.join("\n") %>
           </div>
-        </div>
+        </div> -->
 
         <div class="col-md-8 col-md-offset-2">
           <div class="field form-group">
