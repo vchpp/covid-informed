@@ -5,36 +5,36 @@ zh_CN:
   locale: "zh_cn"
   navbar:
     about: "关于"
-    messages: "消息"
+    messages: "消信息"
     resources: "资源"
     faqs: "常见问题"
     statistics: "统计数据"
-    layhealthworkers: "非专业卫生工作者"
     external: "外部资源"
+    layhealthworkers: "非专业卫生工作者"
   about:
     research_team: "研究团队"
     research_team_titles:
       co_investigator: "共同调查员"
-      executive_director: "执行董事"
+      executive_director: "行政执行总监董事"
       student_intern: "实习生"
       principal_investigator: "首席研究员"
       research_staff: "研究人员"
       community_coordinator: "社区协调员"
-      study_coordinator: "学习协调员"
+      study_coordinator: "项目学习协调员"
     cab_members: "社区顾问委员会成员"
     title: "健康家庭计划: 获取资讯，保持健康"
     mission1: "健康家庭资讯计划 (英文简称为 “INFORMED”) 是为住在美国的亚裔提供关於冠状病毒最新信息的一项研究项目。 “INFORMED”是“Individual and Family Oriented Responsive Messaging Education”的缩写，意思是“以个人和家庭为目标的应对通讯教育”。"
     mission2: "健康家庭资讯计划的目的是了解和应对有关新冠病毒检测和疫苗接种的障碍。我们希望提供最新信息，以应对新冠病毒疫情的快速发展情况。 此外，我们将根据社区成员的反馈更新和修改我们的讯息。希望能帮助居住的美国的华人、越南人和苗族人增加有关 COVID-19 检测和疫苗接种的知识，并就接受 新冠病毒检测做出明智的决定。"
   messages:
-    messages: "消息"
+    messages: "信消息"
     read_more: "阅读更多"
-    comments: "注释"
+    comments: "评论注释"
     leave_comment: "发表评论"
     submit: "提交"
-    back: "背部"
+    back: "返回背部"
     show:
-      action_item_more_info: "有关更多信息，您可以访问:"
-      survey_link: "要参加我们的调查，请访问:"
+      action_item_more_info: "更多有关更多信息，您可以浏览访问:"
+      survey_link: "请前往參与项目的链接要参加我们的调查，请访问:"
   resources:
     resources: "资源"
     external:
@@ -49,22 +49,22 @@ zh_CN:
       external_links: "外部链接"
       last_updated: "最近更新时间"
   faqs:
-    faq: "经常问的问题"
-    filter: "按类别过滤"
+    faq: "常见经常问的问题"
+    filter: "筛选按类别过滤"
     or: "或者"
-    search_for_questions: "寻找问题"
+    search_for_questions: "寻找信息问题"
     search: "搜索"
     reset: "重启"
   activerecord:
     models:
       message:
-        one: '信息'
-        other: '留言内容'
-      comment: '评论'
+        one: "信息"
+        other: "留言内容"
+      comment: "评论"
       faq: "经常问的问题"
     attributes:
       message:
-        name: '姓名'
-        content: '内容'
+        name: "姓名"
+        content: "内容"
       comment:
-        content: '内容'
+        content: "内容"
