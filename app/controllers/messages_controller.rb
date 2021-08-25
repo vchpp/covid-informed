@@ -55,12 +55,12 @@ class MessagesController < ApplicationController
   # POST /messages or /messages.json
   def create
     @message = Message.new(message_params)
-    @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
-    @message.images.attach(params[:message][:images])
-    @message.images.attach(params[:message][:vi_images])
-    @message.images.attach(params[:message][:zh_cn_images])
-    @message.images.attach(params[:message][:zh_tw_images])
-    @message.images.attach(params[:message][:hmn_images])
+    @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip) if params[:message][:external_links].present?
+    @message.images.attach(params[:message][:images]) if params[:images].present?
+    @message.images.attach(params[:message][:vi_images]) if params[:vi_images].present?
+    @message.images.attach(params[:message][:zh_cn_images]) if params[:zh_cn_images].present?
+    @message.images.attach(params[:message][:zh_tw_images]) if params[:zh_tw_images].present?
+    @message.images.attach(params[:message][:hmn_images]) if params[:hmn_images].present?
 
     respond_to do |format|
       if @message.save
@@ -75,7 +75,7 @@ class MessagesController < ApplicationController
 
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
-    @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip)
+    @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip) if params[:message][:external_links].present?
     @message.images.purge if params[:images].present?
     @message.zh_tw_images.purge if params[:zh_tw_images].present?
     @message.zh_cn_images.purge if params[:zh_cn_images].present?
