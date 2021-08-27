@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_034706) do
+ActiveRecord::Schema.define(version: 2021_08_26_222654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,23 @@ ActiveRecord::Schema.define(version: 2021_08_10_034706) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["message_id"], name: "index_comments_on_message_id"
+  end
+
+  create_table "downloads", force: :cascade do |t|
+    t.string "en_title"
+    t.string "zh_tw_title"
+    t.string "zh_cn_title"
+    t.string "vi_title"
+    t.string "hmn_title"
+    t.string "en_file"
+    t.string "zh_tw_file"
+    t.string "zh_cn_file"
+    t.string "vi_file"
+    t.string "hmn_file"
+    t.string "category"
+    t.boolean "archive"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "externals", force: :cascade do |t|

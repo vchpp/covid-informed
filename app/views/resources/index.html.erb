@@ -20,6 +20,7 @@
     </div>
 
     <div class="row">
+      <p id="notice"><%= notice %></p>
 
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-sm text-center">for</h2>
@@ -33,7 +34,59 @@
           <div class="resp-tabs-container hor_1">
 
             <div>
-              <div class="fh5co-spacer fh5co-spacer-md"></div>
+              <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+              <div>
+                <% if current_user.try(:admin?) %>
+                <div class="fh5co-spacer fh5co-spacer-sm"></div>
+                  <div class="actions">
+                    <%= link_to 'New Download', new_download_path, class: "btn btn-primary btn-lg btn-block" %>
+                  </div>
+                  <div class="fh5co-spacer fh5co-spacer-md"></div>
+                <% end %>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>En file</th>
+                    <th>Zh tw file</th>
+                    <th>Zh cn file</th>
+                    <th>Vi file</th>
+                    <th>Hmn file</th>
+                    <th>Archive</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @downloads.each do |download| %>
+                    <tr>
+                      <td>
+                        <% if download.en_file.attached? %>
+                          <%= download.en_title %>
+                          <% if download.en_file.representable? %>
+                            <%= image_tag download.en_file.representation(resize_to_limit: [600, 600]) %>
+                          <% else %>
+                            <%= link_to rails_blob_path(download.en_file, disposition: "attachment") do %>
+                              <%= image_tag "placeholder.png", alt: "Download file" %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      </td>
+                      <td><%= download.zh_tw_file if download.zh_tw_file.attached? %></td>
+                      <td><%= download.zh_cn_file if download.zh_cn_file.attached? %></td>
+                      <td><%= download.vi_file if download.vi_file.attached? %></td>
+                      <td><%= download.hmn_file if download.hmn_file.attached? %></td>
+                      <td><%= download.archive %></td>
+                      <td><%= link_to 'Show', download %></td>
+                      <td><%= link_to 'Edit', edit_download_path(download) %></td>
+                      <td><%= link_to 'Destroy', download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
             </div>
 
 
