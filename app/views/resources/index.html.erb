@@ -20,6 +20,7 @@
     </div>
 
     <div class="row">
+      <p id="notice"><%= notice %></p>
 
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-sm text-center">for</h2>
@@ -33,15 +34,19 @@
           <div class="resp-tabs-container hor_1">
 
             <div>
+              <!-- first tab -->
               <div class="fh5co-spacer fh5co-spacer-md"></div>
+              <%= render 'downloads', collection: @downloads %>
             </div>
 
 
             <div>
+              <!-- second tab -->
               <div class="fh5co-spacer fh5co-spacer-md"></div>
             </div>
 
             <div>
+              <!-- third tab -->
               <div class="fh5co-spacer fh5co-spacer-md"></div>
             </div>
 

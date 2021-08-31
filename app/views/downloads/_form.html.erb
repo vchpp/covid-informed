@@ -1,0 +1,78 @@
+<%= form_with(model: download) do |form| %>
+  <% if download.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(download.errors.count, "error") %> prohibited this download from being saved:</h2>
+
+      <ul>
+        <% download.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :en_file %>
+    <%= form.file_field :en_file, direct_upload: true, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_title %>
+    <%= form.text_field :en_title, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_file %>
+    <%= form.file_field :zh_tw_file, direct_upload: true, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_title %>
+    <%= form.text_field :zh_tw_title, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_file %>
+    <%= form.file_field :zh_cn_file, direct_upload: true, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_title %>
+    <%= form.text_field :zh_cn_title, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_file %>
+    <%= form.file_field :vi_file, direct_upload: true, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_title %>
+    <%= form.text_field :vi_title, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_file %>
+    <%= form.file_field :hmn_file, direct_upload: true, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_title %>
+    <%= form.text_field :hmn_title, class: "form-control input-lg"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, ["General", "Vaccines", "Tobacco", "Testing"], class: 'form-control input-lg' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :archive? %>
+    <%= form.check_box :archive %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

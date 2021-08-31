@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Downloads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>En file</th>
+      <th>Zh tw file</th>
+      <th>Zh cn file</th>
+      <th>Vi file</th>
+      <th>Hmn file</th>
+      <th>Archive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @downloads.each do |download| %>
+      <tr>
+        <td><%= download.en_file %></td>
+        <td><%= download.zh_tw_file %></td>
+        <td><%= download.zh_cn_file %></td>
+        <td><%= download.vi_file %></td>
+        <td><%= download.hmn_file %></td>
+        <td><%= download.archive %></td>
+        <td><%= link_to 'Show', download %></td>
+        <td><%= link_to 'Edit', edit_download_path(download) %></td>
+        <td><%= link_to 'Destroy', download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Download', new_download_path %>

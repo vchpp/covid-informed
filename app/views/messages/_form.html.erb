@@ -272,6 +272,13 @@
         </div>
 
         <div class="col-md-8 col-md-offset-2">
+          <div class="field form-group">
+            <%= form.label :category %>
+            <%= form.text_field :category, size: '70x5', class: 'form-control input-lg' %>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
           <div class="actions">
             <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
             <%= link_to 'Back', messages_path, class: "btn btn-primary btn-lg btn-block" %>

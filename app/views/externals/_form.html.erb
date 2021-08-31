@@ -225,6 +225,13 @@
 
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <%= form.label :category %>
+                      <%= form.text_area :category, size: '70x5', class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
                       <%= form.label :last_version_date %>
                       <%= form.date_select :last_version_date %>
                     </div>
