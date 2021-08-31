@@ -1,6 +1,6 @@
 class DownloadsController < ApplicationController
   before_action :set_download, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ index new create show edit update destroy ]
 
   # GET /downloads or /downloads.json
   def index

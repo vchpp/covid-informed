@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_222654) do
+ActiveRecord::Schema.define(version: 2021_08_31_165244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_222654) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.string "category", default: "general"
     t.index ["slug"], name: "index_externals_on_slug", unique: true
   end
 
@@ -196,6 +197,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_222654) do
     t.string "zh_cn_external_rich_links"
     t.string "vi_external_rich_links"
     t.string "hmn_external_rich_links"
+    t.string "category", default: "general"
     t.index ["slug"], name: "index_messages_on_slug", unique: true
   end
 

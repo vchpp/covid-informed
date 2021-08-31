@@ -65,8 +65,11 @@ a {
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  color: #28bbf8;
+  color: #000000;
   border-bottom: 2px solid transparent;
+}
+a:visited {
+  color: #000000;
 }
 a:hover, a:focus, a:active {
   outline: none;
@@ -1326,9 +1329,20 @@ Components
   padding: 1em 2em;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-heading {
-  background: #28bbf8;
-  color: #ffffff;
   height: 150px;
+}
+.smoking {
+  background: #29AF4C;
+  color: #ffffff;
+}
+.testing {
+  background: #ED2224;
+  color: #ffffff;
+}
+.general {
+  color: #000000;
+  border: 2px solid #ccc;
+  border-bottom: none;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-heading h3 {
   font-size: 70px;

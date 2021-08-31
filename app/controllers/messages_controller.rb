@@ -136,6 +136,7 @@ class MessagesController < ApplicationController
                                       :vi_external_rich_links,
                                       :hmn_external_rich_links,
                                       :survey_link,
+                                      :category,
                                       images: [],
                                       vi_images: [],
                                       zh_tw_images: [],
