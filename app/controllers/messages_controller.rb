@@ -4,7 +4,13 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all.with_attached_images.sort_by(&:created_at)
+    @messages = Message.all
+      .with_attached_images
+      .with_attached_zh_tw_images
+      .with_attached_zh_cn_images
+      .with_attached_vi_images
+      .with_attached_hmn_images
+      .sort_by(&:created_at)
     # if @message.empty? redirect to new_message_path
   end
 

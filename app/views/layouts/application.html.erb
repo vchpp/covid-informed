@@ -37,7 +37,7 @@
 
     	<!-- Google Webfont -->
   	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
-    <%= favicon_link_tag asset_path('favicon.png') %>
+    <%= favicon_link_tag asset_path('favicon2.png') %>
   </head>
 
   <body>
@@ -47,7 +47,7 @@
       <div class="container">
 
         <!-- START #fh5co-logo -->
-        <h1 id="fh5co-logo" class="pull-left"><a href="<%= root_path %>"><img src="/assets/favicon.png">      Covid Informed</a><span style="color:red"> (work in progress)</span></h1>
+        <h1 id="fh5co-logo" class="pull-left"><a href="<%= root_path %>"><img src="/assets/favicon2.png">      Covid Informed</a><span style="color:red"> (work in progress)</span></h1>
 
         <!-- START #fh5co-menu-wrap -->
         <nav id="fh5co-menu-wrap" role="navigation">
@@ -58,8 +58,8 @@
               <a href="#" class="fh5co-sub-ddown"><%= t('navbar.resources') %></a>
               <ul class="fh5co-sub-menu">
                <li>
-                 <a href="/<%=params[:locale]%>/resources"><%= t('navbar.layhealthworkers') %></a>
                  <a href="/<%=params[:locale]%>/resources/faqs"><%= t('navbar.faqs') %></a>
+                 <a href="/<%=params[:locale]%>/resources"><%= t('navbar.layhealthworkers') %></a>
                  <a href="/<%=params[:locale]%>/resources/externals"><%= t('navbar.external') %></a>
                </li>
              </ul>

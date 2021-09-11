@@ -1374,10 +1374,10 @@ Components
   height: 250px;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body p {
-  position: absolute;
   bottom: 70px;
   margin-left: auto;
   margin-right: auto;
+  margin: 0 0 0 0;
   left: 0;
   right: 0;
   text-align: center;
