@@ -4,7 +4,13 @@ class DownloadsController < ApplicationController
 
   # GET /downloads or /downloads.json
   def index
-    @downloads = Download.all.sort_by(&:created_at)
+    @downloads = Download.all
+      .with_attached_en_file
+      .with_attached_zh_tw_file
+      .with_attached_zh_cn_file
+      .with_attached_vi_file
+      .with_attached_hmn_file
+      .sort_by(&:created_at)
   end
 
   # GET /downloads/1 or /downloads/1.json
