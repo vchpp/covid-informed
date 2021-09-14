@@ -120,7 +120,7 @@
             <div class="col-md-12">
               <div class="field form-group">
                 <%= form.label :category %>
-                <%= form.text_field :category %>
+                <%= form.select :category, ["General", "Testing", "Vaccination", "Other"], class: 'form-control input-lg' %>
               </div>
 
               <div class="col-md-8 col-md-offset-2">

@@ -75,7 +75,7 @@
       <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
         <% @faqs.each do |faq| %>
-          <div class="panel panel-default ">
+          <div class="panel panel-default <%=faq.category%>">
             <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
               <h4 class="panel-title">
                 <a class="accordion-toggle">
