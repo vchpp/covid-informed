@@ -134,6 +134,11 @@ p {
   margin: 0 0 20px 0;
 }
 
+.rtf-mobile {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 .fh5co-serif {
   font-family: "Crimson Text", serif;
 }
