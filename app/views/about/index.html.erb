@@ -52,9 +52,11 @@
   <div class="fh5co-spacer fh5co-spacer-xlg"></div>
 <% end %>
 
-<%= render 'researchers', collection: @researchers %>
+<%= render 'researchers', collection: @researchers if @researchers.any? %>
 
-<%= render 'cabmembers', collection: @cab_members %>
+<%= render 'lhw', collection: @lhw if @lhw.any?%>
+
+<%= render 'cabmembers', collection: @cab_members if @cab_members.any? %>
 
 <!--
       <section>
