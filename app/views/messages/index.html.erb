@@ -40,7 +40,7 @@
         <div class="col-md-6 col-sm-6 fh5co-feature-item">
             <% case %>
               <%  when params[:locale] == "en" %>
-                <span class="fh5co-feature-icon">
+                <span class="fh5co-feature-icon <%=item1.category%>">
                   <% if item1.images.attached? %>
                     <i><%= image_tag item1.images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                   <% else %>
@@ -50,7 +50,7 @@
                 <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.en_name %></h2>
 
               <%  when params[:locale] == "zh_TW" %>
-                <span class="fh5co-feature-icon">
+                <span class="fh5co-feature-icon <%=item1.category%>">
                   <% if item1.zh_tw_images.attached? %>
                     <i><%= image_tag item1.zh_tw_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                   <% else %>
@@ -60,7 +60,7 @@
                 <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.zh_tw_name %></h2>
 
               <%  when params[:locale] == "zh_CN" %>
-                <span class="fh5co-feature-icon">
+                <span class="fh5co-feature-icon <%=item1.category%>">
                   <% if item1.zh_cn_images.attached? %>
                     <i><%= image_tag item1.zh_cn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                   <% else %>
@@ -70,7 +70,7 @@
                 <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.zh_cn_name %></h2>
 
               <%  when params[:locale] == "vi" %>
-                <span class="fh5co-feature-icon">
+                <span class="fh5co-feature-icon <%=item1.category%>">
                   <% if item1.vi_images.attached? %>
                     <i><%= image_tag item1.vi_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                   <% else %>
@@ -80,7 +80,7 @@
                 <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.vi_name %></h2>
 
               <%  when params[:locale] == "hmn" %>
-                <span class="fh5co-feature-icon">
+                <span class="fh5co-feature-icon <%=item1.category%>">
                   <% if item1.hmn_images.attached? %>
                     <i><%= image_tag item1.hmn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                   <% else %>
@@ -105,7 +105,7 @@
           <div class="col-md-6 col-sm-6 fh5co-feature-item">
               <% case %>
                 <%  when params[:locale] == "en" %>
-                  <span class="fh5co-feature-icon">
+                  <span class="fh5co-feature-icon <%=item2.category%>">
                     <% if item2.images.attached? %>
                       <i><%= image_tag item2.images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                     <% else %>
@@ -115,7 +115,7 @@
                   <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.en_name %></h2>
 
                 <%  when params[:locale] == "zh_TW" %>
-                  <span class="fh5co-feature-icon">
+                  <span class="fh5co-feature-icon <%=item2.category%>">
                     <% if item2.zh_tw_images.attached? %>
                       <i><%= image_tag item2.zh_tw_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                     <% else %>
@@ -125,7 +125,7 @@
                   <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.zh_tw_name %></h2>
 
                 <%  when params[:locale] == "zh_CN" %>
-                  <span class="fh5co-feature-icon">
+                  <span class="fh5co-feature-icon <%=item2.category%>">
                     <% if item2.zh_cn_images.attached? %>
                       <i><%= image_tag item2.zh_cn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                     <% else %>
@@ -135,7 +135,7 @@
                   <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.zh_cn_name %></h2>
 
                 <%  when params[:locale] == "vi" %>
-                  <span class="fh5co-feature-icon">
+                  <span class="fh5co-feature-icon <%=item2.category%>">
                     <% if item2.vi_images.attached? %>
                       <i><%= image_tag item2.vi_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                     <% else %>
@@ -145,7 +145,7 @@
                   <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.vi_name %></h2>
 
                 <%  when params[:locale] == "hmn" %>
-                  <span class="fh5co-feature-icon">
+                  <span class="fh5co-feature-icon <%=item2.category%>">
                     <% if item2.hmn_images.attached? %>
                       <i><%= image_tag item2.hmn_images.first.variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                     <% else %>

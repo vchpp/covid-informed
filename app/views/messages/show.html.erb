@@ -1,3 +1,18 @@
+<section id="fh5co-feature">
+  <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
+        <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      </div>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2 clearfix fh5co-header"></div>
+  </div>
+</section>
+
+
 <% case %>
   <% when params[:locale] == "en" %>
     <% if @message.images.attached? %>
@@ -53,23 +68,18 @@
         <h2 class="fh5co-uppercase-heading-sm text-center" id="notice"><%= notice %></h2>
       </div>
 
-      <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
-        <h1 class="h1 fh5co-heading fh5co-no-margin-bottom"><%= @message_name %></h1>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-      </div>
-
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 rtf-mobile">
         <div><%= @message_content %></div>
       </div>
 
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 rtf-mobile">
         <% if @message_action_item.present? %>
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
           <div><%= @message_action_item %></div>
         <% end %>
       </div>
 
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 rtf-mobile">
         <div><%= @message_external_rich_links %></div>
       </div>
 

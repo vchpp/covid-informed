@@ -256,13 +256,6 @@
             </div>
           </div>
         </div>
-<!--
-        <div class="col-md-8 col-md-offset-2">
-          <div class="field form-group">
-            <%= form.label :external_links %> NOT USED ANYMORE
-            <%= form.text_area :external_links, name: 'message[external_links][]', size: '70x5', class: 'form-control input-lg', placeholder: "external_links", value: form.object.external_links.join("\n") %>
-          </div>
-        </div> -->
 
         <div class="col-md-8 col-md-offset-2">
           <div class="field form-group">
@@ -274,7 +267,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="field form-group">
             <%= form.label :category %>
-            <%= form.text_field :category, size: '70x5', class: 'form-control input-lg' %>
+            <%= form.select :category, ["General", "Testing", "Vaccination", "Other"], class: 'form-control input-lg' %>
           </div>
         </div>
 
