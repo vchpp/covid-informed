@@ -20,6 +20,7 @@ class External < ApplicationRecord
                                          where("hmn_title ilike ?", "%#{search}%")).or(
                                          where("hmn_source ilike ?", "%#{search}%")).or(
                                          where("hmn_content ilike ?", "%#{search}%")).or(
-                                         where("hmn_notes ilike ?", "%#{search}%"))
+                                         where("hmn_notes ilike ?", "%#{search}%")).or(
+                                         where("category ilike ?", "%#{search}%"))
                                        }
 end
