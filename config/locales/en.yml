@@ -80,6 +80,10 @@ en:
       notes: "Notes"
       external_links: "External Links"
       last_updated: "Last Updated"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "Frequently Asked Questions"
     filter: "Filter By Category"

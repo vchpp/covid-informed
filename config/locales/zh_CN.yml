@@ -49,6 +49,10 @@ zh_CN:
       notes: "笔记"
       external_links: "外部链接"
       last_updated: "最近更新时间"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "常见问题"
     filter: "筛选"

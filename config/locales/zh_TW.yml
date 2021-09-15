@@ -49,6 +49,10 @@ zh_TW:
       notes: "筆記"
       external_links: "外部鏈接"
       last_updated: "最近更新時間"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "常見問題"
     filter: "篩選"
