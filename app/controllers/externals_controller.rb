@@ -13,12 +13,7 @@ class ExternalsController < ApplicationController
       @vaccination << e if e.category == "Vaccination"
       @other << e if e.category == "Other"
     end
-    @externals.each do |e|
-      e.pop if e.category == "General"
-      e.pop if e.category == "Testing"
-      e.pop if e.category == "Vaccination"
-      e.pop if e.category == "Other"
-    end
+    @leftovers = @externals.reject{|d| d.category == "General" || d.category == "Other" || d.category == "Vaccination" || d.category == "Testing"}
   end
 
   # GET /externals/1 or /externals/1.json

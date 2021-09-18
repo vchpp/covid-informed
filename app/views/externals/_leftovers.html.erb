@@ -1,4 +1,4 @@
-<% @externals.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
+<% @leftovers.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
 <div class="row fh5co-pricing-table-1 ">
   <% if item1 %>
     <% if params[:locale] == 'zh_TW' && item1.zh_tw_external_link.present? %>
