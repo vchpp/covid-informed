@@ -73,7 +73,7 @@
       <% if current_user.try(:admin?) %>
         <% if @leftovers.any?  %>
           <div class="fh5co-spacer fh5co-spacer-md"></div>
-          <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers (Admin only)</h2>
+          <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
           <%= render 'leftovers', collection: @leftovers %>
         <% end %>
       <% end %>
