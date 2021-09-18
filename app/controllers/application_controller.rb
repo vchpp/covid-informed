@@ -16,13 +16,13 @@ private
   end
 
   def set_admin
-    if current_user.try(:admin?) 
+    if current_user.try(:admin?)
       cookies[:rct] = 0
     end
   end
 
   def set_visitor
-    if request.query_parameters[1..300]
+    if request.query_parameters[1..9999]
       cookies[:rct] ||= {
         value: request.query_parameters['rct'],
         path: '/',

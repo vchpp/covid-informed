@@ -25,7 +25,7 @@ zh_CN:
     lhw: "Lay Health Workers"
     title: "健康家庭计划: 获取资讯，保持健康"
     mission1: "健康家庭资讯计划 (英文简称为 “INFORMED”) 是为住在美国的亚裔提供关於冠状病毒最新信息的一项研究项目。 “INFORMED”是“Individual and Family Oriented Responsive Messaging Education”的缩写，意思是“以个人和家庭为目标的应对通讯教育”。"
-    mission2: "健康家庭资讯计划的目的是了解和应对有关新冠病毒检测和疫苗接种的障碍。我们希望提供最新信息，以应对新冠病毒疫情的快速发展情况。 此外，我们将根据社区成员的反馈更新和修改我们的讯息。希望能帮助居住的美国的华人、越南人和苗族人增加有关 COVID-19 检测和疫苗接种的知识，并就接受 新冠病毒检测做出明智的决定。"
+    mission2: "健康家庭资讯计划的目的是了解和应对有关新冠病毒检测和疫苗接种的障碍。我们希望提供最新信息，以应对新冠病毒疫情的快速发展情况。 此外，我们将根据社区成员的反馈更新和修改我们的讯息。希望能帮助居住的美国的华人、越南人和苗族人增加有关 COVID-19 检测和疫苗接种的知识，并就接受新冠病毒检测做出明智的决定。"
   messages:
     messages: "信息"
     read_more: "更多"
@@ -49,6 +49,10 @@ zh_CN:
       notes: "笔记"
       external_links: "外部链接"
       last_updated: "最近更新时间"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "常见问题"
     filter: "筛选"

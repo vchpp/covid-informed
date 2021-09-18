@@ -6,6 +6,14 @@ class ExternalsController < ApplicationController
   def index
     @externals = External.where(nil).order('en_title ASC') # creates an anonymous scope
     @externals = @externals.filter_by_search(params[:search]) if (params[:search].present?)
+    @general, @testing, @vaccination, @other = [], [], [], []
+    @externals.each do |e|
+      @general << e if e.category == "General"
+      @testing << e if e.category == "Testing"
+      @vaccination << e if e.category == "Vaccination"
+      @other << e if e.category == "Other"
+    end
+    @leftovers = @externals.reject{|d| d.category == "General" || d.category == "Other" || d.category == "Vaccination" || d.category == "Testing"}
   end
 
   # GET /externals/1 or /externals/1.json

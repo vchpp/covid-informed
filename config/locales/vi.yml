@@ -46,6 +46,10 @@ vi:
       notes: "ghi chú"
       external_links: "liện kết ngoại"
       last_updated: "Cập nhật mới nhất"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "Các câu hỏi thường gặp"
     filter: "lọc theo danh mục"

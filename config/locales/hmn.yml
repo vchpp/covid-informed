@@ -46,6 +46,10 @@ hmn:
       notes: "sau ntawv"
       external_links: "txuas sab nraud"
       last_updated: "kawg hloov tshiab"
+      general: "General"
+      testing: "Testing"
+      vaccination: "Vaccination"
+      other: "Other"
   faqs:
     faq: "Cov Lus Nquag Nug"
     filter: "lim raws qeb"
