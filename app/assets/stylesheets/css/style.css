@@ -1222,7 +1222,8 @@ Components
   cursor: pointer;
 }
 .fh5co-accordion .panel-heading .accordion-toggle {
-  color: #0097b2;
+  color: #ffffff;
+  /* color: #0097b2; */
 }
 .fh5co-accordion .panel-heading .accordion-toggle:after {
   font-family: 'themify';
@@ -1234,14 +1235,14 @@ Components
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2e2e2e !important;
+  color: #ffffff !important;
   position: absolute;
   content: "\e622";
   right: 15px;
   top: 16px;
 }
 .fh5co-accordion .panel-heading.collapsed .accordion-toggle {
-  color: #2e2e2e !important;
+  color: #ffffff !important;
 }
 .fh5co-accordion .panel-heading.collapsed .accordion-toggle:after {
   font-family: 'themify';
@@ -1253,7 +1254,7 @@ Components
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2e2e2e !important;
+  color: #ffffff !important;
   position: absolute;
   content: "\e61a";
   right: 15px;
@@ -1391,15 +1392,23 @@ Components
 /* custom borders */
 .General {
   border: 3px solid #eb5d1f;
+  background: #eb5d1f;
+  color: #ffffff;
 }
 .Testing {
   border: 3px solid #37c4bc;
+  background: #37c4bc;
+  color: #ffffff;
 }
 .Vaccination {
-  border: 3px solid #0097b2;
+  border: 3px solid #262463;
+  background: #262463;
+  color: #ffffff;
 }
 .Other {
   border: 3px solid #fe9892;
+  background: #fe9892;
+  color: #ffffff;
 }
 
 /* Nav Links */
