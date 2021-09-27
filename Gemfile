@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
@@ -36,6 +36,7 @@ gem "aws-sdk-s3", require: false
 gem 'dotenv-rails'
 gem 'rails_12factor'
 gem 'friendly_id', '~> 5.4.0'
+gem "activestorage-office-previewer"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

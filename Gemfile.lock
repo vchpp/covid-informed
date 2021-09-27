@@ -54,6 +54,8 @@ GEM
       activesupport (= 6.1.4.1)
       marcel (~> 1.0.0)
       mini_mime (>= 1.1.0)
+    activestorage-office-previewer (0.1.2)
+      activestorage (>= 6.0.0)
     activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -266,6 +268,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack (>= 6.1.4.1)
+  activestorage-office-previewer
   addressable (>= 2.8.0)
   aws-sdk-s3
   better_errors
@@ -300,7 +303,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   1.16.1
+   1.17.2
