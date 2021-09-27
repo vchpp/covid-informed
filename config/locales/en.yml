@@ -71,7 +71,7 @@ en:
     resources: "Resources"
     external:
       source: "Source"
-      external_resources: "External Resources"
+      external_resources: "Additional Resources"
       search_for_resources: "Search For Resources"
       view: "View"
       search: "Search"
