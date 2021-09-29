@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_165244) do
+ActiveRecord::Schema.define(version: 2021_09_29_063930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,30 @@ ActiveRecord::Schema.define(version: 2021_08_31_165244) do
     t.string "fullname"
     t.string "external_links", default: [], array: true
     t.index ["slug"], name: "index_profiles_on_slug", unique: true
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.string "en_title"
+    t.string "en_description"
+    t.string "en_link_name"
+    t.string "zh_tw_title"
+    t.string "zh_tw_description"
+    t.string "zh_tw_link_name"
+    t.string "zh_cn_title"
+    t.string "zh_cn_description"
+    t.string "zh_cn_link_name"
+    t.string "vi_title"
+    t.string "vi_description"
+    t.string "vi_link_name"
+    t.string "hmn_title"
+    t.string "hmn_description"
+    t.string "hmn_link_name"
+    t.string "link_url"
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_statistics_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

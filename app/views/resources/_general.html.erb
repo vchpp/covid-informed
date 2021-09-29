@@ -1,0 +1,85 @@
+<% @general.in_groups_of(3, false).each do |item1, item2, item3| %>
+<div class="row fh5co-pricing-table-1 ">
+  <% if item1 %>
+    <a href="<%= item1.link_url %>" target="_blank" >
+    <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
+      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item1.category %>">
+        <%= item1.en_title if params[:locale] == 'en' %>
+        <%= item1.zh_cn_title if params[:locale] == 'zh_CN' %>
+        <%= item1.zh_tw_title if params[:locale] == 'zh_TW' %>
+        <%= item1.vi_title if params[:locale] == 'vi' %>
+        <%= item1.hmn_title if params[:locale] == 'hmn' %>
+      </h3>
+      <div class="text-center fh5co-pricing-table-item-body">
+        <div><%= item1.en_description if params[:locale] == 'en' %></div>
+        <div><%= item1.zh_cn_description if params[:locale] == 'zh_CN' %></div>
+        <div><%= item1.zh_tw_description if params[:locale] == 'zh_TW' %></div>
+        <div><%= item1.vi_description if params[:locale] == 'vi' %></div>
+        <div><%= item1.hmn_description if params[:locale] == 'hmn' %></div>
+
+        <% if current_user.try(:admin?) %>
+          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+          <p class="text-center"><%= link_to 'Edit resource', edit_statistic_path(item1), class:"btn btn-primary btn-sm" %></p>
+          <p class="text-center"><%= link_to 'Delete resource', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+        <% end %>
+      </div>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+    </div>
+  </a>
+  <% end %>
+  <% if item2 %>
+    <a href="<%= item2.link_url %>" target="_blank" >
+    <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
+      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item2.category %>">
+        <%= item2.en_title if params[:locale] == 'en' %>
+        <%= item2.zh_cn_title if params[:locale] == 'zh_CN' %>
+        <%= item2.zh_tw_title if params[:locale] == 'zh_TW' %>
+        <%= item2.vi_title if params[:locale] == 'vi' %>
+        <%= item2.hmn_title if params[:locale] == 'hmn' %>
+      </h3>
+      <div class="text-center fh5co-pricing-table-item-body">
+        <div><%= item2.en_description if params[:locale] == 'en' %></div>
+        <div><%= item2.zh_cn_description if params[:locale] == 'zh_CN' %></div>
+        <div><%= item2.zh_tw_description if params[:locale] == 'zh_TW' %></div>
+        <div><%= item2.vi_description if params[:locale] == 'vi' %></div>
+        <div><%= item2.hmn_description if params[:locale] == 'hmn' %></div>
+
+        <% if current_user.try(:admin?) %>
+          <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
+          <p class="text-center"><%= link_to 'Edit resource', edit_statistic_path(item2), class:"btn btn-primary btn-sm" %></p>
+          <p class="text-center"><%= link_to 'Delete resource', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+        <% end %>
+      </div>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+    </div>
+  </a>
+  <% end %>
+  <% if item3 %>
+    <a href="<%= item3.link_url %>" target="_blank" >
+    <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
+      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item3.category %>">
+        <%= item3.en_title if params[:locale] == 'en' %>
+        <%= item3.zh_cn_title if params[:locale] == 'zh_CN' %>
+        <%= item3.zh_tw_title if params[:locale] == 'zh_TW' %>
+        <%= item3.vi_title if params[:locale] == 'vi' %>
+        <%= item3.hmn_title if params[:locale] == 'hmn' %>
+      </h3>
+      <div class="text-center fh5co-pricing-table-item-body">
+        <div><%= item3.en_description if params[:locale] == 'en' %></div>
+        <div><%= item3.zh_cn_description if params[:locale] == 'zh_CN' %></div>
+        <div><%= item3.zh_tw_description if params[:locale] == 'zh_TW' %></div>
+        <div><%= item3.vi_description if params[:locale] == 'vi' %></div>
+        <div><%= item3.hmn_description if params[:locale] == 'hmn' %></div>
+
+        <% if current_user.try(:admin?) %>
+          <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
+          <p class="text-center"><%= link_to 'Edit resource', edit_statistic_path(item3), class:"btn btn-primary btn-sm" %></p>
+          <p class="text-center"><%= link_to 'Delete resource', item3, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+        <% end %>
+      </div>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+    </div>
+  </a>
+  <% end %>
+</div>
+<% end %>

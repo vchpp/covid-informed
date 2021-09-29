@@ -47,7 +47,42 @@
 
             <div>
               <!-- third tab -->
-              <div class="fh5co-spacer fh5co-spacer-md"></div>
+              <div>
+                <div class="fh5co-spacer fh5co-spacer-md"></div>
+                <% if current_user.try(:admin?) %>
+                  <div class="actions">
+                    <%= link_to 'New Statistic', new_statistic_path, class: "btn btn-primary btn-lg btn-block" %>
+                  </div>
+                  <div class="fh5co-spacer fh5co-spacer-md"></div>
+                <% end %>
+              </div>
+
+              <% if @general.any? %>
+                <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.general')%></h2>
+                <%= render 'general', collection: @general %>
+              <% end %>
+
+              <% if @testing.any? %>
+                <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.testing')%></h2>
+                <%= render 'testing', collection: @testing %>
+              <% end %>
+
+              <% if @vaccination.any? %>
+                <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.vaccination')%></h2>
+                <%= render 'vaccination', collection: @vaccination %>
+              <% end %>
+
+              <% if @other.any?  %>
+                <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
+                <%= render 'other', collection: @other %>
+              <% end %>
+
+              <% if current_user.try(:admin?) %>
+                <% if @leftovers.any?  %>
+                  <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
+                  <%= render 'leftovers', collection: @leftovers %>
+                <% end %>
+              <% end %>
             </div>
 
           </div>
