@@ -78,6 +78,46 @@
         <% end %>
       <% end %>
 
+    <% if current_user.try(:admin?) %>
+      <h1>Externals Admin List</h1>
 
+      <table>
+        <thead>
+          <tr>
+            <th>En title</th>
+            <th>En source</th>
+            <th>En content</th>
+            <th>En external link</th>
+            <th>En notes</th>
+            <th>Category</th>
+            <th>Languages</th>
+            <th>Last version date</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_externals.each do |external| %>
+            <tr>
+              <td><%= external.en_title %></td>
+              <td><%= external.en_source %></td>
+              <td><%= external.en_content %></td>
+              <td><%= external.en_external_link %></td>
+              <td><%= external.en_notes %></td>
+              <td><%= external.category %></td>
+              <td><%= external.languages %></td>
+              <td><%= external.last_version_date %></td>
+              <td><%= link_to 'Show', external %></td>
+              <td><%= link_to 'Edit', edit_external_path(external) %></td>
+              <td><%= link_to 'Destroy', external, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New External', new_external_path %>
+    <% end %>
   </div>
 </section>

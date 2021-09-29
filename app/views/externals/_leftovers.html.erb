@@ -34,12 +34,6 @@
           </div>
         <% end %>
 
-        <% if current_user.try(:admin?) %>
-          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-          <!-- <p class="text-center"><%= link_to t('resources.external.view'), item1, class: "btn btn-primary btn-sm" %></p> -->
-          <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item1), class:"btn btn-primary btn-sm" %></p>
-          <p class="text-center"><%= link_to 'Delete resource', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
-        <% end %>
       </div>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
     </div>
@@ -78,12 +72,7 @@
             <%= l %>
           </div>
         <% end %>
-        <% if current_user.try(:admin?) %>
-          <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-          <!-- <p class="text-center"><%= link_to t('resources.external.view'), item2, class: "btn btn-primary btn-sm" %></p> -->
-          <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item2), class:"btn btn-primary btn-sm" %></p>
-          <p class="text-center"><%= link_to 'Delete resource', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
-        <% end %>
+
       </div>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
     </div>
@@ -122,12 +111,7 @@
             <%= l %>
           </div>
         <% end %>
-        <% if current_user.try(:admin?) %>
-          <div class="fh5co-spacer  fh5co-spacer-xxs"></div>
-          <!-- <p class="text-center"><%= link_to t('resources.external.view'), item3, class: "btn btn-primary btn-sm" %></p> -->
-          <p class="text-center"><%= link_to 'Edit resource', edit_external_path(item3), class:"btn btn-primary btn-sm" %></p>
-          <p class="text-center"><%= link_to 'Delete resource', item3, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
-        <% end %>
+
       </div>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
     </div>
