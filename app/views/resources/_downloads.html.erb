@@ -12,6 +12,7 @@
     <% if item1 %>
     <%= link_to rails_blob_path(item1.en_file, disposition: "attachment") do %>
       <div class="col-md-4 col-sm-4 fh5co-feature-item">
+        <div class="<%=item1.category%> text-center">
           <% case %>
             <% when params[:locale] == "en" %>
               <span class="fh5co-feature-icon">
@@ -75,12 +76,15 @@
 
               <% end %> <!-- end case -->
             </div>
+            <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          </div>
           <% end %> <!-- end link_to -->
         <% end %> <!-- end if item1 -->
 
     <% if item2 %>
     <%= link_to rails_blob_path(item2.en_file, disposition: "attachment") do %>
       <div class="col-md-4 col-sm-4 fh5co-feature-item">
+        <div class="<%=item2.category%> text-center">
           <% case %>
             <% when params[:locale] == "en" %>
               <span class="fh5co-feature-icon">
@@ -143,12 +147,15 @@
               <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.hmn_title %></h2>
               <% end %> <!-- end case -->
             </div>
-          <% end %> <!-- end link_to -->
-        <% end %> <!-- end if item2 -->
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          </div>
+        <% end %> <!-- end link_to -->
+      <% end %> <!-- end if item2 -->
 
     <% if item3 %>
     <%= link_to rails_blob_path(item3.en_file, disposition: "attachment") do %>
       <div class="col-md-4 col-sm-4 fh5co-feature-item">
+        <div class="<%=item3.category%> text-center">
           <% case %>
             <% when params[:locale] == "en" %>
               <span class="fh5co-feature-icon">
@@ -212,7 +219,10 @@
 
             <% end %> <!-- end case -->
           </div>
-        <% end %> <!-- end link_to -->
-      <% end %> <!-- end if item3 -->
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+      </div>
+      <% end %> <!-- end link_to -->
+    <% end %> <!-- end if item3 -->
+
   </div>
 <% end %>
