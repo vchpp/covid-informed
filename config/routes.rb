@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|zh_CN|zh_TW|hmn|vi/ do
     resources :downloads
     resources :callouts
+    resources :statistics
     resources :profiles
     resources :messages do
       resources :likes
