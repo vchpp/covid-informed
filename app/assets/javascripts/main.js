@@ -169,7 +169,7 @@
       tabidentify: 'hor_1'
 
     });
-    $('#fh5co-tab-feature-center').easyResponsiveTabs({
+    $('#tab').easyResponsiveTabs({
       type: 'default',
       width: 'auto',
       fit: true,
