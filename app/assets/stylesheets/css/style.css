@@ -1260,6 +1260,9 @@ Components
   right: 15px;
   top: 16px;
 }
+.fh5co-accordion a {
+  color: #ffffff !important;
+}
 
 /* Progress Bars */
 .progress {
@@ -1410,6 +1413,7 @@ Components
   background: #fe9892;
   color: #ffffff;
 }
+
 
 /* Nav Links */
 .fh5co-nav-links ul {
