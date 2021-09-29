@@ -29,7 +29,18 @@
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item1.languages.each do |l| %>
-          <%= l %>
+        <% case %>
+          <% when l.match("English") %>
+            <a href="<%= item1.en_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("繁體中文") %>
+            <a href="<%= item1.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("简体中文") %>
+            <a href="<%= item1.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("Tiếng Việt") %>
+            <a href="<%= item1.vi_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("kwv tij hmoob") %>
+            <a href="<%= item1.hmn_external_link %>" target="_blank"> <%=l%> </a>
+          <% end %>
         <% end %>
 
       </div>
@@ -66,7 +77,18 @@
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item2.languages.each do |l| %>
-          <%= l %>
+        <% case %>
+          <% when l.match("English") %>
+            <a href="<%= item2.en_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("繁體中文") %>
+            <a href="<%= item2.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("简体中文") %>
+            <a href="<%= item2.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("Tiếng Việt") %>
+            <a href="<%= item2.vi_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("kwv tij hmoob") %>
+            <a href="<%= item2.hmn_external_link %>" target="_blank"> <%=l%> </a>
+          <% end %>
         <% end %>
 
       </div>
@@ -103,7 +125,18 @@
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item3.languages.each do |l| %>
-          <%= l %>
+        <% case %>
+          <% when l.match("English") %>
+            <a href="<%= item3.en_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("繁體中文") %>
+            <a href="<%= item3.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("简体中文") %>
+            <a href="<%= item3.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("Tiếng Việt") %>
+            <a href="<%= item3.vi_external_link %>" target="_blank"> <%=l%> </a>
+          <% when l.match("kwv tij hmoob") %>
+            <a href="<%= item3.hmn_external_link %>" target="_blank"> <%=l%> </a>
+          <% end %>
         <% end %>
 
       </div>
