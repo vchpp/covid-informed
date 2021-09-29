@@ -14,6 +14,7 @@ class ExternalsController < ApplicationController
       @other << e if e.category == "Other"
     end
     @leftovers = @externals.reject{|d| d.category == "General" || d.category == "Other" || d.category == "Vaccination" || d.category == "Testing"}
+    @admin_externals = @externals.sort_by(&:category)
   end
 
   # GET /externals/1 or /externals/1.json
