@@ -1,78 +1,142 @@
-<%= form_with(model: download) do |form| %>
-  <% if download.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(download.errors.count, "error") %> prohibited this download from being saved:</h2>
 
-      <ul>
-        <% download.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+
+<section id="fh5co-feature">
+  <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <div class="row">
+			<div class="col-md-12">
+        <%= form_with(model: download) do |form| %>
+          <% if download.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(download.errors.count, "error") %> prohibited this download from being saved:</h2>
+
+              <ul>
+                <% download.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div id="fh5co-tab-feature-vertical" class="fh5co-tab text-center">
+            <ul class="resp-tabs-list hor_1">
+              <li> English (en)</li>
+              <li> Chinese Traditional (zh_tw)</li>
+              <li> Chinese Simplified (zh_cn)</li>
+              <li> Vietnamese (vi)</li>
+              <li> Hmong (hmn)</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_file %>
+                      <%= form.file_field :en_file, direct_upload: true, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :en_title %>
+                      <%= form.text_field :en_title, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_file %>
+                      <%= form.file_field :zh_tw_file, direct_upload: true, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_tw_title %>
+                      <%= form.text_field :zh_tw_title, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_file %>
+                      <%= form.file_field :zh_cn_file, direct_upload: true, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :zh_cn_title %>
+                      <%= form.text_field :zh_cn_title, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_file %>
+                      <%= form.file_field :vi_file, direct_upload: true, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :vi_title %>
+                      <%= form.text_field :vi_title, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_file %>
+                      <%= form.file_field :hmn_file, direct_upload: true, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :hmn_title %>
+                      <%= form.text_field :hmn_title, class: "form-control input-lg"  %>
+                    </div>
+                  </div>
+                </div>
+               </div>
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :archive? %>
+                      <%= form.check_box :archive %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="field form-group">
+                      <%= form.label :category %>
+                      <%= form.select :category, ["Participant_Handouts", "Flipcharts", "Training_Manuals", "Other"], class: 'form-control input-lg' %>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="actions">
+                    <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                    <%= link_to 'Back', downloads_path, class: "btn btn-primary btn-lg btn-block" %>
+                  </div>
+                </div>
+
+                <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+            </div>
+          </div>
+
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :en_file %>
-    <%= form.file_field :en_file, direct_upload: true, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :en_title %>
-    <%= form.text_field :en_title, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_tw_file %>
-    <%= form.file_field :zh_tw_file, direct_upload: true, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_tw_title %>
-    <%= form.text_field :zh_tw_title, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_cn_file %>
-    <%= form.file_field :zh_cn_file, direct_upload: true, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zh_cn_title %>
-    <%= form.text_field :zh_cn_title, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vi_file %>
-    <%= form.file_field :vi_file, direct_upload: true, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vi_title %>
-    <%= form.text_field :vi_title, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hmn_file %>
-    <%= form.file_field :hmn_file, direct_upload: true, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hmn_title %>
-    <%= form.text_field :hmn_title, class: "form-control input-lg"  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category, ["General", "Vaccines", "Tobacco", "Testing"], class: 'form-control input-lg' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :archive? %>
-    <%= form.check_box :archive %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

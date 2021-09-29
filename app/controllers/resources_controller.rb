@@ -6,7 +6,9 @@ class ResourcesController < ApplicationController
       .with_attached_zh_cn_file
       .with_attached_vi_file
       .with_attached_hmn_file
-      .where(archive: false).order('category DESC')
+      .where(archive: false).order('category ASC')
+    @other = @downloads.where(category: "Other")
+
     @statistics = Statistic.where(nil).order('en_title ASC') # creates an anonymous scope
     @statistics = @statistics.filter_by_search(params[:search]) if (params[:search].present?)
     @general, @testing, @vaccination, @other = [], [], [], []

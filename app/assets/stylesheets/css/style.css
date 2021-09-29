@@ -1260,6 +1260,9 @@ Components
   right: 15px;
   top: 16px;
 }
+.fh5co-accordion a {
+  color: #ffffff !important;
+}
 
 /* Progress Bars */
 .progress {
@@ -1410,6 +1413,23 @@ Components
   background: #fe9892;
   color: #ffffff;
 }
+/* Download categories: participant handouts/flipcharts/training manuals/other */
+.Participant_Handouts {
+  border: 3px solid #eb5d1f;
+  background: #eb5d1f;
+  color: #ffffff;
+}
+.Flipcharts {
+  border: 3px solid #37c4bc;
+  background: #37c4bc;
+  color: #ffffff;
+}
+.Training_Manuals {
+  border: 3px solid #262463;
+  background: #262463;
+  color: #ffffff;
+}
+
 
 /* Nav Links */
 .fh5co-nav-links ul {
