@@ -23,6 +23,7 @@
     <script>
       function getCookie(name) {
         match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+        console.log(match[1]);
         if (match) return match[1];
       }
     </script>
@@ -36,7 +37,7 @@
     <%= javascript_pack_tag 'application' %>
 
     	<!-- Google Webfont -->
-  	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
+  	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
     <%= favicon_link_tag asset_path('favicon2.png') %>
   </head>
 
