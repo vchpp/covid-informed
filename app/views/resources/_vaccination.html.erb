@@ -1,7 +1,17 @@
 <% @vaccination.in_groups_of(3, false).each do |item1, item2, item3| %>
 <div class="row fh5co-pricing-table-1 ">
   <% if item1 %>
-    <a href="<%= item1.link_url %>" target="_blank" >
+    <% if params[:locale] == 'zh_TW' && item1.zh_tw_link_url.present? %>
+      <a href="<%= item1.zh_tw_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'zh_CN' && item1.zh_cn_link_url.present? %>
+      <a href="<%= item1.zh_cn_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'vi' && item1.vi_link_url.present? %>
+      <a href="<%= item1.vi_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'en' && item1.hmn_link_url.present?%>
+      <a href="<%= item1.hmn_link_url %>" target="_blank" >
+    <% else %>
+      <a href="<%= item1.en_link_url %>" target="_blank" >
+    <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item1.category %>">
         <%= item1.en_title if params[:locale] == 'en' %>
@@ -28,7 +38,17 @@
   </a>
   <% end %>
   <% if item2 %>
-    <a href="<%= item2.link_url %>" target="_blank" >
+    <% if params[:locale] == 'zh_TW' && item2.zh_tw_link_url.present? %>
+      <a href="<%= item2.zh_tw_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'zh_CN' && item2.zh_cn_link_url.present? %>
+      <a href="<%= item2.zh_cn_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'vi' && item2.vi_link_url.present? %>
+      <a href="<%= item2.vi_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'en' && item2.hmn_link_url.present?%>
+      <a href="<%= item2.hmn_link_url %>" target="_blank" >
+    <% else %>
+      <a href="<%= item2.en_link_url %>" target="_blank" >
+    <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item2.category %>">
         <%= item2.en_title if params[:locale] == 'en' %>
@@ -55,7 +75,17 @@
   </a>
   <% end %>
   <% if item3 %>
-    <a href="<%= item3.link_url %>" target="_blank" >
+    <% if params[:locale] == 'zh_TW' && item3.zh_tw_link_url.present? %>
+      <a href="<%= item3.zh_tw_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'zh_CN' && item3.zh_cn_link_url.present? %>
+      <a href="<%= item3.zh_cn_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'vi' && item3.vi_link_url.present? %>
+      <a href="<%= item3.vi_link_url %>" target="_blank" >
+    <% elsif params[:locale] == 'en' && item3.hmn_link_url.present?%>
+      <a href="<%= item3.hmn_link_url %>" target="_blank" >
+    <% else %>
+      <a href="<%= item3.en_link_url %>" target="_blank" >
+    <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item3.category %>">
         <%= item3.en_title if params[:locale] == 'en' %>
