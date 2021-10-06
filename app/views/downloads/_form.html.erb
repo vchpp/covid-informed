@@ -30,6 +30,10 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <% if @download.en_file.attached? %>
+                        <%= image_tag @download.en_file.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                      <% end %>
+                      <br>
                       <%= form.label :en_file %>
                       <%= form.file_field :en_file, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
@@ -45,6 +49,9 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <% if @download.zh_tw_file.attached? %>
+                        <%= image_tag @download.zh_tw_file.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                      <% end %>
                       <%= form.label :zh_tw_file %>
                       <%= form.file_field :zh_tw_file, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
@@ -60,6 +67,9 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <% if @download.zh_cn_file.attached? %>
+                        <%= image_tag @download.zh_cn_file.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                      <% end %>
                       <%= form.label :zh_cn_file %>
                       <%= form.file_field :zh_cn_file, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
@@ -76,6 +86,9 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <% if @download.vi_file.attached? %>
+                        <%= image_tag @download.vi_file.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                      <% end %>
                       <%= form.label :vi_file %>
                       <%= form.file_field :vi_file, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
@@ -92,6 +105,9 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
+                      <% if @download.hmn_file.attached? %>
+                        <%= image_tag @download.hmn_file.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                      <% end %>
                       <%= form.label :hmn_file %>
                       <%= form.file_field :hmn_file, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
