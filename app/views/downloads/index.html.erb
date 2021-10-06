@@ -18,11 +18,12 @@
   <tbody>
     <% @downloads.each do |download| %>
       <tr>
-        <td><%= download.en_file %></td>
-        <td><%= download.zh_tw_file %></td>
-        <td><%= download.zh_cn_file %></td>
-        <td><%= download.vi_file %></td>
-        <td><%= download.hmn_file %></td>
+        <td><%= download.en_title %></td>
+        <td><%= image_tag download.en_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.en_file.attached? %></td>
+        <td><%= image_tag download.zh_tw_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.zh_tw_file.attached? %></td>
+        <td><%= image_tag download.zh_cn_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.zh_cn_file.attached? %></td>
+        <td><%= image_tag download.vi_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.vi_file.attached? %></td>
+        <td><%= image_tag download.hmn_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.hmn_file.attached? %></td>
         <td><%= download.archive %></td>
         <td><%= link_to 'Show', download %></td>
         <td><%= link_to 'Edit', edit_download_path(download) %></td>
