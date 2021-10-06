@@ -4,9 +4,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Q8T209GGMN');
-  gtag('send', 'pageview', {
-    'dimension1':  getCookie('rct')
-    });
+  gtag('set','dimension1', getCookie('rct'));
   gtag('send','event','eventCategory','eventAction');
 </script>
 
@@ -98,7 +96,7 @@
             <div class="fh5co-spacer fh5co-spacer-md"></div>
           </div>
         </a>
-
+				<div class="clearfix visible-sm-block"></div>
           <!-- item2 -->
         <% if item2 %>
         <a href="<%= message_path(item2) %>">

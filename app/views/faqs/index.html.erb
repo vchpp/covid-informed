@@ -4,9 +4,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Q8T209GGMN');
-  gtag('send', 'pageview', {
-    'dimension1':  getCookie('rct')
-    });
+  gtag('set','dimension1', getCookie('rct'));
   gtag('send','event','eventCategory','eventAction');
 </script>
 

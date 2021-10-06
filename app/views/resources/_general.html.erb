@@ -1,3 +1,13 @@
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q8T209GGMN');
+  gtag('set','dimension1', getCookie('rct'));
+  gtag('send','event','eventCategory','eventAction');
+</script>
+
 <% @general.in_groups_of(3, false).each do |item1, item2, item3| %>
 <div class="row fh5co-pricing-table-1 ">
   <% if item1 %>
