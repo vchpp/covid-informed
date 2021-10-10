@@ -23,6 +23,10 @@ hmn:
       study_coordinator: "Tus Tuav Kev Kawm"
     cab_members: "Cov Tswv Cuab Hauv Zej Zog Cov Tswv Cuab"
     lhw: "Lay Health Workers"
+    title1: "Healthy Family Project – "
+    title2: "Getting INFORMED to Stay Healthy"
+    mission1: "“INFORMED” is a research study targeting Asian Americans with the goal of providing up-to-date information about COVID-19. “INFORMED,” also stands for “Individual and Family Oriented Responsive Messaging Education.”"
+    mission2: "The purpose of INFORMED is to understand and address barriers related to COVID-19 testing and vaccination. We hope to provide updated information that is responsive to the fast-evolving situation of COVID-19.  In addition, we will update and modify our messages in respond to the feedback from our community members.  We want to help Chinese, Vietnamese, and Hmong Americans increase knowledge about COVID-19 testing and vaccination, and make well-informed decision about getting tested for COVID-19. "
   messages:
     messages: "lus"
     read_more: "nyeem ntxiv"
