@@ -41,7 +41,7 @@ hmn:
       search_for_resources: "nrhiav cov khoom siv"
       view: "saib"
       search: "kev tshawb"
-      reset: "rov pib dua"
+      all: "rov pib dua"
       contents_of_resources: "cov ntsiab lus ntawm cov khoom siv"
       notes: "sau ntawv"
       external_links: "txuas sab nraud"
@@ -56,7 +56,7 @@ hmn:
     or: "lossis"
     search_for_questions: "tshawb cov lus nug"
     search: "kev tshawb"
-    reset: "rov pib dua"
+    all: "rov pib dua"
   activerecord:
     models:
       message:

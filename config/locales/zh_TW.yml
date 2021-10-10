@@ -44,7 +44,7 @@ zh_TW:
       search_for_resources: "尋找資源"
       view: "閱讀"
       search: "搜索"
-      reset: "重啟"
+      all: "重啟"
       contents_of_resources: "資源內容"
       notes: "筆記"
       external_links: "外部鏈接"
@@ -59,7 +59,7 @@ zh_TW:
     or: "或"
     search_for_questions: "尋找信息"
     search: "搜索"
-    reset: "重啟"
+    all: "重啟"
   activerecord:
     models:
       message:

@@ -41,7 +41,7 @@ vi:
       search_for_resources: "tìm kiếm tài nguyên"
       view: "lượt xem"
       search: "Tìm kiếm"
-      reset: "cài lại"
+      all: "cài lại"
       contents_of_resources: "nội dung của tài nguyên"
       notes: "ghi chú"
       external_links: "liện kết ngoại"
@@ -56,7 +56,7 @@ vi:
     or: "hoặc là"
     search_for_questions: "tìm kiếm câu hỏi"
     search: "Tìm kiếm"
-    reset: "cài lại"
+    all: "cài lại"
   activerecord:
     models:
       message:

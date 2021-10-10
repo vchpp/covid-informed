@@ -75,7 +75,7 @@ en:
       search_for_resources: "Search For Resources"
       view: "View"
       search: "Search"
-      reset: "Reset"
+      all: "All"
       contents_of_resources: "Contents Of Resources"
       notes: "Notes"
       external_links: "External Links"
@@ -90,7 +90,7 @@ en:
     or: "or"
     search_for_questions: "Search For Questions"
     search: "Search"
-    reset: "Reset"
+    all: "All"
   activerecord:
     models:
       message:

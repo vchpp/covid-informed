@@ -56,14 +56,14 @@
             <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
           </div>
           <div class="col-md-2 form-group">
-            <button type="submit" class="form-control btn btn-primary">
-              <%= t('faqs.search') %>
+            <button class="form-control btn btn-primary" type="submit">
+              <i class="ti-search"></i>
             </button>
           </div>
         </form>
         <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.reset')%>">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.all')%>">
           </div>
         </form>
       </div>
