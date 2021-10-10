@@ -1365,7 +1365,6 @@ Components
   color: #ffffff;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body {
-  border: 2px solid #ccc;
   border-top: none;
   height: 280px;
 }
@@ -1392,7 +1391,7 @@ Components
   border-top: none;
 }
 
-/* custom borders */
+/* custom blocks */
 .General {
   border: 3px solid #eb5d1f;
   background: #eb5d1f;
@@ -1412,6 +1411,19 @@ Components
   border: 3px solid #fe9892;
   background: #fe9892;
   color: #ffffff;
+}
+/* custom borders */
+.General-border {
+  border: 3px solid #eb5d1f;
+}
+.Testing-border {
+  border: 3px solid #37c4bc;
+}
+.Vaccination-border {
+  border: 3px solid #262463;
+}
+.Other-border {
+  border: 3px solid #fe9892;
 }
 /* Download categories: participant handouts/flipcharts/training manuals/other */
 .Participant_Handouts {
