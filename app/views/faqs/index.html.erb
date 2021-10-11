@@ -4,7 +4,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Q8T209GGMN');
-  gtag('set','dimension1', getCookie('rct'));
+  gtag('send','dimension1', getCookie('rct'));
   gtag('send','event','eventCategory','eventAction');
 </script>
 
@@ -56,14 +56,14 @@
             <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
           </div>
           <div class="col-md-2 form-group">
-            <button type="submit" class="form-control btn btn-primary">
-              <%= t('faqs.search') %>
+            <button class="form-control btn btn-primary" type="submit">
+              <i class="ti-search"></i>
             </button>
           </div>
         </form>
         <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
           <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.reset')%>">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.all')%>">
           </div>
         </form>
       </div>
@@ -73,7 +73,7 @@
       <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
 
         <% @faqs.each do |faq| %>
-          <div class="panel panel-default <%=faq.category%>">
+          <div class="panel panel-default <%=faq.category%>-border">
             <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
               <h4 class="panel-title">
                 <a class="accordion-toggle">

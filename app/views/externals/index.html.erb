@@ -4,7 +4,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Q8T209GGMN');
-  gtag('set','dimension1', getCookie('rct'));
+  gtag('send','dimension1', getCookie('rct'));
   gtag('send','event','eventCategory','eventAction');
 </script>
 
@@ -33,12 +33,14 @@
               <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('resources.external.search_for_resources')%>">
             </div>
             <div class="col-md-2 form-group">
-              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.search')%>">
+              <button class="form-control btn btn-primary" type="submit">
+                <i class="ti-search"></i>
+              </button>
             </div>
           </form>
           <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/externals" >
             <div class="col-md-2 form-group">
-              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.reset')%>">
+              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.all')%>">
             </div>
           </form>
         </div>

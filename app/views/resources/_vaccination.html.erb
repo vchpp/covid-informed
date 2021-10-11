@@ -13,14 +13,14 @@
       <a href="<%= item1.en_link_url %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
-      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item1.category %>">
+      <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item1.category %>">
         <%= item1.en_title if params[:locale] == 'en' %>
         <%= item1.zh_cn_title if params[:locale] == 'zh_CN' %>
         <%= item1.zh_tw_title if params[:locale] == 'zh_TW' %>
         <%= item1.vi_title if params[:locale] == 'vi' %>
         <%= item1.hmn_title if params[:locale] == 'hmn' %>
-      </h3>
-      <div class="text-center fh5co-pricing-table-item-body">
+      </div>
+      <div class="text-center fh5co-pricing-table-item-body <%= item1.category %>-border">
         <div><%= item1.en_description if params[:locale] == 'en' %></div>
         <div><%= item1.zh_cn_description if params[:locale] == 'zh_CN' %></div>
         <div><%= item1.zh_tw_description if params[:locale] == 'zh_TW' %></div>
@@ -50,14 +50,14 @@
       <a href="<%= item2.en_link_url %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
-      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item2.category %>">
+      <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item2.category %>">
         <%= item2.en_title if params[:locale] == 'en' %>
         <%= item2.zh_cn_title if params[:locale] == 'zh_CN' %>
         <%= item2.zh_tw_title if params[:locale] == 'zh_TW' %>
         <%= item2.vi_title if params[:locale] == 'vi' %>
         <%= item2.hmn_title if params[:locale] == 'hmn' %>
-      </h3>
-      <div class="text-center fh5co-pricing-table-item-body">
+      </div>
+      <div class="text-center fh5co-pricing-table-item-body <%= item2.category %>-border">
         <div><%= item2.en_description if params[:locale] == 'en' %></div>
         <div><%= item2.zh_cn_description if params[:locale] == 'zh_CN' %></div>
         <div><%= item2.zh_tw_description if params[:locale] == 'zh_TW' %></div>
@@ -87,14 +87,14 @@
       <a href="<%= item3.en_link_url %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
-      <h3 class="text-center fh5co-pricing-table-item-heading h4 text-uppercase <%= item3.category %>">
+      <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item3.category %>">
         <%= item3.en_title if params[:locale] == 'en' %>
         <%= item3.zh_cn_title if params[:locale] == 'zh_CN' %>
         <%= item3.zh_tw_title if params[:locale] == 'zh_TW' %>
         <%= item3.vi_title if params[:locale] == 'vi' %>
         <%= item3.hmn_title if params[:locale] == 'hmn' %>
-      </h3>
-      <div class="text-center fh5co-pricing-table-item-body">
+      </div>
+      <div class="text-center fh5co-pricing-table-item-body <%= item3.category %>-border">
         <div><%= item3.en_description if params[:locale] == 'en' %></div>
         <div><%= item3.zh_cn_description if params[:locale] == 'zh_CN' %></div>
         <div><%= item3.zh_tw_description if params[:locale] == 'zh_TW' %></div>
