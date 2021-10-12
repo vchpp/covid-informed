@@ -37,6 +37,7 @@ gem 'dotenv-rails'
 gem 'rails_12factor'
 gem 'friendly_id', '~> 5.4.0'
 gem "activestorage-office-previewer"
+gem 'metamagic'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

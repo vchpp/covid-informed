@@ -142,6 +142,8 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
+    metamagic (3.1.7)
+      rails (>= 3.0.0)
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.1)
@@ -283,6 +285,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
+  metamagic
   nokogiri (>= 1.11.4)
   pg (~> 1.1)
   popper_js (~> 1.12.9)
