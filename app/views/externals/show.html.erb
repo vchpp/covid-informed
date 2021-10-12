@@ -1,10 +1,15 @@
+<%
+meta title: "COVID-INFORMED - Additional Resources - #{@external.id}",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-Q8T209GGMN');
-  gtag('send','dimension1', getCookie('rct'));
+  gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+  gtag('event','pageview', {'rct': rct});
   gtag('send','event','eventCategory','eventAction');
 </script>
 

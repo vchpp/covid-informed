@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= metamagic %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>COVID-INFORMED</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="covid-informed" />
-    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 
       <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -23,11 +21,12 @@
     <script>
       function getCookie(name) {
         match = document.cookie.match(new RegExp(name + '=([^;]+)'));
-        console.log(match[1]);
         if (match) return match[1];
       }
+      var rct = getCookie('rct');
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8T209GGMN"></script>
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
