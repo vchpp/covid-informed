@@ -77,3 +77,13 @@ vi:
         content: 'Nội dung'
       comment:
         content: 'Nội dung'
+  helpers:
+    submit:
+      # helpers.submit.<action>
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+
+      # helpers.submit.<model>.<action>
+      comment:
+        create: "Leave a comment"
+        update: "Update comment"        
