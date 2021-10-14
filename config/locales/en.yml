@@ -108,3 +108,13 @@ en:
         content: 'Content'
       comment:
         content: 'Content'
+  helpers:
+    submit:
+      # helpers.submit.<action>
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+
+      # helpers.submit.<model>.<action>
+      comment:
+        create: "Leave a comment"
+        update: "Update comment"

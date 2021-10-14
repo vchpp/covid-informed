@@ -77,3 +77,13 @@ hmn:
         content: 'Cov Ntsiab Lus'
       comment:
         content: 'Cov Ntsiab Lus'
+  helpers:
+    submit:
+      # helpers.submit.<action>
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+
+      # helpers.submit.<model>.<action>
+      comment:
+        create: "Leave a comment"
+        update: "Update comment"

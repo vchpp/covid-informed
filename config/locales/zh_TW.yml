@@ -31,7 +31,7 @@ zh_TW:
     messages: "信息"
     read_more: "更多"
     comments: "評論"
-    leave_comment: "發表評論"
+    leave_comment: "輸入評論"
     submit: "提交"
     back: "返回"
     show:
@@ -77,3 +77,13 @@ zh_TW:
         content: "內容"
       comment:
         content: "內容"
+  helpers:
+    submit:
+      # helpers.submit.<action>
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+
+      # helpers.submit.<model>.<action>
+      comment:
+        create: "輸入評論"
+        update: "Update comment"
