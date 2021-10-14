@@ -32,14 +32,14 @@ html.fh5co-overflow #fh5co-header-section, html.fh5co-overflow #fh5co-main, html
 
 body {
   font-family: 'Lato', arial, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
   color: #2e2e2e;
 }
 @media screen and (max-width: 992px) {
   body {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.5;
   }
 }
