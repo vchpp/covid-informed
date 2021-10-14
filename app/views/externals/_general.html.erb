@@ -28,6 +28,7 @@
         <div><%= item1.hmn_notes if params[:locale] == 'hmn' %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+        <% item1.languages.each { |l| l.concat(" | ") if l != item1.languages[-1]} %>
         <% item1.languages.each do |l| %>
         <% case %>
           <% when l.match("English") %>
@@ -76,6 +77,7 @@
         <div><%= item2.hmn_notes if params[:locale] == 'hmn' %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+        <% item2.languages.each { |l| l.concat(" | ") if l != item2.languages[-1]} %>
         <% item2.languages.each do |l| %>
         <% case %>
           <% when l.match("English") %>
@@ -124,16 +126,17 @@
         <div><%= item3.hmn_notes if params[:locale] == 'hmn' %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+        <% item3.languages.each { |l| l.concat(" | ") if l != item3.languages[-1]} %>
         <% item3.languages.each do |l| %>
         <% case %>
           <% when l.match("English") %>
-            <a href="<%= item3.en_external_link %>" target="_blank"> <%=l%> </a> |
+            <a href="<%= item3.en_external_link %>" target="_blank"> <%=l%> </a>
           <% when l.match("繁體中文") %>
-            <a href="<%= item3.zh_tw_external_link %>" target="_blank"> <%=l%> </a> |
+            <a href="<%= item3.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
           <% when l.match("简体中文") %>
-            <a href="<%= item3.zh_cn_external_link %>" target="_blank"> <%=l%> </a> |
+            <a href="<%= item3.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
           <% when l.match("Tiếng Việt") %>
-            <a href="<%= item3.vi_external_link %>" target="_blank"> <%=l%> </a> |
+            <a href="<%= item3.vi_external_link %>" target="_blank"> <%=l%> </a>
           <% when l.match("kwv tij hmoob") %>
             <a href="<%= item3.hmn_external_link %>" target="_blank"> <%=l%> </a>
           <% end %>
