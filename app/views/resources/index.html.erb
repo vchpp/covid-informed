@@ -13,8 +13,8 @@
       <div class="col-md-12">
         <div id="tab" class="fh5co-tab text-center">
           <ul class="resp-tabs-list hor_1">
-            <li><i class="fh5co-tab-menu-icon ti-download"></i> <%= t('resources.downloads')%> </li>
             <li><i class="fh5co-tab-menu-icon ti-user"></i> <%= t('resources.layhealthworkers')%> </li>
+            <li><i class="fh5co-tab-menu-icon ti-download"></i> <%= t('resources.downloads')%> </li>
             <li><i class="fh5co-tab-menu-icon ti-stats-up"></i> <%= t('resources.statistics')%> </li>
           </ul>
 
@@ -23,13 +23,13 @@
             <div>
               <!-- first tab -->
               <div class="fh5co-spacer fh5co-spacer-md"></div>
-              <%= render 'downloads', collection: @downloads %>
             </div>
 
 
             <div>
               <!-- second tab -->
               <div class="fh5co-spacer fh5co-spacer-md"></div>
+              <%= render 'downloads', collection: @downloads %>
             </div>
 
             <div>
