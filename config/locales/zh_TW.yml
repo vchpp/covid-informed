@@ -55,7 +55,15 @@ zh_TW:
       vaccination: "疫苗接種"
       other: "其他"
     statistics: "統計數據"
-    layhealthworkers: "社區保健員"
+    layhealthworkers:
+      layhealthworkers: "社區保健員"
+      project: "關於健康家庭資訊計劃的社區保健員:"
+      project1: "健康家庭資訊計劃(INFORMED)的社區保健員是被選出來教育他自己所在社區內的其他人士在COVID-19疫情當下如何保持健康。他們接受過研究人員的訓練來提供最新的COVID-19資訊"
+      project2: "被我們揀選的社區保健員都是具備熱心、友善、開通的特質、並表明有意促進社區健康。他們將會主持關於COVID-19的健康教育小組。將重要的健康訊息以文化和語言上合適的方式傳達給社區成員。"
+      downloads: "下載健康家庭資訊計劃的資料:"
+      downloads1: "在美國國立衛生研究院(National Institutes of Health)的資助下(研究資助號3R01DA036749-05S1)，社區保健員所用的訓練教材及教育資料可通過點擊上面的“下載”選項卡免費下載用於研究和教育用途。"
+      stats: "來自選定來源關於c19的統計數據:"
+      stats1: "為了讓我們的社區隨時瞭解情況，我們選了幾個在線資源以提供最新關於COVID-19的地方及全球統計數據。這些資源被列在‘統計數據’選項下。"
     downloads: "下載"
   faqs:
     faq: "常見問題"

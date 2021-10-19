@@ -55,7 +55,15 @@ hmn:
       vaccination: "Kev txhaj tshuaj tiv thaiv"
       other: "Lwm yam"
     statistics: "txheeb cais"
-    layhealthworkers: "tso cov neeg ua haujlwm noj qab haus huv"
+    layhealthworkers:
+      layhealthworkers: "tso cov neeg ua haujlwm noj qab haus huv"
+      project: "About Lay Health Workersof the INFORMED Project:"
+      project1: "A lay health worker in the INFORMED Project is someone who hasbeen selected to teach others in their own communities about how to stay healthy during the COVID-19 pandemic. They have been trained by the research staff to provide up-to-date information about COVID-19."
+      project2: "Our lay health workers are selected because they are warm, friendly, open-minded, and have expressed an interest in improving the health of their communities. Theywill lead health educational sessions about COVID-19, so that the important health messages will reach members of the communities in a culturally and linguistically appropriateway."
+      downloads: "Downloads of INFORMED Materials:"
+      downloads1: "With support from the National Institutes of Health (Research Grant Number3R01DA036749-05S1), the training and educational materialsused by our lay health workersare madeavailable for research and educational use for free by clickingthe “Download” tababove."
+      stats: "Statistics About COVID-19 from Selected Sources:"
+      stats1: "To keep our communities informed about COVID-19, we have selected several online resources that provide the latest statistics related tothe COVID-19 pandemic, both globally and locally. These resources are listed under the “Statistics” tab."
     downloads: "rub tawm"
   faqs:
     faq: "Cov Lus Nquag Nug"
