@@ -55,7 +55,15 @@ zh_CN:
       vaccination: "疫苗接种"
       other: "其他"
     statistics: "统计数据"
-    layhealthworkers: "社区保健员"
+    layhealthworkers:
+      layhealthworkers: "社区保健员"
+      project: "关於健康家庭资讯计划的社区保健员:"
+      project1: "健康家庭资讯计划(INFORMED)的社区保健员是被选出来教育他自己所在社区内的其他人士在COVID-19疫情当下如何保持健康。他们接受过研究人员的训练来提供最新的COVID-19资讯。"
+      project2: "被我们拣选的社区保健员都是具备热心、友善、开通的特质、并表明有意促进社区健康。他们将会主持关於COVID-19的健康教育小组。将重要的健康讯息以文化和语言上合适的方式传达给社区成员。"
+      downloads: "下载健康家庭资讯计划的资料："
+      downloads1: "在美国国立卫生研究院(National Institutes of Health)的资助下(研究资助号3R01DA036749-05S1)，社区保健员所用的训练教材及教育资料可通过点击上面的“下载”选项卡免费下载用於研究和教育用途。"
+      stats: "来自选定来源关於c19的统计数据："
+      stats1: "为了让我们的社区随时瞭解情况，我们选了几个在线资源以提供最新关於COVID-19的地方及全球统计数据。这些资源被列在‘统计数据’选项下。"
     downloads: "下载"
   faqs:
     faq: "常见问题"
