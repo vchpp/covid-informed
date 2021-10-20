@@ -58,6 +58,7 @@ en:
     title2: "Getting INFORMED to Stay Healthy"
     mission1: "“INFORMED” is a research study targeting Asian Americans with the goal of providing up-to-date information about COVID-19. “INFORMED” stands for “Individual and Family Oriented Responsive Messaging Education.”"
     mission2: "The purpose of INFORMED is to understand and address barriers related to COVID-19 testing and vaccination. We hope to provide updated information that is responsive to the fast-evolving situation of COVID-19. In addition, we will update and modify our messages in response to feedback from our community members. We want to help Chinese, Vietnamese, and Hmong Americans increase knowledge about COVID-19 testing and vaccination, and make well-informed decision about practicing safety measures, testing, and vaccination for COVID-19."
+    disclaimer: "INFORMED is supported by the National Institutes of Health under Award Number 3R01DA036749-05S1.  The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.  UCSF IRB Approval Number 20-32933."
   messages:
     messages: "Messages"
     read_more: "Read More"
