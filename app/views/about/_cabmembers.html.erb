@@ -4,7 +4,7 @@
 <section id="fh5co-feature">
   <div class="container">
     <div class="fh5co-feature">
-      <h2 class="fh5co-uppercase-heading-lg text-center">INFORMED <%= t('about.cab_members') %></h2>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('about.cab_members') %></h2>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
 
       <% @cab_members.in_groups_of(4, false).each do |item1, item2, item3, item4| %>

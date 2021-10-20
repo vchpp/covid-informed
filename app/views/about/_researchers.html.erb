@@ -2,7 +2,7 @@
 <section id="fh5co-feature">
   <div class="container">
 
-      <h2 class="fh5co-uppercase-heading-lg text-center">INFORMED <%= t('about.research_team') %></h2>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('about.research_team') %></h2>
       <div class="fh5co-spacer fh5co-spacer-md"></div>
 
       <% @researchers.in_groups_of(4, false).each do |item1, item2, item3, item4| %>

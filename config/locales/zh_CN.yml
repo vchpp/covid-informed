@@ -50,8 +50,8 @@ zh_CN:
       notes: "笔记"
       external_links: "外部链接"
       last_updated: "最近更新时间"
-      general: "一般的"
-      testing: "测试"
+      general: "一般"
+      testing: "检测"
       vaccination: "疫苗接种"
       other: "其他"
     statistics: "统计数据"
@@ -71,7 +71,7 @@ zh_CN:
     or: "或"
     search_for_questions: "寻找问题"
     search: "搜索"
-    all: "重启"
+    all: "全部"
   activerecord:
     models:
       message:
