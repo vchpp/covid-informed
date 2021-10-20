@@ -7,7 +7,7 @@
       <a href="<%= item1.zh_cn_link_url %>" target="_blank" >
     <% elsif params[:locale] == 'vi' && item1.vi_link_url.present? %>
       <a href="<%= item1.vi_link_url %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item1.hmn_link_url.present?%>
+    <% elsif params[:locale] == 'hmn' && item1.hmn_link_url.present?%>
       <a href="<%= item1.hmn_link_url %>" target="_blank" >
     <% else %>
       <a href="<%= item1.en_link_url %>" target="_blank" >
@@ -44,7 +44,7 @@
       <a href="<%= item2.zh_cn_link_url %>" target="_blank" >
     <% elsif params[:locale] == 'vi' && item2.vi_link_url.present? %>
       <a href="<%= item2.vi_link_url %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item2.hmn_link_url.present?%>
+    <% elsif params[:locale] == 'hmn' && item2.hmn_link_url.present?%>
       <a href="<%= item2.hmn_link_url %>" target="_blank" >
     <% else %>
       <a href="<%= item2.en_link_url %>" target="_blank" >
@@ -81,7 +81,7 @@
       <a href="<%= item3.zh_cn_link_url %>" target="_blank" >
     <% elsif params[:locale] == 'vi' && item3.vi_link_url.present? %>
       <a href="<%= item3.vi_link_url %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item3.hmn_link_url.present?%>
+    <% elsif params[:locale] == 'hmn' && item3.hmn_link_url.present?%>
       <a href="<%= item3.hmn_link_url %>" target="_blank" >
     <% else %>
       <a href="<%= item3.en_link_url %>" target="_blank" >
