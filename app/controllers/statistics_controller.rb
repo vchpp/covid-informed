@@ -1,16 +1,21 @@
 class StatisticsController < ApplicationController
   before_action :set_statistic, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
 
   # GET /statistics or /statistics.json
   def index
     @statistics = Statistic.where(nil).order('en_title ASC') # creates an anonymous scope
     @statistics = @statistics.filter_by_search(params[:search]) if (params[:search].present?)
-    @general, @testing, @vaccination, @other = [], [], [], []
+    @general, @testing, @vaccination, @other, @featured = [], [], [], [], []
     @statistics.each do |e|
-      @general << e if e.category == "General"
-      @testing << e if e.category == "Testing"
-      @vaccination << e if e.category == "Vaccination"
-      @other << e if e.category == "Other"
+      if e.featured == true
+        @featured << e
+      elsif e.featured == false
+        @general << e if e.category == "General"
+        @testing << e if e.category == "Testing"
+        @vaccination << e if e.category == "Vaccination"
+        @other << e if e.category == "Other"
+      end
     end
     @leftovers = @statistics.reject{|d| d.category == "General" || d.category == "Other" || d.category == "Vaccination" || d.category == "Testing"}
   end
@@ -73,6 +78,6 @@ class StatisticsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def statistic_params
-      params.require(:statistic).permit(:en_title, :en_description, :en_link_name, :zh_tw_title, :zh_tw_description, :zh_tw_link_name, :zh_cn_title, :zh_cn_description, :zh_cn_link_name, :vi_title, :vi_description, :vi_link_name, :hmn_title, :hmn_description, :hmn_link_name, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :category)
+      params.require(:statistic).permit(:en_title, :en_description, :en_link_name, :zh_tw_title, :zh_tw_description, :zh_tw_link_name, :zh_cn_title, :zh_cn_description, :zh_cn_link_name, :vi_title, :vi_description, :vi_link_name, :hmn_title, :hmn_description, :hmn_link_name, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :category, :featured)
     end
 end

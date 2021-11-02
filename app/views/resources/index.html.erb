@@ -45,6 +45,11 @@
                 <% end %>
               </div>
 
+              <% if @featured.any? %>
+                <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.featured')%></h2>
+                <%= render 'featured', collection: @featured %>
+              <% end %>
+
               <% if @general.any? %>
                 <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.general')%></h2>
                 <%= render 'general', collection: @general %>
@@ -70,6 +75,41 @@
                   <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
                   <%= render 'leftovers', collection: @leftovers %>
                 <% end %>
+
+                <div class="col-md-12">
+                  <h1>Statistics Admin List</h1>
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>En title</th>
+                        <th>En description</th>
+                        <th>En link name</th>
+                        <th>En Link url</th>
+                        <th>Category</th>
+                        <th>Featured?</th>
+                        <th colspan="3"></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @statistics.each do |statistic| %>
+                        <tr>
+                          <td><%= statistic.en_title %></td>
+                          <td><%= statistic.en_description %></td>
+                          <td><%= statistic.en_link_name %></td>
+                          <td><%= statistic.en_link_url %></td>
+                          <td><%= statistic.category %></td>
+                          <td><%= statistic.featured %></td>
+                          <td><%= link_to 'Show', statistic %></td>
+                          <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
+                          <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <br>
+                  <%= link_to 'New Statistic', new_statistic_path %>
               <% end %>
             </div>
 
