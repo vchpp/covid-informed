@@ -86,6 +86,7 @@ en:
       testing: "Testing"
       vaccination: "Vaccination"
       other: "Other"
+      featured: "Featured"
     statistics: "Statistics"
     layhealthworkers:
       layhealthworkers: "Lay Health Workers"

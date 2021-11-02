@@ -5,16 +5,20 @@ class ExternalsController < ApplicationController
   # GET /externals or /externals.json
   def index
     @externals = External.where(nil).order('en_title ASC') # creates an anonymous scope
+    @admin_externals = @externals.sort_by(&:category)
     @externals = @externals.filter_by_search(params[:search]) if (params[:search].present?)
-    @general, @testing, @vaccination, @other = [], [], [], []
+    @general, @testing, @vaccination, @other, @featured = [], [], [], [], []
     @externals.each do |e|
-      @general << e if e.category == "General"
-      @testing << e if e.category == "Testing"
-      @vaccination << e if e.category == "Vaccination"
-      @other << e if e.category == "Other"
+      if e.featured == true
+        @featured << e
+      elsif e.featured == false
+        @general << e if e.category == "General"
+        @testing << e if e.category == "Testing"
+        @vaccination << e if e.category == "Vaccination"
+        @other << e if e.category == "Other"
+      end
     end
     @leftovers = @externals.reject{|d| d.category == "General" || d.category == "Other" || d.category == "Vaccination" || d.category == "Testing"}
-    @admin_externals = @externals.sort_by(&:category)
   end
 
   # GET /externals/1 or /externals/1.json
@@ -77,6 +81,6 @@ class ExternalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def external_params
-      params.require(:external).permit(:en_title, :en_source, :en_content, :en_external_link, :en_notes, :zh_tw_title, :zh_tw_source, :zh_tw_content, :zh_tw_external_link, :zh_tw_notes, :zh_cn_title, :zh_cn_source, :zh_cn_content, :zh_cn_external_link, :zh_cn_notes, :vi_title, :vi_source, :vi_content, :vi_external_link, :vi_notes, :hmn_title, :hmn_source, :hmn_content, :hmn_external_link, :hmn_notes, :languages, :last_version_date, :search, :category)
+      params.require(:external).permit(:en_title, :en_source, :en_content, :en_external_link, :en_notes, :zh_tw_title, :zh_tw_source, :zh_tw_content, :zh_tw_external_link, :zh_tw_notes, :zh_cn_title, :zh_cn_source, :zh_cn_content, :zh_cn_external_link, :zh_cn_notes, :vi_title, :vi_source, :vi_content, :vi_external_link, :vi_notes, :hmn_title, :hmn_source, :hmn_content, :hmn_external_link, :hmn_notes, :languages, :last_version_date, :search, :category, :featured)
     end
 end
