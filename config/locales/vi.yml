@@ -42,7 +42,7 @@ vi:
     resources:  "tài nguyên"
     external:
       source: "Nguồn"
-      external_resources: "Tài NguyênBổ Sung"
+      external_resources: "Tài Nguyên Bổ Sung"
       search_for_resources: "Tìm Kiếm Tài Nguyên"
       view: "lượt xem"
       search: "Tìm kiếm"

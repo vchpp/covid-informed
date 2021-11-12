@@ -11,6 +11,7 @@ class ExternalsController < ApplicationController
     @externals.each do |e|
       if e.featured == true
         @featured << e
+        # @featured.sort_by(&:category) but for array methods
       elsif e.featured == false
         @general << e if e.category == "General"
         @testing << e if e.category == "Testing"
