@@ -22,9 +22,9 @@ private
   end
 
   def set_visitor
-    if request.query_parameters[1..9999]
+    if params[:rct].to_i.between?(1,9999)
       cookies[:rct] = {
-        value: request.query_parameters['rct'],
+        value: params[:rct],
         path: '/',
         SameSite: 'none',
         secure: 'true'
