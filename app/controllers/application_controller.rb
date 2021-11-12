@@ -23,7 +23,7 @@ private
 
   def set_visitor
     if request.query_parameters[1..9999]
-      cookies[:rct] ||= {
+      cookies[:rct] = {
         value: request.query_parameters['rct'],
         path: '/',
         SameSite: 'none',
