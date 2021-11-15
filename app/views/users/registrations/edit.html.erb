@@ -36,13 +36,13 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Update", class: "btn btn-block btn-outline-success"  %>
+            <%= f.submit "Update", class: "btn btn-block btn-primary-success"  %>
           </div>
         <% end %>
         <br>
         <h5>Cancel my account</h5>
 
-        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-block btn-outline-danger"   %></p>
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-block btn-primary-danger"   %></p>
 
         <%= link_to "Back", :back %>
         </div>
