@@ -186,7 +186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <%= form_with model: [ @message, @message.comments.build ] do |form| %>
               <div class="field">
                 <%= form.label :content, class: 'sr-only'%>
-                <%= form.text_field :content, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
+                <%= form.text_field :content, required: true, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
               </div>
               <div class="fh5co-spacer fh5co-spacer-xxs"></div>
               <div class="col-md-12">
