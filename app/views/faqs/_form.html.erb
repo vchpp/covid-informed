@@ -122,12 +122,18 @@
                 <%= form.label :category %>
                 <%= form.select :category, ["General", "Testing", "Vaccination", "Other"], class: 'form-control input-lg' %>
               </div>
+            </div>
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :archive? %>
+                <%= form.check_box :archive %>
+              </div>
+            </div>
 
-              <div class="col-md-8 col-md-offset-2">
-                <div class="actions">
-                  <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
-                  <%= link_to 'Back', faqs_path, class: "btn btn-primary btn-lg btn-block" %>
-                </div>
+            <div class="col-md-8 col-md-offset-2">
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                <%= link_to 'Back', faqs_path, class: "btn btn-primary btn-lg btn-block" %>
               </div>
             </div>
 

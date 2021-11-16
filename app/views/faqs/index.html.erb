@@ -38,26 +38,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="col-md-10 col-md-offset-1">
 
-        <!-- <div class="col-md-12">
-          <div class="form-group">
-            <label for="faq" class="sr-only">Filter by Category</label>
-            <form id="category" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
-              <select class="form-control input-lg" name="category" >
-                <option>-- <%= t('faqs.filter') %> --</option>
-                <option>All</option>
-                <% @faq_categories.each do |faq| %>
-                  <option><%= faq %></option>
-                <% end %>
-              </select>
-            </form>
-          </div>
-        </div> -->
-
-
-      <!-- <div class="col-md-12">
-        <h2 class="fh5co-uppercase-heading-sm text-center"><%= t('faqs.or') %></h2>
-      </div> -->
-
 			<div class="col-md-12">
         <label for="faq" class="sr-only"><%= t('faqs.search') %></label>
         <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
@@ -114,4 +94,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         <% end %>
       </div>
+
+    <% if current_user.try(:admin?) %>
+      <h1>Faqs Admin View</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>En question</th>
+              <th>Category</th>
+              <th>Archived?</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @admin_faqs.each do |faq| %>
+              <tr>
+                <td><%= faq.en_question %></td>
+                <td><%= faq.category %></td>
+                <td><%= faq.archive %></td>
+                <td><%= link_to 'Show', faq %></td>
+                <td><%= link_to 'Edit', edit_faq_path(faq) %></td>
+                <td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
     </div>
