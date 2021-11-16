@@ -3,10 +3,10 @@ class FaqsController < ApplicationController
   before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   # GET /faqs or /faqs.json
   def index
-    @faqs = Faq.where(nil).sort_by(&:category) # creates an anonymous scope
-    set_faq_categories
-    @faqs = Faq.filter_by_search(params[:search]) if (params[:search].present?)
-    @faqs = Faq.filter_by_category(params[:category]) if (params[:category].present? && params[:category] != "All")
+    @faqs = Faq.where(nil).order('category ASC') # creates an anonymous scope
+    @admin_faqs = @faqs.sort_by(&:category)
+    @faqs = @faqs.where(archive: false)
+    @faqs = @faqs.filter_by_search(params[:search]) if (params[:search].present?)
   end
 
   # GET /faqs/1 or /faqs/1.json
@@ -65,16 +65,8 @@ class FaqsController < ApplicationController
       @faq = Faq.friendly.find(params[:id])
     end
 
-    def set_faq_categories
-      @faq_categories = []
-      @faqs.each do |faq|
-        @faq_categories << faq.category
-      end
-      @faq_categories = @faq_categories.uniq
-    end
-
     # Only allow a list of trusted parameters through.
     def faq_params
-      params.require(:faq).permit(:en_question, :en_answer, :zh_tw_question, :zh_tw_answer, :zh_cn_question, :zh_cn_answer, :hmn_question, :hmn_answer, :vi_question, :vi_answer, :category, :search)
+      params.require(:faq).permit(:en_question, :en_answer, :zh_tw_question, :zh_tw_answer, :zh_cn_question, :zh_cn_answer, :hmn_question, :hmn_answer, :vi_question, :vi_answer, :category, :archive, :search)
     end
 end
