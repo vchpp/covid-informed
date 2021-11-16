@@ -74,6 +74,7 @@ class ProfilesController < ApplicationController
                                       :lastname,
                                       :fullname,
                                       :profile_type,
+                                      :archive,
                                       :en_project_title,
                                       :zh_tw_project_title,
                                       :zh_cn_project_title,

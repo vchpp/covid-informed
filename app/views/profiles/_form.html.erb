@@ -47,6 +47,10 @@
                 <%= form.label :profile_type %><br>
                 <%= form.select :profile_type, ["Research Team Member", "CAB member", "Lay Health Worker"], class: 'form-control input-lg' %>
               </div>
+              <div class="field form-group">
+                <%= form.label :archive? %>
+                <%= form.check_box :archive %>
+              </div>
 
               <div class="col-md-12">
                 <div class="field form-group">

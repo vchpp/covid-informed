@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
   def index
-    @profiles = Profile.all.with_attached_headshot.order('lastname ASC')
+    @profiles = Profile.where(archive: false).with_attached_headshot.order('lastname ASC')
     @researchers , @cab_members, @lhw = [], [], []
     @janice = @profiles.find_by(fullname: "Janice Tsoh")
     @profiles.each do |profile|
