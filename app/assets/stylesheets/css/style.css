@@ -1412,8 +1412,8 @@ Components
   color: #ffffff;
 }
 .Other {
-  border: 4px solid #fe9892;
-  background: #fe9892;
+  border: 4px solid #823D1C;
+  background: #823D1C;
   color: #ffffff;
 }
 /* custom borders */
@@ -1430,7 +1430,7 @@ Components
   color: #000;
 }
 .Other-border {
-  border: 4px solid #fe9892;
+  border: 4px solid #823D1C;
   color: #000;
 }
 /* Download categories: participant handouts/flipcharts/training manuals/other */
