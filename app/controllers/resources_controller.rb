@@ -10,6 +10,8 @@ class ResourcesController < ApplicationController
     @other = @downloads.where(category: "Other")
 
     @statistics = Statistic.where(nil).order('en_title ASC') # creates an anonymous scope
+    @admin_statistics = @statistics.sort_by(&:category)
+    @statistics = @statistics.where(archive: false)
     @statistics = @statistics.filter_by_search(params[:search]) if (params[:search].present?)
     @general, @testing, @vaccination, @other, @featured = [], [], [], [], []
     @statistics.each do |e|

@@ -1,35 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <p id="notice"><%= notice %></p>
+  <h1>Admin view of all Profiles</h1>
 
-<h1>Admin view of all Profiles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Profile_type</th>
-      <th>En project title</th>
-      <th>Archived?</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profiles.each do |profile| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= profile.firstname %></td>
-        <td><%= profile.lastname %></td>
-        <td><%= profile.profile_type %></td>
-        <td><%= profile.en_project_title %></td>
-        <td><%= profile.archive %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Profile_type</th>
+        <th>En project title</th>
+        <th>Archived?</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @profiles.each do |profile| %>
+        <tr>
+          <td><%= profile.firstname %></td>
+          <td><%= profile.lastname %></td>
+          <td><%= profile.profile_type %></td>
+          <td><%= profile.en_project_title %></td>
+          <td><%= profile.archive %></td>
+          <td><%= link_to 'Show', profile %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Profile', new_profile_path %>
+  <br>
+
+  <%= link_to 'New Profile', new_profile_path %>
+</div>
