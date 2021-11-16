@@ -10,7 +10,7 @@ class DownloadsController < ApplicationController
       .with_attached_zh_cn_file
       .with_attached_vi_file
       .with_attached_hmn_file
-      .sort_by(&:created_at)
+      .order('created_at ASC')
   end
 
   # GET /downloads/1 or /downloads/1.json
