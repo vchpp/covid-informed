@@ -269,6 +269,10 @@
             <%= form.label :category %>
             <%= form.select :category, ["General", "Testing", "Vaccination", "Other"], class: 'form-control input-lg' %>
           </div>
+          <div class="field form-group">
+            <%= form.label :archive? %>
+            <%= form.check_box :archive %>
+          </div>
         </div>
 
         <div class="col-md-8 col-md-offset-2">
@@ -277,6 +281,7 @@
             <%= link_to 'Back', messages_path, class: "btn btn-primary btn-lg btn-block" %>
           </div>
         </div>
+
         <% end %>
 
 				<div class="fh5co-spacer fh5co-spacer-sm"></div>

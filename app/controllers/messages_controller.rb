@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
       .with_attached_vi_images
       .with_attached_hmn_images
       .order('created_at ASC')
+    @admin_messages = @messages.sort_by(&:category)
+    @messages = @messages.where(archive: false)
     # if @message.empty? redirect to new_message_path
   end
 
@@ -143,6 +145,7 @@ class MessagesController < ApplicationController
                                       :hmn_external_rich_links,
                                       :survey_link,
                                       :category,
+                                      :archive,
                                       images: [],
                                       vi_images: [],
                                       zh_tw_images: [],

@@ -69,7 +69,7 @@
                 <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
                 <%= render 'other', collection: @other %>
               <% end %>
-
+              
               <% if current_user.try(:admin?) %>
                 <% if @leftovers.any?  %>
                   <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
@@ -88,12 +88,13 @@
                         <th>En Link url</th>
                         <th>Category</th>
                         <th>Featured?</th>
+                        <th>Archived?</th>
                         <th colspan="3"></th>
                       </tr>
                     </thead>
 
                     <tbody>
-                      <% @statistics.each do |statistic| %>
+                      <% @admin_statistics.each do |statistic| %>
                         <tr>
                           <td><%= statistic.en_title %></td>
                           <td><%= statistic.en_description %></td>
@@ -101,6 +102,7 @@
                           <td><%= statistic.en_link_url %></td>
                           <td><%= statistic.category %></td>
                           <td><%= statistic.featured %></td>
+                          <td><%= statistic.archive %></td>
                           <td><%= link_to 'Show', statistic %></td>
                           <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
                           <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -110,8 +112,8 @@
                   </table>
                   <br>
                   <%= link_to 'New Statistic', new_statistic_path %>
-              <% end %>
-            </div>
+                </div>
+            <% end %>
 
           </div>
         </div>
