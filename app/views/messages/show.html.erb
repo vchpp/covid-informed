@@ -155,23 +155,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
     	<div class="fh5co-spacer fh5co-spacer-sm"></div>
-      <% @comments.each do |comment| %>
+        <% @comments.each do |comment| %>
 					<div class="col-md-8 col-md-offset-2">
             <div class="row">
               <div class="fh5co-feature-item">
               <% if current_user.try(:admin?) %>
-                <span class="fh5co-feature-icon"><%= link_to '', [@message, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'ti-trash', style: "font-size: 30px;" %></span>
+                <span class="fh5co-feature-icon"><%= link_to '', [@message, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'ti-trash', style: "font-size: 30px;"  %> <%= comment.rct %></span>
               <% else %>
                 <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
               <% end %>
-              <div class="fh5co-feature-blurb">
-                <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                <div class="fh5co-feature-blurb">
+                  <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
     </div>
   </div>
   <div class="fh5co-spacer fh5co-spacer-md"></div>
