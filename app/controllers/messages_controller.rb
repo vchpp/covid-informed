@@ -19,6 +19,7 @@ class MessagesController < ApplicationController
   # GET /messages/1 or /messages/1.json
   def show
     @message = Message.with_attached_images.friendly.find(params[:id])
+    @likes = @message.likes.all
     @comments = Message.friendly.find(params[:id]).comments
     case
       when params[:locale] == "en"
