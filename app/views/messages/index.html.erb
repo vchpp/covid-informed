@@ -173,9 +173,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <% end %>
         </div>
       <% end %>
+    </div>
 
       <% if current_user.try(:admin?) %>
-      <div class="col-md-12">
+      <div class="row">
+      <div class="col-md-8 col-md-offset-2 Admin-border">
         <h1>Messages Admin View</h1>
 
           <table>
@@ -202,7 +204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </tbody>
           </table>
         </div>
+        </div>
       <% end %>
 
-  </div>
 </section>

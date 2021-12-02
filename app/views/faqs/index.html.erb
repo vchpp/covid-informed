@@ -96,6 +96,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
     <% if current_user.try(:admin?) %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 Admin-border">
       <h1>Faqs Admin View</h1>
 
         <table>
@@ -121,5 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <% end %>
           </tbody>
         </table>
-      <% end %>
+      </div>
     </div>
+  <% end %>
+</div>

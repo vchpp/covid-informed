@@ -142,6 +142,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </div>
     </div>
+    <% if current_user.try(:admin?) %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 Admin-border">
+        <h1 class="text-center">Likes Admin View</h1>
+
+        <table class="col-md-8 col-md-offset-2">
+          <thead>
+            <tr>
+              <th>RCT</th>
+              <th>UP</th>
+              <th>Down</th>
+              <th colspan="1"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @likes.each do |like| %>
+            <tr>
+              <td><%= like.rct %></td>
+              <td><%= like.up %></td>
+              <td><%= like.down %></td>
+              <td><%= link_to 'Destroy', [@message, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
     <div class="fh5co-spacer fh5co-spacer-md"></div>
   </div>
 </section>
@@ -155,15 +184,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
     	<div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <% @comments.each do |comment| %>
+
+
+      <% if current_user.try(:admin?) %>
+        <% @admin_comments.each do |comment| %>
 					<div class="col-md-8 col-md-offset-2">
             <div class="row">
               <div class="fh5co-feature-item">
-              <% if current_user.try(:admin?) %>
                 <span class="fh5co-feature-icon"><%= link_to '', [@message, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'ti-trash', style: "font-size: 30px;"  %> <%= comment.rct %></span>
-              <% else %>
-                <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
-              <% end %>
                 <div class="fh5co-feature-blurb">
                   <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
                 </div>
@@ -171,6 +199,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         <% end %>
+      <% else %>
+        <% @comments.each do |comment| %>
+					<div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="fh5co-feature-item">
+                <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
+                <div class="fh5co-feature-blurb">
+                  <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
       <% end %>
     </div>
   </div>
@@ -215,33 +259,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <% if current_user.try(:admin?) %>
-    <div class="col-md-12">
-      <h1>Likes Admin View</h1>
-
-        <table>
-          <thead>
-            <tr>
-              <th>RCT</th>
-              <th>UP</th>
-              <th>Down</th>
-              <th colspan="1"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @likes.each do |like| %>
-              <tr>
-                <td><%= like.rct %></td>
-                <td><%= like.up %></td>
-                <td><%= like.down %></td>
-                <td><%= link_to 'Destroy', [@message, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
 
 
   </div>
