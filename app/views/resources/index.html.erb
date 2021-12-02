@@ -69,14 +69,14 @@
                 <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
                 <%= render 'other', collection: @other %>
               <% end %>
-              
+
               <% if current_user.try(:admin?) %>
                 <% if @leftovers.any?  %>
                   <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
                   <%= render 'leftovers', collection: @leftovers %>
                 <% end %>
 
-                <div class="col-md-12">
+                <div class="col-md-12 Admin-border">
                   <h1>Statistics Admin List</h1>
 
                   <table>

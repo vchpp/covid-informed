@@ -19,8 +19,9 @@ class MessagesController < ApplicationController
   # GET /messages/1 or /messages/1.json
   def show
     @message = Message.with_attached_images.friendly.find(params[:id])
-    @likes = @message.likes.all
+    @likes = @message.likes.all.order('rct ASC')
     @comments = Message.friendly.find(params[:id]).comments
+    @admin_comments = @comments.order('rct ASC')
     case
       when params[:locale] == "en"
         @message_name = @message.en_name
