@@ -214,5 +214,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+
+    <% if current_user.try(:admin?) %>
+    <div class="col-md-12">
+      <h1>Likes Admin View</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>RCT</th>
+              <th>UP</th>
+              <th>Down</th>
+              <th colspan="1"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @likes.each do |like| %>
+              <tr>
+                <td><%= like.rct %></td>
+                <td><%= like.up %></td>
+                <td><%= like.down %></td>
+                <td><%= link_to 'Destroy', [@message, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+
+
   </div>
 </section>
