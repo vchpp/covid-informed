@@ -23,4 +23,39 @@ class Message < ApplicationRecord
   has_rich_text :hmn_external_rich_links
   extend FriendlyId
   friendly_id :en_name, use: :slugged
+
+  def self.to_csv
+    attributes = %w{id en_name}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |message|
+        csv << attributes.map{ |attr| message.send(attr) }
+      end
+    end
+  end
+
+  def comments_to_csv
+    attributes = %w{Created_at RCT Content}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      if comments
+        comments.each do |comment|
+          csv << [created_at, comment.rct, comment.content]
+        end
+      end
+    end
+  end
+
+  def likes_to_csv
+    attributes = %w{Created_at RCT Uplikes Downlikes}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      if likes
+        likes.each do |likes|
+          csv << [created_at, likes.rct, likes.up, likes.down]
+        end
+      end
+    end
+  end
 end

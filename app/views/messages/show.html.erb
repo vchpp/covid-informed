@@ -172,6 +172,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </table>
       </div>
     </div>
+    <div class="col-md-8 col-md-offset-2">
+      <%= link_to 'Export Likes to CSV', message_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
+    </div>
     <% end %>
     <div class="fh5co-spacer fh5co-spacer-md"></div>
   </div>
@@ -209,6 +212,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </tbody>
           </table>
         </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <%= link_to 'Export Comments to CSV', message_path(format: "csv", format_data: "comments"), class: "btn btn-primary btn-lg btn-block"  %>
       </div>
       <% else %>
       <div class="row fh5co-feature-3"">
