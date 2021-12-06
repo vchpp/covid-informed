@@ -14,6 +14,10 @@ class MessagesController < ApplicationController
     @admin_messages = @messages.sort_by(&:category)
     @messages = @messages.where(archive: false)
     # if @message.empty? redirect to new_message_path
+    respond_to do |format|
+      format.html
+      format.csv { send_data @messages.to_csv, filename: "Messages-#{Date.today}.csv" }
+    end
   end
 
   # GET /messages/1 or /messages/1.json
@@ -48,9 +52,19 @@ class MessagesController < ApplicationController
         @message_content = @message.hmn_content
         @message_external_rich_links = @message.hmn_external_rich_links
         @message_action_item = @message.hmn_action_item
-    end
+      end
     up_likes
     down_likes
+    respond_to do |format|
+      format.html
+      format.csv do
+        if (params[:format_data] == 'comments')
+          send_data @message.comments_to_csv, filename: "Message##{@message.id}-Comments-#{Date.today}.csv"
+        elsif (params[:format_data] == 'likes')
+          send_data @message.likes_to_csv, filename: "Message##{@message.id}-Likes-#{Date.today}.csv" 
+        end
+      end
+    end
   end
 
   # GET /messages/new
