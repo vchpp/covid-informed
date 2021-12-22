@@ -27,7 +27,7 @@ class Message < ApplicationRecord
   def self.to_csv
     attributes = %w{id en_name}
 
-    CSV.generate(headers: true) do |csv|
+    CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
       all.each do |message|
         csv << attributes.map{ |attr| message.send(attr) }
@@ -37,11 +37,11 @@ class Message < ApplicationRecord
 
   def comments_to_csv
     attributes = %w{Created_at RCT Content}
-    CSV.generate(headers: true) do |csv|
+    CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
       if comments
         comments.each do |comment|
-          csv << [created_at, comment.rct, comment.content]
+          csv << [comment.created_at, comment.rct, comment.content]
         end
       end
     end
@@ -53,7 +53,7 @@ class Message < ApplicationRecord
       csv << attributes
       if likes
         likes.each do |likes|
-          csv << [created_at, likes.rct, likes.up, likes.down]
+          csv << [likes.created_at, likes.rct, likes.up, likes.down]
         end
       end
     end
