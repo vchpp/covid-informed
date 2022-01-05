@@ -28,7 +28,6 @@ class MessagesController < ApplicationController
     @all_comments = Message.friendly.find(params[:id]).comments
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
-    p "PAGE COUNT IS #{@page_count} and PAGE IS #{@page}"
     @admin_comments = @comments.order('rct::integer ASC')
     case
       when params[:locale] == "en"

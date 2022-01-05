@@ -238,25 +238,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <% end %>
         </div>
 
-        <div class="row text-center">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <%= link_to '<', url_for(page: @page.to_i - 1), class: 'page-link' %>
-              </li>
-
-              <% (1..@page_count).each do |p| %>
+        <% if @page_count > 1 %>
+          <div class="row text-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <% if @page == '1' %>
+                <% else %>
                 <li class="page-item">
-                  <%= link_to p, url_for(page: p), class: 'page-link' %>
-                <li>
-              <% end %>
+                  <%= link_to '<', url_for(page: @page.to_i - 1), class: 'page-link' %>
+                </li>
+                <% end %>
 
-              <li class="page-item">
-                <%= link_to '>', url_for(page: @page.to_i + 1), class: 'page-link' %>
-              </li>
-            </ul>
-          </nav>
-        </div>
+                <% (1..@page_count).each do |p| %>
+                  <% if p == @page.to_i %>
+                    <li class="page-item active">
+                      <%= link_to p, url_for(page: p), class: 'page-link disabled active' %>
+                    </li>
+                  <% else %>
+                    <li class="page-item">
+                      <%= link_to p, url_for(page: p), class: 'page-link' %>
+                    </li>
+                  <% end %>
+                <% end %>
+
+                <% if @page.to_i == @page_count.to_i %>
+                <% else %>
+                  <li class="page-item">
+                    <%= link_to '>', url_for(page: @page.to_i + 1), class: 'page-link' %>
+                  </li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+        <% end %>
 
 
     <% end %>
