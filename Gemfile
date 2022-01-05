@@ -34,7 +34,7 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem "aws-sdk-s3", require: false
 gem 'dotenv-rails'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 gem 'friendly_id', '~> 5.4.0'
 gem "activestorage-office-previewer"
 gem 'metamagic'
