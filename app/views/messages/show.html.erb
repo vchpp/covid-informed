@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="row text-center">
             <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
-                <% if @page == '1' %>
+                <% if @page == '1' || params[:page].nil? %>
                 <% else %>
                 <li class="page-item">
                   <%= link_to '<', url_for(page: @page.to_i - 1), class: 'page-link' %>
