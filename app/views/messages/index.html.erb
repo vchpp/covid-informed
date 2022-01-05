@@ -35,6 +35,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="actions">
           <%= link_to 'New Message', new_message_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>
+        <div class="actions">
+          <%= link_to 'Export Messages to CSV', messages_path(format: "csv"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
 				<div class="fh5co-spacer fh5co-spacer-md"></div>
       <% end %>
     </div>
@@ -43,7 +46,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <% @messages.in_groups_of(2, false).each do |item1, item2| %>
       <div class="row">
-        <a href="<%= message_path(item1) %>?page=1">
+        <a href="<%= message_path(item1) %>">
         <div class="col-md-6 col-sm-6 fh5co-feature-item">
             <% case %>
               <%  when params[:locale] == "en" %>
@@ -108,7 +111,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="clearfix visible-sm-block"></div>
           <!-- item2 -->
         <% if item2 %>
-        <a href="<%= message_path(item2) %>?page=1">
+        <a href="<%= message_path(item2) %>">
           <div class="col-md-6 col-sm-6 fh5co-feature-item">
               <% case %>
                 <%  when params[:locale] == "en" %>

@@ -6,7 +6,7 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - Paginate Comments and show 10 most recent
 
-Export Messages to CSV to include `created_at` and `updated_at` with all attributes
+`DONE` - Export Messages to CSV to include `created_at` and `updated_at` with all attributes
 
 Additional Resources - preset filters (search terms) by County - either buttons or dropdown - show example of both
 
@@ -17,12 +17,6 @@ PPT presentations displayed on webpage, image slideshow of PPT as fallback
 Find way to create access logs either via Logger to expose changes or additions for intervention messaging updates.
 
 Google Analytics DataStudio
-
-### 1-week sprint 12/15
-
-`DONE` - Encode Chinese and Vietnamese characters need encoding pre-CSV export
-
-`DONE` - Check CSV export dates for Comments and Votes to make sure they’re all correct
 
 ### Stretch Goals:
 
@@ -115,6 +109,12 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 12/15
+
+`DONE` - Encode Chinese and Vietnamese characters need encoding pre-CSV export
+
+`DONE` - Check CSV export dates for Comments and Votes to make sure they’re all correct
 
 ### 1-week sprint 11/12 - 11/18
 
