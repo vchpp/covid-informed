@@ -29,33 +29,10 @@ class MessagesController < ApplicationController
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
     @admin_comments = @comments.order('rct::integer ASC')
-    case
-      when params[:locale] == "en"
-        @message_name = @message.en_name
-        @message_content = @message.en_content
-        @message_external_rich_links = @message.en_external_rich_links
-        @message_action_item = @message.en_action_item
-      when params[:locale] == "zh_TW"
-        @message_name = @message.zh_tw_name
-        @message_content = @message.zh_tw_content
-        @message_external_rich_links = @message.zh_tw_external_rich_links
-        @message_action_item = @message.zh_tw_action_item
-      when params[:locale] == "zh_CN"
-        @message_name = @message.zh_cn_name
-        @message_content = @message.zh_cn_content
-        @message_external_rich_links = @message.zh_cn_external_rich_links
-        @message_action_item = @message.zh_cn_action_item
-      when params[:locale] == "vi"
-        @message_name = @message.vi_name
-        @message_content = @message.vi_content
-        @message_external_rich_links = @message.vi_external_rich_links
-        @message_action_item = @message.vi_action_item
-      when params[:locale] == "hmn"
-        @message_name = @message.hmn_name
-        @message_content = @message.hmn_content
-        @message_external_rich_links = @message.hmn_external_rich_links
-        @message_action_item = @message.hmn_action_item
-      end
+    @message_name = @message.send("#{I18n.locale}_name".downcase)
+    @message_content = @message.send("#{I18n.locale}_content".downcase)
+    @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
+    @message_action_item = @message.send("#{I18n.locale}_action_item".downcase)
     up_likes
     down_likes
     respond_to do |format|
