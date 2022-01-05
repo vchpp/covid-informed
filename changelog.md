@@ -4,7 +4,7 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 12/22 - 1/4/22
 
-Paginate Comments and show 10 most recent
+`DONE` - Paginate Comments and show 10 most recent
 
 Export Messages to CSV to include `created_at` and `updated_at` with all attributes
 
