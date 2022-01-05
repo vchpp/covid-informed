@@ -41,6 +41,7 @@ class StatisticsController < ApplicationController
       if @statistic.save
         format.html { redirect_to @statistic, notice: "Statistic was successfully created." }
         format.json { render :show, status: :created, location: @statistic }
+        logger.info "#{current_user.email} created Statistic #{@statistic.id} with the title #{@statistic.en_title}"
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
@@ -54,6 +55,7 @@ class StatisticsController < ApplicationController
       if @statistic.update(statistic_params)
         format.html { redirect_to @statistic, notice: "Statistic was successfully updated." }
         format.json { render :show, status: :ok, location: @statistic }
+        logger.info "#{current_user.email} updated Statistic #{@statistic.id} with the title #{@statistic.en_title}"
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @statistic.errors, status: :unprocessable_entity }
@@ -67,6 +69,7 @@ class StatisticsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to statistics_url, notice: "Statistic was successfully destroyed." }
       format.json { head :no_content }
+      logger.info "#{current_user.email} deleted Statistic #{@statistic.id} with the title #{@statistic.en_title}"
     end
   end
 

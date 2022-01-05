@@ -26,14 +26,15 @@ class LikesController < ApplicationController
     @message.likes.each { |like| existing_likes.push(like.rct)}
     @like = @message.likes.new(like_params)
     @like.rct = cookies[:rct] || '0'
-    p existing_likes
     if existing_likes.include?(@like.rct)
+      logger.info "#{params[:rct]} tried to like a message a second time, but was redirected"
       redirect_to @message
     else
       respond_to do |format|
         if @like.save
           format.html { redirect_to @message, notice: "Like was successfully created." }
           format.json { render :show, status: :created, location: @like }
+          logger.info "Visitor #{params[:rct]} liked message #{@message.id} with title #{@message.en_name}"
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @like.errors, status: :unprocessable_entity }
