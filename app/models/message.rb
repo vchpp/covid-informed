@@ -25,7 +25,32 @@ class Message < ApplicationRecord
   friendly_id :en_name, use: :slugged
 
   def self.to_csv
-    attributes = %w{id en_name}
+    attributes = %w{created_at
+      updated_at
+      en_name
+      en_content
+      en_action_item
+      zh_tw_name
+      zh_tw_content
+      zh_tw_action_item
+      zh_cn_name
+      zh_cn_content
+      zh_cn_action_item
+      vi_name
+      vi_content
+      vi_action_item
+      hmn_name
+      hmn_content
+      hmn_action_item
+      external_links
+      en_external_rich_links
+      zh_tw_external_rich_links
+      zh_cn_external_rich_links
+      vi_external_rich_links
+      hmn_external_rich_links
+      survey_link
+      category
+      archive}
 
     CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
