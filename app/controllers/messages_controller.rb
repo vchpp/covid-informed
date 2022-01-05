@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
   before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :set_page, only: [:show]
 
   # GET /messages or /messages.json
   def index
@@ -24,7 +25,10 @@ class MessagesController < ApplicationController
   def show
     @message = Message.with_attached_images.friendly.find(params[:id])
     @likes = @message.likes.all.order('rct::integer ASC')
-    @comments = Message.friendly.find(params[:id]).comments
+    @all_comments = Message.friendly.find(params[:id]).comments
+    @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
+    @page_count = (@all_comments.count / 10) + 1
+    p "PAGE COUNT IS #{@page_count} and PAGE IS #{@page}"
     @admin_comments = @comments.order('rct::integer ASC')
     case
       when params[:locale] == "en"
@@ -61,7 +65,7 @@ class MessagesController < ApplicationController
         if (params[:format_data] == 'comments')
           send_data @message.comments_to_csv, filename: "Message##{@message.id}-Comments-#{Date.today}.csv"
         elsif (params[:format_data] == 'likes')
-          send_data @message.likes_to_csv, filename: "Message##{@message.id}-Likes-#{Date.today}.csv" 
+          send_data @message.likes_to_csv, filename: "Message##{@message.id}-Likes-#{Date.today}.csv"
         end
       end
     end
@@ -134,6 +138,10 @@ class MessagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.friendly.find(params[:id])
+    end
+
+    def set_page
+      @page = params[:page] || 1
     end
 
     # Only allow a list of trusted parameters through.

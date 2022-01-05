@@ -218,27 +218,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <% else %>
       <div class="row fh5co-feature-3"">
-      <div class="col-md-12">
-        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%>:</h2>
-      </div>
+        <div class="col-md-12">
+          <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%>:</h2>
+        </div>
 
-      <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-        <% @comments.each do |comment| %>
-					<div class="col-md-8 col-md-offset-2">
-            <div class="row">
-              <div class="fh5co-feature-item">
-                <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
-                <div class="fh5co-feature-blurb">
-                  <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+          <% @comments.each do |comment| %>
+  					<div class="col-md-8 col-md-offset-2">
+              <div class="row">
+                <div class="fh5co-feature-item">
+                  <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
+                  <div class="fh5co-feature-blurb">
+                    <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+
+        <div class="row text-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <%= link_to '<', url_for(page: @page.to_i - 1), class: 'page-link' %>
+              </li>
+
+              <% (1..@page_count).each do |p| %>
+                <li class="page-item">
+                  <%= link_to p, url_for(page: p), class: 'page-link' %>
+                <li>
+              <% end %>
+
+              <li class="page-item">
+                <%= link_to '>', url_for(page: @page.to_i + 1), class: 'page-link' %>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
 
-      </div>
     <% end %>
     <% end %>
   </div>
