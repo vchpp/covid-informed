@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 require 'csv'
+require "logger"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -15,6 +16,9 @@ module Informed
     config.i18n.default_locale = :en
     config.i18n.fallbacks = [:en]
 
+    config.logger = Logger.new("log/#{Rails.env}.log")
+    config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
+    # config.logger.auto_flushing = true
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

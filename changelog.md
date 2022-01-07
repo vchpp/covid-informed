@@ -2,23 +2,29 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 12/22 - 1/4/22
+### 1-week sprint 1/5 - 1/10
 
-`DONE` - Paginate Comments and show 10 most recent
+Check on Callouts - make sure they show up, and clean up form
 
-`DONE` - Export Messages to CSV to include `created_at` and `updated_at` with all attributes
+Display audit log in /admin/logs or be able to download audit log
 
-Additional Resources - preset filters (search terms) by County - either buttons or dropdown - show example of both
+Research stripping out HTML out of Messages export
+
+Can ActiveStorage URLs be shortened for adhoc sending
+
+Make sure admin page forces locale
+
+Await translations for Additional Resources Filter by County
 
 Audio files for the illiterate.  Messages, stand-alone audio banner on homepage (new model)
 
 PPT presentations displayed on webpage, image slideshow of PPT as fallback
 
-Find way to create access logs either via Logger to expose changes or additions for intervention messaging updates.
-
 Google Analytics DataStudio
 
 ### Stretch Goals:
+
+Refactor Message.images to Message.en_images to reduce code on Messages#Show
 
 Serve GA script from domain instead of 3rd party to prevent adblockers
 
@@ -109,6 +115,16 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 12/22 - 1/4/22
+
+`DONE` - Paginate Comments and show 10 most recent
+
+`DONE` - Export Messages to CSV to include `created_at` and `updated_at` with all attributes
+
+`DONE` - Additional Resources - preset filters (search terms) by County - either buttons or dropdown - show example of both
+
+`DONE` - Find way to create access logs either via Logger to expose changes or additions for intervention messaging updates.
 
 ### 1-week sprint 12/15
 

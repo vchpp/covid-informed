@@ -39,6 +39,7 @@ class CalloutsController < ApplicationController
       if @callout.save
         format.html { redirect_to @callout, notice: "Callout was successfully created." }
         format.json { render :show, status: :created, location: @callout }
+        logger.info "#{current_user.email} created Callout #{@callout.id} with title #{@callout.en_title}"
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @callout.errors, status: :unprocessable_entity }
@@ -57,6 +58,7 @@ class CalloutsController < ApplicationController
       if @callout.update(callout_params)
         format.html { redirect_to @callout, notice: "Callout was successfully updated." }
         format.json { render :show, status: :ok, location: @callout }
+        logger.info "#{current_user.email} updated Callout #{@callout.id} with title #{@callout.en_title}"
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @callout.errors, status: :unprocessable_entity }
@@ -75,6 +77,7 @@ class CalloutsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to callouts_url, notice: "Callout was successfully destroyed." }
       format.json { head :no_content }
+      logger.info "#{current_user.email} deleted Callout #{@callout.id} with title #{@callout.en_title}"
     end
   end
 
