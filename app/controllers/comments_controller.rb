@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to message_path(@message), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
-        logger.info "Visitor #{params[:rct]} made a comment on message #{@message.id} with title #{@message.en_name}, saying '#{@comment.content}'"
+        logger.warn "Visitor with RCT=#{cookies[:rct]} made a comment on message #{@message.id} with title #{@message.en_name}, saying '#{@comment.content}'"
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

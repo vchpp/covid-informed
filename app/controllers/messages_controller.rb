@@ -70,7 +70,7 @@ class MessagesController < ApplicationController
       if @message.save
         format.html { redirect_to @message, notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
-        logger.info "#{current_user.email} created Message #{@message.id} with title #{@message.en_name}"
+        logger.warn("#{current_user.email} created Message #{@message.id} with title #{@message.en_name}")
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -90,7 +90,7 @@ class MessagesController < ApplicationController
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }
         format.json { render :show, status: :ok, location: @message }
-        logger.info "#{current_user.email} updated Message #{@message.id} with title #{@message.en_name}"
+        logger.warn("#{current_user.email} updated Message #{@message.id} with title #{@message.en_name}")
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -109,7 +109,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
-      logger.info "#{current_user.email} deleted Message #{@message.id} with title #{@message.en_name}"
+      logger.warn("#{current_user.email} deleted Message #{@message.id} with title #{@message.en_name}")
     end
   end
 
