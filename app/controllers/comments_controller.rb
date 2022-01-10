@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
     @message = Message.friendly.find(params[:message_id])
     @comment = @message.comments.new(comment_params)
     @comment.rct = cookies[:rct] || '0'
-    p @comment
     respond_to do |format|
       if @comment.save
         format.html { redirect_to message_path(@message), notice: "Comment was successfully created." }
