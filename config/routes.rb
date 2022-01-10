@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     devise_for :users
 
     get '/admin', to: 'admin#index'
+    authenticate :user, -> (u) { u.admin? } do
+      mount AuditLog::Engine => "/admin/audit-log"
+    end
     get '/resources', to: 'resources#index'
     get '/about', to: 'about#index'
     root 'about#index'

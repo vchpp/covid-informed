@@ -46,6 +46,7 @@ class ExternalsController < ApplicationController
         format.html { redirect_to @external, notice: "External was successfully created." }
         format.json { render :show, status: :created, location: @external }
         logger.info "#{current_user.email} created External (additional) Resource #{@external.id} with title #{@external.en_title}"
+        audit! :created_external, @external, payload: external_params
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @external.errors, status: :unprocessable_entity }
@@ -61,6 +62,7 @@ class ExternalsController < ApplicationController
         format.html { redirect_to @external, notice: "External was successfully updated." }
         format.json { render :show, status: :ok, location: @external }
         logger.info "#{current_user.email} updated External (additional) Resource #{@external.id} with title #{@external.en_title}"
+        audit! :updated_external, @external, payload: external_params
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @external.errors, status: :unprocessable_entity }
@@ -75,6 +77,7 @@ class ExternalsController < ApplicationController
       format.html { redirect_to externals_url, notice: "External was successfully destroyed." }
       format.json { head :no_content }
       logger.info "#{current_user.email} deleted External (additional) Resource #{@external.id} with title #{@external.en_title}"
+      audit! :destroyed_external, @external, payload: external_params
     end
   end
 

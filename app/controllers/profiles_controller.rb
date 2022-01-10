@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
         format.html { redirect_to @profile, notice: "Profile was successfully created." }
         format.json { render :show, status: :created, location: @profile }
         logger.info "#{current_user.email} created Profile #{@profile.id} with the full name #{@profile.fullname}"
+        audit! :created_profile, @profile, payload: profile_params
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -45,6 +46,7 @@ class ProfilesController < ApplicationController
         format.html { redirect_to @profile, notice: "Profile was successfully updated." }
         format.json { render :show, status: :ok, location: @profile }
         logger.info "#{current_user.email} updated Profile #{@profile.id} with the full name #{@profile.fullname}"
+        audit! :updated_profile, @profile, payload: profile_params
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -60,6 +62,7 @@ class ProfilesController < ApplicationController
       format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
       format.json { head :no_content }
       logger.info "#{current_user.email} deleted Profile #{@profile.id} with the full name #{@profile.fullname}"
+      audit! :destroyed_profile, @profile, payload: profile_params
     end
   end
 
