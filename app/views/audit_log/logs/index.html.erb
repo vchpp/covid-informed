@@ -1,3 +1,4 @@
+<div class="fh5co-spacer fh5co-spacer-md"></div>
 <div class="toolbar">
   <form class="form-inline" action="<%= audit_log.logs_path %>" method="GET">
     <div class="form-group">
@@ -9,7 +10,7 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 0px;">Search</button>
     </div>
   </form>
 </div>
@@ -46,3 +47,6 @@
 
   <%= paginate @logs %>
 <% end %>
+<div class="col-md-2">
+  <%= link_to 'Back', '/en/admin', class: 'btn btn-primary btn-block' %>
+</div>

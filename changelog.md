@@ -6,7 +6,7 @@ https://github.com/vchpp/covid-informed
 
 Check on Callouts - make sure they show up, and clean up form
 
-Display audit log in /admin/audit-logs or be able to download audit log
+`DONE` - Display audit log in /admin/audit-logs or be able to download audit log
 
 Research stripping out HTML out of Messages export
 

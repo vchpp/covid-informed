@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>Audit Log</title>
-  <%= stylesheet_link_tag "audit-log/application", media: "all" %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  <%= javascript_pack_tag 'application' %>
   <%= favicon_link_tag asset_path('favicon2.png') %>
 </head>
 <body>
@@ -14,10 +16,6 @@
   <% end %>
 
   <%= yield %>
-</div>
-
-<div class="footer">
-  <a href="https://github.com/rails-engine/audit-log">AuditLog</a> powered.
 </div>
 
 </body>
