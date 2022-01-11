@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: redirect("/#{I18n.locale}"), as: :redirected_root
+  get '/admin', to: redirect(path: "/#{I18n.locale}/admin")
   scope "(:locale)", locale: /en|zh_CN|zh_TW|hmn|vi/ do
     resources :downloads
     resources :callouts
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
     devise_for :users
 
     get '/admin', to: 'admin#index'
+    authenticate :user, -> (u) { u.admin? } do
+      mount AuditLog::Engine => "/admin/audit-log"
+    end
     get '/resources', to: 'resources#index'
     get '/about', to: 'about#index'
     root 'about#index'

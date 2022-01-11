@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audit Log</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  <%= javascript_pack_tag 'application' %>
+  <%= favicon_link_tag asset_path('favicon2.png') %>
+</head>
+<body>
+
+<div class="container">
+  <% if notice %>
+  <div id="notice"><%= notice %></div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+</body>
+</html>

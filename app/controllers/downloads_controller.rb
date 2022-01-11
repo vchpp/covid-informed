@@ -40,6 +40,7 @@ class DownloadsController < ApplicationController
         format.html { redirect_to @download, notice: "Download was successfully created." }
         format.json { render :show, status: :created, location: @download }
         logger.info "#{current_user.email} created Download #{@download.id} with title #{@download.en_title}"
+        audit! :created_download, @download, payload: download_params
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @download.errors, status: :unprocessable_entity }
@@ -59,6 +60,7 @@ class DownloadsController < ApplicationController
         format.html { redirect_to @download, notice: "Download was successfully updated." }
         format.json { render :show, status: :ok, location: @download }
         logger.info "#{current_user.email} updated Download #{@download.id} with title #{@download.en_title}"
+        audit! :updated_download, @download, payload: download_params
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @download.errors, status: :unprocessable_entity }
@@ -78,6 +80,7 @@ class DownloadsController < ApplicationController
       format.html { redirect_to downloads_url, notice: "Download was successfully destroyed." }
       format.json { head :no_content }
       logger.info "#{current_user.email} deleted Download #{@download.id} with title #{@download.en_title}"
+      audit! :destroyed_download, @download, payload: download_params
     end
   end
 

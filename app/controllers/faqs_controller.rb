@@ -31,6 +31,7 @@ class FaqsController < ApplicationController
         format.html { redirect_to @faq, notice: "Faq was successfully created." }
         format.json { render :show, status: :created, location: @faq }
         logger.info "#{current_user.email} created FAQ #{@faq.id} with title #{@faq.en_question}"
+        audit! :created_faq, @faq, payload: faq_params
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @faq.errors, status: :unprocessable_entity }
@@ -45,6 +46,7 @@ class FaqsController < ApplicationController
         format.html { redirect_to @faq, notice: "Faq was successfully updated." }
         format.json { render :show, status: :ok, location: @faq }
         logger.info "#{current_user.email} updated FAQ #{@faq.id} with title #{@faq.en_question}"
+        audit! :updated_faq, @faq, payload: faq_params
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @faq.errors, status: :unprocessable_entity }
@@ -59,6 +61,7 @@ class FaqsController < ApplicationController
       format.html { redirect_to faqs_url, notice: "Faq was successfully destroyed." }
       format.json { head :no_content }
       logger.info "#{current_user.email} deleted FAQ #{@faq.id} with title #{@faq.en_question}"
+      audit! :destroyed_faq, @faq, payload: faq_params
     end
   end
 

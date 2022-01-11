@@ -71,6 +71,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
         logger.warn("#{current_user.email} created Message #{@message.id} with title #{@message.en_name}")
+        audit! :created_message, @message, payload: message_params
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -91,6 +92,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: "Message was successfully updated." }
         format.json { render :show, status: :ok, location: @message }
         logger.warn("#{current_user.email} updated Message #{@message.id} with title #{@message.en_name}")
+        audit! :updated_message, @message, payload: message_params
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -110,6 +112,7 @@ class MessagesController < ApplicationController
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
       logger.warn("#{current_user.email} deleted Message #{@message.id} with title #{@message.en_name}")
+      audit! :destroyed_message, @message, payload: message_params
     end
   end
 
