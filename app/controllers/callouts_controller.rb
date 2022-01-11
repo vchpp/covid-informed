@@ -10,7 +10,7 @@ class CalloutsController < ApplicationController
       .with_attached_zh_cn_image
       .with_attached_vi_image
       .with_attached_hmn_image
-      .where(archive: false).order('created_at DESC')
+      .order('created_at DESC')
   end
 
   # GET /callouts/1 or /callouts/1.json
