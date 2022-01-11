@@ -12,7 +12,7 @@ Research stripping out HTML out of Messages export
 
 Can ActiveStorage URLs be shortened for adhoc sending
 
-Make sure admin page forces locale
+`DONE` - Make sure admin page forces locale
 
 Await translations for Additional Resources Filter by County
 

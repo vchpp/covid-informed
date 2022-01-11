@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: redirect("/#{I18n.locale}"), as: :redirected_root
+  get '/admin', to: redirect(path: "/#{I18n.locale}/admin")
   scope "(:locale)", locale: /en|zh_CN|zh_TW|hmn|vi/ do
     resources :downloads
     resources :callouts
