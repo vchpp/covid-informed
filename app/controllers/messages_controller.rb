@@ -27,9 +27,9 @@ class MessagesController < ApplicationController
     @message = Message.with_attached_images.friendly.find(params[:id])
     @likes = @message.likes.all.order('rct::integer ASC')
     @all_comments = Message.friendly.find(params[:id]).comments
+    @admin_comments = @all_comments.order('rct::integer ASC')
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
-    @admin_comments = @comments.order('rct::integer ASC')
     @message_name = @message.send("#{I18n.locale}_name".downcase)
     @message_content = @message.send("#{I18n.locale}_content".downcase)
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
