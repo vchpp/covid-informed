@@ -20,6 +20,8 @@ Google Analytics DataStudio
 
 `IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
 
+Refactor 'External' model to 'Additional'
+
 Serve GA script from domain instead of 3rd party to prevent adblockers
 
 1 FAQ all button hmong center text in button
