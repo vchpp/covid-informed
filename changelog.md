@@ -6,11 +6,11 @@ https://github.com/vchpp/covid-informed
 
 `IN PROGRESS` - Check on Callouts - make sure they show up, and clean up form
 
-`IN PROGRESS` - Research stripping out HTML out of Messages export
+`IN PROGRESS` - Research stripping out HTML out of Messages CSV export
 
 Await translations for Additional Resources Filter by County
 
-Audio files for the illiterate.  Messages, stand-alone audio banner on homepage (new model)
+Audio files for stand-alone audio banner on homepage (new model)
 
 PPT presentations displayed on webpage, image slideshow of PPT as fallback
 
@@ -111,6 +111,8 @@ External resources and Statistics events (clicks, navigation to external website
 # CHANGELOG:
 
 ### 1-week sprint 1/5 - 1/10
+
+`DONE` - Audio files for the illiterate.  Messages!
 
 `DONE` - Display audit log in /admin/audit-logs or be able to download audit log
 

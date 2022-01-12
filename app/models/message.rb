@@ -7,6 +7,11 @@ class Message < ApplicationRecord
   has_many_attached :zh_cn_images, dependent: :destroy
   has_many_attached :zh_tw_images, dependent: :destroy
   has_many_attached :hmn_images, dependent: :destroy
+  has_one_attached :en_audio, dependent: :destroy
+  has_one_attached :vi_audio, dependent: :destroy
+  has_one_attached :hmn_audio, dependent: :destroy
+  has_one_attached :zh_cn_audio, dependent: :destroy
+  has_one_attached :zh_tw_audio, dependent: :destroy
   has_rich_text :en_content
   has_rich_text :zh_tw_content
   has_rich_text :zh_cn_content
