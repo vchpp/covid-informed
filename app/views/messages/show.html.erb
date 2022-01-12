@@ -92,7 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="row">
 
-      <% if @message.en_audio.attached? %>
+      <% if @message.send("#{I18n.locale}_audio".downcase).attached? %>
         <div class="col-md-8 col-md-offset-2">
           <div class="btn btn-primary btn-lg btn-block" id="player">
               <%= audio_tag rails_blob_url @audio %>
