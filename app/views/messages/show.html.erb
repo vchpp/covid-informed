@@ -89,6 +89,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="fh5co-uppercase-heading-sm text-center" id="notice"><%= notice %></h2>
       </div>
 
+      <% if @message.en_audio.attached? %>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="btn btn-primary btn-lg btn-block" id="player">
+              <%= audio_tag rails_blob_url @audio %>
+              <span id="player-control" class="ti-control-play"> Play audio</span>
+          </div>
+        </div>
+      <% end %>
+
       <div class="col-md-8 col-md-offset-2 rtf-mobile">
         <div><%= @message_content %></div>
       </div>

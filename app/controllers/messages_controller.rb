@@ -12,6 +12,11 @@ class MessagesController < ApplicationController
       .with_attached_zh_cn_images
       .with_attached_vi_images
       .with_attached_hmn_images
+      .with_attached_hmn_audio
+      .with_attached_en_audio
+      .with_attached_vi_audio
+      .with_attached_zh_tw_audio
+      .with_attached_zh_cn_audio
       .order('created_at ASC')
     @admin_messages = @messages.sort_by(&:category)
     @messages = @messages.where(archive: false)
@@ -34,6 +39,7 @@ class MessagesController < ApplicationController
     @message_content = @message.send("#{I18n.locale}_content".downcase)
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
     @message_action_item = @message.send("#{I18n.locale}_action_item".downcase)
+    @audio = @message.send("#{I18n.locale}_audio".downcase)
     up_likes
     down_likes
     respond_to do |format|
@@ -67,6 +73,11 @@ class MessagesController < ApplicationController
     @message.zh_cn_images.attach(params[:message][:zh_cn_images]) if params[:zh_cn_images].present?
     @message.zh_tw_images.attach(params[:message][:zh_tw_images]) if params[:zh_tw_images].present?
     @message.hmn_images.attach(params[:message][:hmn_images]) if params[:hmn_images].present?
+    @message.hmn_audio.attach(params[:message][:hmn_audio]) if params[:hmn_audio].present?
+    @message.en_audio.attach(params[:message][:en_audio]) if params[:en_audio].present?
+    @message.vi_audio.attach(params[:message][:vi_audio]) if params[:vi_audio].present?
+    @message.zh_tw_audio.attach(params[:message][:zh_tw_audio]) if params[:zh_tw_audio].present?
+    @message.zh_cn_audio.attach(params[:message][:zh_cn_audio]) if params[:zh_cn_audio].present?
 
     respond_to do |format|
       if @message.save
@@ -90,6 +101,11 @@ class MessagesController < ApplicationController
     @message.zh_cn_images.purge if params[:zh_cn_images].present?
     @message.vi_images.purge if params[:vi_images].present?
     @message.hmn_images.purge if params[:hmn_images].present?
+    @message.hmn_audio.purge if params[:hmn_audio].present? || params[:hmn_audio_purge].present?
+    @message.vi_audio.purge if params[:vi_audio].present? || params[:vi_audio_purge].present?
+    @message.en_audio.purge if params[:en_audio].present? || params[:en_audio_purge].present?
+    @message.zh_tw_audio.purge if params[:zh_tw_audio].present? || params[:zh_tw_audio_purge].present?
+    @message.zh_cn_audio.purge if params[:zh_cn_audio].present? || params[:zh_cn_audio_purge].present?
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: "Message was successfully updated." }
@@ -111,6 +127,11 @@ class MessagesController < ApplicationController
     @message.zh_cn_images.purge
     @message.vi_images.purge
     @message.hmn_images.purge
+    @message.hmn_audio.purge
+    @message.vi_audio.purge
+    @message.en_audio.purge
+    @message.zh_tw_audio.purge
+    @message.zh_cn_audio.purge
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
@@ -156,6 +177,16 @@ class MessagesController < ApplicationController
                                       :survey_link,
                                       :category,
                                       :archive,
+                                      :en_audio,
+                                      :hmn_audio,
+                                      :vi_audio,
+                                      :zh_tw_audio,
+                                      :zh_cn_audio,
+                                      :en_audio_purge,
+                                      :vi_audio_purge,
+                                      :hmn_audio_purge,
+                                      :zh_tw_audio_purge,
+                                      :zh_cn_audio_purge,
                                       images: [],
                                       en_images: [],
                                       vi_images: [],

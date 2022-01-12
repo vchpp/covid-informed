@@ -26,6 +26,7 @@ function eventListeners(){
   // upLike();
   // downLike();
   submit_categories();
+  playMessageAudio();
 }
 
 // upLike a message
@@ -73,5 +74,21 @@ function downLike(){
 function submit_categories(){
   $('select').change(function(){
     $('#category').submit();
+  });
+}
+
+function playMessageAudio(){
+  $("#player").click(function(){
+    if ($(this).children('audio')[0].paused){
+      $(this).children('audio')[0].play();
+      $("#player").addClass("playing");
+      $("#player-control").removeClass("ti-control-play");
+      $("#player-control").addClass("ti-control-pause");
+    } else {
+      $(this).children('audio')[0].pause()
+      $("#player").removeClass("playing");
+      $("#player-control").addClass("ti-control-play");
+      $("#player-control").removeClass("ti-control-pause");
+    }
   });
 }
