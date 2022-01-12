@@ -11,19 +11,11 @@
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item1.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item1.headshot.attached?%></span>
             <p class="text-center fh5co-feature-description">
-              <%= item1.en_project_title if params[:locale] == 'en'%>
-              <%= item1.zh_cn_project_title if params[:locale] == 'zh_CN'%>
-              <%= item1.zh_tw_project_title if params[:locale] == 'zh_TW'%>
-              <%= item1.vi_project_title if params[:locale] == 'vi'%>
-              <%= item1.hmn_project_title if params[:locale] == 'hmn'%>
+              <%= item1.send("#{I18n.locale}_project_title".downcase) %>
             </p>
             <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.firstname%> <%= item1.lastname %></h3>
             <p class="text-center fh5co-feature-description text-uppercase">
-              <%= item1.en_affiliation if params[:locale] == 'en' %>
-              <%= item1.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
-              <%= item1.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
-              <%= item1.vi_affiliation if params[:locale] == 'vi' %>
-              <%= item1.hmn_affiliation if params[:locale] == 'hmn' %>
+              <%= item1.send("#{I18n.locale}_affiliation".downcase) %>
             </p>
           </div>
         </a>
@@ -32,19 +24,11 @@
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item2.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item2.headshot.attached?%></span>
             <p class="text-center fh5co-feature-description">
-              <%= item2.en_project_title if params[:locale] == 'en'%>
-              <%= item2.zh_cn_project_title if params[:locale] == 'zh_CN'%>
-              <%= item2.zh_tw_project_title if params[:locale] == 'zh_TW'%>
-              <%= item2.vi_project_title if params[:locale] == 'vi'%>
-              <%= item2.hmn_project_title if params[:locale] == 'hmn'%>
+              <%= item2.send("#{I18n.locale}_project_title".downcase) %>
             </p>
             <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.firstname%> <%= item2.lastname %></h3>
             <p class="text-center fh5co-feature-description text-uppercase">
-              <%= item2.en_affiliation if params[:locale] == 'en' %>
-              <%= item2.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
-              <%= item2.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
-              <%= item2.vi_affiliation if params[:locale] == 'vi' %>
-              <%= item2.hmn_affiliation if params[:locale] == 'hmn' %>
+              <%= item2.send("#{I18n.locale}_affiliation".downcase) %>
             </p>
           </div>
         </a>
@@ -55,19 +39,11 @@
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item3.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item3.headshot.attached?%></span>
             <p class="text-center fh5co-feature-description">
-              <%= item3.en_project_title if params[:locale] == 'en'%>
-              <%= item3.zh_cn_project_title if params[:locale] == 'zh_CN'%>
-              <%= item3.zh_tw_project_title if params[:locale] == 'zh_TW'%>
-              <%= item3.vi_project_title if params[:locale] == 'vi'%>
-              <%= item3.hmn_project_title if params[:locale] == 'hmn'%>
+              <%= item3.send("#{I18n.locale}_project_title".downcase) %>
             </p>
             <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item3.firstname%> <%= item3.lastname %></h3>
             <p class="text-center fh5co-feature-description text-uppercase">
-              <%= item3.en_affiliation if params[:locale] == 'en' %>
-              <%= item3.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
-              <%= item3.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
-              <%= item3.vi_affiliation if params[:locale] == 'vi' %>
-              <%= item3.hmn_affiliation if params[:locale] == 'hmn' %>
+              <%= item3.send("#{I18n.locale}_affiliation".downcase) %>
             </p>
           </div>
         </a>
@@ -77,19 +53,11 @@
           <div class="col-md-3 col-sm-6 fh5co-feature-item">
             <span class="fh5co-feature-icon"><%= image_tag item4.headshot.variant(resize_to_limit: [200, 200]), class: "img-circle" if item4.headshot.attached?%></span>
             <p class="text-center fh5co-feature-description">
-              <%= item4.en_project_title if params[:locale] == 'en'%>
-              <%= item4.zh_cn_project_title if params[:locale] == 'zh_CN'%>
-              <%= item4.zh_tw_project_title if params[:locale] == 'zh_TW'%>
-              <%= item4.vi_project_title if params[:locale] == 'vi'%>
-              <%= item4.hmn_project_title if params[:locale] == 'hmn'%>
+              <%= item4.send("#{I18n.locale}_project_title".downcase) %>
             </p>
             <h3 class="text-center fh5co-feature-title h4 text-uppercase"><%= item4.firstname%> <%= item4.lastname %></h3>
             <p class="text-center fh5co-feature-description text-uppercase">
-              <%= item4.en_affiliation if params[:locale] == 'en' %>
-              <%= item4.zh_cn_affiliation if params[:locale] == 'zh_CN' %>
-              <%= item4.zh_tw_affiliation if params[:locale] == 'zh_TW' %>
-              <%= item4.vi_affiliation if params[:locale] == 'vi' %>
-              <%= item4.hmn_affiliation if params[:locale] == 'hmn' %>
+              <%= item4.send("#{I18n.locale}_affiliation".downcase) %>
             </p>
           </div>
         </a>
