@@ -4,15 +4,9 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 1/5 - 1/10
 
-Check on Callouts - make sure they show up, and clean up form
+`IN PROGRESS` - Check on Callouts - make sure they show up, and clean up form
 
-`DONE` - Display audit log in /admin/audit-logs or be able to download audit log
-
-Research stripping out HTML out of Messages export
-
-Can ActiveStorage URLs be shortened for adhoc sending
-
-`DONE` - Make sure admin page forces locale
+`IN PROGRESS` - Research stripping out HTML out of Messages export
 
 Await translations for Additional Resources Filter by County
 
@@ -24,7 +18,7 @@ Google Analytics DataStudio
 
 ### Stretch Goals:
 
-Refactor Message.images to Message.en_images to reduce code on Messages#Show
+`IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
 
 Serve GA script from domain instead of 3rd party to prevent adblockers
 
@@ -115,6 +109,14 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 1/5 - 1/10
+
+`DONE` - Display audit log in /admin/audit-logs or be able to download audit log
+
+`WON'T DO` - Can ActiveStorage URLs be shortened for adhoc sending
+
+`DONE` - Make sure admin page forces locale
 
 ### 1-week sprint 12/22 - 1/4/22
 
