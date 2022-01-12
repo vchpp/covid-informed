@@ -2,25 +2,49 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 1/5 - 1/10
+### 1-week sprint 1/12 - 1/18
 
-`IN PROGRESS` - Check on Callouts - make sure they show up, and clean up form
+`IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
 `IN PROGRESS` - Research stripping out HTML out of Messages CSV export
+
+Google Analytics DataStudio to show direct traffic vs targeted traffic
+
+Check Message friendlyID if it can be updated and remove Message.name from view
+
+Move Research team partials to /about/_researchteam _LHW _Advisory board
+
+Community advisory board
+
+Audit logs diff on report
 
 Await translations for Additional Resources Filter by County
 
 Audio files for stand-alone audio banner on homepage (new model)
 
-PPT presentations displayed on webpage, image slideshow of PPT as fallback
+PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
 
-Google Analytics DataStudio
+### Feedback from the CAB members:
+
+* Add a disclaimer on the footer of each page
+
+* Filter Messages by category like FAQs or Additional Resources
+
+* Add search to Messages by adding a hidden field of tags
+
+* Or Global Search?
+
+*
 
 ### Stretch Goals:
 
 `IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
 
 Refactor 'External' model to 'Additional'
+
+Searching, Liking, Commenting, and Filtering all AJAX requests
+
+Super-admin priviledges to self-assign admins?
 
 Serve GA script from domain instead of 3rd party to prevent adblockers
 
