@@ -69,6 +69,21 @@
                   </div>
                 </div>
 
+                <% if current_user.email = "justincadburywong@gmail.com" %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @message.en_images.attached? %>
+                      <% @message.en_images.each do |img| %>
+                        <%= image_tag img.variant(resize_to_limit: [100, 100]), class: "img-fluid" %>
+                      <% end %>
+                    <% end %>
+                    <br>
+                    <%= form.label :en_images_for_refactoring %>
+                    <%= form.file_field :en_images, multiple: true, direct_upload: true, class: "form-control input-lg" %>
+                  </div>
+                </div>
+                <% end %>
+
               </div>
             </div>
 

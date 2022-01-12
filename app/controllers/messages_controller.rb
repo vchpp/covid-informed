@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all
       .with_attached_images
+      .with_attached_en_images
       .with_attached_zh_tw_images
       .with_attached_zh_cn_images
       .with_attached_vi_images
@@ -26,9 +27,9 @@ class MessagesController < ApplicationController
     @message = Message.with_attached_images.friendly.find(params[:id])
     @likes = @message.likes.all.order('rct::integer ASC')
     @all_comments = Message.friendly.find(params[:id]).comments
+    @admin_comments = @all_comments.order('rct::integer ASC')
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
-    @admin_comments = @comments.order('rct::integer ASC')
     @message_name = @message.send("#{I18n.locale}_name".downcase)
     @message_content = @message.send("#{I18n.locale}_content".downcase)
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
@@ -61,10 +62,11 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip) if params[:message][:external_links].present?
     @message.images.attach(params[:message][:images]) if params[:images].present?
-    @message.images.attach(params[:message][:vi_images]) if params[:vi_images].present?
-    @message.images.attach(params[:message][:zh_cn_images]) if params[:zh_cn_images].present?
-    @message.images.attach(params[:message][:zh_tw_images]) if params[:zh_tw_images].present?
-    @message.images.attach(params[:message][:hmn_images]) if params[:hmn_images].present?
+    @message.en_images.attach(params[:message][:en_images]) if params[:en_images].present?
+    @message.vi_images.attach(params[:message][:vi_images]) if params[:vi_images].present?
+    @message.zh_cn_images.attach(params[:message][:zh_cn_images]) if params[:zh_cn_images].present?
+    @message.zh_tw_images.attach(params[:message][:zh_tw_images]) if params[:zh_tw_images].present?
+    @message.hmn_images.attach(params[:message][:hmn_images]) if params[:hmn_images].present?
 
     respond_to do |format|
       if @message.save
@@ -83,6 +85,7 @@ class MessagesController < ApplicationController
   def update
     @message[:external_links] = params[:message][:external_links].first.split("\r\n").map(&:strip) if params[:message][:external_links].present?
     @message.images.purge if params[:images].present?
+    @message.en_images.purge if params[:en_images].present?
     @message.zh_tw_images.purge if params[:zh_tw_images].present?
     @message.zh_cn_images.purge if params[:zh_cn_images].present?
     @message.vi_images.purge if params[:vi_images].present?
@@ -103,6 +106,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1 or /messages/1.json
   def destroy
     @message.images.purge
+    @message.en_images.purge
     @message.zh_tw_images.purge
     @message.zh_cn_images.purge
     @message.vi_images.purge
@@ -153,6 +157,7 @@ class MessagesController < ApplicationController
                                       :category,
                                       :archive,
                                       images: [],
+                                      en_images: [],
                                       vi_images: [],
                                       zh_tw_images: [],
                                       zh_cn_images: [],
