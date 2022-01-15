@@ -61,15 +61,14 @@
         <!-- START #fh5co-menu-wrap -->
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
-            <!-- <li><a href="/<%=params[:locale]%>/about"><%= t('navbar.about') %></a></li> -->
             <li>
-              <a href="#" class="fh5co-sub-ddown">Mission</a>  <!--<%= t('navbar.resources') %> -->
+              <a href="#" class="fh5co-sub-ddown">Mission</a>
               <ul class="fh5co-sub-menu">
                <li>
                  <a href="/<%=params[:locale]%>/about"><%= t('navbar.about') %></a>
-                 <a href="/<%=params[:locale]%>/research-team">Research Team</a>
-                 <a href="/<%=params[:locale]%>/lay-health-workers">Lay Health Workers</a>
-                 <a href="/<%=params[:locale]%>/community-advisory-board">Community Advisory Board</a>
+                 <a href="/<%=params[:locale]%>/research-team"><%= t('about.research_team') %></a>
+                 <a href="/<%=params[:locale]%>/lay-health-workers"><%= t('about.lhw') %></a>
+                 <a href="/<%=params[:locale]%>/community-advisory-board"><%= t('about.cab_members') %></a>
                </li>
              </ul>
             </li>
