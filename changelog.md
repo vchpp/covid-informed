@@ -10,13 +10,13 @@ https://github.com/vchpp/covid-informed
 
 Google Analytics DataStudio to show direct traffic vs targeted traffic
 
-Check Message friendlyID if it can be updated and remove Message.name from view
+`DONE` - Check Message friendlyID if it can be updated and remove Message.name from view
 
-Move Research team partials to /about/_researchteam _LHW _Advisory board
+`DONE` - Move Research team partials to /about/_researchteam _LHW _Advisory board
 
 Community advisory board
 
-Audit logs diff on report
+Audit logs diff on report?
 
 Await translations for Additional Resources Filter by County
 

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     end
     get '/resources', to: 'resources#index'
     get '/about', to: 'about#index'
+    get '/research-team', to: 'about#researchers'
+    get '/lay-health-workers', to: 'about#lhw'
+    get '/community-advisory-board', to: 'about#cabmembers'
     root 'about#index'
     scope '/resources' do
       resources :externals
