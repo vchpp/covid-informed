@@ -1,5 +1,23 @@
 class AboutController < ApplicationController
+  before_action :set_profiles
+
   def index
+    @callouts = Callout.where(archive: false).order('created_at DESC')
+  end
+
+  def researchers
+    @researchers
+  end
+
+  def lhw
+    @lhw
+  end
+
+  def cabmembers
+    @cab_members
+  end
+
+  def set_profiles
     @profiles = Profile.where(archive: false).with_attached_headshot.order('lastname ASC')
     @researchers , @cab_members, @lhw = [], [], []
     @janice = @profiles.find_by(fullname: "Janice Tsoh")
@@ -10,7 +28,6 @@ class AboutController < ApplicationController
     end
     @researchers.delete(@janice)
     @researchers.unshift(@janice)
-    @callouts = Callout.where(archive: false).order('created_at DESC')
   end
 
 end
