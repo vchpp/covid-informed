@@ -14,7 +14,7 @@ Google Analytics DataStudio to show direct traffic vs targeted traffic
 
 `DONE` - Move Research team partials to /about/_researchteam _LHW _Advisory board
 
-Community advisory board
+`DONE` - check spelling for Community advisory board
 
 Audit logs diff on report?
 
