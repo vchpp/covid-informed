@@ -28,7 +28,7 @@ class Message < ApplicationRecord
   has_rich_text :vi_external_rich_links
   has_rich_text :hmn_external_rich_links
   extend FriendlyId
-  friendly_id :en_name, use: :slugged
+  friendly_id :en_name, use: %i(slugged history finders)
 
   def self.to_csv
     attributes = %w{created_at
@@ -88,5 +88,9 @@ class Message < ApplicationRecord
         end
       end
     end
+  end
+
+  def should_generate_new_friendly_id? #will change the slug if the en_name changed
+    en_name_changed?
   end
 end
