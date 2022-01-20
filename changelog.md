@@ -20,7 +20,7 @@ https://github.com/vchpp/covid-informed
 
 Highlight or 'active' which page a visitor is on in the navbar
 
-Additional resources filter by county shows which county in form when filtering by that county
+`DONE` - Additional resources filter by county shows which county in form when filtering by that county
 
 **
 
