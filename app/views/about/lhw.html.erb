@@ -17,14 +17,25 @@ meta title: "COVID-INFORMED - Lay Health Workers",
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<div class="fh5co-spacer fh5co-spacer-md"></div>
 
 <!-- CAB MEMBERS -->
 <section>
   <div class="container">
     <div class="fh5co-feature-2">
-      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('about.lhw') %></h2>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('about.lhw') %></h2>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+      <div class="col-md-12">
+        <h2 class="h2"> <%= t('resources.layhealthworkers.project') %> </h2>
+      </div>
+      <div class="col-md-12">
+        <p> <%= t('resources.layhealthworkers.project1')%> </p>
+      </div>
+      <div class="col-md-12">
+        <p> <%= t('resources.layhealthworkers.project2')%> </p>
+      </div>
+      
       <div class="fh5co-spacer fh5co-spacer-md"></div>
+
 
       <% @lhw.in_groups_of(4, false).each do |item1, item2, item3, item4| %>
       <div class="row">

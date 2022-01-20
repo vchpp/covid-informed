@@ -10,7 +10,8 @@ class DownloadsController < ApplicationController
       .with_attached_zh_cn_file
       .with_attached_vi_file
       .with_attached_hmn_file
-      .order('created_at ASC')
+      .where(archive: false).order('category ASC')
+    @other = @downloads.where(category: "Other")
   end
 
   # GET /downloads/1 or /downloads/1.json

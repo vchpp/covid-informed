@@ -1,39 +1,113 @@
-<p id="notice"><%= notice %></p>
+<%
+meta title: "COVID-INFORMED - Statistics",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
 
-<h1>Statistics</h1>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+  gtag('event','pageview', {'rct': rct});
+  gtag('send','event','eventCategory','eventAction');
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<table>
-  <thead>
-    <tr>
-      <th>En title</th>
-      <th>En description</th>
-      <th>En link name</th>
-      <th>En Link url</th>
-      <th>Category</th>
-      <th>Featured?</th>
-      <th>Archived?</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section id="fh5co-feature">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-  <tbody>
-    <% @statistics.each do |statistic| %>
-      <tr>
-        <td><%= statistic.en_title %></td>
-        <td><%= statistic.en_description %></td>
-        <td><%= statistic.en_link_name %></td>
-        <td><%= statistic.en_link_url %></td>
-        <td><%= statistic.category %></td>
-        <td><%= statistic.featured %></td>
-        <td><%= statistic.archive %></td>
-        <td><%= link_to 'Show', statistic %></td>
-        <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
-        <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+      <% if current_user.try(:admin?) %>
+        <div class="actions">
+          <%= link_to 'New Statistic', new_statistic_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-12">
+      <h2 class="h2"> <%= t('resources.layhealthworkers.stats') %> </h2>
+    </div>
+    <div class="col-md-12">
+      <p> <%= t('resources.layhealthworkers.stats1')%> </p>
+    </div>
+    
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+    <% if @featured.any? %>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.featured')%></h2>
+      <%= render 'featured', collection: @featured %>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <% if @general.any? %>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.general')%></h2>
+      <%= render 'general', collection: @general %>
+    <% end %>
 
-<%= link_to 'New Statistic', new_statistic_path %>
+    <% if @testing.any? %>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.testing')%></h2>
+      <%= render 'testing', collection: @testing %>
+    <% end %>
+
+    <% if @vaccination.any? %>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.vaccination')%></h2>
+      <%= render 'vaccination', collection: @vaccination %>
+    <% end %>
+
+    <% if @other.any?  %>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
+      <%= render 'other', collection: @other %>
+    <% end %>
+
+    <% if current_user.try(:admin?) %>
+      <% if @leftovers.any?  %>
+        <h2 class="fh5co-uppercase-heading-lg text-center">Uncategorized Leftovers that need to be saved! (Admin only)</h2>
+        <%= render 'leftovers', collection: @leftovers %>
+      <% end %>
+
+      <div class="col-md-12 Admin-border">
+        <h1>Statistics Admin List</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>En title</th>
+              <th>En description</th>
+              <th>En link name</th>
+              <th>En Link url</th>
+              <th>Category</th>
+              <th>Featured?</th>
+              <th>Archived?</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @admin_statistics.each do |statistic| %>
+              <tr>
+                <td><%= statistic.en_title %></td>
+                <td><%= statistic.en_description %></td>
+                <td><%= statistic.en_link_name %></td>
+                <td><%= statistic.en_link_url %></td>
+                <td><%= statistic.category %></td>
+                <td><%= statistic.featured %></td>
+                <td><%= statistic.archive %></td>
+                <td><%= link_to 'Show', statistic %></td>
+                <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
+                <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <%= link_to 'New Statistic', new_statistic_path %>
+      </div>
+    <% end %>
+
+  </div>
+</section>

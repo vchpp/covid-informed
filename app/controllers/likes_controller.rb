@@ -33,7 +33,7 @@ class LikesController < ApplicationController
       respond_to do |format|
         if @like.save
           format.html { redirect_to @message, notice: "Like was successfully created." }
-          format.json { render :show, status: :created, location: @like }
+          format.json { render :show, status: :created, location: @message }
           logger.info "Visitor #{params[:rct]} liked message #{@message.id} with title #{@message.en_name}"
         else
           format.html { render :new, status: :unprocessable_entity }
