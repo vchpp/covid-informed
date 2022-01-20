@@ -37,7 +37,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p> <%= t('resources.layhealthworkers.downloads1')%> </p>
     </div>
     <div class="fh5co-spacer fh5co-spacer-md"></div>
-    
+
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-12">
+        <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
+        <form id="search" method="GET" action="/<%=params[:locale]%>/resources/downloads" >
+          <div class="col-md-8 form-group">
+            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="Search for Downloads">
+          </div>
+          <div class="col-md-2 form-group">
+            <button class="form-control btn btn-primary" type="submit">
+              <i class="ti-search"></i>
+            </button>
+          </div>
+        </form>
+        <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/downloads" >
+          <div class="col-md-2 form-group">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.all')%>">
+          </div>
+        </form>
+      </div>
+
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+
     <% @downloads.in_groups_of(3, false).each do |item1, item2, item3| %>
       <div class="row">
         <% if item1 %>

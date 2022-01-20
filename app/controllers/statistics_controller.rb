@@ -86,6 +86,6 @@ class StatisticsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def statistic_params
-      params.require(:statistic).permit(:en_title, :en_description, :en_link_name, :zh_tw_title, :zh_tw_description, :zh_tw_link_name, :zh_cn_title, :zh_cn_description, :zh_cn_link_name, :vi_title, :vi_description, :vi_link_name, :hmn_title, :hmn_description, :hmn_link_name, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :category, :featured, :archive)
+      params.require(:statistic).permit(:en_title, :en_description, :en_link_name, :zh_tw_title, :zh_tw_description, :zh_tw_link_name, :zh_cn_title, :zh_cn_description, :zh_cn_link_name, :vi_title, :vi_description, :vi_link_name, :hmn_title, :hmn_description, :hmn_link_name, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :category, :featured, :archive, :search)
     end
 end

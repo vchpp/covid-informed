@@ -36,8 +36,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="col-md-12">
       <p> <%= t('resources.layhealthworkers.stats1')%> </p>
     </div>
-    
+
     <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-12">
+        <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
+        <form id="search" method="GET" action="/<%=params[:locale]%>/resources/statistics" >
+          <div class="col-md-8 form-group">
+            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="Search for Statistics">
+          </div>
+          <div class="col-md-2 form-group">
+            <button class="form-control btn btn-primary" type="submit">
+              <i class="ti-search"></i>
+            </button>
+          </div>
+        </form>
+        <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/statistics" >
+          <div class="col-md-2 form-group">
+            <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.all')%>">
+          </div>
+        </form>
+      </div>
+
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
 
     <% if @featured.any? %>
       <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.featured')%></h2>
