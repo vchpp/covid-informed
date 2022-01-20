@@ -58,13 +58,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-group">
             <label for="faq" class="sr-only">Filter by County</label>
             <form id="category" method="GET" action="/<%=params[:locale]%>/resources/externals" >
-              <select class="form-control input-lg" name="search" >
-                <option>-- <%= t('resources.external.filter') %> --</option>
-                <option>San Francisco</option>
-                <option>Alameda</option>
-                <option>Fresno</option>
-                <option>Santa Clara</option>
-                <option>San Mateo</option>
+              <select class="form-control input-lg" name="search" id="category-form">
+                <option value="">All</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Alameda">Alameda</option>
+                <option value="Fresno">Fresno</option>
+                <option value="Santa Clara">Santa Clara</option>
+                <option value="San Mateo">San Mateo</option>
               </select>
             </form>
           </div>

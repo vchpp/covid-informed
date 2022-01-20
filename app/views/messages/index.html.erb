@@ -47,11 +47,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="form-group">
         <label for="faq" class="sr-only">Filter by Category</label>
         <form id="category" method="GET" action="/<%=params[:locale]%>/messages" >
-          <select class="form-control input-lg" name="category" >
-            <option>-- <%= t('faqs.filter') %> --</option>
+          <select class="form-control input-lg" name="category" id="category-form">
             <option value="">All</option>
             <% @message_categories.each do |faq| %>
-              <option><%= faq %></option>
+              <option value="<%=faq%>"> <%= faq %></option>
             <% end %>
           </select>
         </form>
