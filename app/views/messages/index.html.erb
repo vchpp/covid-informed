@@ -32,6 +32,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="col-md-8 col-md-offset-2">
       <% if current_user.try(:admin?) %>
       <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      <p id="notice"><%= notice %></p>
         <div class="actions">
           <%= link_to 'New Message', new_message_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>
@@ -42,7 +43,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <% end %>
     </div>
 
-<p id="notice"><%= notice %></p>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-group">
+        <label for="faq" class="sr-only">Filter by Category</label>
+        <form id="category" method="GET" action="/<%=params[:locale]%>/messages" >
+          <select class="form-control input-lg" name="category" >
+            <option>-- <%= t('faqs.filter') %> --</option>
+            <option value="">All</option>
+            <% @message_categories.each do |faq| %>
+              <option><%= faq %></option>
+            <% end %>
+          </select>
+        </form>
+      </div>
+    </div>
 
     <% @messages.in_groups_of(2, false).each do |item1, item2| %>
       <div class="row">

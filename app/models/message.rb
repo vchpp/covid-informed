@@ -29,6 +29,7 @@ class Message < ApplicationRecord
   has_rich_text :hmn_external_rich_links
   extend FriendlyId
   friendly_id :en_name, use: %i(slugged history finders)
+  scope :filter_by_category, -> (category) { where category: category }
 
   def self.to_csv
     attributes = %w{created_at
