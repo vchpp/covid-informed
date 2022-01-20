@@ -1,31 +1,15 @@
 <% @other.in_groups_of(3, false).each do |item1, item2, item3| %>
 <div class="row fh5co-pricing-table-1 ">
   <% if item1 %>
-    <% if params[:locale] == 'zh_TW' && item1.zh_tw_external_link.present? %>
-      <a href="<%= item1.zh_tw_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'zh_CN' && item1.zh_cn_external_link.present? %>
-      <a href="<%= item1.zh_cn_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'vi' && item1.vi_external_link.present? %>
-      <a href="<%= item1.vi_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item1.hmn_external_link.present?%>
-      <a href="<%= item1.hmn_external_link %>" target="_blank" >
-    <% else %>
-      <a href="<%= item1.en_external_link %>" target="_blank" >
+    <% if item1.send("#{I18n.locale}_external_link".downcase).present? %>
+      <a href="<%= item1.send("#{I18n.locale}_external_link".downcase) %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item1.category %>">
-        <%= item1.en_title if params[:locale] == 'en' %>
-        <%= item1.zh_cn_title if params[:locale] == 'zh_CN' %>
-        <%= item1.zh_tw_title if params[:locale] == 'zh_TW' %>
-        <%= item1.vi_title if params[:locale] == 'vi' %>
-        <%= item1.hmn_title if params[:locale] == 'hmn' %>
+        <%= item1.send("#{I18n.locale}_title".downcase) %>
       </div>
       <div class="text-center fh5co-pricing-table-item-body <%= item1.category %>-border">
-        <div><%= item1.en_notes if params[:locale] == 'en' %></div>
-        <div><%= item1.zh_cn_notes if params[:locale] == 'zh_CN' %></div>
-        <div><%= item1.zh_tw_notes if params[:locale] == 'zh_TW' %></div>
-        <div><%= item1.vi_notes if params[:locale] == 'vi' %></div>
-        <div><%= item1.hmn_notes if params[:locale] == 'hmn' %></div>
+        <div><%= item1.send("#{I18n.locale}_notes".downcase) %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item1.languages.each { |l| l.concat(" | ") if l != item1.languages[-1]} %>
@@ -50,31 +34,15 @@
   </a>
   <% end %>
   <% if item2 %>
-    <% if params[:locale] == 'zh_TW' && item2.zh_tw_external_link.present? %>
-      <a href="<%= item2.zh_tw_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'zh_CN' && item2.zh_cn_external_link.present? %>
-      <a href="<%= item2.zh_cn_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'vi' && item2.vi_external_link.present? %>
-      <a href="<%= item2.vi_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item2.hmn_external_link.present?%>
-      <a href="<%= item2.hmn_external_link %>" target="_blank" >
-    <% else %>
-      <a href="<%= item2.en_external_link %>" target="_blank" >
+    <% if item2.send("#{I18n.locale}_external_link".downcase).present? %>
+      <a href="<%= item2.send("#{I18n.locale}_external_link".downcase) %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item2.category %>">
-        <%= item2.en_title if params[:locale] == 'en' %>
-        <%= item2.zh_cn_title if params[:locale] == 'zh_CN' %>
-        <%= item2.zh_tw_title if params[:locale] == 'zh_TW' %>
-        <%= item2.vi_title if params[:locale] == 'vi' %>
-        <%= item2.hmn_title if params[:locale] == 'hmn' %>
+        <%= item2.send("#{I18n.locale}_title".downcase) %>
       </div>
       <div class="text-center fh5co-pricing-table-item-body <%= item2.category %>-border">
-        <div><%= item2.en_notes if params[:locale] == 'en' %></div>
-        <div><%= item2.zh_cn_notes if params[:locale] == 'zh_CN' %></div>
-        <div><%= item2.zh_tw_notes if params[:locale] == 'zh_TW' %></div>
-        <div><%= item2.vi_notes if params[:locale] == 'vi' %></div>
-        <div><%= item2.hmn_notes if params[:locale] == 'hmn' %></div>
+        <div><%= item2.send("#{I18n.locale}_notes".downcase) %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item2.languages.each { |l| l.concat(" | ") if l != item2.languages[-1]} %>
@@ -99,31 +67,15 @@
   </a>
   <% end %>
   <% if item3 %>
-    <% if params[:locale] == 'zh_TW' && item3.zh_tw_external_link.present? %>
-      <a href="<%= item3.zh_tw_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'zh_CN' && item3.zh_cn_external_link.present? %>
-      <a href="<%= item3.zh_cn_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'vi' && item3.vi_external_link.present? %>
-      <a href="<%= item3.vi_external_link %>" target="_blank" >
-    <% elsif params[:locale] == 'en' && item3.hmn_external_link.present?%>
-      <a href="<%= item3.hmn_external_link %>" target="_blank" >
-    <% else %>
-      <a href="<%= item3.en_external_link %>" target="_blank" >
+    <% if item3.send("#{I18n.locale}_external_link".downcase).present? %>
+      <a href="<%= item3.send("#{I18n.locale}_external_link".downcase) %>" target="_blank" >
     <% end %>
     <div class="col-md-4 col-sm-6 fh5co-pricing-table-item">
       <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item3.category %>">
-        <%= item3.en_title if params[:locale] == 'en' %>
-        <%= item3.zh_cn_title if params[:locale] == 'zh_CN' %>
-        <%= item3.zh_tw_title if params[:locale] == 'zh_TW' %>
-        <%= item3.vi_title if params[:locale] == 'vi' %>
-        <%= item3.hmn_title if params[:locale] == 'hmn' %>
+        <%= item3.send("#{I18n.locale}_title".downcase) %>
       </div>
       <div class="text-center fh5co-pricing-table-item-body <%= item3.category %>-border">
-        <div><%= item3.en_notes if params[:locale] == 'en' %></div>
-        <div><%= item3.zh_cn_notes if params[:locale] == 'zh_CN' %></div>
-        <div><%= item3.zh_tw_notes if params[:locale] == 'zh_TW' %></div>
-        <div><%= item3.vi_notes if params[:locale] == 'vi' %></div>
-        <div><%= item3.hmn_notes if params[:locale] == 'hmn' %></div>
+        <div><%= item3.send("#{I18n.locale}_notes".downcase) %></div>
 
         <div class="fh5co-spacer fh5co-spacer-xxs"></div>
         <% item3.languages.each { |l| l.concat(" | ") if l != item3.languages[-1]} %>
