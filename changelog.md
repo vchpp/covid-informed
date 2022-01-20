@@ -16,7 +16,7 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - break apart /resources/lay health workers / downloads / statistics onto their own pages, with content ie FAQs Statistics Downloads Additional
 
-Messages filter by category
+`DONE` - Messages filter by category
 
 Highlight or 'active' which page a visitor is on in the navbar
 
