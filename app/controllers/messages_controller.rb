@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(nil)
       .with_attached_images
       .with_attached_en_images
       .with_attached_zh_tw_images
@@ -20,6 +20,8 @@ class MessagesController < ApplicationController
       .order('created_at ASC')
     @admin_messages = @messages.sort_by(&:category)
     @messages = @messages.where(archive: false)
+    set_message_categories
+    @messages = @messages.filter_by_category(params[:category]) if (params[:category].present?)
     # if @message.empty? redirect to new_message_path
     respond_to do |format|
       format.html
@@ -149,6 +151,14 @@ class MessagesController < ApplicationController
 
     def set_page
       @page = params[:page] || 1
+    end
+
+    def set_message_categories
+      @message_categories = []
+      @messages.each do |message|
+        @message_categories << message.category
+      end
+      @message_categories = @message_categories.uniq
     end
 
     # Only allow a list of trusted parameters through.

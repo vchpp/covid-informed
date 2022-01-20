@@ -27,21 +27,32 @@ function eventListeners(){
   // downLike();
   submit_categories();
   playMessageAudio();
+  getCookie('rct');
+}
+
+function getCookie(name) {
+  match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+  if (match) return match[1];
 }
 
 // upLike a message
 function upLike(){
- $('.uplike').on('submit', function(e){
-  console.log("prevented uplike")
+ $('#uplike').on('click', function(e){
    e.preventDefault();
+   var rct = getCookie('rct');
    var value, postUrl, data;
    value = 1;
-   postUrl = $(this).attr('action');
-   data = $(this).serialize();
+   postUrl = $(this).parent().parent().attr('action');
+   data = $(this).parent().serialize();
+   console.log(data);
    $.ajax({
      url: postUrl,
-     method: 'PUT',
-     data: data
+     method: 'POST',
+     headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'), // Optional
+      'Content-Type': 'application/json'
+      },
+     data: JSON.stringify({ "up": value }),
    }).done(function(data) {
      $('.uplike').empty();
      $('.uplike').prepend(data);
@@ -51,7 +62,7 @@ function upLike(){
 
 // downLike a message
 function downLike(){
- $('.downlike').on('submit', function(e){
+ $('#downlike').on('submit', function(e){
    console.log("prevented downlike")
    e.preventDefault();
    $(this).siblings('.del').toggle();

@@ -1,6 +1,6 @@
 class DownloadsController < ApplicationController
   before_action :set_download, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ index new create show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new create show edit update destroy ]
 
   # GET /downloads or /downloads.json
   def index
@@ -10,7 +10,9 @@ class DownloadsController < ApplicationController
       .with_attached_zh_cn_file
       .with_attached_vi_file
       .with_attached_hmn_file
-      .order('created_at ASC')
+      .where(archive: false).order('category ASC')
+    @other = @downloads.where(category: "Other")
+    @downloads = @downloads.filter_by_search(params[:search]) if (params[:search].present?)
   end
 
   # GET /downloads/1 or /downloads/1.json
@@ -92,6 +94,6 @@ class DownloadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def download_params
-      params.require(:download).permit(:en_file, :zh_tw_file, :zh_cn_file, :vi_file, :hmn_file, :en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :category, :archive)
+      params.require(:download).permit(:en_file, :zh_tw_file, :zh_cn_file, :vi_file, :hmn_file, :en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :category, :archive, :search)
     end
 end
