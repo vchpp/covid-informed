@@ -20,11 +20,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="fh5co-uppercase-heading-lg text-center"><%=@profile.firstname%> <%= @profile.lastname%></h2>
 
         <h2 class="fh5co-uppercase-heading-md text-center">
-          <%=@profile.en_project_title if params[:locale] == "en"%>
-          <%=@profile.zh_tw_project_title if params[:locale] == "zh_TW"%>
-          <%=@profile.zh_cn_project_title if params[:locale] == "zh_CN" %>
-          <%=@profile.vi_project_title if params[:locale] == "vi"%>
-          <%=@profile.hmn_project_title if params[:locale] == "hmn"%>
+          <%=@profile.send("#{I18n.locale}_project_title".downcase) %>
         </h2>
 
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
@@ -37,11 +33,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <% end %>
 
         <p style="font-size:22px">
-          <%= @profile.en_bio if params[:locale] == "en" %>
-          <%= @profile.zh_tw_bio if params[:locale] == "zh_TW" %>
-          <%= @profile.zh_cn_bio if params[:locale] == "zh_CN" %>
-          <%= @profile.vi_bio if params[:locale] == "vi" %>
-          <%= @profile.hmn_bio if params[:locale] == "hmn" %>
+          <%= @profile.send("#{I18n.locale}_bio".downcase) %>
         </p>
 
         <% @profile.external_links.each do |l| %>
