@@ -11,7 +11,7 @@ class Faq < ApplicationRecord
     autosave: true,
     dependent: :destroy
   extend FriendlyId
-  friendly_id :en_question, use: :slugged
+  friendly_id :en_question, use: %i(slugged history finders)
   scope :filter_by_category, -> (category) { where category: category }
   scope :filter_by_search, -> (search) { joins(:rich_texts).where("action_text_rich_texts.body ilike ?", "%#{search}%").or(
                                          where("en_question ilike ?", "%#{search}%")).or(

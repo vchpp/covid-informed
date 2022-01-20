@@ -1,6 +1,6 @@
 class External < ApplicationRecord
   extend FriendlyId
-  friendly_id :en_title, use: :slugged
+  friendly_id :en_title, use: %i(slugged history finders)
   scope :filter_by_search, -> (search) { where("en_title ilike ?", "%#{search}%").or(
                                          where("en_source ilike ?", "%#{search}%")).or(
                                          where("en_content ilike ?", "%#{search}%")).or(
