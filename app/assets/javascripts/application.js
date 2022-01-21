@@ -109,6 +109,5 @@ function selectActiveFilter(){
   var queryString = window.location.href.slice(window.location.href.indexOf('='));
   queryParam = queryString.replace(/=/g, '');
   queryParam = queryParam.replace(/\+/g, ' ');
-  console.log(queryParam);
   $("#category-form > option[value='" + queryParam + "']").prop('selected', true)
 };

@@ -18,15 +18,15 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - Messages filter by category
 
-Highlight or 'active' which page a visitor is on in the navbar
-
 `DONE` - Additional resources filter by county shows which county in form when filtering by that county
 
-**
+`IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
+
+`WON'T DO` - Audio files for stand-alone audio banner on homepage (new model)
+
+Highlight or 'active' which page a visitor is on in the navbar
 
 Healthwise - create a model similar to Messages with likes and comments with healthwise materials embedded
-
-`IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
 Audit logs diff on report?
 
@@ -35,8 +35,6 @@ Await disclaimer on footer
 Await translations for Additional Resources Filter by County
 
 Await translation for 'mission'
-
-`WON'T DO` - Audio files for stand-alone audio banner on homepage (new model)
 
 PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
 

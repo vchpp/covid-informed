@@ -4,47 +4,46 @@
 
 	jQuery(function($){
 
-		
+
 
 		if ($(window).width() < 992) {
-			console.log('992');
 			if ($("#menu").length > 0) {
-			
+
 				if ($("#mobile-menu").length < 1) {
-					
+
 					$("#menu").clone().attr({
 						id: "mobile-menu",
 						class: ""
 					}).insertAfter("#header");
-					
-					$("#mobile-menu .megamenu > a").on("click", function(e) {
-                        
-						e.preventDefault();
-						
-						$(this).toggleClass("open").next("div").slideToggle(300);
-						
-                    });
-					
-					$("#mobile-menu .dropdown > a").on("click", function(e) {
-                        
-						e.preventDefault();
-						
-						$(this).toggleClass("open").next("ul").slideToggle(300);
-						
-                    });
-				
-				}
-				
-			}
-				
-		} else {
-			
-			$("#mobile-menu").hide();
-			
-		}
-		
 
-		
+					$("#mobile-menu .megamenu > a").on("click", function(e) {
+
+						e.preventDefault();
+
+						$(this).toggleClass("open").next("div").slideToggle(300);
+
+                    });
+
+					$("#mobile-menu .dropdown > a").on("click", function(e) {
+
+						e.preventDefault();
+
+						$(this).toggleClass("open").next("ul").slideToggle(300);
+
+                    });
+
+				}
+
+			}
+
+		} else {
+
+			$("#mobile-menu").hide();
+
+		}
+
+
+
 
 		// Menu
 		$("#menu").superfish({
@@ -58,7 +57,7 @@
 		});
 
 
-		/* 
+		/*
 		Subscribe Field Focus
 		______________________________________
 		*/
@@ -70,8 +69,8 @@
 				$(this).closest('.form-group').removeClass('focus');
 			}
 		})
-		
-		/* 
+
+		/*
 		Hover Effects
 		______________________________________
 		*/
@@ -84,8 +83,8 @@
 		}
 		hoverEffects();
 
-		/* 
-		Owl Carousel 
+		/*
+		Owl Carousel
 		Carousel Project
 		______________________________________
 		*/
@@ -102,7 +101,7 @@
 	    dots: true,
 	    nav: true,
 	    center: true,
-	    smartSpeed: 500,	
+	    smartSpeed: 500,
 	    callbacks: true,
 	    navText: [
 	      "<i class='ti-arrow-left owl-direction'></i>",
@@ -127,11 +126,11 @@
 			hoverEffects();
 		});
 
-		
 
 
-		/* 
-		Owl Carousel 
+
+		/*
+		Owl Carousel
 		Carousel Posts
 		______________________________________
 		*/
@@ -171,8 +170,8 @@
 		});
 
 
-		/* 
-		Owl Carousel 
+		/*
+		Owl Carousel
 		Carousel Twitter or Carousel Testimony
 		______________________________________
 		*/
@@ -205,13 +204,13 @@
 		          nav: true,
 		        }
 	    	}
-		    
+
 		});
-		
-		/* 
+
+		/*
 		Nav Slide
 		______________________________________
-		*/		
+		*/
 		$('.js-nav-toggle').click(function(){
 			if($(this).hasClass('active')) {
 				$(this).removeClass('active');
@@ -226,7 +225,7 @@
 			$('#wbh_nav-slide').slideToggle(400, 'easeInOutExpo');
 		});
 
-		/* 
+		/*
 		Smooth Scroll
 		Reference:
 		http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
@@ -243,17 +242,17 @@
 		    return false;
 		});
 
-		/* 
+		/*
 		Magnific Popup
 		______________________________________
-		*/	
+		*/
 		$('.image-popup').magnificPopup({
 			type: 'image',
 		  gallery:{
 		    enabled:true
 		  }
 		});
-		
+
 
 
 	});
