@@ -54,4 +54,20 @@ private
     parsed_locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : 'en'
   end
+
+  require "rest-client"
+
+  def fetch_healthwise_token
+    Rails.cache.fetch("/healthwise_api_token", expires_in: 1.day) do
+      url = ENV['HEALTHWISE_AUTH_URL'] + "/oauth2/token"
+      response = RestClient::Request.execute(
+        method: :post,
+        url: url,
+        user: ENV['HEALTHWISE_CLIENT_ID'],
+        password: ENV['HEALTHWISE_CLIENT_SECRET'],
+        payload: "grant_type=client_credentials&scope=*"
+      )
+      JSON.parse(response.body)["access_token"]
+    end
+  end
 end
