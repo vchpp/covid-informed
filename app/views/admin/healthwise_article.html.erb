@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <% JSON.parse(@response)["data"]["resources"]["css"] %>
+<% end %>
+
+<div class="fh5co-spacer fh5co-spacer-lg"></div>
+<section>
+  <div class="container">
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["navigation"]["html"] %>
+    </div>
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["pageTemplate"] %>
+    </div>
+    <div class="col-md-12">
+      <% JSON.parse(@response)["data"]["topics"].map do |t| %>
+        <%= raw t["html"] %>
+      <% end %>
+    </div>
+  </div>
+</section>
