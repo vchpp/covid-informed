@@ -26,7 +26,11 @@ https://github.com/vchpp/covid-informed
 
 Highlight or 'active' which page a visitor is on in the navbar
 
-Healthwise - create a model similar to Messages with likes and comments with healthwise materials embedded
+Healthwise - create a model similar to Messages with likes and comments with healthwise materials embedded `rails g scaffold healthwise en_hwid en_title zh_tw_hwid zh_tw_title zh_cn_hwid zh_cn_title vi_hwid vi_title hmn_hwid hmn_title type` or separate models out to `Topic` and `Article`
+
+Healthwise - store json string payload in db and fetch every 7 days to keep up to date
+
+
 
 Audit logs diff on report?
 
