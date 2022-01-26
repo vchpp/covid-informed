@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, :only => :create
   protect_from_forgery prepend: true
-  before_action :set_locale, :count_visits, :set_admin, :set_visitor
+  before_action :set_locale, :count_visits, :set_admin, :set_visitor, :set_localization
 
 private
 
@@ -53,6 +53,23 @@ private
   def extract_locale
     parsed_locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : 'en'
+  end
+
+  def set_localization
+    logger.warn("#{params[:locale]}")
+    case
+    when params[:locale] == "vi"
+      @localization = "vi-us"
+    when params[:locale] == "hmn"
+      @localization = "en-us"
+    when params[:locale] == "zh_TW"
+      @localization = "zh-us"
+    when params[:locale] == "zh_CN"
+      @localization = "zh-us"
+    when params[:locale] == "en"
+      @localization = "en-us"
+    end
+    logger.warn("#{@localization}")
   end
 
   require "rest-client"

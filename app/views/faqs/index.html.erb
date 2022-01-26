@@ -81,6 +81,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="panel-body">
                 <%= faq.send("#{I18n.locale}_answer".downcase) %>
               </div>
+
+              <!-- demo for healthwise topic POC -->
+              <% if current_user.try(:admin?) %>
+                <div class="container">
+                  <div class="col-md-12">
+                    <% JSON.parse(@response)["data"]["topics"].map do |t| %>
+                      <%= raw t["html"] %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              
             </div>
 
           </div>

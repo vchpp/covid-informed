@@ -7,6 +7,7 @@ class FaqsController < ApplicationController
     @admin_faqs = @faqs.sort_by(&:category)
     @faqs = @faqs.where(archive: false)
     @faqs = @faqs.filter_by_search(params[:search]) if (params[:search].present?)
+    @response = fetch_topic
   end
 
   # GET /faqs/1 or /faqs/1.json
@@ -74,5 +75,11 @@ class FaqsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def faq_params
       params.require(:faq).permit(:en_question, :en_answer, :zh_tw_question, :zh_tw_answer, :zh_cn_question, :zh_cn_answer, :hmn_question, :hmn_answer, :vi_question, :vi_answer, :category, :archive, :search)
+    end
+
+    def fetch_topic
+      token = fetch_healthwise_token
+      url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/ack9671/#{@localization}?contentOutput=html+json"
+      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
     end
 end

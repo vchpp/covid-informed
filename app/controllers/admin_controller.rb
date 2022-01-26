@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_admin!, only: %i[ healthwise_article healthwise_topic ]
-  before_action :set_localization
+
   def index
   end
 
@@ -23,22 +23,7 @@ class AdminController < ApplicationController
 
 private
 #private methods will only run if an article needs to be updated, ie on create or show if expired
-  def set_localization
-    logger.warn("#{params[:locale]}")
-    case
-    when params[:locale] == "vi"
-      @localization = "vi-us"
-    when params[:locale] == "hmn"
-      @localization = "en-us"
-    when params[:locale] == "zh_TW"
-      @localization = "zh-us"
-    when params[:locale] == "zh_CN"
-      @localization = "zh-us"
-    when params[:locale] == "en"
-      @localization = "en-us"
-    end
-    logger.warn("#{@localization}")
-  end
+
 
   def fetch_article
     token = fetch_healthwise_token
