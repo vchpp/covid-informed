@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     authenticate :user, -> (u) { u.admin? } do
       mount AuditLog::Engine => "/admin/audit-log"
     end
-    get '/admin/healthwise-test', to: 'admin#healthwise'
+    get '/admin/healthwise-article-test', to: 'admin#healthwise_article'
+    get '/admin/healthwise-topic-test', to: 'admin#healthwise_topic'
     get '/about', to: redirect("/#{I18n.locale}/about/mission")
     scope '/about' do
       get '/mission', to: 'about#index'

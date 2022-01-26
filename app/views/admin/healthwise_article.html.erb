@@ -1,0 +1,52 @@
+<% content_for :head do %>
+  <% JSON.parse(@response)["data"]["resources"]["css"].map do |c| %>
+    <link href="<%= c["target"] %>" type="text/css" rel="stylesheet">
+  <% end %>
+  <script><%= raw JSON.parse(@response)["data"]["resources"]["inline"]%></script>
+  <% JSON.parse(@response)["data"]["resources"]["css"].map do |j| %>
+    <script src="<%= j["target"] %>" type="text/javascript"></script>
+  <% end %>
+<% end %>
+<%
+meta title: "#{JSON.parse(@response)["data"]["title"]["consumer"]}",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
+
+<section id="fh5co-feature">
+  <div class="container">
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["abstract"]["consumer"] %>
+    </div>
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["navigation"]["html"] %>
+    </div>
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["pageTemplate"] %>
+    </div>
+    <div class="col-md-12">
+      <% JSON.parse(@response)["data"]["topics"].map do |t| %>
+        <%= raw t["html"] %>
+      <% end %>
+    </div>
+    <div class="row">
+      <p><label>Author:</label> <%= JSON.parse(@response)["data"]["credits"]["author"]["name"] %> </p>
+      <p><label> Reviewers:</label></p>
+      <ul>
+        <% JSON.parse(@response)["data"]["credits"]["primaryReviewers"].map do |r| %>
+          <li><a href="{{reviewer.profileId}}"><%= r["name"]%> </a></li>
+        <% end %>
+      </ul>
+   </div>
+    <div class="col-md-12">
+      <%= raw JSON.parse(@response)["data"]["legal"]["logo"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["copyright"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["disclaimer"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["termsOfUseUrl"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["privacyPolicyUrl"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["moreInformationUrl"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["toLearnMoreHtml"] %>
+      <%= raw JSON.parse(@response)["data"]["legal"]["yourUseOfThisInformationHtml"] %>
+    </div>
+  </div>
+</section>
