@@ -1,5 +1,11 @@
 <% content_for :head do %>
-  <% JSON.parse(@response)["data"]["resources"]["css"] %>
+  <% JSON.parse(@response)["data"]["resources"]["css"].map do |c| %>
+    <link href="<%= c["target"] %>" type="text/css" rel="stylesheet">
+  <% end %>
+  <script><%= raw JSON.parse(@response)["data"]["resources"]["inline"]%></script>
+  <% JSON.parse(@response)["data"]["resources"]["css"].map do |j| %>
+    <script src="<%= j["target"] %>" type="text/javascript"></script>
+  <% end %>
 <% end %>
 
 <div class="fh5co-spacer fh5co-spacer-lg"></div>
