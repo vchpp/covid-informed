@@ -99,6 +99,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="col-md-8 col-md-offset-2 rtf-mobile">
         <div><%= @message_external_rich_links %></div>
       </div>
+      
+      <!-- demo for healthwise topic POC -->
+      <% if current_user.try(:admin?) %>
+      <div class="container">
+        <div class="col-md-12">
+          <% JSON.parse(@response)["data"]["topics"].map do |t| %>
+          <%= raw t["html"] %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
 
       <div class="col-md-8 col-md-offset-2 clearfix fh5co-header">
         <% if @message.survey_link.present? %>

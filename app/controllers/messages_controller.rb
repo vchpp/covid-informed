@@ -42,6 +42,7 @@ class MessagesController < ApplicationController
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
     @message_action_item = @message.send("#{I18n.locale}_action_item".downcase)
     @audio = @message.send("#{I18n.locale}_audio".downcase)
+    @response = fetch_topic
     up_likes
     down_likes
     respond_to do |format|
@@ -159,6 +160,12 @@ class MessagesController < ApplicationController
         @message_categories << message.category
       end
       @message_categories = @message_categories.uniq
+    end
+
+    def fetch_topic
+      token = fetch_healthwise_token
+      url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/ack9671/#{@localization}?contentOutput=html+json"
+      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
     end
 
     # Only allow a list of trusted parameters through.
