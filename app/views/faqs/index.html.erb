@@ -24,75 +24,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('faqs.faq') %></h2>
       </div>
 
-      <p id="notice"><%= notice %></p>
-
       <% if current_user.try(:admin?) %>
+        <p id="notice"><%= notice %></p>
         <div class="col-md-4 col-md-offset-4">
           <%= link_to 'Create A New Faq', new_faq_path, class: "form-control btn btn-primary" %>
         </div>
       <% end %>
 
-      <div class="col-md-12">
-        <div class="fh5co-spacer fh5co-spacer-md"></div>
-      </div>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
 
       <div class="col-md-10 col-md-offset-1">
+  			<div class="col-md-12">
+          <label for="faq" class="sr-only"><%= t('faqs.search') %></label>
+          <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+            <div class="col-md-8 form-group">
+              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
+            </div>
+            <div class="col-md-2 form-group">
+              <button class="form-control btn btn-primary" type="submit">
+                <i class="ti-search"></i>
+              </button>
+            </div>
+          </form>
+          <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
+            <div class="col-md-2 form-group">
+              <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.all')%>">
+            </div>
+          </form>
+        </div>
+      </div>
 
-			<div class="col-md-12">
-        <label for="faq" class="sr-only"><%= t('faqs.search') %></label>
-        <form id="search" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
-          <div class="col-md-8 form-group">
-            <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('faqs.search_for_questions')%>">
-          </div>
-          <div class="col-md-2 form-group">
-            <button class="form-control btn btn-primary" type="submit">
-              <i class="ti-search"></i>
-            </button>
-          </div>
-        </form>
-        <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/faqs" >
-          <div class="col-md-2 form-group">
-            <input class="form-control btn btn-primary" type="submit" value="<%= t('faqs.all')%>">
-          </div>
-        </form>
+      <div class="col-md-12">
+        <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+          <% @faqs.each do |faq| %>
+            <div class="panel panel-default <%=faq.category%>-border">
+
+              <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
+                <h4 class="panel-title">
+                  <a class="accordion-toggle">
+                    <%= faq.send("#{I18n.locale}_question".downcase) %>
+                  </a>
+                  <span style="float:right;padding-right: 40px">
+                    <% if current_user.try(:admin?) %>
+                      <%= link_to 'Show', faq %> /
+                      <%= link_to 'Edit', edit_faq_path(faq) %> /
+                      <%= link_to 'Delete', faq, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </span>
+                </h4>
+              </div>
+
+              <div id="collapse<%=faq.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=faq.id%>">
+                <div class="panel-body">
+                  <%= faq.send("#{I18n.locale}_answer".downcase) %>
+                </div>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <div class="col-md-12">
-      <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-
-        <% @faqs.each do |faq| %>
-          <div class="panel panel-default <%=faq.category%>-border">
-
-            <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
-              <h4 class="panel-title">
-                <a class="accordion-toggle">
-                  <%= faq.send("#{I18n.locale}_question".downcase) %>
-                </a>
-                <span style="float:right;padding-right: 40px">
-                  <% if current_user.try(:admin?) %>
-                    <%= link_to 'Show', faq %> /
-                    <%= link_to 'Edit', edit_faq_path(faq) %> /
-                    <%= link_to 'Delete', faq, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </span>
-              </h4>
-            </div>
-
-            <div id="collapse<%=faq.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=faq.id%>">
-              <div class="panel-body">
-                <%= faq.send("#{I18n.locale}_answer".downcase) %>
-              </div>
-            </div>
-
-          </div>
-        <% end %>
-      </div>
 
     <% if current_user.try(:admin?) %>
     <div class="row">
       <div class="col-md-8 col-md-offset-2 Admin-border">
-      <h1>Faqs Admin View</h1>
+        <h1>Faqs Admin View</h1>
 
         <table>
           <thead>
@@ -106,18 +104,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <tbody>
             <% @admin_faqs.each do |faq| %>
-              <tr>
-                <td><%= faq.en_question %></td>
-                <td><%= faq.category %></td>
-                <td><%= faq.archive %></td>
-                <td><%= link_to 'Show', faq %></td>
-                <td><%= link_to 'Edit', edit_faq_path(faq) %></td>
-                <td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
+            <tr>
+              <td><%= faq.en_question %></td>
+              <td><%= faq.category %></td>
+              <td><%= faq.archive %></td>
+              <td><%= link_to 'Show', faq %></td>
+              <td><%= link_to 'Edit', edit_faq_path(faq) %></td>
+              <td><%= link_to 'Destroy', faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
             <% end %>
           </tbody>
         </table>
       </div>
     </div>
-  <% end %>
+    <% end %>
+    
+  </div>
+</section>
+
+<div class="fh5co-spacer fh5co-spacer-xs"></div>
+<div class="container">
+  <div class="col-md-12 text-center">
+    <p> <%= t('disclaimer') %> </p>
+  </div>
 </div>

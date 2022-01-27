@@ -3,6 +3,7 @@ hmn:
   welcome: "txais tos!"
   language: "lus hmoob"
   locale: "hmn"
+  disclaimer: "The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
   navbar:
     about: "hais txog"
     messages: "lus tshajtawm"

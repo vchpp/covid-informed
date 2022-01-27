@@ -9,13 +9,11 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - Callouts - make only activestorage with link out to external/internal
 
-Add translations cleanup
+`DONE` - disclaimer on footer
 
-Await disclaimer on footer
+translations for Additional Resources Filter by County
 
-Await translations for Additional Resources Filter by County
-
-Await translation for 'mission'
+translation for 'mission'
 
 Highlight or 'active' which page a visitor is on in the navbar
 
