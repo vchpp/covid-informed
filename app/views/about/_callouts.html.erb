@@ -3,23 +3,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
-  				<div class="owl-carousel-fullwidth owl-carousel-2">
 
-          <% @callouts.each do |c| %>
-  					<div class="item">
-
-              <div class="col-md-10 col-md-offset-1 fh5co-item-slide-img">
+				<% if @callouts.length==1 %>
+					<% @callouts.each do |c| %>
+						<div class="item">
+							<div class="col-md-10 col-md-offset-1 fh5co-item-slide-img">
 								<a href="<%=c.link%>" <%= sanitize "target=\"_blank\"" if c.external_link? %> >
-                	<%= image_tag c.send("#{I18n.locale}_image".downcase), class: "img-responsive" if c.send("#{I18n.locale}_image".downcase).attached? %>
+									<%= image_tag c.send("#{I18n.locale}_image".downcase), class: "img-responsive" if c.send("#{I18n.locale}_image".downcase).attached? %>
 								</a>
-              </div>
-
-  						<!-- </div> -->
-  					</div>
-  					<!-- END .item -->
-          <% end %>
-
+							</div>
+							<!-- </div> -->
+						</div>
+						<!-- END .item -->
+					<% end %>
+				<% else %>
+					<div class="owl-carousel-fullwidth owl-carousel-2">
+	          <% @callouts.each do |c| %>
+	  					<div class="item">
+	              <div class="col-md-10 col-md-offset-1 fh5co-item-slide-img">
+									<a href="<%=c.link%>" <%= sanitize "target=\"_blank\"" if c.external_link? %> >
+	                	<%= image_tag c.send("#{I18n.locale}_image".downcase), class: "img-responsive" if c.send("#{I18n.locale}_image".downcase).attached? %>
+									</a>
+	              </div>
+	  						<!-- </div> -->
+	  					</div>
+	  					<!-- END .item -->
+	          <% end %>
   				</div>
+				<% end %>
 			</div> <!-- Close col-md-12 -->
 		</div> <!-- Close row -->
 	</div> <!-- Close container -->
