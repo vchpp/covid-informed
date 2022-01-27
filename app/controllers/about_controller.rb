@@ -2,7 +2,14 @@ class AboutController < ApplicationController
   before_action :set_profiles
 
   def index
-    @callouts = Callout.where(archive: false).order('created_at DESC')
+    @callouts = Callout.all
+      .with_attached_en_image
+      .with_attached_zh_tw_image
+      .with_attached_zh_cn_image
+      .with_attached_vi_image
+      .with_attached_hmn_image
+      .where(archive: false)
+      .order('created_at DESC')
   end
 
   def researchers

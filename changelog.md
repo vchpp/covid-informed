@@ -5,9 +5,9 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 1/26 - 2/1
 
-`IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
+`DONE` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
-Callouts - make only activestorage with link out to external/internal
+`DONE` - Callouts - make only activestorage with link out to external/internal
 
 Highlight or 'active' which page a visitor is on in the navbar
 
