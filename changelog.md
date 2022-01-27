@@ -2,35 +2,31 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 1/12 - 1/18
 
-`DONE` - Move /about to the /resources pattern convention
-
-`DONE` - Automatically redirect root to /about/
-
-`DONE` - Change 'mission' to 'about'
-
-`DONE` Change 'about' to 'mission statement'
-
-`DONE` - /resources#tab1 (lay health workers) move to profiles for layhealth workers
-
-`DONE` - break apart /resources/lay health workers / downloads / statistics onto their own pages, with content ie FAQs Statistics Downloads Additional
-
-`DONE` - Messages filter by category
-
-`DONE` - Additional resources filter by county shows which county in form when filtering by that county
+### 1-week sprint 1/26 - 2/1
 
 `IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
-`WON'T DO` - Audio files for stand-alone audio banner on homepage (new model)
+Callouts - make only activestorage with link out to external/internal
 
 Highlight or 'active' which page a visitor is on in the navbar
 
-Healthwise - create a model similar to Messages with likes and comments with healthwise materials embedded `rails g scaffold healthwise-article hwid title en_json en_translated:bool zh_tw_json zh_tw_translated:bool zh_cn_json zh_cn_translated:bool vi_json vi_translated:bool hmn_json hmn_translated:bool type` and separate models out to `Topic` and `Article`
+Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
+Healthwise categories are: General, testing, vaccination, wellness
+
+`rails g scaffold healthwise-article hwid title en_json en_translated:bool zh_tw_json zh_tw_translated:bool zh_cn_json zh_cn_translated:bool vi_json vi_translated:bool hmn_json hmn_translated:bool type`
 
 Healthwise - store json string payload in db and fetch every 7 days to keep up to date
 
-Audit logs diff on report?
+Check for Messages external links to Healthwise
+
+Healthwise model has navigation buttons at the bottom
+
+Healthwise#index has description/intro
+
+Healthwise#show has description/intro
+
+Stretch: Paginate Externals, Healthwise, FAQs
 
 Await disclaimer on footer
 
@@ -116,8 +112,6 @@ Check out patient instructions
 
 Is content dynamic or not?
 
-
-
 ### For Google Analytics:
 
 #### Things to measure:
@@ -151,6 +145,28 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 1/12 - 1/18
+
+`DONE` - Move /about to the /resources pattern convention
+
+`DONE` - Automatically redirect root to /about/
+
+`DONE` - Change 'mission' to 'about'
+
+`DONE` Change 'about' to 'mission statement'
+
+`DONE` - /resources#tab1 (lay health workers) move to profiles for layhealth workers
+
+`DONE` - break apart /resources/lay health workers / downloads / statistics onto their own pages, with content ie FAQs Statistics Downloads Additional
+
+`DONE` - Messages filter by category
+
+`DONE` - Additional resources filter by county shows which county in form when filtering by that county
+
+`WON'T DO` - Audio files for stand-alone audio banner on homepage (new model)
+
+`WON'T DO` - Audit logs diff on report?
 
 ### 1-week sprint 1/12 - 1/18
 
