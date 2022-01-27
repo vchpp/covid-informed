@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, :only => :create
   protect_from_forgery prepend: true
-  before_action :set_locale, :count_visits, :set_admin, :set_visitor, :set_localization
+  before_action :set_locale, :count_visits, :set_admin, :set_visitor, :set_hw_locale
 
 private
 
@@ -55,26 +55,24 @@ private
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : 'en'
   end
 
-  def set_localization
-    logger.warn("#{params[:locale]}")
+  def set_hw_locale
     case
     when params[:locale] == "vi"
-      @localization = "vi-us"
+      @hw_locale = "vi-us"
     when params[:locale] == "hmn"
-      @localization = "en-us"
+      @hw_locale = "en-us"
     when params[:locale] == "zh_TW"
-      @localization = "zh-us"
+      @hw_locale = "zh-us"
     when params[:locale] == "zh_CN"
-      @localization = "zh-us"
+      @hw_locale = "zh-us"
     when params[:locale] == "en"
-      @localization = "en-us"
+      @hw_locale = "en-us"
     end
-    logger.warn("#{@localization}")
   end
 
   require "rest-client"
 
-  def fetch_healthwise_token
+  def fetch_hw_token
     Rails.cache.fetch("/healthwise_api_token", expires_in: 1.day) do
       url = ENV['HEALTHWISE_AUTH_URL'] + "/oauth2/token"
       response = RestClient::Request.execute(

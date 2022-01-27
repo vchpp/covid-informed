@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :authenticate_admin!, only: %i[ healthwise_article healthwise_topic ]
+  before_action :authenticate_admin!, only: %i[ hw_article hw_topic ]
 
   def index
   end
@@ -11,13 +11,13 @@ class AdminController < ApplicationController
     # fetch article's JSON from hwid
     # save
   # end
-  def healthwise_article #show
+  def hw_article #show
     # check if it's custom JSON
     # check if the HW JSON is out of date, then fetch_article:&update!
     @response = fetch_article
   end
 
-  def healthwise_topic
+  def hw_topic
     @response = fetch_topic
   end
 
@@ -26,14 +26,14 @@ private
 
 
   def fetch_article
-    token = fetch_healthwise_token
-    url = ENV['HEALTHWISE_CONTENT_URL'] + "/articles/ack8827/#{@localization}"
+    token = fetch_hw_token
+    url = ENV['HEALTHWISE_CONTENT_URL'] + "/articles/ack8827/#{@hw_locale}"
     response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
   end
 
   def fetch_topic
-    token = fetch_healthwise_token
-    url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/ack9671/#{@localization}?contentOutput=html+json"
+    token = fetch_hw_token
+    url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/ack9671/#{@hw_locale}?contentOutput=html+json"
     response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
   end
 
