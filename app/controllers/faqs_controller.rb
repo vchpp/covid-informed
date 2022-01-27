@@ -7,7 +7,9 @@ class FaqsController < ApplicationController
     @admin_faqs = @faqs.sort_by(&:category)
     @faqs = @faqs.where(archive: false)
     @faqs = @faqs.filter_by_search(params[:search]) if (params[:search].present?)
-    @response = fetch_topic
+    if current_user.try(:admin?)
+      @response = fetch_topic
+    end
   end
 
   # GET /faqs/1 or /faqs/1.json

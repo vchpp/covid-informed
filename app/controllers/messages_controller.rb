@@ -42,7 +42,9 @@ class MessagesController < ApplicationController
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
     @message_action_item = @message.send("#{I18n.locale}_action_item".downcase)
     @audio = @message.send("#{I18n.locale}_audio".downcase)
-    @response = fetch_topic
+    if current_user.try(:admin?)
+      @response = fetch_topic
+    end
     up_likes
     down_likes
     respond_to do |format|
