@@ -42,9 +42,6 @@ class MessagesController < ApplicationController
     @message_external_rich_links = @message.send("#{I18n.locale}_external_rich_links".downcase)
     @message_action_item = @message.send("#{I18n.locale}_action_item".downcase)
     @audio = @message.send("#{I18n.locale}_audio".downcase)
-    if current_user.try(:admin?)
-      @response = fetch_topic
-    end
     up_likes
     down_likes
     respond_to do |format|
@@ -137,95 +134,88 @@ class MessagesController < ApplicationController
     @message.en_audio.purge
     @message.zh_tw_audio.purge
     @message.zh_cn_audio.purge
+    audit! :destroyed_message, @message, payload: message_params
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
-      logger.warn("#{current_user.email} deleted Message #{@message.id} with title #{@message.en_name}")
-      audit! :destroyed_message, @message, payload: message_params
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.friendly.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.friendly.find(params[:id])
+  end
 
-    def set_page
-      @page = params[:page] || 1
-    end
+  def set_page
+    @page = params[:page] || 1
+  end
 
-    def set_message_categories
-      @message_categories = []
-      @messages.each do |message|
-        @message_categories << message.category
-      end
-      @message_categories = @message_categories.uniq
+  def set_message_categories
+    @message_categories = []
+    @messages.each do |message|
+      @message_categories << message.category
     end
+    @message_categories = @message_categories.uniq
+  end
 
-    def fetch_topic
-      token = fetch_healthwise_token
-      url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/ack9671/#{@localization}?contentOutput=html+json"
-      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
-    end
+  # Only allow a list of trusted parameters through.
+  def message_params
+    params.require(:message).permit(:en_name,
+                                    :en_content,
+                                    :en_action_item,
+                                    :zh_tw_name,
+                                    :zh_tw_content,
+                                    :zh_tw_action_item,
+                                    :zh_cn_name,
+                                    :zh_cn_content,
+                                    :zh_cn_action_item,
+                                    :vi_name,
+                                    :vi_content,
+                                    :vi_action_item,
+                                    :hmn_name,
+                                    :hmn_content,
+                                    :hmn_action_item,
+                                    :external_links,
+                                    :en_external_rich_links,
+                                    :zh_tw_external_rich_links,
+                                    :zh_cn_external_rich_links,
+                                    :vi_external_rich_links,
+                                    :hmn_external_rich_links,
+                                    :survey_link,
+                                    :category,
+                                    :archive,
+                                    :en_audio,
+                                    :hmn_audio,
+                                    :vi_audio,
+                                    :zh_tw_audio,
+                                    :zh_cn_audio,
+                                    :en_audio_purge,
+                                    :vi_audio_purge,
+                                    :hmn_audio_purge,
+                                    :zh_tw_audio_purge,
+                                    :zh_cn_audio_purge,
+                                    images: [],
+                                    en_images: [],
+                                    vi_images: [],
+                                    zh_tw_images: [],
+                                    zh_cn_images: [],
+                                    hmn_images: [],
+                                  )
+  end
 
-    # Only allow a list of trusted parameters through.
-    def message_params
-      params.require(:message).permit(:en_name,
-                                      :en_content,
-                                      :en_action_item,
-                                      :zh_tw_name,
-                                      :zh_tw_content,
-                                      :zh_tw_action_item,
-                                      :zh_cn_name,
-                                      :zh_cn_content,
-                                      :zh_cn_action_item,
-                                      :vi_name,
-                                      :vi_content,
-                                      :vi_action_item,
-                                      :hmn_name,
-                                      :hmn_content,
-                                      :hmn_action_item,
-                                      :external_links,
-                                      :en_external_rich_links,
-                                      :zh_tw_external_rich_links,
-                                      :zh_cn_external_rich_links,
-                                      :vi_external_rich_links,
-                                      :hmn_external_rich_links,
-                                      :survey_link,
-                                      :category,
-                                      :archive,
-                                      :en_audio,
-                                      :hmn_audio,
-                                      :vi_audio,
-                                      :zh_tw_audio,
-                                      :zh_cn_audio,
-                                      :en_audio_purge,
-                                      :vi_audio_purge,
-                                      :hmn_audio_purge,
-                                      :zh_tw_audio_purge,
-                                      :zh_cn_audio_purge,
-                                      images: [],
-                                      en_images: [],
-                                      vi_images: [],
-                                      zh_tw_images: [],
-                                      zh_cn_images: [],
-                                      hmn_images: [],
-                                    )
-    end
+  def up_likes
+    message = Message.friendly.find(params[:id])
+    likes = message.likes.all
+    up = likes.map do |like| like.up end
+    @up_likes = up.map(&:to_i).reduce(0, :+)
+  end
 
-    def up_likes
-      message = Message.friendly.find(params[:id])
-      likes = message.likes.all
-      up = likes.map do |like| like.up end
-      @up_likes = up.map(&:to_i).reduce(0, :+)
-    end
-
-    def down_likes
-      message = Message.friendly.find(params[:id])
-      likes = message.likes.all
-      down = likes.map do |like| like.down end
-      @down_likes = down.map(&:to_i).reduce(0, :+)
-    end
+  def down_likes
+    message = Message.friendly.find(params[:id])
+    likes = message.likes.all
+    down = likes.map do |like| like.down end
+    @down_likes = down.map(&:to_i).reduce(0, :+)
+  end
 end

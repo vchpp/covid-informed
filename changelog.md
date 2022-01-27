@@ -5,9 +5,15 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 1/26 - 2/1
 
-`IN PROGRESS` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
+`DONE` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
-Callouts - make only activestorage with link out to external/internal
+`DONE` - Callouts - make only activestorage with link out to external/internal
+
+`DONE` - disclaimer on footer
+
+`DONE` - translations for Additional Resources Filter by County
+
+`DONE` - translation for 'mission'
 
 Highlight or 'active' which page a visitor is on in the navbar
 
@@ -27,12 +33,6 @@ Healthwise#index has description/intro
 Healthwise#show has description/intro
 
 Stretch: Paginate Externals, Healthwise, FAQs
-
-Await disclaimer on footer
-
-Await translations for Additional Resources Filter by County
-
-Await translation for 'mission'
 
 PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
 

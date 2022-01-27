@@ -57,12 +57,11 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1 or /profiles/1.json
   def destroy
     @profile.headshot.purge
+    audit! :destroyed_profile, @profile, payload: profile_params
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
       format.json { head :no_content }
-      logger.info "#{current_user.email} deleted Profile #{@profile.id} with the full name #{@profile.fullname}"
-      audit! :destroyed_profile, @profile, payload: profile_params
     end
   end
 

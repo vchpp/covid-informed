@@ -3,6 +3,7 @@ vi:
   welcome: "chào mừng!"
   language: "Tiếng Việt"
   locale: "vi"
+  disclaimer: "The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
   navbar:
     about: "Giới Thiệu"
     messages: "Tin Nhắn"
@@ -11,6 +12,7 @@ vi:
     statistics: "Số liệu thống kê"
     layhealthworkers: "Nhân Viên Sức Khỏe Cộng Đồng"
     external: "Tài Nguyên Bổ Sung"
+    mission: "Mục đích"
   about:
     research_team: "Nhóm Nghiên CứuChương Trình"
     research_team_titles:
@@ -56,7 +58,7 @@ vi:
       vaccination: "Chích Ngừa"
       other: "Khác"
       featured: "Các Tài Nguyên Đề Nghị"
-      filter: "Filter by County"
+      filter: "Chọn theo Hạt"
     statistics: "Số Liệu Thống Kê"
     layhealthworkers:
       layhealthworkers: "Nhân Viên Sức Khỏe Cộng Đồng"

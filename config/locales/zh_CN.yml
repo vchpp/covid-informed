@@ -3,6 +3,7 @@ zh_CN:
   welcome: "欢迎!"
   language: "简体中文"
   locale: "zh_cn"
+  disclaimer: "免责声明：本网站包含的信息仅用於教育目的。 鑑於新型冠状病毒的快速发展情况，研究团队试图在本网站上提供及时信息的同时，请参阅美国疾病预防控制中心 (CDC) 的新型冠状病毒信息网站 https://chinese.cdc.gov/coronavirus/2019-ncov/index.html"
   navbar:
     about: "关于"
     messages: "信息"
@@ -11,6 +12,7 @@ zh_CN:
     statistics: "统计数据"
     external: "更多资源"
     layhealthworkers: "社区保健员"
+    mission: "目的"
   about:
     research_team: "研究团队"
     research_team_titles:
@@ -56,7 +58,7 @@ zh_CN:
       vaccination: "疫苗接种"
       other: "其他"
       featured: "推介"
-      filter: "Filter by County"
+      filter: "按县查看"
     statistics: "统计数据"
     layhealthworkers:
       layhealthworkers: "社区保健员"
@@ -64,7 +66,7 @@ zh_CN:
       project1: "健康家庭资讯计划 (INFORMED)的社区保健员是被选出来教育他自己所在社区内的其他人士在COVID-19疫情当下如何保持健康。他们接受过研究人员的训练来提供最新的COVID-19资讯。"
       project2: "被我们拣选的社区保健员都是具备热心、友善、开通的特质，并表明有意促进社区健康。 他们将会主持关於COVID-19的健康教育小组。将重要的健康讯息以文化和语言上合适的方式传达给社区成员。"
       downloads: "下载健康家庭资讯计划的资料："
-      downloads1: "在美国国立卫生研究院 (National Institutes of Health)的资助下(研究资助号 3R01DA036749-05S1)，社区保健员所用的训练教材及教育资料可通过点击“下载” 选项卡免费下载用於研究和教育用途。"
+      downloads1: "在美国国立卫生研究院 (National Institutes of Health)的资助下(研究资助号 3R01DA036749-05S1)，社区保健员所用的训练教材及教育资料可通过点击选项卡免费下载用於研究和教育用途。"
       stats: "来自选定来源关於CODID-19的统计数据："
       stats1: "为了让我们的社区随时瞭解情况，我们选了几个在线资源以提供最新关於COVID-19的地方及全球统计数据。这些资源被列在‘统计数据’选项內。"
     downloads: "下载"

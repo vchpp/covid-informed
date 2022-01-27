@@ -10,6 +10,7 @@ class CalloutsController < ApplicationController
       .with_attached_zh_cn_image
       .with_attached_vi_image
       .with_attached_hmn_image
+      .where(archive: false)
       .order('created_at DESC')
   end
 
@@ -75,12 +76,11 @@ class CalloutsController < ApplicationController
     @callout.zh_cn_image.purge
     @callout.vi_image.purge
     @callout.hmn_image.purge
+    audit! :destroyed_callout, @callout, payload: callout_params
     @callout.destroy
     respond_to do |format|
       format.html { redirect_to callouts_url, notice: "Callout was successfully destroyed." }
       format.json { head :no_content }
-      logger.info "#{current_user.email} deleted Callout #{@callout.id} with title #{@callout.en_title}"
-      audit! :destroyed_callout, @callout, payload: callout_params
     end
   end
 
@@ -92,6 +92,6 @@ class CalloutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def callout_params
-      params.require(:callout).permit(:en_title, :en_body, :en_link_name, :zh_tw_title, :zh_tw_body, :zh_tw_link_name, :zh_cn_title, :zh_cn_body, :zh_cn_link_name, :vi_title, :vi_body, :vi_link_name, :hmn_title, :hmn_body, :hmn_link_name, :link, :external_link, :archive, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
+      params.require(:callout).permit(:en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :link, :external_link, :archive, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
     end
 end
