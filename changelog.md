@@ -9,6 +9,14 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - Callouts - make only activestorage with link out to external/internal
 
+Add translations cleanup
+
+Await disclaimer on footer
+
+Await translations for Additional Resources Filter by County
+
+Await translation for 'mission'
+
 Highlight or 'active' which page a visitor is on in the navbar
 
 Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
@@ -27,12 +35,6 @@ Healthwise#index has description/intro
 Healthwise#show has description/intro
 
 Stretch: Paginate Externals, Healthwise, FAQs
-
-Await disclaimer on footer
-
-Await translations for Additional Resources Filter by County
-
-Await translation for 'mission'
 
 PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
 

@@ -63,6 +63,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <% @faqs.each do |faq| %>
           <div class="panel panel-default <%=faq.category%>-border">
+
             <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
               <h4 class="panel-title">
                 <a class="accordion-toggle">
@@ -77,22 +78,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </span>
               </h4>
             </div>
+
             <div id="collapse<%=faq.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=faq.id%>">
               <div class="panel-body">
                 <%= faq.send("#{I18n.locale}_answer".downcase) %>
               </div>
-
-              <!-- demo for healthwise topic POC -->
-              <% if current_user.try(:admin?) %>
-                <div class="container">
-                  <div class="col-md-12">
-                    <% JSON.parse(@response)["data"]["topics"].map do |t| %>
-                      <%= raw t["html"] %>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-              
             </div>
 
           </div>
