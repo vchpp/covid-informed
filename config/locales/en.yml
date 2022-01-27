@@ -3,7 +3,7 @@ en:
   welcome: "Welcome!"
   language: "English"
   locale: "en"
-  disclaimer: "The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
+  disclaimer: "Disclaimer: The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
   navbar:
     about: "About"
     messages: "Messages"
@@ -12,6 +12,7 @@ en:
     statistics: "Statistics"
     layhealthworkers: "Lay Health Workers"
     external: "Additional Resources"
+    mission: "Mission"
   about:
     research_team: "Research Team"
     research_team_titles:
@@ -65,7 +66,7 @@ en:
       project1: "A lay health worker in the INFORMED Project is someone who has been selected to teach others in their own communities about how to stay healthy during the COVID-19 pandemic. They have been trained by the research staff to provide up-to-date information about COVID-19."
       project2: "Our lay health workers are selected because they are warm, friendly, open-minded, and have expressed an interest in improving the health of their communities. They will lead health educational sessions about COVID-19, so that the important health messages will reach members of the communities in a culturally and linguistically appropriate way."
       downloads: "Downloads of INFORMED Materials:"
-      downloads1: "With support from the National Institutes of Health (Research Grant Number 3R01DA036749-05S1), the training and educational materials used by our lay health workers are made available for research and educational use for free by clicking the “Download” tab."
+      downloads1: "With support from the National Institutes of Health (Research Grant Number 3R01DA036749-05S1), the training and educational materials used by our lay health workers are made available for research and educational use for free."
       stats: "Statistics About COVID-19 from Selected Sources:"
       stats1: "To keep our communities informed about COVID-19, we have selected several online resources that provide the latest statistics related to the COVID-19 pandemic, both globally and locally. These resources are listed under the “Statistics” tab."
     downloads: "Downloads"

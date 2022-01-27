@@ -12,6 +12,7 @@ vi:
     statistics: "Số liệu thống kê"
     layhealthworkers: "Nhân Viên Sức Khỏe Cộng Đồng"
     external: "Tài Nguyên Bổ Sung"
+    mission: "Mục đích"
   about:
     research_team: "Nhóm Nghiên CứuChương Trình"
     research_team_titles:
@@ -57,7 +58,7 @@ vi:
       vaccination: "Chích Ngừa"
       other: "Khác"
       featured: "Các Tài Nguyên Đề Nghị"
-      filter: "Filter by County"
+      filter: "Chọn theo Hạt"
     statistics: "Số Liệu Thống Kê"
     layhealthworkers:
       layhealthworkers: "Nhân Viên Sức Khỏe Cộng Đồng"

@@ -11,9 +11,9 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - disclaimer on footer
 
-translations for Additional Resources Filter by County
+`DONE` - translations for Additional Resources Filter by County
 
-translation for 'mission'
+`DONE` - translation for 'mission'
 
 Highlight or 'active' which page a visitor is on in the navbar
 
