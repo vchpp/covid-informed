@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.with_attached_images.friendly.find(params[:id])
     @likes = @message.likes.all.order('rct::integer ASC')
-    @all_comments = Message.friendly.find(params[:id]).comments
+    @all_comments = @message.comments
     @admin_comments = @all_comments.order('rct::integer ASC')
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
