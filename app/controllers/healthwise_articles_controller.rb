@@ -11,8 +11,8 @@ class HealthwiseArticlesController < ApplicationController
     # check if it's custom JSON, if yes, skip fetching
     if @healthwise_article.send("#{I18n.locale}_translated".downcase) == false
       # check if the HW JSON is out of date, then fetch_article:&update!
-      if @healthwise_article.updated_at < Time.now - 7.days
-        if @healthwise_article.type == "article"
+      if @healthwise_article.updated_at < Time.now - 1.minute
+        if @healthwise_article.article_or_topic == "Article"
           @healthwise_article.send("#{I18n.locale}_json".downcase= fetch_article(@healthwise_article.hwid, HW_LOCALE[I18n.locale]))
         else
           @healthwise_article.send("#{I18n.locale}_json".downcase= fetch_topic(@healthwise_article.hwid, HW_LOCALE[I18n.locale]))
@@ -37,15 +37,15 @@ class HealthwiseArticlesController < ApplicationController
     # take params and make article.new
     @healthwise_article = HealthwiseArticle.new(healthwise_article_params)
     # check if article or topic
-    if @healthwise_article.type == "Article"
+    if @healthwise_article.article_or_topic == "Article"
       # fetch article for available languages
       # store them in @healthwise_article.languages
-      @healthwise_article.languages = @fetch_article_languages(@healthwise_article.hwid)
+      @healthwise_article.languages = fetch_article_languages(@healthwise_article.hwid)
       # fetch article's JSON from hwid for [languages], otherwise default to english
       @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
         response = fetch_article(@healthwise_article.hwid, l)
-        @healthwise_article.send("#{CI_LOCALE[l]}_json") = response
-        @healthwise_article.send("#{CI_LOCALE[l]}_title") = response["data"]["title"]["consumer"]
+        @healthwise_article.send("#{CI_LOCALE[l]}_json=", response)
+        @healthwise_article.send("#{CI_LOCALE[l]}_title=", response["data"]["title"]["consumer"])
       end
     else
       # fetch topic for available languages
@@ -147,6 +147,6 @@ class HealthwiseArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
-      params.require(:healthwise_article).permit(:hwid, :type, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :category, :featured, :archive, :languages)
+      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :category, :featured, :archive, :languages)
     end
 end
