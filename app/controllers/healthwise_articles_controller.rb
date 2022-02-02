@@ -11,25 +11,13 @@ class HealthwiseArticlesController < ApplicationController
     # check if it's custom JSON, if yes, skip fetching
     if @healthwise_article.send("#{I18n.locale}_translated".downcase) == false
       # check if the HW JSON is out of date, then fetch_article:&update!
-      if @healthwise_article.updated_at < Time.now - 1.month
-        if @healthwise_article.article_or_topic == "Article"
-        # single locale update ?
-          @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_article(@healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
-        # or all locale updates?
-          # @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
-          #   response = fetch_article(@healthwise_article.hwid, l)
-          #   @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
-          #   @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
-          # end
-          @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
-          @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
-        else
-          @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_topic(@healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
-        end
+      if @healthwise_article.updated_at < Time.now - 1.minute
+        @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
+        @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
+        # @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
         @healthwise_article.save
       end
     end
-
   end
 
   # GET /healthwise_articles/new
@@ -46,21 +34,23 @@ class HealthwiseArticlesController < ApplicationController
     # take params and make article.new
     @healthwise_article = HealthwiseArticle.new(healthwise_article_params)
     # check if article or topic
-    if @healthwise_article.article_or_topic == "Article"
       # fetch article for available languages
       # store them in @healthwise_article.languages
-      @healthwise_article.languages = fetch_article_languages(@healthwise_article.hwid)
+      @healthwise_article.languages = fetch_languages(@healthwise_article.article_or_topic, @healthwise_article.hwid)
       # fetch article's JSON from hwid for [languages], otherwise default to english
       @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
-        response = fetch_article(@healthwise_article.hwid, l)
+        response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
         @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
-        @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
+        if @healthwise_article.article_or_topic == "Article"
+          @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
+        else
+          logger.warn("#{JSON.parse(response)}")
+          @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
+        end
       end
       @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
       @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
-    else
-      # fetch topic for available languages
-    end
+
 
     # save
     respond_to do |format|
@@ -121,9 +111,9 @@ class HealthwiseArticlesController < ApplicationController
       /hm-us/i,
     )
 
-    def fetch_article_languages(hwid)
+    def fetch_languages(type, hwid)
       token = fetch_hw_token
-      url = ENV['HEALTHWISE_CONTENT_URL'] + "/articles/#{hwid}"
+      url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}"
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
       # iterate over json hash to match for available locales #
       languages = []
@@ -133,23 +123,23 @@ class HealthwiseArticlesController < ApplicationController
       return languages.uniq
     end
 
-    def fetch_article(hwid, language)
+    def fetch_article(type, hwid, language)
       token = fetch_hw_token
-      url = ENV['HEALTHWISE_CONTENT_URL'] + "/articles/#{hwid}/#{language}"
+      url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}/#{language}"
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
     end
 
-    def fetch_topic_languages(topic)
-      token = fetch_hw_token
-      url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/#{topic.hwid}"
-      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
-    end
-
-    def fetch_topic(topic, language)
-      token = fetch_hw_token
-      url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/#{topic.hwid}/#{language}?contentOutput=html+json"
-      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
-    end
+    # def fetch_topic_languages(topic)
+    #   token = fetch_hw_token
+    #   url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/#{topic.hwid}"
+    #   response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
+    # end
+    #
+    # def fetch_topic(topic, language)
+    #   token = fetch_hw_token
+    #   url = ENV['HEALTHWISE_CONTENT_URL'] + "/topics/#{topic.hwid}/#{language}?contentOutput=html+json"
+    #   response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
+    # end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_healthwise_article
