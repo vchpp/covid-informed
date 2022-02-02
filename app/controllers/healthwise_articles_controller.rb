@@ -11,7 +11,7 @@ class HealthwiseArticlesController < ApplicationController
     # check if it's custom JSON, if yes, skip fetching
     if @healthwise_article.send("#{I18n.locale}_translated".downcase) == false
       # check if the HW JSON is out of date, then fetch_article:&update!
-      if @healthwise_article.updated_at < Time.now - 1.minute
+      if @healthwise_article.updated_at < Time.now - 1.month
         if @healthwise_article.article_or_topic == "Article"
         # single locale update ?
           @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_article(@healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
