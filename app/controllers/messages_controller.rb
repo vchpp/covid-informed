@@ -206,15 +206,13 @@ private
   end
 
   def up_likes
-    message = Message.friendly.find(params[:id])
-    likes = message.likes.all
+    likes = @message.likes.all
     up = likes.map do |like| like.up end
     @up_likes = up.map(&:to_i).reduce(0, :+)
   end
 
   def down_likes
-    message = Message.friendly.find(params[:id])
-    likes = message.likes.all
+    likes = @message.likes.all
     down = likes.map do |like| like.down end
     @down_likes = down.map(&:to_i).reduce(0, :+)
   end
