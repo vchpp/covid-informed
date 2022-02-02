@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hwid: MyString
+  type: 
+  en_title: MyString
+  en_json: 
+  en_translated: false
+  zh_tw_title: MyString
+  zh_tw_json: 
+  zh_tw_translated: false
+  zh_cn_title: MyString
+  zh_cn_json: 
+  zh_cn_translated: false
+  vi_title: MyString
+  vi_json: 
+  vi_translated: false
+  hmn_title: MyString
+  hmn_json: 
+  hmn_translated: false
+  languages: MyString
+  array: 
+  category: MyString
+  featured: false
+  archive: false
+
+two:
+  hwid: MyString
+  type: 
+  en_title: MyString
+  en_json: 
+  en_translated: false
+  zh_tw_title: MyString
+  zh_tw_json: 
+  zh_tw_translated: false
+  zh_cn_title: MyString
+  zh_cn_json: 
+  zh_cn_translated: false
+  vi_title: MyString
+  vi_json: 
+  vi_translated: false
+  hmn_title: MyString
+  hmn_json: 
+  hmn_translated: false
+  languages: MyString
+  array: 
+  category: MyString
+  featured: false
+  archive: false

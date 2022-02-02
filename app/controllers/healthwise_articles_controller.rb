@@ -13,11 +13,20 @@ class HealthwiseArticlesController < ApplicationController
       # check if the HW JSON is out of date, then fetch_article:&update!
       if @healthwise_article.updated_at < Time.now - 1.minute
         if @healthwise_article.article_or_topic == "Article"
-          @healthwise_article.send("#{I18n.locale}_json".downcase= fetch_article(@healthwise_article.hwid, HW_LOCALE[I18n.locale]))
+        # single locale update ?
+          @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_article(@healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
+        # or all locale updates?
+          # @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
+          #   response = fetch_article(@healthwise_article.hwid, l)
+          #   @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
+          #   @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
+          # end
+          @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
+          @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
         else
-          @healthwise_article.send("#{I18n.locale}_json".downcase= fetch_topic(@healthwise_article.hwid, HW_LOCALE[I18n.locale]))
+          @healthwise_article.send("#{I18n.locale.downcase}_json=", fetch_topic(@healthwise_article.hwid, HW_LOCALE[params[:locale].downcase]))
         end
-        @healthwise_article.update!
+        @healthwise_article.save
       end
     end
 
@@ -44,9 +53,11 @@ class HealthwiseArticlesController < ApplicationController
       # fetch article's JSON from hwid for [languages], otherwise default to english
       @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
         response = fetch_article(@healthwise_article.hwid, l)
-        @healthwise_article.send("#{CI_LOCALE[l]}_json=", response)
-        @healthwise_article.send("#{CI_LOCALE[l]}_title=", response["data"]["title"]["consumer"])
+        @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
+        @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
       end
+      @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
+      @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
     else
       # fetch topic for available languages
     end
@@ -91,15 +102,15 @@ class HealthwiseArticlesController < ApplicationController
     CI_LOCALE = {
       "vi-us"  => "vi",
       "hm-us" => "hmn",
-      "zh-us" => "zh_cn",
+      "zh-us" => "zh_tw",
       "en-us" => "en"
     }
 
     HW_LOCALE = {
       "vi"  => "vi-us",
       "hmn" => "hm-us",
-      "zh-tw" => "zh-us",
-      "zh-cn" => "zh-us",
+      "zh_tw" => "zh-us",
+      "zh_cn" => "zh-us",
       "en" => "en-us"
     }
 
@@ -116,7 +127,7 @@ class HealthwiseArticlesController < ApplicationController
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
       # iterate over json hash to match for available locales #
       languages = []
-      response['links']['localizations'].map {l| languages << l.key if l.match(LOCALES)}
+      JSON.parse(response)['links']['localizations'].map {|l| languages << l[0] if l[0].match(LOCALES)}
       logger.warn("#{languages}")
       # return an array
       return languages.uniq

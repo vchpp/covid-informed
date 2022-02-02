@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_054644) do
+ActiveRecord::Schema.define(version: 2022_02_01_042131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,32 @@ ActiveRecord::Schema.define(version: 2022_01_10_054644) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "healthwise_articles", force: :cascade do |t|
+    t.string "hwid"
+    t.string "article_or_topic"
+    t.string "en_title"
+    t.json "en_json", default: {}
+    t.boolean "en_translated", default: false
+    t.string "zh_tw_title"
+    t.json "zh_tw_json", default: {}
+    t.boolean "zh_tw_translated", default: false
+    t.string "zh_cn_title"
+    t.json "zh_cn_json", default: {}
+    t.boolean "zh_cn_translated", default: false
+    t.string "vi_title"
+    t.json "vi_json", default: {}
+    t.boolean "vi_translated", default: false
+    t.string "hmn_title"
+    t.json "hmn_json", default: {}
+    t.boolean "hmn_translated", default: false
+    t.string "languages", default: [], array: true
+    t.string "category"
+    t.boolean "featured", default: false
+    t.boolean "archive", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|

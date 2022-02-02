@@ -1,0 +1,122 @@
+<%= form_with(model: healthwise_article) do |form| %>
+  <% if healthwise_article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(healthwise_article.errors.count, "error") %> prohibited this healthwise_article from being saved:</h2>
+
+      <ul>
+        <% healthwise_article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :hwid %>
+    <%= form.text_field :hwid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_or_topic %>
+    <%= form.text_field :article_or_topic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_title %>
+    <%= form.text_field :en_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_json %>
+    <%= form.text_field :en_json %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_translated %>
+    <%= form.check_box :en_translated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_title %>
+    <%= form.text_field :zh_tw_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_json %>
+    <%= form.text_field :zh_tw_json %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_tw_translated %>
+    <%= form.check_box :zh_tw_translated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_title %>
+    <%= form.text_field :zh_cn_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_json %>
+    <%= form.text_field :zh_cn_json %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zh_cn_translated %>
+    <%= form.check_box :zh_cn_translated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_title %>
+    <%= form.text_field :vi_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_json %>
+    <%= form.text_field :vi_json %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vi_translated %>
+    <%= form.check_box :vi_translated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_title %>
+    <%= form.text_field :hmn_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_json %>
+    <%= form.text_field :hmn_json %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hmn_translated %>
+    <%= form.check_box :hmn_translated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :languages %>
+    <%= form.text_field :languages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :featured %>
+    <%= form.check_box :featured %>
+  </div>
+
+  <div class="field">
+    <%= form.label :archive %>
+    <%= form.check_box :archive %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

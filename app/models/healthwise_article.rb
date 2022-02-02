@@ -1,0 +1,2 @@
+class HealthwiseArticle < ApplicationRecord
+end

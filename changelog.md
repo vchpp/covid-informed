@@ -5,6 +5,27 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 1/26 - 2/1
 
+Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
+Healthwise categories are: General, testing, vaccination, wellness
+
+`rails g scaffold healthwise-article hwid:string type:string en_title:string en_json:json en_translated:boolean zh_tw_title:string zh_tw_json:json zh_tw_translated:boolean zh_cn_title:string zh_cn_json:json zh_cn_translated:boolean vi_title:string vi_json:json vi_translated:boolean hmn_title:string hmn_json:json hmn_translated:boolean languages:string category:string featured:boolean archive:boolean`
+
+Healthwise - store json string payload in db and fetch every 7 days to keep up to date
+
+Healthwise#index has language links like Externals to show what is available
+
+Healthwise model has navigation buttons at the bottom
+
+Healthwise#index has disclaimer/intro
+
+Healthwise#show has disclaimer/intro
+
+Stretch: Paginate Externals, Healthwise, FAQs
+
+Highlight or 'active' which page a visitor is on in the navbar
+
+`WON'T DO` - PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
+
 `DONE` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
 
 `DONE` - Callouts - make only activestorage with link out to external/internal
@@ -15,32 +36,11 @@ https://github.com/vchpp/covid-informed
 
 `DONE` - translation for 'mission'
 
-Highlight or 'active' which page a visitor is on in the navbar
-
-Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
-Healthwise categories are: General, testing, vaccination, wellness
-
-`rails g scaffold healthwise-article hwid title en_json en_translated:bool zh_tw_json zh_tw_translated:bool zh_cn_json zh_cn_translated:bool vi_json vi_translated:bool hmn_json hmn_translated:bool type`
-
-Healthwise - store json string payload in db and fetch every 7 days to keep up to date
-
-Check for Messages external links to Healthwise
-
-Healthwise model has navigation buttons at the bottom
-
-Healthwise#index has description/intro
-
-Healthwise#show has description/intro
-
-Stretch: Paginate Externals, Healthwise, FAQs
-
-PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
-
 ### Feedback from the CAB members:
 
-* Add a disclaimer on the footer of each page
+`DONE` - Add a disclaimer on the footer of each page
 
-* Filter Messages by category like FAQs or Additional Resources
+`DONE` - Filter Messages by category like FAQs or Additional Resources
 
 * Add search to Messages by adding a hidden field of tags
 
@@ -64,25 +64,11 @@ Serve GA script from domain instead of 3rd party to prevent adblockers
 
 2 Messages#show buttons larger from bootstrap source code
 
-3 /about page needs color break - give a few examples
-
-3 Profiles on /about needs background color or anchor
-
-3 Healthwise handouts displayed on individual messages (upload and display PDFs)
-
 3 Messages#show make RTF font size larger for desktop view only
 
 4 Profiles#show text should not wrap
 
 4 Profiles on /about title/name/affiliation to make more dense
-
-4 Research audio playback for illiterate visitors or play audio on Messages#show
-
-LHW as model so they can update flipchart (they will use the flipchart/FAQs)
-
-Do comments have replies?
-
-Do comments have an author, default=anonymous?
 
 https://coronavirus.jhu.edu/map.html Stats
 
@@ -91,8 +77,6 @@ Share page links with social media (Facebook, twitter, email, copy link)
 Research: Puny-code URL
 
 Cookie compliance, ie GDPR?
-
-Stretch goal - Resources#external google map with nearby vaccination centers
 
 ### For Healthwise:
 
