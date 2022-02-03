@@ -2,99 +2,90 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
+### 1-week sprint 2/2-2/8
 
-### 1-week sprint 1/26 - 2/1
+`IN PROGRESS` - Healthwise#index has language links like Externals to show what is available
 
-Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
-Healthwise categories are: General, testing, vaccination, wellness
+- [ ] HWA forms and frontend
 
-`rails g scaffold healthwise-article hwid:string type:string en_title:string en_json:json en_translated:boolean zh_tw_title:string zh_tw_json:json zh_tw_translated:boolean zh_cn_title:string zh_cn_json:json zh_cn_translated:boolean vi_title:string vi_json:json vi_translated:boolean hmn_title:string hmn_json:json hmn_translated:boolean languages:string category:string featured:boolean archive:boolean`
+- [ ] On creation of a HWA, have a placeholder for a language that isn't available and redirect to english
 
-Healthwise - store json string payload in db and fetch every 7 days to keep up to date
+- [ ] Transpose language box for HWA front end, perform I18n translations on backend for ease-of-use/consistency with Externals
 
-Healthwise#index has language links like Externals to show what is available
+- [ ] Add _create_form partial for HWA to prevent user errors on creation
 
-Healthwise model has navigation buttons at the bottom
+- [ ] HWA On expiry of a month, have all languages update, not just the one browsing - perform the check on which are custom
 
-Healthwise#index has disclaimer/intro
+- [ ] Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
 
-Healthwise#show has disclaimer/intro
+- [ ] Healthwise categories are: General, testing, vaccination, wellness
 
-Stretch: Paginate Externals, Healthwise, FAQs
+- [ ] Healthwise model has navigation buttons at the bottom
 
-Highlight or 'active' which page a visitor is on in the navbar
+- [ ] Healthwise#index has disclaimer/intro
 
-`WON'T DO` - PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
+- [ ] Healthwise#show has disclaimer/intro
 
-`DONE` - Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
+- [ ] Stretch: Paginate Externals, Healthwise, FAQs
 
-`DONE` - Callouts - make only activestorage with link out to external/internal
+- [ ] Highlight or 'active' which page a visitor is on in the navbar
 
-`DONE` - disclaimer on footer
-
-`DONE` - translations for Additional Resources Filter by County
-
-`DONE` - translation for 'mission'
 
 ### Feedback from the CAB members:
 
-`DONE` - Add a disclaimer on the footer of each page
+- [x] Add a disclaimer on the footer of each page
 
-`DONE` - Filter Messages by category like FAQs or Additional Resources
+- [x] Filter Messages by category like FAQs or Additional Resources
 
-* Add search to Messages by adding a hidden field of tags
+- [ ] Add search to Messages by adding a hidden field of tags
 
-* Or Global Search?
+- [ ] Or Global Search?
 
-*
+
 
 ### Stretch Goals:
 
-`IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
+- [ ] `IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
 
-Refactor 'External' model to 'Additional'
+- [ ] Refactor 'External' model to 'Additional'
 
-Searching, Liking, Commenting, and Filtering all AJAX requests
+- [ ] Searching, Liking, Commenting, and Filtering all AJAX requests
 
-Super-admin priviledges to self-assign admins?
+- [ ] Super-admin priviledges to self-assign admins?
 
-Serve GA script from domain instead of 3rd party to prevent adblockers
+- [ ] Serve GA script from domain instead of 3rd party to prevent adblockers
 
-1 FAQ all button hmong center text in button
+- [ ] 1 FAQ all button hmong center text in button
 
-2 Messages#show buttons larger from bootstrap source code
+- [ ] 2 Messages#show buttons larger from bootstrap source code
 
-3 Messages#show make RTF font size larger for desktop view only
+- [ ] 3 Messages#show make RTF font size larger for desktop view only
 
-4 Profiles#show text should not wrap
+- [ ] 4 Profiles#show text should not wrap
 
-4 Profiles on /about title/name/affiliation to make more dense
+- [ ] 4 Profiles on /about title/name/affiliation to make more dense
 
-https://coronavirus.jhu.edu/map.html Stats
+- [ ] https://coronavirus.jhu.edu/map.html Stats
 
-Share page links with social media (Facebook, twitter, email, copy link)
+- [ ] Share page links with social media (Facebook, twitter, email, copy link)
 
-Research: Puny-code URL
+- [ ] Research: Puny-code URL
 
-Cookie compliance, ie GDPR?
+- [ ] Cookie compliance, ie GDPR?
 
 ### For Healthwise:
 
-HealthWise as a resource
+- [x] HealthWise as a resource
 
-Put it on it’s own page under resources, gated as a admin
+- [x] Put it on it’s own page under resources
+
+- [x] Reach out to Marta to get Postman collection
+
+- [x] Oauth to get an access token, token lives for 24 hours.  All subsequent calls use access token
+
+- [x] Payload is loaded into <head> and <body> tags
 
 Upvote and downvote, and comment individual items
-
-Reach out to Marta to get Postman collection
-
-Oauth to get an access token, token lives for 24 hours.  All subsequent calls use access token
-
-Payload is loaded into <head> and <body> tags
-
-Check out patient instructions
-
-Is content dynamic or not?
 
 ### For Google Analytics:
 
@@ -130,23 +121,39 @@ External resources and Statistics events (clicks, navigation to external website
 
 # CHANGELOG:
 
+### 1-week sprint 1/26 - 2/1
+
+`WON'T DO` - PPT presentations displayed on webpage, image slideshow of PPT as fallback OR embed Youtube videos within the website
+
+- [x] Healthwise - store json string payload in db and fetch every 7 days to keep up to date
+
+- [x] Check on Callouts - make sure they show up above mission statement, clean up linkability and clean up form
+
+- [x] Callouts - make only activestorage with link out to external/internal
+
+- [x] disclaimer on footer
+
+- [x] translations for Additional Resources Filter by County
+
+- [x] translation for 'mission'
+
 ### 1-week sprint 1/12 - 1/18
 
-`DONE` - Move /about to the /resources pattern convention
+- [x] Move /about to the /resources pattern convention
 
-`DONE` - Automatically redirect root to /about/
+- [x] Automatically redirect root to /about/
 
-`DONE` - Change 'mission' to 'about'
+- [x] Change 'mission' to 'about'
 
-`DONE` Change 'about' to 'mission statement'
+- [x] Change 'about' to 'mission statement'
 
-`DONE` - /resources#tab1 (lay health workers) move to profiles for layhealth workers
+- [x] /resources#tab1 (lay health workers) move to profiles for layhealth workers
 
-`DONE` - break apart /resources/lay health workers / downloads / statistics onto their own pages, with content ie FAQs Statistics Downloads Additional
+- [x] break apart /resources/lay health workers / downloads / statistics onto their own pages, with content ie FAQs Statistics Downloads Additional
 
-`DONE` - Messages filter by category
+- [x] Messages filter by category
 
-`DONE` - Additional resources filter by county shows which county in form when filtering by that county
+- [x] Additional resources filter by county shows which county in form when filtering by that county
 
 `WON'T DO` - Audio files for stand-alone audio banner on homepage (new model)
 
@@ -158,320 +165,320 @@ External resources and Statistics events (clicks, navigation to external website
 
 Google Analytics DataStudio to show direct traffic vs targeted traffic
 
-`DONE` - Check Message friendlyID if it can be updated and remove Message.name from view
+- [x] Check Message friendlyID if it can be updated and remove Message.name from view
 
-`DONE` - Move Research team partials to /about/_researchteam _LHW _Advisory board
+- [x] Move Research team partials to /about/_researchteam _LHW _Advisory board
 
-`DONE` - check spelling for Community advisory board
+- [x] check spelling for Community advisory board
 
 ### 1-week sprint 1/5 - 1/10
 
-`DONE` - Audio files for the illiterate.  Messages!
+- [x] Audio files for the illiterate.  Messages!
 
-`DONE` - Display audit log in /admin/audit-logs or be able to download audit log
+- [x] Display audit log in /admin/audit-logs or be able to download audit log
 
 `WON'T DO` - Can ActiveStorage URLs be shortened for adhoc sending
 
-`DONE` - Make sure admin page forces locale
+- [x] Make sure admin page forces locale
 
 ### 1-week sprint 12/22 - 1/4/22
 
-`DONE` - Paginate Comments and show 10 most recent
+- [x] Paginate Comments and show 10 most recent
 
-`DONE` - Export Messages to CSV to include `created_at` and `updated_at` with all attributes
+- [x] Export Messages to CSV to include `created_at` and `updated_at` with all attributes
 
-`DONE` - Additional Resources - preset filters (search terms) by County - either buttons or dropdown - show example of both
+- [x] Additional Resources - preset filters (search terms) by County - either buttons or dropdown - show example of both
 
-`DONE` - Find way to create access logs either via Logger to expose changes or additions for intervention messaging updates.
+- [x] Find way to create access logs either via Logger to expose changes or additions for intervention messaging updates.
 
 ### 1-week sprint 12/15
 
-`DONE` - Encode Chinese and Vietnamese characters need encoding pre-CSV export
+- [x] Encode Chinese and Vietnamese characters need encoding pre-CSV export
 
-`DONE` - Check CSV export dates for Comments and Votes to make sure they’re all correct
+- [x] Check CSV export dates for Comments and Votes to make sure they’re all correct
 
 ### 1-week sprint 11/12 - 11/18
 
-`DONE` - Make sure RCT cookie visible in GA reports
+- [x] Make sure RCT cookie visible in GA reports
 
-`DONE` - Add archive bool for external resources/messages/profiles/anything else
+- [x] Add archive bool for external resources/messages/profiles/anything else
 
-`DONE` - Turn pink color into brown from logo
+- [x] Turn pink color into brown from logo
 
-`DONE` - Surface RCT cookie ID as console log
+- [x] Surface RCT cookie ID as console log
 
-`DONE` - Overwrite cookie priority to always use query string
+- [x] Overwrite cookie priority to always use query string
 
-`DONE` - Messages#back needs to be colored blue
+- [x] Messages#back needs to be colored blue
 
 ### 2-week sprint 10/28 - 11/10
 
-`DONE` - External Resources migrate Featured bool `default=false` to raise Featured items to the top (new collection on view)
+- [x] External Resources migrate Featured bool `default=false` to raise Featured items to the top (new collection on view)
 
-`DONE` - Copy above onto Statistics
+- [x] Copy above onto Statistics
 
-`DONE` - 1 LayHealthWorkers spacing audit
+- [x] 1 LayHealthWorkers spacing audit
 
 ### 1-week sprint 10/20 - 10/28
 
-`DONE` - 1 Translations for profile research titles
+- [x] 1 Translations for profile research titles
 
-`DONE` 1 hmong language is `‘lus hmoob’` for external resources - match `‘hmoob’` so it doesn’t break
+- [x] 1 hmong language is `‘lus hmoob’` for external resources - match `‘hmoob’` so it doesn’t break
 
-`DONE` - 1 vietnamese mission statements on `/about`
+- [x] 1 vietnamese mission statements on `/about`
 
-`DONE` - 1 add translations for disclaimer at footer on `/about`
+- [x] 1 add translations for disclaimer at footer on `/about`
 
 ### 1-Week Sprint 10/13 - 10/20
 
-`DONE` - 1 - for Message entering comments - the button text "CREATE comments" in Chinese - Zh_TW is: `輸入評論`  or   Simplified (Zh_CH):`输入评论`
+- [x] 1 - for Message entering comments - the button text "CREATE comments" in Chinese - Zh_TW is: `輸入評論`  or   Simplified (Zh_CH):`输入评论`
 
-`DONE` - 1 `External#index` languages should be separated by pipes FIX
+- [x] 1 `External#index` languages should be separated by pipes FIX
 
-`DONE` - 1 - move Resources (Downloads/LHW/Stats) to (LHW/Downloads/Stats)
+- [x] 1 - move Resources (Downloads/LHW/Stats) to (LHW/Downloads/Stats)
 
-`DONE` - 1 Increase font size on additional resources title cards when mobile view
+- [x] 1 Increase font size on additional resources title cards when mobile view
 
-`DONE` - 1 - please fix the "read more" button(s) - some shows black fonts and they are hard  to read
+- [x] 1 - please fix the "read more" button(s) - some shows black fonts and they are hard  to read
 
-`DONE` - 1- placeholder body for Resources#layhealthworkers
+- [x] 1- placeholder body for Resources#layhealthworkers
 
-`DONE` - 1 - add funders to homepage - must have links eventually
+- [x] 1 - add funders to homepage - must have links eventually
 
-`DONE` - 1 - Add logos of funding organizations and 3 lines of words to the bottom of the `/about` page
+- [x] 1 - Add logos of funding organizations and 3 lines of words to the bottom of the `/about` page
 
 ### 1-Week Sprint 10/6 - 10/12
 
-`DONE` - 1 Default back to old font
+- [x] 1 Default back to old font
 
-`DONE` - 1 Chinese homepage mission statement should not wrap, but instead force it to the second line
+- [x] 1 Chinese homepage mission statement should not wrap, but instead force it to the second line
 after the colon
 
-`DONE` - 1 `FAQ/External` search button should be icons instead of words
+- [x] 1 `FAQ/External` search button should be icons instead of words
 
-`DONE` - 1 `FAQ/External` reset button is ‘show all’ or something that is not reset - ie not a button - perhaps a larger button below
+- [x] 1 `FAQ/External` reset button is ‘show all’ or something that is not reset - ie not a button - perhaps a larger button below
 
-`DONE` - 1 `External#index` card gap and connect border to surround
+- [x] 1 `External#index` card gap and connect border to surround
 
-`DONE` - 1 FAQ ideally color blocking header, white background, black text, otherwise back to border, white background, black text
+- [x] 1 FAQ ideally color blocking header, white background, black text, otherwise back to border, white background, black text
 
-`DONE` - updated project description in English and the 2 Chinese, please update them
+- [x] updated project description in English and the 2 Chinese, please update them
 
-`DONE` - Project logos: could you please update the logos again because the SVG files didn't get the spacing right... so attached are the logo PNGs, hope you can use them with no problems
+- [x] Project logos: could you please update the logos again because the SVG files didn't get the spacing right... so attached are the logo PNGs, hope you can use them with no problems
 
-`DONE` - Possible to TAKE OUT "are you human/ verifications) for entering IDs? It takes too long and most participants may have hard for this
+- [x] Possible to TAKE OUT "are you human/ verifications) for entering IDs? It takes too long and most participants may have hard for this
 
-`DONE` - For the Resource tab - please use the following Chinese translation:
+- [x] For the Resource tab - please use the following Chinese translation:
 Lay Health Worker = `社區保健員` (trad CN) `社区保健员`
 Statistics = `統計數據` (Trad CN)  `统计数据` (Simp)
 Downloads = `下載`  (Trad Chinese) `下载` (Simp)
 
 ### 2-Week Sprint 9/22 - 10/6
 
-`DONE`? 1 `/about#profiles` and `/resources#external` when rows of 2 are sharding (clearfix?)
+- [x] 1 `/about#profiles` and `/resources#external` when rows of 2 are sharding (clearfix?)
 
-`DONE` - 1 DOWNLOADs in en only - should download in all languages
+- [x] 1 DOWNLOADs in en only - should download in all languages
 
-`DONE` - 1 Downloads admin view
+- [x] 1 Downloads admin view
 
-`DONE` - 1 Statistics migrate i18n links
+- [x] 1 Statistics migrate i18n links
 
-`DONE` - 1 Replace logos on `/about`
+- [x] 1 Replace logos on `/about`
 
 ### 1-week Sprint 9/15 - 9/22
 
-`DONE` - 4 Review download preview - is it n+1 or local machine dependencies?
+- [x] 4 Review download preview - is it n+1 or local machine dependencies?
 
-`DONE` - 1 `Resources#external` language becomes link to URL in that language
+- [x] 1 `Resources#external` language becomes link to URL in that language
 
-`DONE` - 1 External Hmong External link not saving (param?  Or field incorrect?)
+- [x] 1 External Hmong External link not saving (param?  Or field incorrect?)
 
-`DONE` - 1 External Resources becomes Additional Resources title yml
+- [x] 1 External Resources becomes Additional Resources title yml
 
-`DONE` - 1 `Resources#external` include languages on Index cards
+- [x] 1 `Resources#external` include languages on Index cards
 
-`DONE` - 1 Doublecheck FAQ twitter blue font on first load
+- [x] 1 Doublecheck FAQ twitter blue font on first load
 
-`DONE` - 1 Statistics as as Model with i18n similar to External Resources (title, link name, link URL, category)
+- [x] 1 Statistics as as Model with i18n similar to External Resources (title, link name, link URL, category)
 
-`DONE` - 1 `External#index` card top is solid with white font
+- [x] 1 `External#index` card top is solid with white font
 
-`DONE` - 1 `External#index` card bottom contains en_notes
+- [x] 1 `External#index` card bottom contains en_notes
 
-`DONE` - 1 `Messages#show` `.en_title` remove blank space
+- [x] 1 `Messages#show` `.en_title` remove blank space
 
-`DONE` - 1 FAQ anchors in vaccination category need to be white
+- [x] 1 FAQ anchors in vaccination category need to be white
 
-`DONE` - 2 Resources tab fragment renames?  (`#fh5co-tab-feature-center1`)
+- [x] 2 Resources tab fragment renames?  (`#fh5co-tab-feature-center1`)
 
-`DONE` - 2 Change dark blue border to purple `#262463` (`Messages#show`)
+- [x] 2 Change dark blue border to purple `#262463` (`Messages#show`)
 
-`DONE` - 1 add link to statistics on admin page
+- [x] 1 add link to statistics on admin page
 
-`DONE` - 2 Align CAB members photos on `/about`
+- [x] 2 Align CAB members photos on `/about`
 
-`DONE` - 2 Downloads sort by name order by category (fc/ph/tm/o)
+- [x] 2 Downloads sort by name order by category (fc/ph/tm/o)
 
-`DONE` - 3 `Downloads#form` bootstrap for better UX
+- [x] 3 `Downloads#form` bootstrap for better UX
 
-`DONE` - 4 Why do downloads only show the `en_file` version? Validate i18n languages for downloads ie not the correct form when switching languages
+- [x] 4 Why do downloads only show the `en_file` version? Validate i18n languages for downloads ie not the correct form when switching languages
 
-`DONE` - 2 Downloads get category color border (same as messages/faqs/resources) (participant handouts/flipcharts/training manuals/other)
+- [x] 2 Downloads get category color border (same as messages/faqs/resources) (participant handouts/flipcharts/training manuals/other)
 
-`DONE` - 2 Admin page to create and show all resources
+- [x] 2 Admin page to create and show all resources
 
-`DONE` - 4 `Resources#statistics` are links for referrals to external stat websites
+- [x] 4 `Resources#statistics` are links for referrals to external stat websites
 
 ### 1-week sprint 9/1 - 9/8
 
-`DONE` - 1 `Messages#show` title first before image
+- [x] 1 `Messages#show` title first before image
 
-`DONE` - 1 `Messages#show` add margins for RTF on mobile view
+- [x] 1 `Messages#show` add margins for RTF on mobile view
 
-`DONE` - 1 Externals index be able to admin/edit
+- [x] 1 Externals index be able to admin/edit
 
-`DONE` - 1 For the main menu on Resources, put FAQ first, then LHW, then "Additional Resources"
+- [x] 1 For the main menu on Resources, put FAQ first, then LHW, then "Additional Resources"
 
-`DONE` - 1 Logo and favicon to include full image- less text - square
+- [x] 1 Logo and favicon to include full image- less text - square
 
-`DONE` - 1 navbar `t(‘external resources’)` becomes `t(‘additional resources’)`
+- [x] 1 navbar `t(‘external resources’)` becomes `t(‘additional resources’)`
 
-`DONE` - 2 Profiles - add new type “Lay Health Workers” and put between Research team and CAB members on /about
+- [x] 2 Profiles - add new type “Lay Health Workers” and put between Research team and CAB members on /about
 
-`DONE` - 2 Strip out twitter blue everywhere - send screenshots of different color variations with light and dark text to get votes
+- [x] 2 Strip out twitter blue everywhere - send screenshots of different color variations with light and dark text to get votes
 
-`DONE` - 2 `FAQs/Resources` set fixed categories (general, testing, vaccination, other)
+- [x] 2 `FAQs/Resources` set fixed categories (general, testing, vaccination, other)
 
-`DONE` - 2 FAQs get category color border
+- [x] 2 FAQs get category color border
 
-`DONE` - 2 `Resources#external` gets category color border
+- [x] 2 `Resources#external` gets category color border
 
-`DONE` - 2 `Resources#external` order by name ASC
+- [x] 2 `Resources#external` order by name ASC
 
-`DONE` - 2 `Resources#external` extend search to include category
+- [x] 2 `Resources#external` extend search to include category
 
-`DONE` - 2 `Resources#external` sort and separate into sections by category
+- [x] 2 `Resources#external` sort and separate into sections by category
 
 ### 1-week sprint 8/25 - 9/1
 
-`DONE` - Downloadable PDF files as Download model (this will be powerpoints and action survey after LHW sessions) - for each language? (yes)  Multiple PDFs or just a single? (single)
+- [x] Downloadable PDF files as Download model (this will be powerpoints and action survey after LHW sessions) - for each language? (yes)  Multiple PDFs or just a single? (single)
 
-`DONE` - Downloads viewed as 1st page previews in rows of 2 or 3
+- [x] Downloads viewed as 1st page previews in rows of 2 or 3
 
-`DONE` - External Resources remove ‘view’
+- [x] External Resources remove ‘view’
 
-`DONE` - Add Category column to Messages, FAQs, Externals to style Resources and FAQs have color-theme (requires DBmigration) to match message image color scheme / FAQ each background colored by category (as new scaffold with many_to_one relation?) or custom CSS elements
+- [x] Add Category column to Messages, FAQs, Externals to style Resources and FAQs have color-theme (requires DBmigration) to match message image color scheme / FAQ each background colored by category (as new scaffold with many_to_one relation?) or custom CSS elements
 
-`DONE` - External Resources backdrop with card and topic color
+- [x] External Resources backdrop with card and topic color
 
-`DONE` - External Resources sort by content(category), general first
+- [x] External Resources sort by content(category), general first
 
 ### 2-week Sprint 8/11 - 8/23
 
-`DONE` - Unhide `User#new_registration`
+- [x] Unhide `User#new_registration`
 
-`DONE` - Assign interns to #admin
+- [x] Assign interns to #admin
 
-`DONE` - Make `Message#action_item` Rich Text
+- [x] Make `Message#action_item` Rich Text
 
-`DONE` - `Messages#new` (`vi_images.attach() if params[:vi_images].present?`)
+- [x] `Messages#new` (`vi_images.attach() if params[:vi_images].present?`)
 
 ### 1-week Sprint 8/4 - 8/11
 
-`DONE` - `Message#external_links` to I18n and rich_text
+- [x] `Message#external_links` to I18n and rich_text
 
-`DONE` - Message -> for_more_info_please_visit delete
+- [x] Message -> for_more_info_please_visit delete
 
-`DONE` - Shrink homepage logo and make mission statement denser
+- [x] Shrink homepage logo and make mission statement denser
 
-`DONE` - Resources navigate immediately to external resource
+- [x] Resources navigate immediately to external resource
 
-`DONE` - FAQ collapse filter and search into one accordion; change buttons to icons
+- [x] FAQ collapse filter and search into one accordion; change buttons to icons
 
-`DONE` - Optimize image loading
+- [x] Optimize image loading
 
-`DONE` - Statistics becomes LayHealthWorkers -> tabs are Downloads /  LayHealthWorkers/Stats
+- [x] Statistics becomes LayHealthWorkers -> tabs are Downloads /  LayHealthWorkers/Stats
 
 ### 1-week sprint 7/28 - 8/4
 
-`DONE` - Refactor GA on every viewable page
+- [x] Refactor GA on every viewable page
 
-`DONE` - `Messages#show` external_link font size larger and link larger
+- [x] `Messages#show` external_link font size larger and link larger
 
-`DONE` - Callout as model with activeStrorage to use as carousel on `/about`
+- [x] Callout as model with activeStrorage to use as carousel on `/about`
 If missing text then fill image
 If  text then small image
 Archive toggle to bring in and out of carousel
 Link toggle to prevent open in new window
 
-`DONE` - `Message#show` en_content becomes rich_content
+- [x] `Message#show` en_content becomes rich_content
 
-`DONE` - FAQ attribute tags as array / search by rich_text body
+- [x] FAQ attribute tags as array / search by rich_text body
 
-`DONE` - `Message#show` en_action_item same font as en_title but a little smaller
+- [x] `Message#show` en_action_item same font as en_title but a little smaller
 
-`DONE` - `Resources#external_resources` do not use cards but profiles
+- [x] `Resources#external_resources` do not use cards but profiles
 
 ### 1-week sprint 7/22 - 7/28
 
-`DONE` - Sort profiles by Janice first, then the rest in alphabetical by last name
+- [x] Sort profiles by Janice first, then the rest in alphabetical by last name
 
-`DONE` - Check FAQ admin edit permissions
+- [x] Check FAQ admin edit permissions
 
 ### 1-week sprint 7/15 - 7/21
 
-`DONE` - Add logo and favicon onto homepage
+- [x] Add logo and favicon onto homepage
 
-`DONE` - Add logo as small icon in corner (title?)
+- [x] Add logo as small icon in corner (title?)
 
-`DONE` - Profile views and integration onto /about / default to /en/ if translation not provided
+- [x] Profile views and integration onto /about / default to /en/ if translation not provided
 
-`DONE` - Stretch goal - searchable FAQs
+- [x] Stretch goal - searchable FAQs
 
-`DONE` - FAQ form make sure it’s i18n’d
+- [x] FAQ form make sure it’s i18n’d
 
-`DONE` - FAQ index for catching i18n
+- [x] FAQ index for catching i18n
 
-`DONE` - Build out Resources#external view
+- [x] Build out Resources#external view
 
-`DONE` - I18n Resources#form
+- [x] I18n Resources#form
 
-`DONE` - Build out Resources#show view
+- [x] Build out Resources#show view
 
-`DONE` - Searchable Resources
+- [x] Searchable Resources
 
-`DONE` - Make ‘like’ buttons bigger
+- [x] Make ‘like’ buttons bigger
 
 ### 1-week sprint 7/7 - 7/14
 
-`DONE` - Fix row bug for Messages, Profiles, etc
+- [x] Fix row bug for Messages, Profiles, etc
 
-`DONE` - Clickable Message#show links to include RCT ID on dynamically generated link to Redcap survey
+- [x] Clickable Message#show links to include RCT ID on dynamically generated link to Redcap survey
 
-`DONE` - FAQs as model (question, answer(s), links[], category[])
+- [x] FAQs as model (question, answer(s), links[], category[])
 
-`DONE` - Add Message.survey_link field
+- [x] Add Message.survey_link field
 
-`DONE` - Resources as dropdown to FAQ and External
+- [x] Resources as dropdown to FAQ and External
 
-`DONE` - Resources as model -  ‘individual’ becomes ‘external links’ and open link in new window
+- [x] Resources as model -  ‘individual’ becomes ‘external links’ and open link in new window
 
 ### 2-week sprint 6/26 - 7/6
 
-`DONE` - Make admin new message form better by breaking it out into language tabs so each form replicates the message page view
+- [x] Make admin new message form better by breaking it out into language tabs so each form replicates the message page view
 
-`DONE` - Add ‘comment#delete’ button to admin
+- [x] Add ‘comment#delete’ button to admin
 
-`DONE` - Remove ‘admin#join_the_study’ button
+- [x] Remove ‘admin#join_the_study’ button
 
-`DONE` - Figure out how to do multi-language images for messages
+- [x] Figure out how to do multi-language images for messages
 
-`DONE` - Additional fields: message content, action items, links to navigate away
+- [x] Additional fields: message content, action items, links to navigate away
 
-`DONE` - Friendly_ID URLs
+- [x] Friendly_ID URLs
 
-`DONE` - Profile add Profile.full_name migration for friendlyID slug
+- [x] Profile add Profile.full_name migration for friendlyID slug
 
-`DONE` - order by message_id, not updated_by
+- [x] order by message_id, not updated_by
 
-`DONE` - Profile add Profile.external_links[] migration
+- [x] Profile add Profile.external_links[] migration
