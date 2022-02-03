@@ -1,0 +1,52 @@
+<% content_for :head do %>
+  <% @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["resources"]["css"].map do |c| %>
+    <link href="<%= c["target"] %>" type="text/css" rel="stylesheet">
+  <% end %>
+  <script><%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["resources"]["inline"]%></script>
+  <% @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["resources"]["css"].map do |j| %>
+    <script src="<%= j["target"] %>" type="text/javascript"></script>
+  <% end %>
+<% end %>
+<%
+meta title: "#{@healthwise_article.send("#{params[:locale].downcase}_json")["data"]["title"]["consumer"]}",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
+
+<section id="fh5co-feature">
+  <div class="container">
+    <div class="col-md-12">
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["abstract"]["consumer"] %>
+    </div>
+    <div class="col-md-12">
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["navigation"]["html"] %>
+    </div>
+    <div class="col-md-12">
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["pageTemplate"] %>
+    </div>
+    <div class="col-md-12">
+      <% @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["topics"].map do |t| %>
+        <%= raw t["html"] %>
+      <% end %>
+    </div>
+    <div class="row">
+      <p><label>Author:</label> <%= @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["credits"]["author"]["name"] %> </p>
+      <p><label> Reviewers:</label></p>
+      <ul>
+        <% @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["credits"]["primaryReviewers"].map do |r| %>
+          <li><a href="{{reviewer.profileId}}"><%= r["name"]%> </a></li>
+        <% end %>
+      </ul>
+   </div>
+    <div class="col-md-12">
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["logo"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["copyright"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["disclaimer"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["termsOfUseUrl"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["privacyPolicyUrl"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["moreInformationUrl"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["toLearnMoreHtml"] %>
+      <%= raw @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["legal"]["yourUseOfThisInformationHtml"] %>
+    </div>
+  </div>
+</section>

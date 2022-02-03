@@ -1,3 +1,9 @@
+<% if @healthwise_article.article_or_topic == "Article" %>
+  <%= render 'hw_article', healthwise_article: @healthwise_article %>
+<% else %>
+  <%= render 'hw_topic', healthwise_article: @healthwise_article %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
