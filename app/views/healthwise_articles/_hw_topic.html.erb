@@ -6,7 +6,7 @@
 <section>
   <div class="container">
     <div class="col-md-12">
-      <% @healthwise_article.send("#{params[:locale].downcase}_json")["data"]["topics"].map do |t| %>
+      <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"].map do |t| %>
         <%= raw t["html"] %>
       <% end %>
     </div>

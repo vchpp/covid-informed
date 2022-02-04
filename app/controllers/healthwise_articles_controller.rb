@@ -21,6 +21,7 @@ class HealthwiseArticlesController < ApplicationController
         @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
           response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
           # set JSON
+          logger.warn("#{response}")
           @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
           logger.warn("UPDATED #{l}")
         end
@@ -106,8 +107,7 @@ class HealthwiseArticlesController < ApplicationController
   end
 
   private
-
-
+  
     CI_LOCALE = {
       "vi-us"  => "vi",
       "hm-us" => "hmn",
@@ -156,4 +156,5 @@ class HealthwiseArticlesController < ApplicationController
     def healthwise_article_params
       params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :category, :featured, :archive, :languages)
     end
+
 end
