@@ -8,19 +8,22 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
   def show
-    # @json = @healthwise_article.send("#{params[:locale]}_json".downcase)
-    # logger.warn("#{@json}")
     # check if it's custom JSON, if yes, skip fetching
-    if @healthwise_article.send("#{params[:locale].downcase}_translated".downcase) == false
+    logger.warn("#{params[:locale]}_translated".downcase)
+    custom = @healthwise_article.send("#{params[:locale]}_translated".downcase)
+    if custom == false
+      logger.warn("NOT CUSTOM TRANSLATION")
       # check if the HW JSON is out of date, then fetch_article:&update!
-      if @healthwise_article.updated_at < Time.now.utc - 1.minute
+      if @healthwise_article.updated_at < Time.now.utc - 1.second
+        logger.warn("TOO OLD")
         # change to go through [languages] and update all
+        logger.warn("#{@healthwise_article.languages.each {|l| l }}")
         @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
           response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
           # set JSON
           @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
+          logger.warn("UPDATED #{l}")
         end
-        # @healthwise_article.send("#{params[:locale].downcase}_json=", JSON.parse(fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, HW_LOCALE[params[:locale].downcase])))
         # save simplified chinese with traditional chinese's values
         @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
         @healthwise_article.save
@@ -45,6 +48,9 @@ class HealthwiseArticlesController < ApplicationController
       # fetch article for available languages
       # store them in @healthwise_article.languages
       @healthwise_article.languages = fetch_languages(@healthwise_article.article_or_topic, @healthwise_article.hwid)
+      # ["hm-us\r\nen-us\r\nzh-us\r\nvi-us"].split("\r\n").map(&:strip) works
+      # ["en-us", "vi-us"]
+      logger.warn("#{@healthwise_article.languages}")
       # fetch article's JSON from hwid for [languages], otherwise default to english
       @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
         response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
@@ -59,8 +65,6 @@ class HealthwiseArticlesController < ApplicationController
       end
       @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
       @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
-
-
     # save
     respond_to do |format|
       if @healthwise_article.save
@@ -75,6 +79,12 @@ class HealthwiseArticlesController < ApplicationController
 
   # PATCH/PUT /healthwise_articles/1 or /healthwise_articles/1.json
   def update
+    @healthwise_article.en_json.to_h
+    @healthwise_article.zh_tw_json.to_h
+    @healthwise_article.zh_cn_json.to_h
+    @healthwise_article.vi_json.to_h
+    @healthwise_article.hmn_json.to_h
+    @healthwise_article[:languages] = params[:healthwise_article][:languages].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @healthwise_article.update(healthwise_article_params)
         format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully updated." }
@@ -136,7 +146,6 @@ class HealthwiseArticlesController < ApplicationController
       url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}/#{language}"
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
     end
-
 
     # Use callbacks to share common setup or constraints between actions.
     def set_healthwise_article
