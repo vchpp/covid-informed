@@ -6,17 +6,21 @@ https://github.com/vchpp/covid-informed
 
 `IN PROGRESS` - Healthwise#index has language links like Externals to show what is available
 
+- [x] Healthwise - create a model similar to Externals with healthwise materials embedded,
+
+- [x] On creation of a HWA, have a placeholder for a language that isn't available and redirect to english
+
+- [x] Transpose language box for HWA front end, perform I18n translations on backend for ease-of-use/consistency with Externals
+
+- [x] HWA On expiry of a month, have all languages update, not just the one browsing - perform the check on which are custom
+
+- [x] Add _create_form partial for HWA to prevent user errors on creation
+
+- [ ] Integrate with likes and comments
+
 - [ ] HWA forms and frontend
 
-- [ ] On creation of a HWA, have a placeholder for a language that isn't available and redirect to english
-
-- [ ] Transpose language box for HWA front end, perform I18n translations on backend for ease-of-use/consistency with Externals
-
-- [ ] Add _create_form partial for HWA to prevent user errors on creation
-
-- [ ] HWA On expiry of a month, have all languages update, not just the one browsing - perform the check on which are custom
-
-- [ ] Healthwise - create a model similar to Externals with likes and comments with healthwise materials embedded, links with language
+- [ ] Include links with language on card on index
 
 - [ ] Healthwise categories are: General, testing, vaccination, wellness
 
