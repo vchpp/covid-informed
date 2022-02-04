@@ -3,7 +3,7 @@ meta title: "COVID-INFORMED - Additional Resources - #{@external.id}",
      description: "covid-informed",
      keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
 %>
-
+<% content_for :head do %>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,15 +16,13 @@ meta title: "COVID-INFORMED - Additional Resources - #{@external.id}",
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<% end %>
 
 <section id="fh5co-feature">
   <div class="container">
 
     <div class="fh5co-spacer fh5co-spacer-lg"></div>
     <div class="row fh5co-feature-1">
-      <div class="col-md-12">
-        <p id="notice" class="fh5co-uppercase-heading-sm text-center"><%= notice %></p>
-      </div>
 
       <div class="col-md-8 col-md-offset-2 fh5co-feature-blurb">
         <ul>

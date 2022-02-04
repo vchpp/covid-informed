@@ -101,6 +101,14 @@
     </header>
 
     <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <% if current_user.try(:admin?) %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
   <footer>

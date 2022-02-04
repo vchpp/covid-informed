@@ -1,20 +1,26 @@
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<%
+meta title: "COVID-INFORMED - Profile: #{@profile.firstname} #{@profile.lastname}",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
+<% content_for :head do %>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-Q8T209GGMN');
-  gtag('send','dimension1', getCookie('rct'));
-  gtag('send','event','eventCategory','eventAction');
-</script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    gtag('config', 'G-Q8T209GGMN');
+    gtag('send','dimension1', getCookie('rct'));
+    gtag('send','event','eventCategory','eventAction');
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<% end %>
 
 <section id="fh5co-feature">
   <div class="container">
-    <p id="notice"><%= notice %></p>
     <div class="row">
       <div class="col-md-12">
         <h2 class="fh5co-uppercase-heading-lg text-center"><%=@profile.firstname%> <%= @profile.lastname%></h2>
