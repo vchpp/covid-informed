@@ -1,42 +1,69 @@
-<%= form_with(model: healthwise_article) do |form| %>
-  <% if healthwise_article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(healthwise_article.errors.count, "error") %> prohibited this healthwise_article from being saved:</h2>
 
-      <ul>
-        <% healthwise_article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<section id="fh5co-feature">
+  <div class="container">
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <div class="row">
+			<div class="col-md-12">
+        <%= form_with(model: healthwise_article) do |form| %>
+          <% if healthwise_article.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(healthwise_article.errors.count, "error") %> prohibited this healthwise_article from being saved:</h2>
+
+              <ul>
+                <% healthwise_article.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div id="fh5co-tab-feature" class="fh5co-tab text-center">
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :hwid %>
+                <%= form.text_field :hwid %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :article_or_topic %>
+                <%= form.select :article_or_topic, ["Article", "Topic"], class: 'form-control input-lg' %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :category %>
+                <%= form.select :category, ["General", "Testing", "Vaccination", "Wellness"], class: 'form-control input-lg' %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :featured? %>
+                <%= form.check_box :featured %>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="field form-group">
+                <%= form.label :archive? %>
+                <%= form.check_box :archive %>
+              </div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                <%= link_to 'Back', healthwise_articles_path, class: "btn btn-primary btn-lg btn-block" %>
+              </div>
+            </div>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :hwid %>
-    <%= form.text_field :hwid %>
   </div>
-
-  <div class="field">
-    <%= form.label :article_or_topic %>
-    <%= form.text_field :article_or_topic %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= form.label :featured %>
-    <%= form.check_box :featured %>
-  </div>
-
-  <div class="field">
-    <%= form.label :archive %>
-    <%= form.check_box :archive %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

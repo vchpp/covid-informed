@@ -16,15 +16,15 @@ https://github.com/vchpp/covid-informed
 
 - [x] Add _create_form partial for HWA to prevent user errors on creation
 
-- [ ] Integrate with likes and comments
+- [x] Integrate with likes and comments
 
 - [ ] HWA forms and frontend
 
 - [ ] Include links with language on card on index
 
-- [ ] Healthwise categories are: General, testing, vaccination, wellness
+- [x] Healthwise categories are: General, testing, vaccination, wellness
 
-- [ ] Healthwise model has navigation buttons at the bottom
+- [x] Healthwise model has navigation buttons at the bottom
 
 - [ ] Healthwise#index has disclaimer/intro
 
