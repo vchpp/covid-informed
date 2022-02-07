@@ -21,14 +21,18 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @message = Message.friendly.find(params[:message_id])
-    @comment = @message.comments.new(comment_params)
+    @message = Message.friendly.find(params[:message_id]) if params[:message_id].present?
+    @healthwise_article = HealthwiseArticle.friendly.find(params[:healthwise_article_id]) if params[:healthwise_article_id].present?
+    @model = @message || @healthwise_article
+    @comment = @model.comments.new(comment_params)
     @comment.rct = cookies[:rct] || '0'
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to message_path(@message), notice: "Comment was successfully created." }
+        format.html { redirect_to message_path(@message), notice: "Comment was successfully created." } if params[:message_id].present?
+        format.html { redirect_to healthwise_article_path(@healthwise_article), notice: "Comment was successfully created." } if params[:healthwise_article_id].present?
         format.json { render :show, status: :created, location: @comment }
-        logger.warn "Visitor with RCT=#{cookies[:rct]} made a comment on message #{@message.id} with title #{@message.en_name}, saying '#{@comment.content}'"
+        logger.warn "Visitor with RCT=#{cookies[:rct]} made a comment on message #{@message.id} with title #{@message.en_name}, saying '#{@comment.content}'" if params[:message_id].present?
+        logger.warn "Visitor with RCT=#{cookies[:rct]} made a comment on message #{@healthwise_article.id} with title #{@healthwise_article.en_title}, saying '#{@comment.content}'" if params[:healthwise_article_id].present?
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -52,10 +56,12 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     authenticate_admin!
-    @message = Message.friendly.find(params[:message_id])
+    @message = Message.friendly.find(params[:message_id]) if params[:message_id].present?
+    @healthwise_article = HealthwiseArticle.friendly.find(params[:healthwise_article_id]) if params[:healthwise_article_id].present?
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to message_path(@message), notice: "Comment was successfully destroyed." }
+      format.html { redirect_to message_path(@message), notice: "Comment was successfully destroyed." } if params[:message_id].present?
+      format.html { redirect_to healthwise_article_path(@healthwise_article), notice: "Comment was successfully destroyed." } if params[:healthwise_article_id].present?
       format.json { head :no_content }
     end
   end

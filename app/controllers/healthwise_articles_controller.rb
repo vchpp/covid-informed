@@ -1,5 +1,7 @@
 class HealthwiseArticlesController < ApplicationController
   before_action :set_healthwise_article, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :set_page, only: [:show]
 
   # GET /healthwise_articles or /healthwise_articles.json
   def index
@@ -9,6 +11,12 @@ class HealthwiseArticlesController < ApplicationController
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
   def show
     @likes = @healthwise_article.likes.all.order('rct::integer ASC')
+    if @healthwise_article.comments
+      @all_comments = @healthwise_article.comments
+      @admin_comments = @all_comments.order('rct::integer ASC')
+      @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
+      @page_count = (@all_comments.count / 10) + 1
+    end
     up_likes
     down_likes
     # check if it's custom JSON, if yes, skip fetching
@@ -157,6 +165,10 @@ class HealthwiseArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
       params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :category, :featured, :archive, :languages)
+    end
+
+    def set_page
+      @page = params[:page] || 1
     end
 
     def up_likes

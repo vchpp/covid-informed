@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  has_many :comments, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   has_many_attached :images, dependent: :destroy
   has_many_attached :en_images, dependent: :destroy
   has_many_attached :vi_images, dependent: :destroy
