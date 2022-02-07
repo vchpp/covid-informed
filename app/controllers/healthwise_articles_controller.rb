@@ -8,6 +8,9 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
   def show
+    @likes = @healthwise_article.likes.all.order('rct::integer ASC')
+    up_likes
+    down_likes
     # check if it's custom JSON, if yes, skip fetching
     custom_translations = @healthwise_article.send("#{params[:locale]}_translated".downcase)
     if custom_translations == false
@@ -156,4 +159,15 @@ class HealthwiseArticlesController < ApplicationController
       params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :category, :featured, :archive, :languages)
     end
 
+    def up_likes
+      likes = @healthwise_article.likes.all
+      up = likes.map do |like| like.up end
+      @up_likes = up.map(&:to_i).reduce(0, :+)
+    end
+
+    def down_likes
+      likes = @healthwise_article.likes.all
+      down = likes.map do |like| like.down end
+      @down_likes = down.map(&:to_i).reduce(0, :+)
+    end
 end

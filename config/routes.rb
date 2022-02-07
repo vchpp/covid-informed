@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     # get '/resources', to: 'resources#index'
     get '/resources', to: redirect("/#{I18n.locale}/resources/faqs")
     scope '/resources' do
-      resources :healthwise_articles
+      resources :healthwise_articles do
+        resources :likes
+      end
       resources :faqs
       resources :downloads
       resources :statistics

@@ -1,3 +1,3 @@
 class Like < ApplicationRecord
-  belongs_to :message
+  belongs_to :likeable, polymorphic: true
 end
