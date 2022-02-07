@@ -35,6 +35,16 @@ class HealthwiseArticlesController < ApplicationController
         @healthwise_article.save
       end
     end
+    respond_to do |format|
+      format.html
+      format.csv do
+        if (params[:format_data] == 'comments')
+          send_data @healthwise_article.comments_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Comments-#{Date.today}.csv"
+        elsif (params[:format_data] == 'likes')
+          send_data @healthwise_article.likes_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Likes-#{Date.today}.csv"
+        end
+      end
+    end
   end
 
   # GET /healthwise_articles/new
