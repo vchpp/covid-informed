@@ -113,10 +113,10 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 text-center">
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
-        <div class="field col-md-6">
+        <div class="field col-md-6 col-sm-6 col-xs-6">
           <%= form.label :up, class: 'sr-only' %>
           <%= form.hidden_field :up, value: 1 %>
           <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary btn-lg fh5co-btn-icon", value: @up_likes %>
@@ -124,7 +124,7 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
       <% end %>
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
-        <div class="field col-md-6">
+        <div class="field col-md-6 col-sm-6 col-xs-6">
           <%= form.label :down, class: 'sr-only' %>
           <%= form.hidden_field :down, value: 1 %>
           <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary btn-lg fh5co-btn-icon", value: @down_likes %>
