@@ -31,22 +31,26 @@ meta title: "#{@healthwise_article.send("#{article_locale}_json")["data"]["title
     </div>
     <div class="row">
       <p><label>Author:</label> <%= @healthwise_article.send("#{article_locale}_json")["data"]["credits"]["author"]["name"] %> </p>
-      <p><label> Reviewers:</label></p>
-      <ul>
+      <p>
+        <label> Reviewers:</label>
         <% @healthwise_article.send("#{article_locale}_json")["data"]["credits"]["primaryReviewers"].map do |r| %>
-          <li><a href="{{reviewer.profileId}}"><%= r["name"]%> </a></li>
+          <a href="{{reviewer.profileId}}"><%= r["name"]%> </a> |
         <% end %>
-      </ul>
+      </p>
    </div>
     <div class="col-md-12">
       <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["logo"] %>
       <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["copyright"] %>
       <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["disclaimer"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["termsOfUseUrl"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["privacyPolicyUrl"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["moreInformationUrl"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["toLearnMoreHtml"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["yourUseOfThisInformationHtml"] %>
+
+      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["termsOfUseUrl"] %> "target="_blank">Terms of Use</a> |
+      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["privacyPolicyUrl"] %> "target="_blank">Privacy Policy</a> |
+      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["moreInformationUrl"] %> "target="_blank">More Information</a>
+
+      <p>
+        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["toLearnMoreHtml"] %>
+        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["yourUseOfThisInformationHtml"] %>
+      </p>
     </div>
   </div>
 </section>
