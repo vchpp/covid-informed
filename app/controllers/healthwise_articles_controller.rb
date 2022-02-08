@@ -5,12 +5,12 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles or /healthwise_articles.json
   def index
-    @healthwise_article = HealthwiseArticle.where(nil).order('en_title ASC') # creates an anonymous scope
-    @admin_healthwise_article = @healthwise_article.sort_by(&:category)
-    @healthwise_article = @healthwise_article.where(archive: false)
-    @healthwise_article = @healthwise_article.filter_by_search(params[:search]) if (params[:search].present?)
+    @healthwise_articles = HealthwiseArticle.where(nil).order('en_title ASC') # creates an anonymous scope
+    @admin_healthwise_articles = @healthwise_articles.sort_by(&:category)
+    @healthwise_articles = @healthwise_articles.where(archive: false)
+    @healthwise_articles = @healthwise_articles.filter_by_search(params[:search]) if (params[:search].present?)
     @general, @testing, @vaccination, @wellness, @featured = [], [], [], [], []
-    @healthwise_article.each do |h|
+    @healthwise_articles.each do |h|
       if h.featured == true
         @featured << h
         # @featured.sort_by(&:category) but for array methods

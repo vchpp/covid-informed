@@ -18,59 +18,118 @@ meta title: "COVID-INFORMED - Healthwise",
     <!-- End Google Tag Manager (noscript) -->
 <% end %>
 
+<section id="fh5co-feature">
+  <div class="container">
 
-<h1>Healthwise Articles</h1>
+      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.external_resources')%></h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Hwid</th>
-      <th>article_or_topic</th>
-      <th>En title</th>
-      <th>En translated</th>
-      <th>Zh tw title</th>
-      <th>Zh tw translated</th>
-      <th>Zh cn title</th>
-      <th>Zh cn translated</th>
-      <th>Vi title</th>
-      <th>Vi translated</th>
-      <th>Hmn title</th>
-      <th>Hmn translated</th>
-      <th>Languages</th>
-      <th>Category</th>
-      <th>Featured</th>
-      <th>Archive</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="col-md-8 col-md-offset-2">
+        <% if current_user.try(:admin?) %>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <div class="actions">
+            <%= link_to 'New Healthwise Article', new_healthwise_article_path, class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <% end %>
+      </div>
 
-  <tbody>
-    <% @healthwise_articles.each do |healthwise_article| %>
-      <tr>
-        <td><%= healthwise_article.hwid %></td>
-        <td><%= healthwise_article.article_or_topic %></td>
-        <td><%= healthwise_article.en_title %></td>
-        <td><%= healthwise_article.en_translated %></td>
-        <td><%= healthwise_article.zh_tw_title %></td>
-        <td><%= healthwise_article.zh_tw_translated %></td>
-        <td><%= healthwise_article.zh_cn_title %></td>
-        <td><%= healthwise_article.zh_cn_translated %></td>
-        <td><%= healthwise_article.vi_title %></td>
-        <td><%= healthwise_article.vi_translated %></td>
-        <td><%= healthwise_article.hmn_title %></td>
-        <td><%= healthwise_article.hmn_translated %></td>
-        <td><%= healthwise_article.languages %></td>
-        <td><%= healthwise_article.category %></td>
-        <td><%= healthwise_article.featured %></td>
-        <td><%= healthwise_article.archive %></td>
-        <td><%= link_to 'Show', healthwise_article %></td>
-        <td><%= link_to 'Edit', edit_healthwise_article_path(healthwise_article) %></td>
-        <td><%= link_to 'Destroy', healthwise_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12">
+          <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
+          <form id="search" method="GET" action="/<%=params[:locale]%>/resources/healthwise-articles" >
+            <div class="col-md-8 form-group">
+              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('resources.external.search_for_resources')%>">
+            </div>
+            <div class="col-md-2 form-group">
+              <button class="form-control btn btn-primary" type="submit">
+                <i class="ti-search"></i>
+              </button>
+            </div>
+          </form>
+          <form id="reset" method="GET" action="/<%=params[:locale]%>/resources/healthwise-articles" >
+            <div class="col-md-2 form-group">
+              <input class="form-control btn btn-primary" type="submit" value="<%= t('resources.external.all')%>">
+            </div>
+          </form>
+        </div>
+      </div>
 
-<br>
+      <% if @featured.any? %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.featured')%></h2>
+        <%= render 'featured', collection: @featured %>
+      <% end %>
 
-<%= link_to 'New Healthwise Article', new_healthwise_article_path %>
+      <% if @general.any? %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.general')%></h2>
+        <%= render 'general', collection: @general %>
+      <% end %>
+
+      <% if @testing.any? %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.testing')%></h2>
+        <%= render 'testing', collection: @testing %>
+      <% end %>
+
+      <% if @vaccination.any? %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.vaccination')%></h2>
+        <%= render 'vaccination', collection: @vaccination %>
+      <% end %>
+
+      <% if @wellness.any?  %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
+        <%= render 'wellness', collection: @wellness %>
+      <% end %>
+
+    <% if current_user.try(:admin?) %>
+    <div class="col-md-12 Admin-border">
+      <h1>Healthwise Articles Admin List</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Hwid</th>
+          <th>article_or_topic</th>
+          <th>En title</th>
+          <th>Languages</th>
+          <th>Category</th>
+          <th>Featured</th>
+          <th>Archive</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @healthwise_articles.each do |healthwise_article| %>
+          <tr>
+            <td><%= healthwise_article.hwid %></td>
+            <td><%= healthwise_article.article_or_topic %></td>
+            <td><%= healthwise_article.en_title %></td>
+            <td><%= healthwise_article.languages %></td>
+            <td><%= healthwise_article.category %></td>
+            <td><%= healthwise_article.featured %></td>
+            <td><%= healthwise_article.archive %></td>
+            <td><%= link_to 'Show', healthwise_article %></td>
+            <td><%= link_to 'Edit', edit_healthwise_article_path(healthwise_article) %></td>
+            <td><%= link_to 'Destroy', healthwise_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to 'New Healthwise Article', new_healthwise_article_path %>
+  </div>
+  <% end %>
+
+  </div>
+</section>
+
+<div class="fh5co-spacer fh5co-spacer-xs"></div>
+<div class="container">
+  <div class="col-md-12 text-center">
+    <p> <%= t('disclaimer') %> </p>
+  </div>
+</div>

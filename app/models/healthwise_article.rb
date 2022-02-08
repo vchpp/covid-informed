@@ -6,9 +6,8 @@ class HealthwiseArticle < ApplicationRecord
   scope :filter_by_search, -> (search) { where("en_title ilike ?", "%#{search}%").or(
                                         where("zh_tw_title ilike ?", "%#{search}%")).or(
                                         where("vi_title ilike ?", "%#{search}%")).or(
-                                        where("hmn_title ilike ?", "%#{search}%")).or(
+                                        where("hmn_title ilike ?", "%#{search}%"))
                                         }
- end
 
   def comments_to_csv
     attributes = %w{Created_at RCT Content}

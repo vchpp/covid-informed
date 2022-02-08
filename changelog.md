@@ -20,7 +20,7 @@ https://github.com/vchpp/covid-informed
 
 - [x] HWA forms
 
-- [ ] HWA frontend
+- [x] HWA frontend
 
 - [ ] Include links with language on card on index
 
