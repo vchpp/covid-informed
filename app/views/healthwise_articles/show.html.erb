@@ -49,41 +49,43 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
 
       </div>
     </div>
-    <% if current_user.try(:admin?) %>
-    <div class="row">
-      <div class="col-md-12 Admin-border">
-        <h1 class="text-center">Likes Admin View</h1>
+    <% if @likes.any? %>
+      <% if current_user.try(:admin?) %>
+        <div class="row">
+          <div class="col-md-12 Admin-border">
+            <h1 class="text-center">Likes Admin View</h1>
 
-        <table class="col-md-10 col-md-offset-1">
-          <thead>
-            <tr>
-              <th>Created at</th>
-              <th>RCT</th>
-              <th>UP</th>
-              <th>Down</th>
-              <th colspan="1"></th>
-            </tr>
-          </thead>
+            <table class="col-md-10 col-md-offset-1">
+              <thead>
+                <tr>
+                  <th>Created at</th>
+                  <th>RCT</th>
+                  <th>UP</th>
+                  <th>Down</th>
+                  <th colspan="1"></th>
+                </tr>
+              </thead>
 
-          <tbody>
-            <% @likes.each do |like| %>
-            <tr>
-              <td><%= like.created_at %></td>
-              <td><%= like.rct %></td>
-              <td><%= like.up %></td>
-              <td><%= like.down %></td>
-              <td><%= link_to 'Destroy', [@healthwise_article, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <%= link_to 'Export Likes to CSV', healthwise_article_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
-    </div>
+              <tbody>
+                <% @likes.each do |like| %>
+                <tr>
+                  <td><%= like.created_at %></td>
+                  <td><%= like.rct %></td>
+                  <td><%= like.up %></td>
+                  <td><%= like.down %></td>
+                  <td><%= link_to 'Destroy', [@healthwise_article, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <%= link_to 'Export Likes to CSV', healthwise_article_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
+      <% end %>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
     <% end %>
-    <div class="fh5co-spacer fh5co-spacer-md"></div>
   </div>
 </section>
 

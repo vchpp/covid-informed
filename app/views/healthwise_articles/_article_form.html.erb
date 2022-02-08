@@ -19,6 +19,47 @@
 
         <div id="fh5co-tab-feature" class="fh5co-tab text-center">
           <h1>Editing Healthwise Article</h1>
+          <div class="col-md-12">
+            <div class="field form-group">
+              <%= form.label :hwid %>
+              <%= form.text_field :hwid %>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="field form-group">
+              <%= form.label :article_or_topic? %>
+              <%= form.select :article_or_topic, ["Article", "Topic"], class: 'form-control input-lg' %>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="field form-group">
+              <%= form.label :category %>
+              <%= form.select :category, ["General", "Testing", "Vaccination", "Wellness"], class: 'form-control input-lg' %>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="field form-group">
+              <%= form.label :featured? %>
+              <%= form.check_box :featured %>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="field form-group">
+              <%= form.label :archive? %>
+              <%= form.check_box :archive %>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-md-offset-4">
+            <div class="field form-group">
+              <%= form.label :languages %> must be en-us / zh-us / hm-us / vi-us
+              <%= form.text_area :languages, name: 'healthwise_article[languages][]', size: '70x5', class: 'form-control input-lg', value: form.object.languages.join("\n") %>
+            </div>
+          </div>
           <ul class="resp-tabs-list hor_1">
             <li> English (en)</li>
             <li> Chinese Traditional (zh_tw)</li>
@@ -29,10 +70,17 @@
           <div class="resp-tabs-container hor_1">
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="field form-group">
                   <%= form.label :en_title %>
                   <%= form.text_field :en_title %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="field form-group">
+                  <%= form.label :en_translated? %>
+                  <%= form.check_box :en_translated %>
                 </div>
               </div>
 
@@ -44,20 +92,20 @@
                 <% end %>
                 </div>
               </div>
-
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <%= form.label :en_translated %>
-                  <%= form.check_box :en_translated %>
-                </div>
-              </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="field form-group">
                   <%= form.label :zh_tw_title %>
                   <%= form.text_field :zh_tw_title %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="field form-group">
+                  <%= form.label :zh_tw_translated? %>
+                  <%= form.check_box :zh_tw_translated %>
                 </div>
               </div>
 
@@ -69,20 +117,20 @@
                 <% end %>
                 </div>
               </div>
-
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <%= form.label :zh_tw_translated %>
-                  <%= form.check_box :zh_tw_translated %>
-                </div>
-              </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="field form-group">
                   <%= form.label :zh_cn_title %>
                   <%= form.text_field :zh_cn_title %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="field form-group">
+                  <%= form.label :zh_cn_translated? %>
+                  <%= form.check_box :zh_cn_translated %>
                 </div>
               </div>
 
@@ -94,20 +142,20 @@
                 <% end %>
                 </div>
               </div>
-
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <%= form.label :zh_cn_translated %>
-                  <%= form.check_box :zh_cn_translated %>
-                </div>
-              </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="field form-group">
                   <%= form.label :vi_title %>
                   <%= form.text_field :vi_title %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="field form-group">
+                  <%= form.label :vi_translated? %>
+                  <%= form.check_box :vi_translated %>
                 </div>
               </div>
 
@@ -121,20 +169,20 @@
                   </div>
                 </div>
               <% end %>
-
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <%= form.label :vi_translated %>
-                  <%= form.check_box :vi_translated %>
-                </div>
-              </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="field form-group">
                   <%= form.label :hmn_title %>
                   <%= form.text_field :hmn_title %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="field form-group">
+                  <%= form.label :hmn_translated? %>
+                  <%= form.check_box :hmn_translated %>
                 </div>
               </div>
 
@@ -148,57 +196,9 @@
                   </div>
                 </div>
               <% end %>
-
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <%= form.label :hmn_translated %>
-                  <%= form.check_box :hmn_translated %>
-                </div>
-              </div>
             </div>
           </div> <!-- end resp-tabs-container hor_1 -->
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
-          <div class="col-md-12">
-            <div class="field form-group">
-              <%= form.label :hwid %>
-              <%= form.text_field :hwid %>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="field form-group">
-              <%= form.label :article_or_topic %>
-              <%= form.select :article_or_topic, ["Article", "Topic"], class: 'form-control input-lg' %>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-md-offset-4">
-            <div class="field form-group">
-              <%= form.label :languages %> must be en-us / zh-us / hm-us / vi-us
-              <%= form.text_area :languages, name: 'healthwise_article[languages][]', size: '70x5', class: 'form-control input-lg', value: form.object.languages.join("\n") %>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="field form-group">
-              <%= form.label :category %>
-              <%= form.select :category, ["General", "Testing", "Vaccination", "Wellness"], class: 'form-control input-lg' %>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="field form-group">
-              <%= form.label :featured %>
-              <%= form.check_box :featured %>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="field form-group">
-              <%= form.label :archive %>
-              <%= form.check_box :archive %>
-            </div>
-          </div>
 
           <div class="col-md-8 col-md-offset-2">
             <div class="actions">

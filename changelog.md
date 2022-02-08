@@ -18,7 +18,9 @@ https://github.com/vchpp/covid-informed
 
 - [x] Integrate with likes and comments
 
-- [ ] HWA forms and frontend
+- [x] HWA forms
+
+- [ ] HWA frontend
 
 - [ ] Include links with language on card on index
 
