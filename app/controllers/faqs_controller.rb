@@ -56,7 +56,7 @@ class FaqsController < ApplicationController
 
   # DELETE /faqs/1 or /faqs/1.json
   def destroy
-    audit! :destroyed_faq, @faq, payload: faq_params
+    audit! :destroyed_faq, @faq, payload: @faq.attributes
     @faq.destroy
     respond_to do |format|
       format.html { redirect_to faqs_url, notice: "Faq was successfully destroyed." }

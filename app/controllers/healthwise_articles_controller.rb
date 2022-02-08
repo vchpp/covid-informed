@@ -133,7 +133,7 @@ class HealthwiseArticlesController < ApplicationController
   # DELETE /healthwise_articles/1 or /healthwise_articles/1.json
   def destroy
     logger.info "#{current_user.email} destroyed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
-    audit! :destroyed_healthwise_article, @healthwise_article, payload: healthwise_article_params
+    audit! :destroyed_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
     @healthwise_article.destroy
     respond_to do |format|
       format.html { redirect_to healthwise_articles_url, notice: "Healthwise article was successfully destroyed." }
