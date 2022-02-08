@@ -3,6 +3,12 @@ class HealthwiseArticle < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   extend FriendlyId
   friendly_id :en_title, use: %i(slugged history finders)
+  scope :filter_by_search, -> (search) { where("en_title ilike ?", "%#{search}%").or(
+                                        where("zh_tw_title ilike ?", "%#{search}%")).or(
+                                        where("vi_title ilike ?", "%#{search}%")).or(
+                                        where("hmn_title ilike ?", "%#{search}%")).or(
+                                        }
+ end
 
   def comments_to_csv
     attributes = %w{Created_at RCT Content}

@@ -5,7 +5,22 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles or /healthwise_articles.json
   def index
-    @healthwise_articles = HealthwiseArticle.all
+    @healthwise_article = HealthwiseArticle.where(nil).order('en_title ASC') # creates an anonymous scope
+    @admin_healthwise_article = @healthwise_article.sort_by(&:category)
+    @healthwise_article = @healthwise_article.where(archive: false)
+    @healthwise_article = @healthwise_article.filter_by_search(params[:search]) if (params[:search].present?)
+    @general, @testing, @vaccination, @wellness, @featured = [], [], [], [], []
+    @healthwise_article.each do |h|
+      if h.featured == true
+        @featured << h
+        # @featured.sort_by(&:category) but for array methods
+      elsif h.featured == false
+        @general << h if h.category == "General"
+        @testing << h if h.category == "Testing"
+        @vaccination << h if h.category == "Vaccination"
+        @wellness << h if h.category == "Wellness"
+      end
+    end
   end
 
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
