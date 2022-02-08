@@ -1,10 +1,5 @@
-<h1>Editing Healthwise Article</h1>
-
 <% if @healthwise_article.article_or_topic == 'Article' %>
   <%= render 'article_form', healthwise_article: @healthwise_article %>
 <% else %>
   <%= render 'topic_form', healthwise_article: @healthwise_article %>
 <% end %>
-
-<%= link_to 'Show', @healthwise_article %> |
-<%= link_to 'Back', healthwise_articles_path %>
