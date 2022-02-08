@@ -1,0 +1,236 @@
+<%
+meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
+     description: "covid-informed",
+     keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
+%>
+<% content_for :head do %>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+    gtag('event','pageview', {'rct': rct});
+    gtag('send','event','eventCategory','eventAction');
+  </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+<% end %>
+
+<% if @healthwise_article.article_or_topic == "Article" %>
+  <%= render 'hw_article', healthwise_article: @healthwise_article %>
+<% else %>
+  <%= render 'hw_topic', healthwise_article: @healthwise_article %>
+<% end %>
+<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+<!-- like buttons -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 text-center">
+
+      <%= form_with model: [ @healthwise_article, @healthwise_article.likes.build ] do |form| %>
+        <div class="field col-md-6 col-sm-6 col-xs-6">
+          <%= form.label :up, class: 'sr-only' %>
+          <%= form.hidden_field :up, value: 1 %>
+          <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary btn-lg fh5co-btn-icon", value: @up_likes %>
+        </div>
+      <% end %>
+
+      <%= form_with model: [ @healthwise_article, @healthwise_article.likes.build ] do |form| %>
+        <div class="field col-md-6 col-sm-6 col-xs-6">
+          <%= form.label :down, class: 'sr-only' %>
+          <%= form.hidden_field :down, value: 1 %>
+          <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary btn-lg fh5co-btn-icon", value: @down_likes %>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
+    <% if @likes.any? %>
+      <% if current_user.try(:admin?) %>
+        <div class="row">
+          <div class="col-md-12 Admin-border">
+            <h1 class="text-center">Likes Admin View</h1>
+
+            <table class="col-md-10 col-md-offset-1">
+              <thead>
+                <tr>
+                  <th>Created at</th>
+                  <th>RCT</th>
+                  <th>UP</th>
+                  <th>Down</th>
+                  <th colspan="1"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @likes.each do |like| %>
+                <tr>
+                  <td><%= like.created_at %></td>
+                  <td><%= like.rct %></td>
+                  <td><%= like.up %></td>
+                  <td><%= like.down %></td>
+                  <td><%= link_to 'Destroy', [@healthwise_article, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <%= link_to 'Export Likes to CSV', healthwise_article_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
+      <% end %>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
+    <% end %>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <% if @comments.any? %>
+      <% if current_user.try(:admin?) %>
+      <div class="row">
+        <div class="col-md-12 Admin-border">
+          <div class="col-md-12">
+            <h1 class="text-center">Comments Admin View:</h1>
+          </div>
+
+          <table class="col-md-10 col-md-offset-1">
+            <thead>
+              <tr>
+                <th>Created at</th>
+                <th>RCT</th>
+                <th>Content</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @admin_comments.each do |comment| %>
+              <tr>
+                <td><%= comment.created_at %></td>
+                <td><%= comment.rct %></td>
+                <td><%= comment.content %></td>
+                <td><%= link_to 'Destroy', [@healthwise_article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <%= link_to 'Export Comments to CSV', healthwise_article_path(format: "csv", format_data: "comments"), class: "btn btn-primary btn-lg btn-block"  %>
+      </div>
+      <% else %>
+      <div class="row fh5co-feature-3"">
+        <div class="col-md-12">
+          <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('messages.comments')%>:</h2>
+        </div>
+
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+          <% @comments.each do |comment| %>
+  					<div class="col-md-8 col-md-offset-2">
+              <div class="row">
+                <div class="fh5co-feature-item">
+                  <span class="fh5co-feature-icon"><i class="ti-comment-alt"></i></span>
+                  <div class="fh5co-feature-blurb">
+                    <h2 class="h4 fh5co-feature-title"><%= comment.content %></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <% if @page_count > 1 %>
+          <div class="row text-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <% if @page == '1' || params[:page].nil? %>
+                <% else %>
+                <li class="page-item">
+                  <%= link_to '<', url_for(page: @page.to_i - 1), class: 'page-link' %>
+                </li>
+                <% end %>
+
+                <% (1..@page_count).each do |p| %>
+                  <% if p == @page.to_i %>
+                    <li class="page-item active">
+                      <%= link_to p, url_for(page: p), class: 'page-link disabled active' %>
+                    </li>
+                  <% else %>
+                    <li class="page-item">
+                      <%= link_to p, url_for(page: p), class: 'page-link' %>
+                    </li>
+                  <% end %>
+                <% end %>
+
+                <% if @page.to_i == @page_count.to_i %>
+                <% else %>
+                  <li class="page-item">
+                    <%= link_to '>', url_for(page: @page.to_i + 1), class: 'page-link' %>
+                  </li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+        <% end %>
+
+
+    <% end %>
+    <% end %>
+  </div>
+  <div class="fh5co-spacer fh5co-spacer-md"></div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
+          <div class="field form-group">
+            <%= form_with model: [ @healthwise_article, @healthwise_article.comments.build ] do |form| %>
+              <div class="field">
+                <%= form.label :content, class: 'sr-only'%>
+                <%= form.text_field :content, required: true, class: 'form-control input-lg expand', placeholder: t('messages.leave_comment') %>
+              </div>
+              <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+              <div class="col-md-12">
+                <div class="actions">
+                  <%= form.submit class: "btn btn-primary btn-lg btn-block"%>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="fh5co-spacer fh5co-spacer-xs"></div>
+            <div class="col-md-12">
+            <% if current_user.try(:admin?) %>
+              <div class="actions">
+                <%= link_to 'Edit Healthwise Article', edit_healthwise_article_path(@healthwise_article), class: "btn btn-primary btn-lg btn-block" %>
+              </div>
+            <% end %>
+            </div>
+
+            <div class="col-md-12">
+              <div class="actions">
+                <%= link_to t('messages.back'), healthwise_articles_path, class: "btn btn-primary btn-lg btn-block" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fh5co-spacer fh5co-spacer-xs"></div>
+<div class="container">
+  <div class="col-md-12 text-center">
+    <p> <%= t('disclaimer') %> </p>
+  </div>
+</div>

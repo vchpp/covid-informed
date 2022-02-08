@@ -3,26 +3,26 @@ meta title: "COVID-INFORMED - Additional Resources",
      description: "covid-informed",
      keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
 %>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
-  gtag('event','pageview', {'rct': rct});
-  gtag('send','event','eventCategory','eventAction');
-</script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<% content_for :head do %>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+    gtag('event','pageview', {'rct': rct});
+    gtag('send','event','eventCategory','eventAction');
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<% end %>
 
 <!-- RESEARCH TEAM -->
 <section id="fh5co-feature">
   <div class="container">
 
       <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.external_resources')%></h2>
-      <p id="notice"><%= notice %></p>
 
       <div class="col-md-8 col-md-offset-2">
         <% if current_user.try(:admin?) %>

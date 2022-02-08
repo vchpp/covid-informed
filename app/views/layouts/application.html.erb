@@ -81,6 +81,9 @@
                  <a href="/<%=params[:locale]%>/resources/downloads"><%= t('resources.downloads') %></a>
                  <a href="/<%=params[:locale]%>/resources/statistics"><%= t('resources.statistics')%></a>
                  <a href="/<%=params[:locale]%>/resources/externals"><%= t('navbar.external') %></a>
+                 <% if current_user.try(:admin?) %>
+                  <a href="/<%=params[:locale]%>/resources/healthwise-articles">Healthwise Articles (t)</a>
+                <% end %>
                </li>
              </ul>
             </li>
@@ -101,6 +104,14 @@
     </header>
 
     <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <% if current_user.try(:admin?) %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
   <footer>

@@ -1,0 +1,94 @@
+<% @vaccination.in_groups_of(3, false).each do |item1, item2, item3| %>
+<div class="row fh5co-pricing-table-1 ">
+  <% if item1 %>
+    <a href="<%= healthwise_article_path(item1) %>">
+      <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
+        <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item1.category %>">
+          <%= item1.send("#{I18n.locale}_title".downcase) %>
+        </div>
+        <div class="text-center fh5co-pricing-table-item-body <%= item1.category %>-border">
+
+          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+          <% item1.languages.each { |l| l.concat(" | ") if l != item1.languages[-1]} %>
+          <% item1.languages.each do |l| %>
+          <% case %>
+            <% when l.match("English") %>
+              <a href="<%= item1.en_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("繁體中文") %>
+              <a href="<%= item1.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("简体中文") %>
+              <a href="<%= item1.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("Tiếng Việt") %>
+              <a href="<%= item1.vi_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("hmoob") %>
+              <a href="<%= item1.hmn_external_link %>" target="_blank"> <%=l%> </a>
+            <% end %>
+          <% end %>
+
+        </div>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+      </div>
+    </a>
+  <% end %>
+  <% if item2 %>
+    <a href="<%= healthwise_article_path(item2) %>">
+      <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
+        <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item2.category %>">
+          <%= item2.send("#{I18n.locale}_title".downcase) %>
+        </div>
+        <div class="text-center fh5co-pricing-table-item-body <%= item2.category %>-border">
+
+          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+          <% item2.languages.each { |l| l.concat(" | ") if l != item2.languages[-1]} %>
+          <% item2.languages.each do |l| %>
+          <% case %>
+            <% when l.match("English") %>
+              <a href="<%= item2.en_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("繁體中文") %>
+              <a href="<%= item2.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("简体中文") %>
+              <a href="<%= item2.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("Tiếng Việt") %>
+              <a href="<%= item2.vi_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("hmoob") %>
+              <a href="<%= item2.hmn_external_link %>" target="_blank"> <%=l%> </a>
+            <% end %>
+          <% end %>
+
+        </div>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+      </div>
+    </a>
+  <% end %>
+  <% if item3 %>
+    <a href="<%= healthwise_article_path(item3) %>">
+      <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
+        <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item3.category %>">
+          <%= item3.send("#{I18n.locale}_title".downcase) %>
+        </div>
+        <div class="text-center fh5co-pricing-table-item-body <%= item3.category %>-border">
+
+          <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+          <% item3.languages.each { |l| l.concat(" | ") if l != item3.languages[-1]} %>
+          <% item3.languages.each do |l| %>
+          <% case %>
+            <% when l.match("English") %>
+              <a href="<%= item3.en_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("繁體中文") %>
+              <a href="<%= item3.zh_tw_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("简体中文") %>
+              <a href="<%= item3.zh_cn_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("Tiếng Việt") %>
+              <a href="<%= item3.vi_external_link %>" target="_blank"> <%=l%> </a>
+            <% when l.match("hmoob") %>
+              <a href="<%= item3.hmn_external_link %>" target="_blank"> <%=l%> </a>
+            <% end %>
+          <% end %>
+
+        </div>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+      </div>
+    </a>
+  <% end %>
+</div>
+<% end %>

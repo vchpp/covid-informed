@@ -1420,6 +1420,12 @@ Components
   background: #823D1C;
   color: #ffffff;
 }
+.Wellness {
+  border: 4px solid #823D1C;
+  border-radius: 15px;
+  background: #823D1C;
+  color: #ffffff;
+}
 /* custom borders */
 .General-border {
   border: 4px solid #eb5d1f;
@@ -1437,6 +1443,11 @@ Components
   color: #000;
 }
 .Other-border {
+  border: 4px solid #823D1C;
+  border-radius: 15px;
+  color: #000;
+}
+.Wellness-border {
   border: 4px solid #823D1C;
   border-radius: 15px;
   color: #000;

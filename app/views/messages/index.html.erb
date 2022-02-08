@@ -3,19 +3,20 @@ meta title: "COVID-INFORMED - Messages",
      description: "covid-informed",
      keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
 %>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
-  gtag('event','pageview', {'rct': rct});
-  gtag('send','event','eventCategory','eventAction');
-</script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<% content_for :head do %>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+    gtag('event','pageview', {'rct': rct});
+    gtag('send','event','eventCategory','eventAction');
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<% end %>
 
 <!-- START #fh5co-hero -->
 
@@ -32,7 +33,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="col-md-8 col-md-offset-2">
       <% if current_user.try(:admin?) %>
       <div class="fh5co-spacer fh5co-spacer-sm"></div>
-      <p id="notice"><%= notice %></p>
         <div class="actions">
           <%= link_to 'New Message', new_message_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>

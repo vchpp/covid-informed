@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.with_attached_images.friendly.find(params[:id])
     @likes = @message.likes.all.order('rct::integer ASC')
-    @all_comments = Message.friendly.find(params[:id]).comments
+    @all_comments = @message.comments
     @admin_comments = @all_comments.order('rct::integer ASC')
     @comments = @all_comments.order(created_at: :desc).limit(10).offset((@page.to_i - 1) * 10)
     @page_count = (@all_comments.count / 10) + 1
@@ -206,15 +206,13 @@ private
   end
 
   def up_likes
-    message = Message.friendly.find(params[:id])
-    likes = message.likes.all
+    likes = @message.likes.all
     up = likes.map do |like| like.up end
     @up_likes = up.map(&:to_i).reduce(0, :+)
   end
 
   def down_likes
-    message = Message.friendly.find(params[:id])
-    likes = message.likes.all
+    likes = @message.likes.all
     down = likes.map do |like| like.down end
     @down_likes = down.map(&:to_i).reduce(0, :+)
   end

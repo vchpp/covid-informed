@@ -3,26 +3,21 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
      description: "covid-informed",
      keywords: %w(free html5, free template, free bootstrap, html5, css3, mobile first, responsive)
 %>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
-  gtag('event','pageview', {'rct': rct});
-  gtag('send','event','eventCategory','eventAction');
-</script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<% if notice %>
-<div class="fh5co-spacer fh5co-spacer-xs"></div>
-<div class="col-md-12">
-  <h2 class="fh5co-uppercase-heading-sm text-center" id="notice"><%= notice %></h2>
-</div>
+<% content_for :head do %>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q8T209GGMN', {'custom_map': {'dimension1': 'rct'}, 'user_id': rct });
+    gtag('event','pageview', {'rct': rct});
+    gtag('send','event','eventCategory','eventAction');
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB92CN2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 <% end %>
+
 
 <% case %>
   <% when params[:locale] == "en" %>
@@ -118,10 +113,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 text-center">
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
-        <div class="field col-md-6">
+        <div class="field col-md-6 col-sm-6 col-xs-6">
           <%= form.label :up, class: 'sr-only' %>
           <%= form.hidden_field :up, value: 1 %>
           <%= form.button @up_likes, id: "uplike", class: "ti-thumb-up btn btn-primary btn-lg fh5co-btn-icon", value: @up_likes %>
@@ -129,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <% end %>
 
       <%= form_with model: [ @message, @message.likes.build ] do |form| %>
-        <div class="field col-md-6">
+        <div class="field col-md-6 col-sm-6 col-xs-6">
           <%= form.label :down, class: 'sr-only' %>
           <%= form.hidden_field :down, value: 1 %>
           <%= form.button @down_likes, id: "downlike", class: "ti-thumb-down btn btn-primary btn-lg fh5co-btn-icon", value: @down_likes %>
@@ -138,41 +133,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </div>
     </div>
-    <% if current_user.try(:admin?) %>
-    <div class="row">
-      <div class="col-md-12 Admin-border">
-        <h1 class="text-center">Likes Admin View</h1>
+    <% if @likes.any? %>
+      <% if current_user.try(:admin?) %>
+      <div class="row">
+        <div class="col-md-12 Admin-border">
+          <h1 class="text-center">Likes Admin View</h1>
 
-        <table class="col-md-10 col-md-offset-1">
-          <thead>
-            <tr>
-              <th>Created at</th>
-              <th>RCT</th>
-              <th>UP</th>
-              <th>Down</th>
-              <th colspan="1"></th>
-            </tr>
-          </thead>
+          <table class="col-md-10 col-md-offset-1">
+            <thead>
+              <tr>
+                <th>Created at</th>
+                <th>RCT</th>
+                <th>UP</th>
+                <th>Down</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
 
-          <tbody>
-            <% @likes.each do |like| %>
-            <tr>
-              <td><%= like.created_at %></td>
-              <td><%= like.rct %></td>
-              <td><%= like.up %></td>
-              <td><%= like.down %></td>
-              <td><%= link_to 'Destroy', [@message, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+            <tbody>
+              <% @likes.each do |like| %>
+              <tr>
+                <td><%= like.created_at %></td>
+                <td><%= like.rct %></td>
+                <td><%= like.up %></td>
+                <td><%= like.down %></td>
+                <td><%= link_to 'Destroy', [@message, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <%= link_to 'Export Likes to CSV', message_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
-    </div>
+      <div class="col-md-8 col-md-offset-2">
+        <%= link_to 'Export Likes to CSV', message_path(format: "csv", format_data: "likes"), class: "btn btn-primary btn-lg btn-block"  %>
+      </div>
+      <% end %>
+      <div class="fh5co-spacer fh5co-spacer-md"></div>
     <% end %>
-    <div class="fh5co-spacer fh5co-spacer-md"></div>
   </div>
 </section>
 
@@ -312,9 +309,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-
-
-
   </div>
 </section>
 
