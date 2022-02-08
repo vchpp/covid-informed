@@ -23,45 +23,55 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
   <% when params[:locale] == "en" %>
     <% if @message.images.attached? %>
       <section id="fh5co-testimonial" >
-        <% @message.images.each do |img| %>
-          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
-        <% end %>
+        <div class="text-center">
+          <% @message.images.each do |img| %>
+            <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+          <% end %>
+        </div>
       </section>
     <% end %>
 
   <% when params[:locale] == "vi" %>
     <% if @message.vi_images.attached? %>
       <section id="fh5co-testimonial" >
-        <% @message.vi_images.each do |img| %>
-          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
-        <% end %>
+        <div class="text-center">
+          <% @message.vi_images.each do |img| %>
+            <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+          <% end %>
+        </div>
       </section>
     <% end %>
 
   <% when params[:locale] == "zh_CN" %>
     <% if @message.zh_cn_images.attached? %>
       <section id="fh5co-testimonial" >
-        <% @message.zh_cn_images.each do |img| %>
-          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
-        <% end %>
+        <div class="text-center">
+          <% @message.zh_cn_images.each do |img| %>
+            <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+          <% end %>
+        </div>
       </section>
     <% end %>
 
   <% when params[:locale] == "zh_TW" %>
     <% if @message.zh_tw_images.attached? %>
       <section id="fh5co-testimonial" >
-        <% @message.zh_tw_images.each do |img| %>
-          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
-        <% end %>
+        <div class="text-center">
+          <% @message.zh_tw_images.each do |img| %>
+            <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+          <% end %>
+        </div>
       </section>
     <% end %>
 
   <% when params[:locale] == "hmn" %>
     <% if @message.hmn_images.attached? %>
       <section id="fh5co-testimonial" >
-        <% @message.hmn_images.each do |img| %>
-          <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
-        <% end %>
+        <div class="text-center">
+          <% @message.hmn_images.each do |img| %>
+            <%= image_tag img, class: "img-fluid", :style => "max-width: 100%; height: auto;"%>
+          <% end %>
+        </div>
       </section>
     <% end %>
 <% end %>
