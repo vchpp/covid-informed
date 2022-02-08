@@ -1,6 +1,6 @@
 class HealthwiseArticlesController < ApplicationController
   before_action :set_healthwise_article, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy index show ]
   before_action :set_page, only: [:show]
 
   # GET /healthwise_articles or /healthwise_articles.json
