@@ -77,7 +77,7 @@ class DownloadsController < ApplicationController
     @download.zh_cn_file.purge
     @download.vi_file.purge
     @download.hmn_file.purge
-    audit! :destroyed_download, @download, payload: download_params
+    audit! :destroyed_download, @download, payload: @download.attributes
     @download.destroy
     respond_to do |format|
       format.html { redirect_to downloads_url, notice: "Download was successfully destroyed." }

@@ -75,7 +75,7 @@ class CalloutsController < ApplicationController
     @callout.zh_cn_image.purge
     @callout.vi_image.purge
     @callout.hmn_image.purge
-    audit! :destroyed_callout, @callout, payload: callout_params
+    audit! :destroyed_callout, @callout, payload: @callout.attributes
     @callout.destroy
     respond_to do |format|
       format.html { redirect_to callouts_url, notice: "Callout was successfully destroyed." }

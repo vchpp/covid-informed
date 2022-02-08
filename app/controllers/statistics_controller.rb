@@ -69,7 +69,7 @@ class StatisticsController < ApplicationController
 
   # DELETE /statistics/1 or /statistics/1.json
   def destroy
-    audit! :destroyed_statistic, @statistic, payload: statistic_params
+    audit! :destroyed_statistic, @statistic, payload: @statistic.attributes
     @statistic.destroy
     respond_to do |format|
       format.html { redirect_to statistics_url, notice: "Statistic was successfully destroyed." }

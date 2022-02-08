@@ -134,7 +134,7 @@ class MessagesController < ApplicationController
     @message.en_audio.purge
     @message.zh_tw_audio.purge
     @message.zh_cn_audio.purge
-    audit! :destroyed_message, @message, payload: message_params
+    audit! :destroyed_message, @message, payload: @message.attributes
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
