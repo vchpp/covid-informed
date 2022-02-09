@@ -22,7 +22,7 @@ https://github.com/vchpp/covid-informed
 
 - [x] HWA frontend
 
-- [ ] Include links with language on card on index
+- [x] Include links with language on card on index
 
 - [x] Healthwise categories are: General, testing, vaccination, wellness
 
