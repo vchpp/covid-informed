@@ -2,31 +2,7 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 2/2-2/8
-
-`IN PROGRESS` - Healthwise#index has language links like Externals to show what is available
-
-- [x] Healthwise - create a model similar to Externals with healthwise materials embedded,
-
-- [x] On creation of a HWA, have a placeholder for a language that isn't available and redirect to english
-
-- [x] Transpose language box for HWA front end, perform I18n translations on backend for ease-of-use/consistency with Externals
-
-- [x] HWA On expiry of a month, have all languages update, not just the one browsing - perform the check on which are custom
-
-- [x] Add _create_form partial for HWA to prevent user errors on creation
-
-- [x] Integrate with likes and comments
-
-- [x] HWA forms
-
-- [x] HWA frontend
-
-- [x] Include links with language on card on index
-
-- [x] Healthwise categories are: General, testing, vaccination, wellness
-
-- [x] Healthwise model has navigation buttons at the bottom
+### 1-week sprint 2/9-2/16
 
 - [ ] Healthwise#index has disclaimer/intro
 
@@ -91,7 +67,7 @@ https://github.com/vchpp/covid-informed
 
 - [x] Payload is loaded into <head> and <body> tags
 
-Upvote and downvote, and comment individual items
+- [x] Upvote and downvote, and comment individual items
 
 ### For Google Analytics:
 
@@ -126,6 +102,32 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 2/2-2/8
+
+- [x] Healthwise#index has language links like Externals to show what is available
+
+- [x] Healthwise - create a model similar to Externals with healthwise materials embedded,
+
+- [x] On creation of a HWA, have a placeholder for a language that isn't available and redirect to english
+
+- [x] Transpose language box for HWA front end, perform I18n translations on backend for ease-of-use/consistency with Externals
+
+- [x] HWA On expiry of a month, have all languages update, not just the one browsing - perform the check on which are custom
+
+- [x] Add _create_form partial for HWA to prevent user errors on creation
+
+- [x] Integrate with likes and comments
+
+- [x] HWA forms
+
+- [x] HWA frontend
+
+- [x] Include links with language on card on index
+
+- [x] Healthwise categories are: General, testing, vaccination, wellness
+
+- [x] Healthwise model has navigation buttons at the bottom
 
 ### 1-week sprint 1/26 - 2/1
 
