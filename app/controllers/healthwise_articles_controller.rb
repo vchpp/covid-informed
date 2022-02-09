@@ -85,12 +85,12 @@ class HealthwiseArticlesController < ApplicationController
       @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
         response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
         # set JSON
-        @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
+        @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase, JSON.parse(response))
         # set titles
         if @healthwise_article.article_or_topic == "Article"
-          @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["title"]["consumer"])
+          @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["title"]["consumer"])
         else
-          @healthwise_article.send("#{CI_LOCALE[l]}_title=", JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
+          @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
         end
       end
     @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
@@ -142,28 +142,6 @@ class HealthwiseArticlesController < ApplicationController
   end
 
   private
-
-    CI_LOCALE = {
-      "vi-us"  => "vi",
-      "hm-us" => "hmn",
-      "zh-us" => "zh_tw",
-      "en-us" => "en"
-    }
-
-    HW_LOCALE = {
-      "vi"  => "vi-us",
-      "hmn" => "hm-us",
-      "zh_tw" => "zh-us",
-      "zh_cn" => "zh-us",
-      "en" => "en-us"
-    }
-
-    LOCALES = Regexp.union(
-      /en-us/i,
-      /zh-us/i,
-      /vi-us/i,
-      /hm-us/i,
-    )
 
     def fetch_languages(type, hwid)
       token = fetch_hw_token

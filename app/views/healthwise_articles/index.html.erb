@@ -21,7 +21,7 @@ meta title: "COVID-INFORMED - Healthwise",
 <section id="fh5co-feature">
   <div class="container">
 
-      <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.external_resources')%></h2>
+      <h2 class="fh5co-uppercase-heading-lg text-center">Healthwise Articles (t)</h2>
 
       <div class="col-md-8 col-md-offset-2">
         <% if current_user.try(:admin?) %>
@@ -35,10 +35,10 @@ meta title: "COVID-INFORMED - Healthwise",
 
       <div class="col-md-10 col-md-offset-1">
         <div class="col-md-12">
-          <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
+          <label for="faq" class="sr-only">Search for Articles (t)</label>
           <form id="search" method="GET" action="/<%=params[:locale]%>/resources/healthwise-articles" >
             <div class="col-md-8 form-group">
-              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="<%= t('resources.external.search_for_resources')%>">
+              <input class="form-control input-lg" type="text" id="search" name="search" placeholder="Search for Articles (t)">
             </div>
             <div class="col-md-2 form-group">
               <button class="form-control btn btn-primary" type="submit">
@@ -80,7 +80,7 @@ meta title: "COVID-INFORMED - Healthwise",
 
       <% if @wellness.any?  %>
         <div class="fh5co-spacer fh5co-spacer-md"></div>
-        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.other')%></h2>
+        <h2 class="fh5co-uppercase-heading-lg text-center">Wellness (t)</h2>
         <%= render 'wellness', collection: @wellness %>
       <% end %>
 
