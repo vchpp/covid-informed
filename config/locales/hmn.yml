@@ -3,7 +3,7 @@ hmn:
   welcome: "txais tos!"
   language: "lus hmoob"
   locale: "hmn"
-  disclaimer: "The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
+  disclaimer: "Lus Ceebtoom: Cov ntaub ntawv zwm cia rau hauv lub vev xaib (website) no tsuas yog siv rau kev kawm nkaus xwb. Vim xwm txheej ntawm tus kabmob COVID-19 hloov ceevheev, txawm hais tias pab pawg tshawbfawb los muab cov ntaub ntawv tawm tshiab los zwm cia rau lub vev xaib (website) no kom sai npaum li sai tau los, yog koj xa paub meej txoj kev hloob tshiab ntawm tus kabmob COVID-19, thov mus saib tau ntxiv ntawm lub koomhaum Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html. Nco ntsoov nug koj tus kws kho mob rau cov lus pom zoo kev hloov tshiab tshwj xeeb yog txog koj tus mob."
   navbar:
     about: "hais txog"
     messages: "lus tshajtawm"
