@@ -4,9 +4,35 @@ https://github.com/vchpp/covid-informed
 
 ### 1-week sprint 2/9-2/16
 
+- [x] Lock down HWID and article_or_topic on edit form
+
+- [x] Switch Hmong and VI on edit form
+
+- [x] Add hmong disclaimer translations
+
+- [x] Change Traditional language on HealthwiseArticle#Index to Simplified Chinese
+
+- [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
+
+- [ ] Investigate Edit on Healthwise Topic breaking (9 things)
+
+- [ ] Investigate language availability on #index ie acl4046
+
+- [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available
+
+- [ ] Investigate HealthwiseArticle#Index language order
+
+- [ ] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+
+- [ ] Add rich_text_form to HealthwiseArticle below content, but above likes - migrate
+
+- [ ] Add vi disclaimer translations
+
 - [ ] Healthwise#index has disclaimer/intro
 
 - [ ] Healthwise#show has disclaimer/intro
+
+- [ ] Add #refresh method and admin button to HealthwiseArticles to fetch from API instead of relying on #show?
 
 - [ ] Stretch: Paginate Externals, Healthwise, FAQs
 
