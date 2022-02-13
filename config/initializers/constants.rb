@@ -23,6 +23,6 @@ LOCALES = Regexp.union(
 VERBOSE_LOCALES = {
   "vi-us"  => "Tiếng Việt",
   "hm-us" => "lus hmoob",
-  "zh-us" => "繁體中文",
+  "zh-us" => "简体中文",
   "en-us" => "English"
 }
