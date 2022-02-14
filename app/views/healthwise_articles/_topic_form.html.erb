@@ -84,14 +84,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <% @healthwise_article.en_json['data']['topics'][0].each do |key, value| %>
-                    <%= form.label key %>
-                    <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                  <% end %>
+              <% if @healthwise_article.en_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% @healthwise_article.en_json['data']['topics'][0].each do |key, value| %>
+                      <%= form.label key %>
+                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">
@@ -109,14 +111,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <% @healthwise_article.zh_tw_json['data']['topics'][0].each do |key, value| %>
-                    <%= form.label key %>
-                    <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                  <% end %>
+              <% if @healthwise_article.zh_tw_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% @healthwise_article.zh_tw_json['data']['topics'][0].each do |key, value| %>
+                      <%= form.label key %>
+                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">
@@ -134,14 +138,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                  <% @healthwise_article.zh_cn_json['data']['topics'][0].each do |key, value| %>
-                    <%= form.label key %>
-                    <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                  <% end %>
+              <% if @healthwise_article.zh_cn_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% @healthwise_article.zh_cn_json['data']['topics'][0].each do |key, value| %>
+                      <%= form.label key %>
+                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">

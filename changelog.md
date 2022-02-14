@@ -12,13 +12,11 @@ https://github.com/vchpp/covid-informed
 
 - [x] Change Traditional language on HealthwiseArticle#Index to Simplified Chinese
 
+- [x] Investigate Edit on Healthwise Topic breaking (9 things)
+
 - [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
-- [ ] Investigate Edit on Healthwise Topic breaking (9 things)
-
-- [ ] Investigate language availability on #index ie acl4046
-
-- [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available
+- [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
 
 - [ ] Investigate HealthwiseArticle#Index language order
 
