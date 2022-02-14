@@ -19,35 +19,35 @@
 
         <div id="fh5co-tab-feature" class="fh5co-tab text-center">
           <h1>Editing Healthwise Article</h1>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="field form-group">
-              <%= form.label :hwid %>
-              <%= form.text_field :hwid %>
+              <%= form.label :hwid %>:
+              <%= @healthwise_article.hwid %>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="field form-group">
               <%= form.label :article_or_topic? %>
-              <%= form.select :article_or_topic, ["Article", "Topic"], class: 'form-control input-lg' %>
+              <%= @healthwise_article.article_or_topic %>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="field form-group">
               <%= form.label :category %>
               <%= form.select :category, ["General", "Testing", "Vaccination", "Wellness"], class: 'form-control input-lg' %>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="field form-group">
               <%= form.label :featured? %>
               <%= form.check_box :featured %>
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="field form-group">
               <%= form.label :archive? %>
               <%= form.check_box :archive %>
@@ -64,8 +64,8 @@
             <li> English (en)</li>
             <li> Chinese Traditional (zh_tw)</li>
             <li> Chinese Simplified (zh_cn)</li>
-            <li> Hmong (hmn)</li>
             <li> Vietnamese (vi)</li>
+            <li> Hmong (hmn)</li>
           </ul>
           <div class="resp-tabs-container hor_1">
 
@@ -84,14 +84,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                <% @healthwise_article.en_json['data'].each do |key, value| %>
-                  <%= form.label key %>
-                  <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
-                <% end %>
+              <% if @healthwise_article.en_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                  <% @healthwise_article.en_json['data'].each do |key, value| %>
+                    <%= form.label key %>
+                    <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
+                  <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">
@@ -109,14 +111,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                <% @healthwise_article.zh_tw_json['data'].each do |key, value| %>
-                  <%= form.label key %>
-                  <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
-                <% end %>
+              <% if @healthwise_article.zh_tw_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                  <% @healthwise_article.zh_tw_json['data'].each do |key, value| %>
+                    <%= form.label key %>
+                    <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
+                  <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">
@@ -134,14 +138,16 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="field form-group">
-                <% @healthwise_article.zh_cn_json['data'].each do |key, value| %>
-                  <%= form.label key %>
-                  <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
-                <% end %>
+              <% if @healthwise_article.zh_cn_json.present? %>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                  <% @healthwise_article.zh_cn_json['data'].each do |key, value| %>
+                    <%= form.label key %>
+                    <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
+                  <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
             <div class="row">
