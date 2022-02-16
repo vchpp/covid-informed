@@ -2,19 +2,9 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 2/9-2/16
+### 1-week sprint 2/16-2/22
 
-- [x] Lock down HWID and article_or_topic on edit form
-
-- [x] Switch Hmong and VI on edit form
-
-- [x] Add hmong disclaimer translations
-
-- [x] Change Traditional language on HealthwiseArticle#Index to Simplified Chinese
-
-- [x] Investigate Edit on Healthwise Topic breaking (9 things)
-
-- [x] Add rich_text_form to HealthwiseArticle below content, but above likes - migrate
+- [x] gate Callouts to admin for review
 
 - [ ] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
 
@@ -28,7 +18,7 @@ https://github.com/vchpp/covid-informed
 
 - [ ] Healthwise#index has disclaimer/intro
 
-- [ ] Healthwise#show has disclaimer/intro
+- [ ] Healthwise#show has disclaimer/intro after article but before rich_text
 
 - [ ] Add #refresh method and admin button to HealthwiseArticles to fetch from API instead of relying on #show?
 
@@ -126,6 +116,20 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 2/9-2/16
+
+- [x] Lock down HWID and article_or_topic on edit form
+
+- [x] Switch Hmong and VI on edit form
+
+- [x] Add hmong disclaimer translations
+
+- [x] Change Traditional language on HealthwiseArticle#Index to Simplified Chinese
+
+- [x] Investigate Edit on Healthwise Topic breaking (9 things)
+
+- [x] Add rich_text_form to HealthwiseArticle below content, but above likes - migrate
 
 ### 1-week sprint 2/2-2/8
 
