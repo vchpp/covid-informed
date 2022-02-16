@@ -34,5 +34,12 @@
         <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["yourUseOfThisInformationHtml"] %>
       </p>
     </div>
+
+    <div class="col-md-8 col-md-offset-2 rtf-mobile">
+      <% if @healthwise_article.send("#{article_locale}_rich_text").present? %>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <div><%= @healthwise_article.send("#{article_locale}_rich_text") %></div>
+      <% end %>
+    </div>
   </div>
 </section>

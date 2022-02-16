@@ -14,15 +14,15 @@ https://github.com/vchpp/covid-informed
 
 - [x] Investigate Edit on Healthwise Topic breaking (9 things)
 
+- [x] Add rich_text_form to HealthwiseArticle below content, but above likes - migrate
+
+- [ ] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+
 - [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
 - [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
 
 - [ ] Investigate HealthwiseArticle#Index language order
-
-- [ ] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
-
-- [ ] Add rich_text_form to HealthwiseArticle below content, but above likes - migrate
 
 - [ ] Add vi disclaimer translations
 
