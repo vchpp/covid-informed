@@ -91,6 +91,6 @@ class CalloutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def callout_params
-      params.require(:callout).permit(:en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :link, :external_link, :archive, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
+      params.require(:callout).permit(:en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :link, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :external_link, :archive, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
     end
 end
