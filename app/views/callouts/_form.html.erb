@@ -31,7 +31,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
-                      <%= form.label :en_title %>
+                      <%= form.label :en_title %> this doesn't show up publicly - use it to keep your records
                       <%= form.text_area :en_title, size:'70x2', class: 'form-control input-lg' %>
                     </div>
                   </div>
@@ -45,6 +45,10 @@
                       <%= form.file_field :en_image, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
                   </div>
+                  <div class="field form-group">
+                    <%= form.label :en_link_url %>
+                    <%= form.text_area :en_link_url, size:'70x2', class: 'form-control input-lg' %>
+                  </div>
                 </div>
               </div>
 
@@ -52,7 +56,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
-                      <%= form.label :zh_tw_title %>
+                      <%= form.label :zh_tw_title %> this doesn't show up publicly - use it to keep your records
                       <%= form.text_area :zh_tw_title, size:'70x2', class: 'form-control input-lg' %>
                     </div>
                   </div>
@@ -66,6 +70,10 @@
                       <%= form.file_field :zh_tw_image, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
                   </div>
+                  <div class="field form-group">
+                    <%= form.label :zh_tw_link_url %>
+                    <%= form.text_area :zh_tw_link_url, size:'70x2', class: 'form-control input-lg' %>
+                  </div>
                 </div>
               </div>
 
@@ -73,7 +81,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
-                      <%= form.label :zh_cn_title %>
+                      <%= form.label :zh_cn_title %> this doesn't show up publicly - use it to keep your records
                       <%= form.text_area :zh_cn_title, size:'70x2', class: 'form-control input-lg' %>
                     </div>
                   </div>
@@ -87,6 +95,10 @@
                       <%= form.file_field :zh_cn_image, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
                   </div>
+                  <div class="field form-group">
+                    <%= form.label :zh_cn_link_url %>
+                    <%= form.text_area :zh_cn_link_url, size:'70x2', class: 'form-control input-lg' %>
+                  </div>
                 </div>
               </div>
 
@@ -94,7 +106,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
-                      <%= form.label :hmn_title %>
+                      <%= form.label :hmn_title %> this doesn't show up publicly - use it to keep your records
                       <%= form.text_area :hmn_title, size:'70x2', class: 'form-control input-lg' %>
                     </div>
                   </div>
@@ -107,6 +119,10 @@
                       <%= form.label :hmn_image %>
                       <%= form.file_field :hmn_image, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
+                    <div class="field form-group">
+                      <%= form.label :hmn_link_url %>
+                      <%= form.text_area :hmn_link_url, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
                   </div>
 
                 </div>
@@ -116,7 +132,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="field form-group">
-                      <%= form.label :vi_title %>
+                      <%= form.label :vi_title %> this doesn't show up publicly - use it to keep your records
                       <%= form.text_area :vi_title, size:'70x2', class: 'form-control input-lg' %>
                     </div>
                   </div>
@@ -129,16 +145,16 @@
                       <%= form.label :vi_image %>
                       <%= form.file_field :vi_image, direct_upload: true, class: "form-control input-lg"  %>
                     </div>
+                    <div class="field form-group">
+                      <%= form.label :vi_link_url %>
+                      <%= form.text_area :vi_link_url, size:'70x2', class: 'form-control input-lg' %>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <div class="field form-group">
-                <%= form.label :link %>
-                <%= form.text_area :link, size:'70x2', class: 'form-control input-lg' %>
-              </div>
               <div class="field form-group">
                 <%= form.label :external_link? %> check this if clicking on the callout takes you away from this website
                 <%= form.check_box :external_link %>

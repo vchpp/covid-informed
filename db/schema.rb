@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_16_204320) do
+ActiveRecord::Schema.define(version: 2022_02_17_071204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,11 @@ ActiveRecord::Schema.define(version: 2022_02_16_204320) do
     t.boolean "archive"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "en_link_url"
+    t.string "zh_tw_link_url"
+    t.string "zh_cn_link_url"
+    t.string "vi_link_url"
+    t.string "hmn_link_url"
   end
 
   create_table "comments", force: :cascade do |t|

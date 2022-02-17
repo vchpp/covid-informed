@@ -1,41 +1,55 @@
-<p id="notice"><%= notice %></p>
+<section id="fh5co-feature">
+  <!-- START FEATURE 2 -->
+<div class="container">
+  <div class="row fh5co-feature-2">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="actions">
+        <%= link_to 'New Callout', new_callout_path, class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    </div>
 
-<h1>Callouts</h1>
+    <% @callouts.in_groups_of(2, false).each do |item1, item2| %>
+      <div class="row">
+        <a href="<%= callout_path(item1) %>">
+        <div class="col-md-6 col-sm-6 fh5co-feature-item">
+          <span class="fh5co-feature-icon ">
+            <% if item1.send("#{I18n.locale}_image".downcase).attached? %>
+              <i><%= image_tag item1.send("#{I18n.locale}_image".downcase).variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
+            <% else %>
+              <i class="ti-layout-placeholder" style="color:red;"></i>
+            <% end %>
+          </span>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.send("#{I18n.locale}_title".downcase) %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">Archive: <%= item1.archive %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">External link?: <%= item1.external_link %></h2>
+          <p class="text-center"><%= link_to 'Edit this callout', edit_callout_path(item1), class:"btn btn-primary btn-sm" %></p>
+          <p class="text-center"><%= link_to 'Delete this callout', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+          <div class="fh5co-spacer fh5co-spacer-md"></div>
+        </div>
+      </a>
+			<div class="clearfix visible-sm-block"></div>
+        <!-- item2 -->
+      <% if item2 %>
+      <a href="<%= callout_path(item2) %>">
+        <div class="col-md-6 col-sm-6 fh5co-feature-item">
+          <span class="fh5co-feature-icon ">
+            <% if item2.send("#{I18n.locale}_image".downcase).attached? %>
+              <i><%= image_tag item2.send("#{I18n.locale}_image".downcase).variant(resize_to_limit: [700, 400]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
+            <% else %>
+              <i class="ti-layout-placeholder" style="color:red;"></i>
+            <% end %>
+          </span>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.send("#{I18n.locale}_title".downcase) %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">Archive: <%= item2.archive %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">External link?: <%= item2.external_link %></h2>
+          <p class="text-center"><%= link_to 'Edit this callout', edit_callout_path(item2), class:"btn btn-primary btn-sm" %></p>
+          <p class="text-center"><%= link_to 'Delete this callout', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
+          <div class="fh5co-spacer fh5co-spacer-md"></div>
+          </div>
+        </a>
+        <% end %>
+        </div> <!-- end row -->
+      <% end %>
+    </div> <!-- end container -->
 
-<table>
-  <thead>
-    <tr>
-      <th>En title</th>
-      <th>Zh tw title</th>
-      <th>Zh cn title</th>
-      <th>Vi title</th>
-      <th>Hmn title</th>
-      <th>Link</th>
-      <th>External link</th>
-      <th>Archive</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @callouts.each do |callout| %>
-      <tr>
-        <td><%= callout.en_title %></td>
-        <td><%= callout.zh_tw_title %></td>
-        <td><%= callout.zh_cn_title %></td>
-        <td><%= callout.vi_title %></td>
-        <td><%= callout.hmn_title %></td>
-        <td><%= callout.link %></td>
-        <td><%= callout.external_link %></td>
-        <td><%= callout.archive %></td>
-        <td><%= link_to 'Show', callout %></td>
-        <td><%= link_to 'Edit', edit_callout_path(callout) %></td>
-        <td><%= link_to 'Destroy', callout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Callout', new_callout_path %>
+</section>
