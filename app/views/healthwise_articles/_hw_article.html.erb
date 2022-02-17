@@ -37,6 +37,7 @@ meta title: "#{@healthwise_article.send("#{article_locale}_json")["data"]["title
           <a href="{{reviewer.profileId}}"><%= r["name"]%> </a> |
         <% end %>
       </p>
+      <p><label>Certified Date:</label> <%= @healthwise_article.send("#{article_locale}_json")["data"]["certifiedDate"] %> </p>
    </div>
     <div class="col-md-12">
       <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["legal"]["logo"] %>

@@ -6,15 +6,17 @@ https://github.com/vchpp/covid-informed
 
 - [x] gate Callouts to admin for review
 
-- [ ] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+- [x] Add vi disclaimer translations
+
+- [x] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+
+- [ ] Add additional language support for callout_links
 
 - [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
 - [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
 
 - [ ] Investigate HealthwiseArticle#Index language order
-
-- [ ] Add vi disclaimer translations
 
 - [ ] Healthwise#index has disclaimer/intro
 
