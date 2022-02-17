@@ -10,7 +10,7 @@ https://github.com/vchpp/covid-informed
 
 - [x] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
 
-- [ ] Add additional language support for callout_links
+- [x] Add additional language support for callout_links
 
 - [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
