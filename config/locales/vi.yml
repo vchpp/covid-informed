@@ -3,7 +3,7 @@ vi:
   welcome: "chào mừng!"
   language: "Tiếng Việt"
   locale: "vi"
-  disclaimer: "The information contained in this website is for educational purpose only.  Given the fast-evolving situation of COVID-19, while the research team attempts to provide timely information on this website, please refer to the COVID-19 information website of the Centers for Disease Control and Prevention (CDC) https://www.cdc.gov/coronavirus/2019-ncov/index.html for the most updated guidelines. Always seek advice from your health care provider for specific recommendation pertaining to your health condition."
+  disclaimer: "Tuyên bố từ chối trách nhiệm: Thông tin trong trang mạng này chỉ dành cho mục đích giáo dục. Trước tình hình thay đổi nhanh chóng của bệnh COVID-19, trong khi nhóm nghiên cứu cố gắng cung cấp thông tin kịp thời trên trang mạng này, bạn cũng nên vui lòng tham khảo trang mạng thông tin về COVID-19 của Trung Tâm Kiểm Soát Và Phòng Ngừa Bệnh Tật (CDC) https: // www. cdc.gov/coronavirus/2019-ncov/index.html để có các hướng dẫn cập nhật. Bạn luôn luôn phải tìm kiếm lời khuyên từ các nhân viên cung cấp dịch vụ chăm sóc sức khỏe của bạn để có khuyến nghị cụ thể liên quan đến tình trạng sức khỏe của bạn."
   navbar:
     about: "Giới Thiệu"
     messages: "Tin Nhắn"
