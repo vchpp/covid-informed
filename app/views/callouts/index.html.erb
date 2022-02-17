@@ -20,6 +20,8 @@
             <% end %>
           </span>
           <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.send("#{I18n.locale}_title".downcase) %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">Archive: <%= item1.archive %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">External link?: <%= item1.external_link %></h2>
           <p class="text-center"><%= link_to 'Edit this callout', edit_callout_path(item1), class:"btn btn-primary btn-sm" %></p>
           <p class="text-center"><%= link_to 'Delete this callout', item1, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
           <div class="fh5co-spacer fh5co-spacer-md"></div>
@@ -38,6 +40,8 @@
             <% end %>
           </span>
           <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.send("#{I18n.locale}_title".downcase) %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">Archive: <%= item2.archive %></h2>
+          <h2 class="text-center fh5co-feature-title h4 text-uppercase">External link?: <%= item2.external_link %></h2>
           <p class="text-center"><%= link_to 'Edit this callout', edit_callout_path(item2), class:"btn btn-primary btn-sm" %></p>
           <p class="text-center"><%= link_to 'Delete this callout', item2, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %></p>
           <div class="fh5co-spacer fh5co-spacer-md"></div>
