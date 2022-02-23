@@ -4,7 +4,7 @@
     <a href="<%= healthwise_article_path(item1) %>">
       <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item1.category %> ">
-          <%= item1.send("#{I18n.locale}_title".downcase) %>
+          <%= item1.send("#{params[:locale]}_title".downcase).present? ? item1.send("#{params[:locale]}_title".downcase) : item1.en_title %>
         </div>
         <div class="text-center fh5co-pricing-table-item-body <%= item1.category %>-border ">
 
@@ -21,7 +21,7 @@
     <a href="<%= healthwise_article_path(item2) %>">
       <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item2.category %> ">
-          <%= item2.send("#{I18n.locale}_title".downcase) %>
+          <%= item2.send("#{params[:locale]}_title".downcase).present? ? item2.send("#{params[:locale]}_title".downcase) : item2.en_title %>
         </div>
         <div class="text-center fh5co-pricing-table-item-body <%= item2.category %>-border ">
 
@@ -38,7 +38,7 @@
     <a href="<%= healthwise_article_path(item3) %>">
       <div class="col-md-4 col-sm-4 col-xs-6 fh5co-pricing-table-item">
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item3.category %> ">
-          <%= item3.send("#{I18n.locale}_title".downcase) %>
+          <%= item3.send("#{params[:locale]}_title".downcase).present? ? item3.send("#{params[:locale]}_title".downcase) : item3.en_title %>
         </div>
         <div class="text-center fh5co-pricing-table-item-body <%= item3.category %>-border" >
 

@@ -14,7 +14,7 @@ https://github.com/vchpp/covid-informed
 
 - [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
-- [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
+- [x] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
 
 - [ ] Investigate HealthwiseArticle#Index language order
 
