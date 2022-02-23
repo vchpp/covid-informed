@@ -12,17 +12,17 @@ https://github.com/vchpp/covid-informed
 
 - [x] Add additional language support for callout_links
 
-- [ ] How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
+- [x] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
 
-- [ ] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
+- [x] Investigate HealthwiseArticle#Index language order
 
-- [ ] Investigate HealthwiseArticle#Index language order
+- `WON'T DO` How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
 - [ ] Healthwise#index has disclaimer/intro
 
 - [ ] Healthwise#show has disclaimer/intro after article but before rich_text
 
-- [ ] Add #refresh method and admin button to HealthwiseArticles to fetch from API instead of relying on #show?
+- [ ] Stretch: Add #refresh method and admin button to HealthwiseArticles to fetch from API instead of relying on #show?
 
 - [ ] Stretch: Paginate Externals, Healthwise, FAQs
 

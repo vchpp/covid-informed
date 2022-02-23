@@ -8,4 +8,9 @@ module HealthwiseArticlesHelper
       "en"
     end
   end
+
+  def article_locale_unavailability
+    flash.now[:alert] = "Some of the articles listed here are not available in this language. (t)"
+    "en"
+  end
 end
