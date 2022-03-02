@@ -127,7 +127,7 @@ class HealthwiseArticlesController < ApplicationController
     # save simplified chinese with traditional chinese's values
     @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json if @healthwise_article.zh_tw_json.present?
     respond_to do |format|
-      if @healthwise_article.update(healthwise_article_params) # breaks here due to missing params?
+      if @healthwise_article.update(healthwise_article_params) # breaks here due to missing params? params.require(:healthwise_article)
         format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully refreshed from the HW API." }
         format.json { render :show, status: :ok, location: @healthwise_article }
         logger.info "#{current_user.email} refreshed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
@@ -177,7 +177,7 @@ class HealthwiseArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
-      params.permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
+      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
     end
 
     def set_page
