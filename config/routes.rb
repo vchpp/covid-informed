@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         resources :likes
         resources :comments
       end
+      put '/healthwise-articles/:id/refresh', to: 'healthwise_articles#refresh', as: 'healthwise_article_refresh'
       resources :faqs
       resources :downloads
       resources :statistics
