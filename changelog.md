@@ -20,9 +20,9 @@ https://github.com/vchpp/covid-informed
 
 - [ ] reduce bottom of card on index for healthwise and downloads
 
-- [ ] Add audio feature for all languages for FAQs
+- [x] Add audio feature for all languages for FAQs
 
-- [ ] Integrate better audio playback with scrubbing
+- [x] Integrate better audio playback with scrubbing
 
 - [ ] Move Callout arrows to `ti-angle-right` `ti-angle-left`
 
