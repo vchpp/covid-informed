@@ -12,7 +12,17 @@ https://github.com/vchpp/covid-informed
 
 - [x] Add #refresh button to activate method within #show
 
+- [x] Investigate HW articles (acl4046 article / acl3668)
+
+- [ ] Downloads - languages[] database migration
+
 - [ ] Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
+
+- [ ] reduce bottom of card on index for healthwise and downloads
+
+- [ ] Add audio feature for all languages for FAQs
+
+- [ ] Integrate better audio playback with scrubbing
 
 - [ ] Move Callout arrows to `ti-angle-right` `ti-angle-left`
 

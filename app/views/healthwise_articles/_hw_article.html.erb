@@ -22,7 +22,7 @@ meta title: "#{@healthwise_article.send("#{article_locale}_json")["data"]["title
       <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["abstract"]["consumer"] %>
     </div>
     <div class="col-md-12">
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["navigation"]["html"] %>
+      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["navigation"]["html"] if @healthwise_article.send("#{article_locale}_json")["data"]["navigation"].present? %>
     </div>
     <div class="col-md-12">
       <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"].map do |t| %>

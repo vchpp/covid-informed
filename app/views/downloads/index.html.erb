@@ -64,20 +64,20 @@ meta title: "COVID-INFORMED - Downloads",
       <div class="row">
         <% if item1 %>
 
-          <% if item1.send("#{I18n.locale}_file".downcase).attached? %>
-            <%= link_to rails_blob_path(item1.send("#{I18n.locale}_file".downcase), disposition: "attachment") do %>
+          <% if item1.send("#{params[:locale]}_file".downcase).attached? %>
+            <%= link_to rails_blob_path(item1.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
               <div class="col-md-4 col-sm-4 fh5co-feature-item">
                 <div class="<%=item1.category%> text-center">
                   <span class="fh5co-feature-icon">
-                    <% if item1.send("#{I18n.locale}_file".downcase).attached? %>
-                      <% if item1.send("#{I18n.locale}_file".downcase).representable? %>
-                        <i><%= image_tag item1.send("#{I18n.locale}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
+                    <% if item1.send("#{params[:locale]}_file".downcase).attached? %>
+                      <% if item1.send("#{params[:locale]}_file".downcase).representable? %>
+                        <i><%= image_tag item1.send("#{params[:locale]}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                       <% end %>
                     <% else %>
                       <i class="ti-layout-placeholder" style="color:red;"></i>
                     <% end %>
                   </span>
-                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.send("#{I18n.locale}_title".downcase) %></h2>
+                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item1.send("#{params[:locale]}_title".downcase) %></h2>
                 </div>
                 <div class="fh5co-spacer fh5co-spacer-sm"></div>
               </div>
@@ -87,20 +87,20 @@ meta title: "COVID-INFORMED - Downloads",
         <% end %> <!-- end if item1 -->
 
         <% if item2 %>
-          <% if item2.send("#{I18n.locale}_file".downcase).attached? %>
-            <%= link_to rails_blob_path(item2.send("#{I18n.locale}_file".downcase), disposition: "attachment") do %>
+          <% if item2.send("#{params[:locale]}_file".downcase).attached? %>
+            <%= link_to rails_blob_path(item2.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
               <div class="col-md-4 col-sm-4 fh5co-feature-item">
                 <div class="<%=item2.category%> text-center">
                   <span class="fh5co-feature-icon">
-                    <% if item2.send("#{I18n.locale}_file".downcase).attached? %>
-                      <% if item2.send("#{I18n.locale}_file".downcase).representable? %>
-                        <i><%= image_tag item2.send("#{I18n.locale}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
+                    <% if item2.send("#{params[:locale]}_file".downcase).attached? %>
+                      <% if item2.send("#{params[:locale]}_file".downcase).representable? %>
+                        <i><%= image_tag item2.send("#{params[:locale]}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                       <% end %>
                     <% else %>
                       <i class="ti-layout-placeholder" style="color:red;"></i>
                     <% end %>
                   </span>
-                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.send("#{I18n.locale}_title".downcase) %></h2>
+                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item2.send("#{params[:locale]}_title".downcase) %></h2>
                 </div>
                 <div class="fh5co-spacer fh5co-spacer-sm"></div>
               </div>
@@ -109,20 +109,20 @@ meta title: "COVID-INFORMED - Downloads",
         <% end %> <!-- end if item2 -->
 
         <% if item3 %>
-          <% if item3.send("#{I18n.locale}_file".downcase).attached? %>
-            <%= link_to rails_blob_path(item3.send("#{I18n.locale}_file".downcase), disposition: "attachment") do %>
+          <% if item3.send("#{params[:locale]}_file".downcase).attached? %>
+            <%= link_to rails_blob_path(item3.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
               <div class="col-md-4 col-sm-4 fh5co-feature-item">
                 <div class="<%=item3.category%> text-center">
                   <span class="fh5co-feature-icon">
-                    <% if item3.send("#{I18n.locale}_file".downcase).attached? %>
-                      <% if item3.send("#{I18n.locale}_file".downcase).representable? %>
-                        <i><%= image_tag item3.send("#{I18n.locale}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
+                    <% if item3.send("#{params[:locale]}_file".downcase).attached? %>
+                      <% if item3.send("#{params[:locale]}_file".downcase).representable? %>
+                        <i><%= image_tag item3.send("#{params[:locale]}_file".downcase).representation(resize_to_limit: [400, 600]), class: "img-fluid", :style => "max-width: 90%; height: auto"%></i>
                       <% end %>
                     <% else %>
                       <i class="ti-layout-placeholder" style="color:red;"></i>
                     <% end %>
                   </span>
-                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item3.send("#{I18n.locale}_title".downcase) %></h2>
+                  <h2 class="text-center fh5co-feature-title h4 text-uppercase"><%= item3.send("#{params[:locale]}_title".downcase) %></h2>
                 </div>
                 <div class="fh5co-spacer fh5co-spacer-sm"></div>
               </div>

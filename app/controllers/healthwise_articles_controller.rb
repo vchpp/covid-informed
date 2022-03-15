@@ -164,10 +164,10 @@ class HealthwiseArticlesController < ApplicationController
     end
 
     def fetch_article(type, hwid, language)
-      logger.warn("#{language}")
       token = fetch_hw_token
       url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}/#{language}"
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
+      # logger.warn("#{token}")
     end
 
     # Use callbacks to share common setup or constraints between actions.
