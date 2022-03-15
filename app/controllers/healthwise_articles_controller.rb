@@ -1,6 +1,6 @@
 class HealthwiseArticlesController < ApplicationController
-  before_action :set_healthwise_article, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy index show ]
+  before_action :set_healthwise_article, only: %i[ show edit update refresh destroy ]
+  before_action :authenticate_admin!, only: %i[ new create edit update refresh destroy index show ]
   before_action :set_page, only: [:show]
 
   # GET /healthwise_articles or /healthwise_articles.json
@@ -34,22 +34,6 @@ class HealthwiseArticlesController < ApplicationController
     end
     up_likes
     down_likes
-    # check if it's custom JSON, if yes, skip fetching
-    custom_translations = @healthwise_article.send("#{params[:locale]}_translated".downcase)
-    if custom_translations == false
-      # check if the HW JSON is out of date, then fetch_article:&update!
-      if @healthwise_article.updated_at < Time.now.utc - 1.month
-        # change to go through [languages] and update all
-        @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
-          response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
-          # set JSON
-          @healthwise_article.send("#{CI_LOCALE[l]}_json=", JSON.parse(response))
-        end
-        # save simplified chinese with traditional chinese's values
-        @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
-        @healthwise_article.save
-      end
-    end
     respond_to do |format|
       format.html
       format.csv do
@@ -130,6 +114,31 @@ class HealthwiseArticlesController < ApplicationController
     end
   end
 
+  def refresh
+    # check if it's custom JSON, if yes, skip fetching
+    CI_LOCALE.each do |k,v|
+      if @healthwise_article.send("#{v}_translated".downcase) ==  false
+        # check if the HW JSON is out of date, then fetch_article:&update!
+        response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, k)
+        # set JSON
+        @healthwise_article.send("#{v}_json=".downcase, JSON.parse(response))
+      end
+    end
+    # save simplified chinese with traditional chinese's values
+    @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json if @healthwise_article.zh_tw_json.present?
+    respond_to do |format|
+      if @healthwise_article.update(healthwise_article_params) # breaks here due to missing params? params.require(:healthwise_article)
+        format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully refreshed from the HW API." }
+        format.json { render :show, status: :ok, location: @healthwise_article }
+        logger.info "#{current_user.email} refreshed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
+        audit! :updated_healthwise_article, @healthwise_article, payload: healthwise_article_params
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @healthwise_article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /healthwise_articles/1 or /healthwise_articles/1.json
   def destroy
     logger.info "#{current_user.email} destroyed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
@@ -158,6 +167,7 @@ class HealthwiseArticlesController < ApplicationController
       token = fetch_hw_token
       url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}/#{language}"
       response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
+      # logger.warn("#{token}")
     end
 
     # Use callbacks to share common setup or constraints between actions.

@@ -2,27 +2,41 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 2/16-2/22
+### 1-week sprint 2/23 - 3/3
 
-- [x] gate Callouts to admin for review
+- [x] Remove alert for missing article on HW#Show
 
-- [x] Add vi disclaimer translations
+- [x] Remove auto update logic on HW#Show controller
 
-- [x] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+- [x] Add #refresh data method to HealthwiseArticles to fetch from API instead of relying on #show
 
-- [x] Add additional language support for callout_links
+- [x] Add #refresh button to activate method within #show
 
-- [x] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
+- [x] Investigate HW articles (acl4046 article / acl3668)
 
-- [x] Investigate HealthwiseArticle#Index language order
+- [ ] Downloads - languages[] database migration
 
-- `WON'T DO` How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
+- [ ] Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
+
+- [ ] reduce bottom of card on index for healthwise and downloads
+
+- [ ] Add audio feature for all languages for FAQs
+
+- [ ] Integrate better audio playback with scrubbing
+
+- [ ] Move Callout arrows to `ti-angle-right` `ti-angle-left`
+
+- [ ] Nullify missing language boxes on HW creation
+
+- [ ] Add logic to turn translated? bool to true if language is missing on HealthwiseArticle#create
+
+- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
+
+- [ ] Flesh out language boxes for HW topic hash on forms
 
 - [ ] Healthwise#index has disclaimer/intro
 
 - [ ] Healthwise#show has disclaimer/intro after article but before rich_text
-
-- [ ] Stretch: Add #refresh method and admin button to HealthwiseArticles to fetch from API instead of relying on #show?
 
 - [ ] Stretch: Paginate Externals, Healthwise, FAQs
 
@@ -118,6 +132,22 @@ Like activity as event
 External resources and Statistics events (clicks, navigation to external websites)
 
 # CHANGELOG:
+
+### 1-week sprint 2/16-2/22
+
+- [x] gate Callouts to admin for review
+
+- [x] Add vi disclaimer translations
+
+- [x] Add `certifiedDate` to HealthwiseArticles#Show - only on articles
+
+- [x] Add additional language support for callout_links
+
+- [x] Add english title on HealthwiseArticle#Index to card when a language isn't available ie acl4046
+
+- [x] Investigate HealthwiseArticle#Index language order
+
+- `WON'T DO` How to prevent an article being saved as a topic?  Validation errors?  This causes the website to break due to accessing [] for nil object
 
 ### 1-week sprint 2/9-2/16
 
