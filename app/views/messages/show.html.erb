@@ -81,11 +81,8 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
     <div class="row">
 
       <% if @audio.attached? %>
-        <div class="col-md-8 col-md-offset-2">
-          <div class="btn btn-primary btn-lg btn-block" id="player">
-              <%= audio_tag rails_blob_url @audio %>
-              <span id="player-control" class="ti-control-play"> Play audio</span>
-          </div>
+        <div class="col-md-12 text-center">
+          <%= audio_tag url_for(@audio), controls: true %>
         </div>
       <% end %>
 
