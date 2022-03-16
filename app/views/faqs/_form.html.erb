@@ -18,7 +18,7 @@
           <% end %>
 
           <div id="fh5co-tab-feature" class="fh5co-tab text-center">
-            
+
             <ul class="resp-tabs-list hor_1">
               <li> English (en)</li>
               <li> Chinese Traditional (zh_tw)</li>
@@ -43,6 +43,22 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @faq.en_audio.attached? %>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@faq.en_audio), controls: true %>
+                      </div>
+                    <% end %>
+                    <br>
+                    <%= form.label :en_audio %>
+                    <%= form.file_field :en_audio, direct_upload: true, class: "form-control input-lg" %>
+                    <% if @faq.en_audio.attached? %>
+                      <%= label_tag(:en_audio_purge, "Delete en_audio?") %>
+                      <%= check_box_tag(:en_audio_purge) %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
 
               <div>
@@ -59,6 +75,22 @@
                       <%= form.label :zh_tw_answer %>
                       <%= form.rich_text_area :zh_tw_answer %>
                     </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @faq.zh_tw_audio.attached? %>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@faq.zh_tw_audio), controls: true %>
+                      </div>
+                    <% end %>
+                    <br>
+                    <%= form.label :zh_tw_audio %>
+                    <%= form.file_field :zh_tw_audio, direct_upload: true, class: "form-control input-lg" %>
+                    <% if @faq.zh_tw_audio.attached? %>
+                      <%= label_tag(:zh_tw_audio_purge, "Delete zh_tw_audio?") %>
+                      <%= check_box_tag(:zh_tw_audio_purge) %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -79,6 +111,22 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @faq.zh_cn_audio.attached? %>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@faq.zh_cn_audio), controls: true %>
+                      </div>
+                    <% end %>
+                    <br>
+                    <%= form.label :zh_cn_audio %>
+                    <%= form.file_field :zh_cn_audio, direct_upload: true, class: "form-control input-lg" %>
+                    <% if @faq.zh_cn_audio.attached? %>
+                      <%= label_tag(:zh_cn_audio_purge, "Delete zh_cn_audio?") %>
+                      <%= check_box_tag(:zh_cn_audio_purge) %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
 
               <div>
@@ -95,6 +143,22 @@
                       <%= form.label :hmn_answer %>
                       <%= form.rich_text_area :hmn_answer %>
                     </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="field form-group">
+                    <% if @faq.hmn_audio.attached? %>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@faq.hmn_audio), controls: true %>
+                      </div>
+                    <% end %>
+                    <br>
+                    <%= form.label :hmn_audio %>
+                    <%= form.file_field :hmn_audio, direct_upload: true, class: "form-control input-lg" %>
+                    <% if @faq.hmn_audio.attached? %>
+                      <%= label_tag(:hmn_audio_purge, "Delete hmn_audio?") %>
+                      <%= check_box_tag(:hmn_audio_purge) %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -115,8 +179,24 @@
                     </div>
                   </div>
                 </div>
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <% if @faq.vi_audio.attached? %>
+                    <div class="col-md-12 text-center">
+                      <%= audio_tag url_for(@faq.vi_audio), controls: true %>
+                    </div>
+                  <% end %>
+                  <br>
+                  <%= form.label :vi_audio %>
+                  <%= form.file_field :vi_audio, direct_upload: true, class: "form-control input-lg" %>
+                  <% if @faq.vi_audio.attached? %>
+                    <%= label_tag(:vi_audio_purge, "Delete vi_audio?") %>
+                    <%= check_box_tag(:vi_audio_purge) %>
+                  <% end %>
+                </div>
               </div>
             </div>
+          </div>
 
             <div class="col-md-12">
               <div class="field form-group">

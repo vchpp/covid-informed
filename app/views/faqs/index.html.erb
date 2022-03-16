@@ -63,7 +63,7 @@ meta title: "COVID-INFORMED - FAQs",
               <div class="panel-heading" role="tab" id="heading<%=faq.id%>" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<%=faq.id%>" aria-expanded="false" aria-controls="collapse<%=faq.id%>">
                 <h4 class="panel-title">
                   <a class="accordion-toggle">
-                    <%= faq.send("#{I18n.locale}_question".downcase) %>
+                    <%= faq.send("#{params[:locale]}_question".downcase) %>
                   </a>
                   <span style="float:right;padding-right: 40px">
                     <% if current_user.try(:admin?) %>
@@ -77,7 +77,12 @@ meta title: "COVID-INFORMED - FAQs",
 
               <div id="collapse<%=faq.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=faq.id%>">
                 <div class="panel-body">
-                  <%= faq.send("#{I18n.locale}_answer".downcase) %>
+                  <% if faq.send("#{params[:locale]}_audio".downcase).attached? %>
+                  <div class="col-md-12 text-center">
+                    <%= audio_tag url_for(faq.send("#{params[:locale]}_audio".downcase)), controls: true %>
+                  </div>
+                  <% end %>
+                  <%= faq.send("#{params[:locale]}_answer".downcase) %>
                 </div>
               </div>
 

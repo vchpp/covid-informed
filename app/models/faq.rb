@@ -4,6 +4,11 @@ class Faq < ApplicationRecord
   has_rich_text :zh_cn_answer
   has_rich_text :hmn_answer
   has_rich_text :vi_answer
+  has_one_attached :en_audio, dependent: :destroy
+  has_one_attached :vi_audio, dependent: :destroy
+  has_one_attached :hmn_audio, dependent: :destroy
+  has_one_attached :zh_cn_audio, dependent: :destroy
+  has_one_attached :zh_tw_audio, dependent: :destroy
   has_many :rich_texts,
     class_name: "ActionText::RichText",
     as: :record,
