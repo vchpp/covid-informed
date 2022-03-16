@@ -36,7 +36,7 @@ class DownloadsController < ApplicationController
     @download.zh_cn_file.attach(params[:download][:zh_cn_file]) if params[:zh_cn_file].present?
     @download.vi_file.attach(params[:download][:vi_file]) if params[:vi_file].present?
     @download.hmn_file.attach(params[:download][:hmn_file]) if params[:hmn_file].present?
-
+    @download[:languages] = params[:download][:languages].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @download.save
         format.html { redirect_to @download, notice: "Download was successfully created." }
@@ -57,6 +57,7 @@ class DownloadsController < ApplicationController
     @download.zh_cn_file.purge if params[:zh_cn_file].present?
     @download.vi_file.purge if params[:vi_file].present?
     @download.hmn_file.purge if params[:hmn_file].present?
+    @download[:languages] = params[:download][:languages].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @download.update(download_params)
         format.html { redirect_to @download, notice: "Download was successfully updated." }
@@ -93,6 +94,6 @@ class DownloadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def download_params
-      params.require(:download).permit(:en_file, :zh_tw_file, :zh_cn_file, :vi_file, :hmn_file, :en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :category, :archive, :search)
+      params.require(:download).permit(:en_file, :zh_tw_file, :zh_cn_file, :vi_file, :hmn_file, :en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :category, :archive, :search, :languages)
     end
 end

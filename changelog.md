@@ -2,7 +2,7 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 1-week sprint 2/23 - 3/3
+### 3-week sprint 2/23 - 3/15
 
 - [x] Remove alert for missing article on HW#Show
 
@@ -14,15 +14,15 @@ https://github.com/vchpp/covid-informed
 
 - [x] Investigate HW articles (acl4046 article / acl3668)
 
-- [ ] Downloads - languages[] database migration
+- [x] Add audio feature for all languages for FAQs
+
+- [x] Integrate better audio playback with scrubbing
+
+- [x] Downloads - languages[] database migration
 
 - [ ] Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
 
 - [ ] reduce bottom of card on index for healthwise and downloads
-
-- [x] Add audio feature for all languages for FAQs
-
-- [x] Integrate better audio playback with scrubbing
 
 - [ ] Move Callout arrows to `ti-angle-right` `ti-angle-left`
 
