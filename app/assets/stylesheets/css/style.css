@@ -1402,61 +1402,72 @@ Components
   border-radius: 15px;
   background: #eb5d1f;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Testing {
   border: 4px solid #37c4bc;
   border-radius: 15px;
   background: #37c4bc;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Vaccination {
   border: 4px solid #262463;
   border-radius: 15px;
   background: #262463;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Other {
   border: 4px solid #823D1C;
   border-radius: 15px;
   background: #823D1C;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Wellness {
   border: 4px solid #823D1C;
   border-radius: 15px;
   background: #823D1C;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 /* custom borders */
 .General-border {
   border: 4px solid #eb5d1f;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 .Testing-border {
   border: 4px solid #37c4bc;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 .Vaccination-border {
   border: 4px solid #262463;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 .Other-border {
   border: 4px solid #823D1C;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 .Wellness-border {
   border: 4px solid #823D1C;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 .Admin-border {
   border: 4px solid red;
   border-radius: 15px;
   color: #000;
+  box-shadow: 0 0 20px grey;
 }
 /* Download categories: participant handouts/flipcharts/training manuals/other */
 .Participant_Handouts {
@@ -1464,18 +1475,21 @@ Components
   border-radius: 15px;
   background: #eb5d1f;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Flipcharts {
   border: 4px solid #37c4bc;
   border-radius: 15px;
   background: #37c4bc;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 .Training_Manuals {
   border: 4px solid #262463;
   border-radius: 15px;
   background: #262463;
   color: #ffffff;
+  box-shadow: 0 0 20px grey;
 }
 
 audio {

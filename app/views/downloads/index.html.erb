@@ -38,7 +38,6 @@ meta title: "COVID-INFORMED - Downloads",
     </div>
     <div class="fh5co-spacer fh5co-spacer-md"></div>
 
-    <div class="col-md-10 col-md-offset-1">
       <div class="col-md-12">
         <label for="faq" class="sr-only"><%= t('resources.external.search')%></label>
         <form id="search" method="GET" action="/<%=params[:locale]%>/resources/downloads" >
@@ -66,7 +65,7 @@ meta title: "COVID-INFORMED - Downloads",
 
           <% if item1.send("#{params[:locale]}_file".downcase).attached? %>
             <%= link_to rails_blob_path(item1.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
-              <div class="col-md-4 col-sm-4 fh5co-feature-item">
+              <div class="col-md-4 col-sm-6 fh5co-feature-item">
                 <div class="<%=item1.category%> text-center">
                   <span class="fh5co-feature-icon">
                     <% if item1.send("#{params[:locale]}_file".downcase).attached? %>
@@ -89,7 +88,7 @@ meta title: "COVID-INFORMED - Downloads",
         <% if item2 %>
           <% if item2.send("#{params[:locale]}_file".downcase).attached? %>
             <%= link_to rails_blob_path(item2.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
-              <div class="col-md-4 col-sm-4 fh5co-feature-item">
+              <div class="col-md-4 col-sm-6 fh5co-feature-item">
                 <div class="<%=item2.category%> text-center">
                   <span class="fh5co-feature-icon">
                     <% if item2.send("#{params[:locale]}_file".downcase).attached? %>
@@ -111,7 +110,7 @@ meta title: "COVID-INFORMED - Downloads",
         <% if item3 %>
           <% if item3.send("#{params[:locale]}_file".downcase).attached? %>
             <%= link_to rails_blob_path(item3.send("#{params[:locale]}_file".downcase), disposition: "attachment") do %>
-              <div class="col-md-4 col-sm-4 fh5co-feature-item">
+              <div class="col-md-4 col-sm-6 fh5co-feature-item">
                 <div class="<%=item3.category%> text-center">
                   <span class="fh5co-feature-icon">
                     <% if item3.send("#{params[:locale]}_file".downcase).attached? %>
@@ -174,7 +173,6 @@ meta title: "COVID-INFORMED - Downloads",
       <%= link_to 'New Download', new_download_path %>
       <% end %>
     </div>
-  </div>
 </section>
 <div class="fh5co-spacer fh5co-spacer-xs"></div>
 <div class="container">

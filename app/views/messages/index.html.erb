@@ -60,7 +60,7 @@ meta title: "COVID-INFORMED - Messages",
     <% @messages.in_groups_of(2, false).each do |item1, item2| %>
       <div class="row">
         <a href="<%= message_path(item1) %>">
-        <div class="col-md-6 col-sm-6 fh5co-feature-item">
+        <div class="col-md-6 col-sm-6 fh5co-feature-item shadow-lg">
             <% case %>
               <%  when params[:locale] == "en" %>
                 <span class="fh5co-feature-icon <%=item1.category%>">
