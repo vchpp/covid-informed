@@ -13,6 +13,7 @@ vi:
     layhealthworkers: "Nhân Viên Sức Khỏe Cộng Đồng"
     external: "Tài Nguyên Bổ Sung"
     mission: "Mục đích"
+    healthwise: "Các bài báo của Healthwise"
   about:
     research_team: "Nhóm Nghiên CứuChương Trình"
     research_team_titles:
@@ -71,7 +72,9 @@ vi:
       stats1: "Để cộng đồng của chúng ta được thông báo về COVID-19, chúng tôi đã chọn một số tài liệu trực tuyến cung cấp số liệu thống kê mới nhất liên quan đến đại dịch COVID-19 trên toàn cầu và địa phương. Các tài liệu này được liệt kê ở chỗ “Thống kê”."
     downloads: "Tải xuống"
     healthwise:
+      healthwise: "Các bài báo của Healthwise"
       missing_article: "Thông tin này chỉ có bằng tiếng Anh."
+      disclaimer: "Các bài báo về thông tin sức khỏe được cung cấp miễn phí bởi Healthwise, một tổ chức hợp tác phi lợi nhuận của chương trình INFORMED. Healthwise (healthwise.org) cung cấp thông tin sức khỏe dựa trên bằng chứng khoa học cho cộng đồng, bệnh viện và nhà cung cấp hồ sơ y tế điện tử (EMR). Nhiều người đã chuyển sang thông tin Healthwise để tìm hiểu cách đưa ra quyết định tốt hơn về sức khỏe. Xin vui lòng bình luận và chia sẻ thông tin với cộng đồng của bạn."
   faqs:
     faq: "Các Câu Hỏi Thường Gặp"
     filter: "lọc theo danh mục"

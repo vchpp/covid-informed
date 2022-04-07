@@ -13,6 +13,7 @@ hmn:
     layhealthworkers: "Cov neeg uahaujlwm"
     external: "Khoom Txhawb Ntxiv"
     mission: "Xaiv los ntawm Lub Nroog"
+    healthwise: "Healthwise cov ntaub ntawv nyeem"
   about:
     research_team: "Covneeg Tshawbfawb"
     research_team_titles:
@@ -72,7 +73,9 @@ koom haum National Institutes of Health. USCF IRB Approval Number 20-32933"
       stats1: "Peb tau xaiv ntau qhovchaw qhia khoomsiv txheebcais txog COVID-19 nyob hauv yeebyaj Rojhmab, khaws rau peb cov neeg zejzog kom paubzoo txog COVID-19, uas thoob nriajteb thiab hauv zejzog. Cov ntsiablus khoomsiv tso raws kab hauvqab ntiv “Txheebcais.”"
     downloads: "rub tawm"
     healthwise:
+      healthwise: "Healthwise cov ntaub ntawv nyeem"
       missing_article: "Cov ntaub ntawv no muaj txhias ua lus Askiv xwb."
+      disclaimer: "Cov ntaub ntawv kev cob qhia txog kev noj qab haus huv tau muab los ntawm lub koomhaum Healthwise, uas yog ib tug tswv koom tes nrog txheejtxheem INFORMED. Lub koomhaum Healthwise (healthwise.org) muab cov ntaub ntawv pov thawj-raws li kev noj qab haus huv rau zej zog, tsev kho mob, thiab cov ntaub ntawv kho mob nyob rau saum huab cua (electronic medical record) (EMR). Muaj ntau tus neeg tau siv Healthwise cov ntaub ntawv los kawm txog kev txiav txim siab txog kev noj qab haus huv. Thov kev koom tes es qho sau ntawm tawm tswv yim qhia peb lossis qhia cov ntaub ntawv no rau koj lub zej zog."
   faqs:
     faq: "Cov Lus Homkheev Nug"
     filter: "lim raws qeb"
