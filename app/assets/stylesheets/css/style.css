@@ -1335,6 +1335,7 @@ Components
   }
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body,
+.fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body-healthwise-card,
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-heading {
   text-align: center;
   float: left;
@@ -1372,6 +1373,11 @@ Components
   border-top: none;
   background: white;
   height: 280px;
+}
+.fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body-healthwise-card {
+  border-top: none;
+  background: white;
+  height: 220px;
 }
 .fh5co-pricing-table-1 .fh5co-pricing-table-item .fh5co-pricing-table-item-body p {
   bottom: 70px;

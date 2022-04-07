@@ -2,6 +2,44 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
+### 4 week sprint 3/16 - 4/12
+
+- [x] Remove admin access to Healthwise Articles controller
+
+- [x] Remove admin access to callouts on about#index
+
+- [x] Add Healthwise Translations/disclaimers
+
+- [x] Reduce Healthwise Card bottom height
+
+- [ ] Integrate locale as cookie
+
+- [ ] Integrate locale as attribute on likes and comments for exportability
+
+- [ ] Wrap audio player failures in error allow user to download audio files for local playback // or investigate HTML5 audio tag on iOS.
+
+- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
+
+- [ ] Create JSON stub and stringify ALL missing language boxes on HW creation
+
+- [ ] On Create, add 6 legal JSON fields from fully translated article or topic
+
+- [ ] Add logic to turn translated? bool to true if language is missing on HealthwiseArticle#create
+
+- [ ] Healthwise#index has disclaimer/intro
+
+- [ ] Healthwise#show has disclaimer/intro after article but before rich_text
+
+- [ ] STRETCH - Paginate Externals, Healthwise, FAQs
+
+- [ ] STRETCH - Highlight or 'active' which page a visitor is on in the navbar
+
+- [ ] STRETCH - Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
+
+- [ ] STRETCH - reduce bottom of card on index for healthwise and downloads
+
+- [ ] STRETCH - Move Callout arrows to `ti-angle-right` `ti-angle-left`
+
 ### 3-week sprint 2/23 - 3/15
 
 - [x] Remove alert for missing article on HW#Show
@@ -19,29 +57,6 @@ https://github.com/vchpp/covid-informed
 - [x] Integrate better audio playback with scrubbing
 
 - [x] Downloads - languages[] database migration
-
-- [ ] Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
-
-- [ ] reduce bottom of card on index for healthwise and downloads
-
-- [ ] Move Callout arrows to `ti-angle-right` `ti-angle-left`
-
-- [ ] Nullify missing language boxes on HW creation
-
-- [ ] Add logic to turn translated? bool to true if language is missing on HealthwiseArticle#create
-
-- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
-
-- [ ] Flesh out language boxes for HW topic hash on forms
-
-- [ ] Healthwise#index has disclaimer/intro
-
-- [ ] Healthwise#show has disclaimer/intro after article but before rich_text
-
-- [ ] Stretch: Paginate Externals, Healthwise, FAQs
-
-- [ ] Highlight or 'active' which page a visitor is on in the navbar
-
 
 ### Feedback from the CAB members:
 
