@@ -13,6 +13,7 @@ zh_TW:
     layhealthworkers: "社區保健員"
     external: "更多資源"
     mission: "目的"
+    healthwise: "Healthwise 健康文章"
   about:
     research_team: "研究團隊"
     research_team_titles:
@@ -70,6 +71,10 @@ zh_TW:
       stats: "來自選定來源關於COVID-19的統計數據:"
       stats1: "為了讓我們的社區隨時瞭解情況，我們選了幾個在線資源以提供最新關於COVID-19的地方及全球統計數據。這些資源被列在‘統計數據’選項內。"
     downloads: "下載"
+    healthwise:
+      healthwise: "Healthwise 健康文章"
+      missing_article: "該信息僅提供英文版本。如有不便之處，請見諒。"
+      disclaimer: "健康信息文章是由 【健康家庭資訊計劃】的非謀利合作夥伴Healthwise 免費提供。 Healthwise (healthwise.org) 為社區、醫院和電子醫療記錄 (EMR) 提供者提供循證健康信息。許多人參考 Healthwise 的信息來學習如何做出更好的健康決策。歡迎您發表評論並與您的社區分享信息。"
   faqs:
     faq: "常見問題"
     filter: "篩選"

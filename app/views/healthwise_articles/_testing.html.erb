@@ -6,7 +6,7 @@
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item1.category %>">
           <%= item1.send("#{params[:locale]}_title".downcase).present? ? item1.send("#{params[:locale]}_title".downcase) : item1.send("#{article_locale_unavailability}_title".downcase) %>
         </div>
-        <div class="text-center fh5co-pricing-table-item-body <%= item1.category %>-border">
+        <div class="text-center fh5co-pricing-table-item-body-healthwise-card <%= item1.category %>-border">
 
           <div class="fh5co-spacer fh5co-spacer-xxs"></div>
           <% item1.languages.each do |l| %>
@@ -23,7 +23,7 @@
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item2.category %>">
           <%= item2.send("#{params[:locale]}_title".downcase).present? ? item2.send("#{params[:locale]}_title".downcase) : item2.send("#{article_locale_unavailability}_title".downcase) %>
         </div>
-        <div class="text-center fh5co-pricing-table-item-body <%= item2.category %>-border">
+        <div class="text-center fh5co-pricing-table-item-body-healthwise-card <%= item2.category %>-border">
 
           <div class="fh5co-spacer fh5co-spacer-xxs"></div>
           <% item2.languages.each do |l| %>
@@ -40,7 +40,7 @@
         <div class="text-center fh5co-pricing-table-item-heading text-uppercase <%= item3.category %>">
           <%= item3.send("#{params[:locale]}_title".downcase).present? ? item3.send("#{params[:locale]}_title".downcase) : item3.send("#{article_locale_unavailability}_title".downcase) %>
         </div>
-        <div class="text-center fh5co-pricing-table-item-body <%= item3.category %>-border">
+        <div class="text-center fh5co-pricing-table-item-body-healthwise-card <%= item3.category %>-border">
 
           <div class="fh5co-spacer fh5co-spacer-xxs"></div>
           <% item3.languages.each do |l| %>

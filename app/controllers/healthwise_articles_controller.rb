@@ -1,6 +1,6 @@
 class HealthwiseArticlesController < ApplicationController
   before_action :set_healthwise_article, only: %i[ show edit update refresh destroy ]
-  before_action :authenticate_admin!, only: %i[ new create edit update refresh destroy index show ]
+  before_action :authenticate_admin!, only: %i[ new create edit update refresh destroy ]
   before_action :set_page, only: [:show]
 
   # GET /healthwise_articles or /healthwise_articles.json
@@ -21,6 +21,7 @@ class HealthwiseArticlesController < ApplicationController
         @wellness << h if h.category == "Wellness"
       end
     end
+    # logger.warn fetch_hw_token
   end
 
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
@@ -53,6 +54,7 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles/1/edit
   def edit
+    # logger.warn("#{@healthwise_article.attributes.values }")
   end
 
   # POST /healthwise_articles or /healthwise_articles.json
@@ -60,25 +62,53 @@ class HealthwiseArticlesController < ApplicationController
     # take params and make article.new
     @healthwise_article = HealthwiseArticle.new(healthwise_article_params)
     # check if article or topic
-      # fetch article for available languages
-      # store them in @healthwise_article.languages
-      @healthwise_article.languages = fetch_languages(@healthwise_article.article_or_topic, @healthwise_article.hwid)
-      # ["hm-us\r\nen-us\r\nzh-us\r\nvi-us"].split("\r\n").map(&:strip) works
-      # ["en-us", "vi-us"]
-      # fetch article's JSON from hwid for [languages], otherwise default to english
-      @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
-        response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
-        # set JSON
-        @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase, JSON.parse(response))
-        # set titles
-        if @healthwise_article.article_or_topic == "Article"
-          @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["title"]["consumer"])
-        else
-          @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
-        end
+    # fetch article for available languages
+    # store them in @healthwise_article.languages
+    @healthwise_article.languages = fetch_languages(@healthwise_article.article_or_topic, @healthwise_article.hwid)
+    # ["hm-us\r\nen-us\r\nzh-us\r\nvi-us"].split("\r\n").map(&:strip) works
+    # ["en-us", "vi-us"]
+    # fetch article's JSON from hwid for [languages], otherwise default to english
+    @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
+      response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
+       # set JSON
+      @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase,JSON.parse(response))
+      # set titles
+      if @healthwise_article.article_or_topic == "Article"
+        @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["title"]["consumer"])
+      else
+        @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
       end
+    end
+
+    # custom translations
+      # # iterate over CI_LOCALE hash and for any response that returns a 404, turn it into a stub
+      # fetch article for available languages, store them in @healthwise_article.languages
+      # @healthwise_article.languages = fetch_languages(@healthwise_article.article_or_topic, @healthwise_article.hwid)
+      # CI_LOCALE.each do |k,v|
+      #   response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, k)
+      #   if response == nil
+      #     # create JSON stubs
+      #     if @healthwise_article.article_or_topic == "Article"
+      #       # needs Article JSON stub
+      #       # @healthwise_article.send("#{v}_json=".downcase, {data: {topics: [{html: ""}]}})
+      #     else
+      #       @healthwise_article.send("#{v}_json=".downcase, {data: {topics: [{html: ""}]}}) # ["data"]["topics"][0]["html"] or '{'data':{'topics':[{'html':''}]}}'
+      #     end
+      #     @healthwise_article.send("#{v}_translated=".downcase, true)
+      #   else
+      #     @healthwise_article.send("#{v}_json=".downcase, JSON.parse(response))
+      #     # set titles
+      #     if @healthwise_article.article_or_topic == "Article"
+      #       @healthwise_article.send("#{v}_title=".downcase, JSON.parse(response)["data"]["title"]["consumer"])
+      #     else
+      #       @healthwise_article.send("#{v}_title=".downcase, JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
+      #     end
+      #   end
+      # end
     @healthwise_article.zh_cn_json = @healthwise_article.zh_tw_json
     @healthwise_article.zh_cn_title = @healthwise_article.zh_tw_title
+      # custom translations
+      # @healthwise_article.zh_cn_translated = @healthwise_article.zh_tw_translated
     # save
     respond_to do |format|
       if @healthwise_article.save
@@ -95,6 +125,18 @@ class HealthwiseArticlesController < ApplicationController
 
   # PATCH/PUT /healthwise_articles/1 or /healthwise_articles/1.json
   def update
+    # add logic here to check if the `translated: true` fields are populated or empty
+    # HW_LOCALE.each do |k,v|
+    #   if @healthwise_article.send("#{k}_translated".downcase) == true
+    #     # logger.warn("#{params[:hmn_json]}")
+    #     # check if the hash datastructre already exists to prevent nested hash from being created
+    #     if params[:"#{k}_json"].present?
+    #       # if populated, add content `_json['data']['topics'][0]['html']`
+    #       @healthwise_article.send("#{k}_json=".downcase)['data']['topics'][0]['html'].update(params[:"#{k}_json"]['data']['topics'][0]['html'])
+    #     end
+    #   end
+    # end
+    # then
     @healthwise_article.en_json.to_h
     @healthwise_article.zh_tw_json.to_h
     @healthwise_article.zh_cn_json.to_h
@@ -103,6 +145,7 @@ class HealthwiseArticlesController < ApplicationController
     @healthwise_article[:languages] = params[:healthwise_article][:languages].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @healthwise_article.update(healthwise_article_params)
+        logger.warn healthwise_article_params
         format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully updated." }
         format.json { render :show, status: :ok, location: @healthwise_article }
         logger.info "#{current_user.email} updated Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
@@ -166,8 +209,12 @@ class HealthwiseArticlesController < ApplicationController
     def fetch_article(type, hwid, language)
       token = fetch_hw_token
       url = ENV['HEALTHWISE_CONTENT_URL'] + "/#{type}s/#{hwid}/#{language}"
-      response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
-      # logger.warn("#{token}")
+      begin
+        response = RestClient.get url, { "Authorization": "Bearer #{token}", "X-HW-Version": "1", "Accept": "application/json"}
+      rescue => e
+        e.response
+        response = nil
+      end
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -178,6 +225,9 @@ class HealthwiseArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
       params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :vi_title, :vi_json, :vi_translated, :hmn_title, :hmn_json, :hmn_translated, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
+      # .tap do |whitelisted|
+      #   whitelisted[:en_json] = params[:healthwise_article][:en_json]
+      # end
     end
 
     def set_page
