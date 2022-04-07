@@ -81,9 +81,7 @@
                  <a href="/<%=params[:locale]%>/resources/downloads"><%= t('resources.downloads') %></a>
                  <a href="/<%=params[:locale]%>/resources/statistics"><%= t('resources.statistics')%></a>
                  <a href="/<%=params[:locale]%>/resources/externals"><%= t('navbar.external') %></a>
-                 <% if current_user.try(:admin?) %>
-                  <a href="/<%=params[:locale]%>/resources/healthwise-articles"><%= t('navbar.healthwise') %></a>
-                <% end %>
+                 <a href="/<%=params[:locale]%>/resources/healthwise-articles"><%= t('navbar.healthwise') %></a>
                </li>
              </ul>
             </li>
