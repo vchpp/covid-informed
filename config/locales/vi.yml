@@ -70,6 +70,8 @@ vi:
       stats: "Thống Kê Về COVID-19 Từ Các Nguồn Đã Chọn:"
       stats1: "Để cộng đồng của chúng ta được thông báo về COVID-19, chúng tôi đã chọn một số tài liệu trực tuyến cung cấp số liệu thống kê mới nhất liên quan đến đại dịch COVID-19 trên toàn cầu và địa phương. Các tài liệu này được liệt kê ở chỗ “Thống kê”."
     downloads: "Tải xuống"
+    healthwise:
+      missing_article: "Thông tin này chỉ có bằng tiếng Anh."
   faqs:
     faq: "Các Câu Hỏi Thường Gặp"
     filter: "lọc theo danh mục"

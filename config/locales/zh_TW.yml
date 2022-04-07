@@ -70,6 +70,8 @@ zh_TW:
       stats: "來自選定來源關於COVID-19的統計數據:"
       stats1: "為了讓我們的社區隨時瞭解情況，我們選了幾個在線資源以提供最新關於COVID-19的地方及全球統計數據。這些資源被列在‘統計數據’選項內。"
     downloads: "下載"
+    healthwise:
+      missing_article: "該信息僅提供英文版本。如有不便之處，請見諒。"
   faqs:
     faq: "常見問題"
     filter: "篩選"

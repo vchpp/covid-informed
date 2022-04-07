@@ -71,6 +71,8 @@ koom haum National Institutes of Health. USCF IRB Approval Number 20-32933"
       stats: "Cov Khoomsiv Xaivlos Uas Haistxog Txheebcais COVID-19:"
       stats1: "Peb tau xaiv ntau qhovchaw qhia khoomsiv txheebcais txog COVID-19 nyob hauv yeebyaj Rojhmab, khaws rau peb cov neeg zejzog kom paubzoo txog COVID-19, uas thoob nriajteb thiab hauv zejzog. Cov ntsiablus khoomsiv tso raws kab hauvqab ntiv “Txheebcais.”"
     downloads: "rub tawm"
+    healthwise:
+      missing_article: "Cov ntaub ntawv no muaj txhias ua lus Askiv xwb."
   faqs:
     faq: "Cov Lus Homkheev Nug"
     filter: "lim raws qeb"

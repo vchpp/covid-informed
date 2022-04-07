@@ -70,6 +70,8 @@ zh_CN:
       stats: "来自选定来源关於CODID-19的统计数据："
       stats1: "为了让我们的社区随时瞭解情况，我们选了几个在线资源以提供最新关於COVID-19的地方及全球统计数据。这些资源被列在‘统计数据’选项內。"
     downloads: "下载"
+    healthwise:
+      missing_article: "該信息僅提供英文版本。如有不便之處，請見諒。"
   faqs:
     faq: "常见问题"
     filter: "筛选"
