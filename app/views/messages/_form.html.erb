@@ -87,11 +87,8 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <% if @message.en_audio.attached? %>
-                      <div class="col-md-8 col-md-offset-2">
-                        <div class="btn btn-primary btn-lg btn-block" id="player">
-                            <%= audio_tag rails_blob_url @message.en_audio %>
-                            <span id="player-control" class="ti-control-play"> Play audio</span>
-                        </div>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@message.en_audio), controls: true %>
                       </div>
                     <% end %>
                     <br>
@@ -153,11 +150,8 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <% if @message.zh_tw_audio.attached? %>
-                      <div class="col-md-8 col-md-offset-2">
-                        <div class="btn btn-primary btn-lg btn-block" id="player">
-                            <%= audio_tag rails_blob_url @message.zh_tw_audio %>
-                            <span id="player-control" class="ti-control-play"> Play audio</span>
-                        </div>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@message.zh_tw_audio), controls: true %>
                       </div>
                     <% end %>
                     <br>
@@ -219,11 +213,8 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <% if @message.zh_cn_audio.attached? %>
-                      <div class="col-md-8 col-md-offset-2">
-                        <div class="btn btn-primary btn-lg btn-block" id="player">
-                            <%= audio_tag rails_blob_url @message.zh_cn_audio %>
-                            <span id="player-control" class="ti-control-play"> Play audio</span>
-                        </div>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@message.zh_cn_audio), controls: true %>
                       </div>
                     <% end %>
                     <br>
@@ -285,11 +276,8 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <% if @message.hmn_audio.attached? %>
-                      <div class="col-md-8 col-md-offset-2">
-                        <div class="btn btn-primary btn-lg btn-block" id="player">
-                            <%= audio_tag rails_blob_url @message.hmn_audio %>
-                            <span id="player-control" class="ti-control-play"> Play audio</span>
-                        </div>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@message.hmn_audio), controls: true %>
                       </div>
                     <% end %>
                     <br>
@@ -351,11 +339,8 @@
                 <div class="col-md-12">
                   <div class="field form-group">
                     <% if @message.vi_audio.attached? %>
-                      <div class="col-md-8 col-md-offset-2">
-                        <div class="btn btn-primary btn-lg btn-block" id="player">
-                            <%= audio_tag rails_blob_url @message.vi_audio %>
-                            <span id="player-control" class="ti-control-play"> Play audio</span>
-                        </div>
+                      <div class="col-md-12 text-center">
+                        <%= audio_tag url_for(@message.vi_audio), controls: true %>
                       </div>
                     <% end %>
                     <br>
