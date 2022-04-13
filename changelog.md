@@ -12,11 +12,17 @@ https://github.com/vchpp/covid-informed
 
 - [x] Reduce Healthwise Card bottom height
 
-- [ ] Integrate locale as cookie
+- [x] STRETCH - reduce bottom of card on index for healthwise and downloads
+
+- [x] Integrate locale as cookie
 
 - [ ] Integrate locale as attribute on likes and comments for exportability
 
-- [ ] Wrap audio player failures in error allow user to download audio files for local playback // or investigate HTML5 audio tag on iOS.
+- [x] Wrap audio player failures in error allow user to download audio files for local playback // or investigate HTML5 audio tag on iOS.
+
+- [x] Healthwise#index has disclaimer/intro
+
+- [x] Healthwise#show has disclaimer/intro after article but before rich_text
 
 - [ ] Add #refresh language method to HealthwiseArticles to fetch from API
 
@@ -26,17 +32,11 @@ https://github.com/vchpp/covid-informed
 
 - [ ] Add logic to turn translated? bool to true if language is missing on HealthwiseArticle#create
 
-- [ ] Healthwise#index has disclaimer/intro
-
-- [ ] Healthwise#show has disclaimer/intro after article but before rich_text
-
 - [ ] STRETCH - Paginate Externals, Healthwise, FAQs
 
 - [ ] STRETCH - Highlight or 'active' which page a visitor is on in the navbar
 
 - [ ] STRETCH - Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
-
-- [ ] STRETCH - reduce bottom of card on index for healthwise and downloads
 
 - [ ] STRETCH - Move Callout arrows to `ti-angle-right` `ti-angle-left`
 
