@@ -50,7 +50,7 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
       </div>
     </div>
     <% if @likes.any? %>
-      <% if current_user.try(:admin?) %>
+      <% if current_user.try(:admin?) || current_user.try(:healthwise?) %>
         <div class="row">
           <div class="col-md-12 Admin-border">
             <h1 class="text-center">Likes Admin View</h1>
@@ -73,7 +73,9 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
                   <td><%= like.rct %></td>
                   <td><%= like.up %></td>
                   <td><%= like.down %></td>
-                  <td><%= link_to 'Destroy', [@healthwise_article, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% if current_user.try(:admin?) %>
+                    <td><%= link_to 'Destroy', [@healthwise_article, like], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
                 </tr>
                 <% end %>
               </tbody>
@@ -92,7 +94,7 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
 <section>
   <div class="container">
     <% if @comments.any? %>
-      <% if current_user.try(:admin?) %>
+      <% if current_user.try(:admin?) || current_user.try(:healthwise?) %>
       <div class="row">
         <div class="col-md-12 Admin-border">
           <div class="col-md-12">
@@ -115,16 +117,20 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
                 <td><%= comment.created_at %></td>
                 <td><%= comment.rct %></td>
                 <td><%= comment.content %></td>
-                <td><%= link_to 'Destroy', [@healthwise_article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% if current_user.try(:admin?) %>
+                  <td><%= link_to 'Destroy', [@healthwise_article, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
               </tr>
               <% end %>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="col-md-8 col-md-offset-2">
-        <%= link_to 'Export Comments to CSV', healthwise_article_path(format: "csv", format_data: "comments"), class: "btn btn-primary btn-lg btn-block"  %>
-      </div>
+      <% if current_user.try(:admin?) || current_user.try(:healthwise?) %>
+        <div class="col-md-8 col-md-offset-2">
+          <%= link_to 'Export Comments to CSV', healthwise_article_path(format: "csv", format_data: "comments"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
+      <% end %>
       <% else %>
       <div class="row fh5co-feature-3"">
         <div class="col-md-12">

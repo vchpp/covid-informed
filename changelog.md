@@ -2,29 +2,17 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 4 week sprint 3/16 - 4/12
+### 1 week sprint 4/13 - 4/19
 
-- [x] Remove admin access to Healthwise Articles controller
+- [ ] Add Healthwise as user type
 
-- [x] Remove admin access to callouts on about#index
-
-- [x] Add Healthwise Translations/disclaimers
-
-- [x] Reduce Healthwise Card bottom height
-
-- [x] STRETCH - reduce bottom of card on index for healthwise and downloads
-
-- [x] Integrate locale as cookie
-
-- [ ] Integrate locale as attribute on likes and comments for exportability
-
-- [x] Wrap audio player failures in error allow user to download audio files for local playback // or investigate HTML5 audio tag on iOS.
-
-- [x] Healthwise#index has disclaimer/intro
-
-- [x] Healthwise#show has disclaimer/intro after article but before rich_text
+- [ ] Healthwise#show has disclaimer/intro after article but before rich_text
 
 - [ ] Add #refresh language method to HealthwiseArticles to fetch from API
+
+- [ ] Fix iPad? dimension to surface alert banner/prevent menu from wrapping
+
+- [ ] Integrate locale as attribute on likes and comments for exportability
 
 - [ ] Create JSON stub and stringify ALL missing language boxes on HW creation
 
@@ -39,6 +27,24 @@ https://github.com/vchpp/covid-informed
 - [ ] STRETCH - Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
 
 - [ ] STRETCH - Move Callout arrows to `ti-angle-right` `ti-angle-left`
+
+### 4 week sprint 3/16 - 4/12
+
+- [x] Remove admin access to Healthwise Articles controller
+
+- [x] Remove admin access to callouts on about#index
+
+- [x] Add Healthwise Translations/disclaimers
+
+- [x] Reduce Healthwise Card bottom height
+
+- [x] STRETCH - reduce bottom of card on index for healthwise and downloads
+
+- [x] Integrate locale as cookie
+
+- [x] Wrap audio player failures in error allow user to download audio files for local playback // or investigate HTML5 audio tag on iOS.
+
+- [x] Healthwise#index has disclaimer/intro
 
 ### 3-week sprint 2/23 - 3/15
 
@@ -145,6 +151,8 @@ Comment activity as event
 Like activity as event
 
 External resources and Statistics events (clicks, navigation to external websites)
+
+Track user by ID to see total pages they have visited per date
 
 # CHANGELOG:
 

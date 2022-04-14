@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, :only => :create
   protect_from_forgery prepend: true
-  before_action :set_locale, :count_visits, :set_admin, :set_visitor, :set_locale_cookie
+  before_action :set_locale, :count_visits, :set_admin, :set_visitor, :set_locale_cookie, :set_healthwise
 
 private
 
@@ -21,6 +21,12 @@ private
     end
   end
 
+  def set_healthwise
+    if current_user.try(:healthwise?)
+      cookies[:rct] = 10000
+    end
+  end
+
   def set_visitor
     if params[:rct].to_i.between?(1,9999)
       cookies[:rct] = {
@@ -31,7 +37,7 @@ private
       }
     else
       cookies[:rct] ||= {
-        value: rand(10000..99999999),
+        value: rand(10001..99999999),
         path: '/',
         SameSite: 'none',
         secure: 'true'
