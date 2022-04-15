@@ -90,7 +90,7 @@ meta title: "COVID-INFORMED - Healthwise",
         <%= render 'wellness', collection: @wellness %>
       <% end %>
 
-    <% if current_user.try(:admin?) %>
+    <% if current_user.try(:admin?) || current_user.try(:healthwise?) %>
     <div class="col-md-12 Admin-border">
       <h1>Healthwise Articles Admin List</h1>
 
@@ -119,14 +119,18 @@ meta title: "COVID-INFORMED - Healthwise",
             <td><%= healthwise_article.featured %></td>
             <td><%= healthwise_article.archive %></td>
             <td><%= link_to 'Show', healthwise_article %></td>
-            <td><%= link_to 'Edit', edit_healthwise_article_path(healthwise_article) %></td>
-            <td><%= link_to 'Destroy', healthwise_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if current_user.try(:admin?) %>
+              <td><%= link_to 'Edit', edit_healthwise_article_path(healthwise_article) %></td>
+              <td><%= link_to 'Destroy', healthwise_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
     <br>
-    <%= link_to 'New Healthwise Article', new_healthwise_article_path %>
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'New Healthwise Article', new_healthwise_article_path %>
+    <% end %>
   </div>
   <% end %>
 

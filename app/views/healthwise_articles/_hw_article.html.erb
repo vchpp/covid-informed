@@ -34,7 +34,7 @@ meta title: "#{@healthwise_article.send("#{article_locale}_json")["data"]["title
       <p>
         <label> Reviewers:</label>
         <% @healthwise_article.send("#{article_locale}_json")["data"]["credits"]["primaryReviewers"].map do |r| %>
-          <a href="{{reviewer.profileId}}"><%= r["name"]%> </a> |
+          <%= r["name"]%>,
         <% end %>
       </p>
       <p><label>Certified Date:</label> <%= @healthwise_article.send("#{article_locale}_json")["data"]["certifiedDate"] %> </p>
