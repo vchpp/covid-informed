@@ -16,7 +16,7 @@
       <p>
         <label> Reviewers:</label>
         <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["credits"]["primaryReviewers"].map do |r| %>
-          <a href="{{reviewer.profileId}}"><%= r["name"]%> </a> |
+          <%= r["name"] %>,
         <% end %>
       </p>
    </div>
