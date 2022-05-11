@@ -44,11 +44,9 @@ meta title: "COVID-INFORMED - Mission",
         </div>
 
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <% if current_user.try(:admin?) %>
-          <% if @callouts.any? %>
-            <%= render 'callouts', collection: @callouts %>
-          <div class="fh5co-spacer fh5co-spacer-md"></div>
-          <% end %>
+        <% if @callouts.any? %>
+          <%= render 'callouts', collection: @callouts %>
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
         <% end %>
         <div class="clearfix fh5co-header">
           <div class="fh5co-spacer fh5co-spacer-sm"></div>
