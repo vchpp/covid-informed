@@ -2,15 +2,21 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 3 week sprint 4/20 - 5/10
+### 4 week sprint 5/18 - 5/25
 
-- [ ] Release Callouts
+- [x] GA check to see what page is [not set]
+
+- [ ] Add order number to Callouts to allow for easy ordering
+
+- [ ] Make sure locale cookie is sent to GA via gtag
+
+- [ ] Add tracker to audio function?
+
+- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
 
 - [ ] Make font slightly smaller on mobile view or make font in cards fit better, ie less whitespace
 
 - [ ] Switch HW styles General orange with Wellness brown
-
-- [x] Add RTF box for HW articles before Likes field gated behind admin access
 
 - [ ] Investigate how much time it would take to hand-seed the custom translations
 
@@ -20,15 +26,9 @@ https://github.com/vchpp/covid-informed
 
 - [ ] Add redcap link/signup on public page
 
-- [ ] Make sure locale cookie is sent to GA via gtag
-
-- [ ] Add tracker to audio function?
-
 - [ ] Add event trackers for likes and comments
 
 - [ ] Add priority to callouts and sort and display by priority
-
-- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
 
 - [ ] Fix iPad? dimension to surface alert banner/prevent menu from wrapping
 
@@ -47,6 +47,12 @@ https://github.com/vchpp/covid-informed
 - [ ] STRETCH - Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
 
 - [ ] STRETCH - Move Callout arrows to `ti-angle-right` `ti-angle-left`
+
+### 4 week sprint 4/20 - 5/10
+
+- [x] Release Callouts
+
+- [x] Add RTF box for HW articles before Likes field gated behind admin access
 
 ### 1 week sprint 4/13 - 4/19
 
