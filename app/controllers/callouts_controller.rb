@@ -5,12 +5,8 @@ class CalloutsController < ApplicationController
   # GET /callouts or /callouts.json
   def index
     @callouts = Callout.all
-      .with_attached_en_image
-      .with_attached_zh_tw_image
-      .with_attached_zh_cn_image
-      .with_attached_vi_image
-      .with_attached_hmn_image
-      .order('created_at DESC')
+      .send("with_attached_#{I18n.locale}_image".downcase)
+      .order('priority ASC')
   end
 
   # GET /callouts/1 or /callouts/1.json
@@ -91,6 +87,6 @@ class CalloutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def callout_params
-      params.require(:callout).permit(:en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :link, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :external_link, :archive, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
+      params.require(:callout).permit(:en_title, :zh_tw_title, :zh_cn_title, :vi_title, :hmn_title, :link, :en_link_url, :zh_tw_link_url, :zh_cn_link_url, :vi_link_url, :hmn_link_url, :external_link, :archive, :priority, :en_image, :zh_tw_image, :zh_cn_image, :vi_image, :hmn_image)
     end
 end
