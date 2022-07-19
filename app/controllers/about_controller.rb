@@ -3,13 +3,9 @@ class AboutController < ApplicationController
 
   def index
     @callouts = Callout.all
-      .with_attached_en_image
-      .with_attached_zh_tw_image
-      .with_attached_zh_cn_image
-      .with_attached_vi_image
-      .with_attached_hmn_image
+      .send("with_attached_#{I18n.locale}_image".downcase)
+      .order('priority ASC')
       .where(archive: false)
-      .order('created_at DESC')
   end
 
   def researchers

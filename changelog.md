@@ -6,17 +6,25 @@ https://github.com/vchpp/covid-informed
 
 - [x] GA check to see what page is [not set]
 
-- [ ] Add order number to Callouts to allow for easy ordering
+- [x] Add priority to callouts and sort and display by priority
 
-- [ ] Make sure locale cookie is sent to GA via gtag
+- [ ] Scope out work to either have custom translation HTML added OR use PDFs as a backup
 
-- [ ] Add tracker to audio function?
+- [ ] Create JSON stub and stringify ALL missing language boxes on HW creation
+
+- [ ] On Create, add 6 legal JSON fields from fully translated article or topic
 
 - [ ] Add #refresh language method to HealthwiseArticles to fetch from API
 
 - [ ] Make font slightly smaller on mobile view or make font in cards fit better, ie less whitespace
 
 - [ ] Switch HW styles General orange with Wellness brown
+
+- [ ] Make sure locale cookie is sent to GA via gtag
+
+- [ ] Add tracker to audio function?
+
+- [ ] Add note to audio upload button to clarify filetype
 
 - [ ] Investigate how much time it would take to hand-seed the custom translations
 
@@ -28,15 +36,9 @@ https://github.com/vchpp/covid-informed
 
 - [ ] Add event trackers for likes and comments
 
-- [ ] Add priority to callouts and sort and display by priority
-
 - [ ] Fix iPad? dimension to surface alert banner/prevent menu from wrapping
 
 - [ ] Integrate locale as attribute on likes and comments for exportability
-
-- [ ] Create JSON stub and stringify ALL missing language boxes on HW creation
-
-- [ ] On Create, add 6 legal JSON fields from fully translated article or topic
 
 - [ ] Add logic to turn translated? bool to true if language is missing on HealthwiseArticle#create
 
@@ -166,7 +168,7 @@ How do they interact with the website (clicks, comments)
 
 Trial participants (RCT 1- 9999) Data organized by ID, with timestamp of pages visited
 
-Track visitors based on whether RCT users actually click the link with
+Track visitors based on whether RCT users actually click the link with audio/downloads/like/message comments
 
 Regular visitors total traffic from cities
 
@@ -181,6 +183,8 @@ Download activity as event
 Comment activity as event
 
 Like activity as event
+
+Audio playing as an event
 
 External resources and Statistics events (clicks, navigation to external websites)
 
