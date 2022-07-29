@@ -8,17 +8,17 @@ https://github.com/vchpp/covid-informed
 
 - [x] Add priority to callouts and sort and display by priority
 
-- [ ] Scope out work to either have custom translation HTML added OR use PDFs as a backup
+- [x] allocate mandarin audio under simplified and cantonese under traditional chinese
 
-- [ ] Create JSON stub and stringify ALL missing language boxes on HW creation
+- [x] add translated link to other audio language
 
-- [ ] On Create, add 6 legal JSON fields from fully translated article or topic
+- [ ] On Create, duplicate english article or topic onto missing language
 
 - [ ] Add #refresh language method to HealthwiseArticles to fetch from API
 
 - [ ] Make font slightly smaller on mobile view or make font in cards fit better, ie less whitespace
 
-- [ ] Switch HW styles General orange with Wellness brown
+- [ ] WON'T DO - Switch HW styles General orange with Wellness brown
 
 - [ ] Make sure locale cookie is sent to GA via gtag
 

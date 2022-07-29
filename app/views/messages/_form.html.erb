@@ -92,7 +92,7 @@
                       </div>
                     <% end %>
                     <br>
-                    <%= form.label :en_audio %>
+                    <%= form.label :en_audio %> <b> | All audio must be in .wav or .mp3 format. </b>
                     <%= form.file_field :en_audio, direct_upload: true, class: "form-control input-lg" %>
                     <% if @message.en_audio.attached? %>
                       <%= label_tag(:en_audio_purge, "Delete en_audio?") %>
@@ -155,7 +155,7 @@
                       </div>
                     <% end %>
                     <br>
-                    <%= form.label :zh_tw_audio %>
+                    <%= form.label :zh_tw_audio %> <b>| Cantonese audio only.  All audio must be in .wav or .mp3 format.</b>
                     <%= form.file_field :zh_tw_audio, direct_upload: true, class: "form-control input-lg" %>
                     <% if @message.zh_tw_audio.attached? %>
                       <%= label_tag(:zh_tw_audio_purge, "Delete zh_tw_audio?") %>
@@ -218,7 +218,7 @@
                       </div>
                     <% end %>
                     <br>
-                    <%= form.label :zh_cn_audio %>
+                    <%= form.label :zh_cn_audio %> <b> | Mandarin audio only.  All audio must be in .wav or .mp3 format. </b>
                     <%= form.file_field :zh_cn_audio, direct_upload: true, class: "form-control input-lg" %>
                     <% if @message.zh_cn_audio.attached? %>
                       <%= label_tag(:zh_cn_audio_purge, "Delete zh_cn_audio?") %>
@@ -281,7 +281,7 @@
                       </div>
                     <% end %>
                     <br>
-                    <%= form.label :hmn_audio %>
+                    <%= form.label :hmn_audio %> <b> | All audio must be in .wav or .mp3 format. </b>
                     <%= form.file_field :hmn_audio, direct_upload: true, class: "form-control input-lg" %>
                     <% if @message.hmn_audio.attached? %>
                       <%= label_tag(:hmn_audio_purge, "Delete hmn_audio?") %>
@@ -344,7 +344,7 @@
                       </div>
                     <% end %>
                     <br>
-                    <%= form.label :vi_audio %>
+                    <%= form.label :vi_audio %> <b> | All audio must be in .wav or .mp3 format. </b>
                     <%= form.file_field :vi_audio, direct_upload: true, class: "form-control input-lg" %>
                     <% if @message.vi_audio.attached? %>
                       <%= label_tag(:vi_audio_purge, "Delete vi_audio?") %>
