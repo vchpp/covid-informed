@@ -84,6 +84,13 @@ meta title: "COVID-INFORMED - Message - #{@message.id}",
         <div class="col-md-12 text-center">
           <%= audio_tag url_for(@audio), controls: true %>
         </div>
+        <div class="col-md-12 text-center">
+          <% if params[:locale] == "zh_TW" %>
+            <%= link_to t('messages.show.cantonese_audio'), url_for(locale: :zh_CN) %>
+          <% elsif params[:locale] == "zh_CN" %>
+            <%= link_to t('messages.show.mandarin_audio'), url_for(locale: :zh_TW) %>
+          <% end %>
+        </div>
       <% end %>
 
       <div class="fh5co-spacer fh5co-spacer-xs"></div>

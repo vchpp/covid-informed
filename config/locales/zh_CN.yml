@@ -41,6 +41,7 @@ zh_CN:
     show:
       action_item_more_info: "更多有关信息，可浏览:"
       survey_link: "请前往參与项目的链接:"
+      mandarin_audio: "点此收听粤语音频"
   resources:
     resources: "资源"
     external:
