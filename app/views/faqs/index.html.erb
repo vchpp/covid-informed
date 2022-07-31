@@ -81,6 +81,13 @@ meta title: "COVID-INFORMED - FAQs",
                   <div class="col-md-12 text-center">
                     <%= audio_tag url_for(faq.send("#{params[:locale]}_audio".downcase)), controls: true %>
                   </div>
+                  <div class="col-md-12 text-center">
+                    <% if params[:locale] == "zh_TW" %>
+                      <%= link_to t('messages.show.cantonese_audio'), url_for(locale: :zh_CN) %>
+                    <% elsif params[:locale] == "zh_CN" %>
+                      <%= link_to t('messages.show.mandarin_audio'), url_for(locale: :zh_TW) %>
+                    <% end %>
+                  </div>
                   <% end %>
                   <%= faq.send("#{params[:locale]}_answer".downcase) %>
                 </div>

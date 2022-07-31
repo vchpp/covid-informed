@@ -41,7 +41,7 @@ zh_TW:
     show:
       action_item_more_info: "更多有關信息，可以瀏覽:"
       survey_link: "請前往參與項目的鏈接:"
-      cantonese_audio: "Click here for Mandarin audio"
+      cantonese_audio: "点此收听普通话音频"
   resources:
     resources: "資源"
     external:
