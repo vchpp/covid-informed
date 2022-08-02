@@ -1,9 +1,7 @@
 module HealthwiseArticlesHelper
 
   def article_locale
-    # if @healthwise_article.send("#{params[:locale]}_json".downcase).present?
-      # or check against language?
-      if @healthwise_article.languages.include?(HW_LOCALE[params[:locale]])
+    if @healthwise_article.languages.include?(HW_LOCALE[params[:locale]])
       params[:locale].downcase
     else
       flash.now[:alert] = "#{t('resources.healthwise.missing_article')}"
