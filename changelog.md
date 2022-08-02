@@ -12,9 +12,13 @@ https://github.com/vchpp/covid-informed
 
 - [x] add translated link to other audio language
 
-- [ ] On Create, duplicate english article or topic onto missing language
+- [x] On Create, duplicate english article or topic onto missing language
 
-- [ ] Add #refresh language method to HealthwiseArticles to fetch from API
+- [x] Add #refresh language method to HealthwiseArticles to fetch from API
+
+- [x] Add note to audio upload button to clarify filetype
+
+- [x] Investigate how much time it would take to hand-seed the custom translations
 
 - [ ] Make font slightly smaller on mobile view or make font in cards fit better, ie less whitespace
 
@@ -23,10 +27,6 @@ https://github.com/vchpp/covid-informed
 - [ ] Make sure locale cookie is sent to GA via gtag
 
 - [ ] Add tracker to audio function?
-
-- [ ] Add note to audio upload button to clarify filetype
-
-- [ ] Investigate how much time it would take to hand-seed the custom translations
 
 - [ ] Add "translation is provided by informed team" on `custom_translation = true`
 
