@@ -29,8 +29,11 @@ Rails.application.routes.draw do
       resources :healthwise_articles, :path => '/healthwise-articles' do
         resources :likes
         resources :comments
+        member do
+          get :refresh
+          get :upgrade
+        end
       end
-      put '/healthwise-articles/:id/refresh', to: 'healthwise_articles#refresh', as: 'healthwise_article_refresh'
       resources :faqs
       resources :downloads
       resources :statistics
