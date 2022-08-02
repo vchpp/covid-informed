@@ -91,18 +91,6 @@
                       <%= form.label key %>
                       <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
                     <% end %>
-
-                    <!-- custom translations -->
-                    <!--
-                    <%= form.label :html %>
-                    <%= form.text_area @healthwise_article.en_json['data']['topics'][0]['html'], name: @healthwise_article.en_json['data']['topics'][0]['html'], size: '70x5', class: 'form-control input-lg', value: @healthwise_article.en_json['data']['topics'][0]['html']%>
-                    </div>
-                    </div>
-                    <div class="col-md-12">
-                    <div class="field form-group">
-                    <%= label_tag @healthwise_article.en_json["data"]["topics"][0]["credits"]["primaryReviewers"][0]["name"], 'Primary Reviewers' %>
-                    <%= text_area_tag @healthwise_article.en_json["data"]["topics"][0]["credits"]["primaryReviewers"][0]["name"], @healthwise_article.en_json["data"]["topics"][0]["credits"]["primaryReviewers"][0]["name"], size: '70x5', class: 'form-control input-lg' %>
-                    -->
                   </div>
                 </div>
               <% end %>
