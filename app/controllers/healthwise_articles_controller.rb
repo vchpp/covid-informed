@@ -129,10 +129,10 @@ class HealthwiseArticlesController < ApplicationController
         else
           @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["topics"][0]["title"]["consumer"])
         end
+        # save simplified chinese with traditional chinese's values
+        set_simplified_chinese
       end
     end
-    # save simplified chinese with traditional chinese's values
-    set_simplified_chinese
 
     respond_to do |format|
       if @healthwise_article.update(@healthwise_article.attributes)
