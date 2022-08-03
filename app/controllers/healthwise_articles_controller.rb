@@ -131,24 +131,37 @@ class HealthwiseArticlesController < ApplicationController
         end
       end
     end
-
     # save simplified chinese with traditional chinese's values
     set_simplified_chinese
-    @healthwise_article.update(@healthwise_article.attributes)
 
-    redirect_to @healthwise_article, notice: "Healthwise article was successfully refreshed from the HW API."
-    logger.info "#{current_user.email} refreshed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
-    audit! :refreshed_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
+    respond_to do |format|
+      if @healthwise_article.update(@healthwise_article.attributes)
+        format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully refreshed from the HW API." }
+        format.json { render :show, status: :ok, location: @healthwise_article }
+        logger.info "#{current_user.email} refreshed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
+        audit! :refreshed_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @healthwise_article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def upgrade
     backfill_english_json
     set_simplified_chinese
-    @healthwise_article.update(@healthwise_article.attributes)
 
-    redirect_to @healthwise_article, notice: "Healthwise article was successfully upgraded to use custom translations."
-    logger.info "#{current_user.email} upograded Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
-    audit! :upgraded_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
+    respond_to do |format|
+      if @healthwise_article.update(@healthwise_article.attributes)
+        format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully upgraded to use custom translations." }
+        format.json { render :show, status: :ok, location: @healthwise_article }
+        logger.info "#{current_user.email} upgraded Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
+        audit! :upgraded_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @healthwise_article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /healthwise_articles/1 or /healthwise_articles/1.json
