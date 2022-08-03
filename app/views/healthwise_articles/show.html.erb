@@ -215,15 +215,10 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
 
             <div class="fh5co-spacer fh5co-spacer-xs"></div>
             <% if current_user.try(:admin?) %>
-              <div class="col-md-12">
-
+            <div class="col-md-12">
               <div class="actions">
                 <%= link_to "Refresh from API", refresh_healthwise_article_path(@healthwise_article), method: :get, class: "btn btn-primary btn-lg btn-block" %>
               </div>
-              <div class="actions">
-                <%= link_to "Upgrade to customizable", upgrade_healthwise_article_path(@healthwise_article), method: :get, class: "btn btn-primary btn-lg btn-block" %>
-              </div>
-
               <div class="actions">
                 <%= link_to 'Edit Healthwise Article', edit_healthwise_article_path(@healthwise_article), class: "btn btn-primary btn-lg btn-block" %>
               </div>
