@@ -211,7 +211,8 @@ class HealthwiseArticlesController < ApplicationController
           # overwrite english title and json onto missing languages
           @healthwise_article.send("#{value}_json=".downcase, @healthwise_article.en_json)
           # set titles
-          if @healthwise_article.send("#{value}_title=".downcase, @healthwise_article.en_json["data"]["title"]["consumer"])
+          if @healthwise_article.article_or_topic == "Article"
+            @healthwise_article.send("#{value}_title=".downcase, @healthwise_article.en_json["data"]["title"]["consumer"])
           else
             @healthwise_article.send("#{value}_title=".downcase, @healthwise_article.en_json["data"]["topics"][0]["title"]["consumer"])
           end
