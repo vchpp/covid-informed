@@ -2,23 +2,43 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
-### 4 week sprint 5/18 - 5/25
+### For Google Analytics:
 
-- [x] GA check to see what page is [not set]
+#### Things to measure:
 
-- [x] Add priority to callouts and sort and display by priority
+Where is the visitor coming from?
 
-- [x] allocate mandarin audio under simplified and cantonese under traditional chinese
+What is the URL they’re hitting when they first enter the website, ie Messages/3
 
-- [x] add translated link to other audio language
+What is the path they take after the message?  Internal or External links followed?
 
-- [x] On Create, duplicate english article or topic onto missing language
+How do they interact with the website (clicks, comments)
 
-- [x] Add #refresh language method to HealthwiseArticles to fetch from API
+Trial participants (RCT 1- 9999) Data organized by ID, with timestamp of pages visited
 
-- [x] Add note to audio upload button to clarify filetype
+Track visitors based on whether RCT users actually click the link with audio/downloads/like/message comments
 
-- [x] Investigate how much time it would take to hand-seed the custom translations
+Regular visitors total traffic from cities
+
+What locale is used to make comments and upvotes
+
+Overall traffic for each page
+
+Languages being tracked
+
+Download activity as event
+
+Comment activity as event
+
+Like activity as event
+
+Audio playing as an event
+
+External resources and Statistics events (clicks, navigation to external websites)
+
+Track user by ID to see total pages they have visited per date
+
+### Stretch Goals:
 
 - [ ] Make font slightly smaller on mobile view or make font in cards fit better, ie less whitespace
 
@@ -49,6 +69,85 @@ https://github.com/vchpp/covid-informed
 - [ ] STRETCH - Downloads - keep the previews, but add links to other languages on the card like HealthwiseArticles
 
 - [ ] STRETCH - Move Callout arrows to `ti-angle-right` `ti-angle-left`
+
+- [ ] `IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
+
+- [ ] Refactor 'External' model to 'Additional'
+
+- [ ] Searching, Liking, Commenting, and Filtering all AJAX requests
+
+- [ ] Super-admin priviledges to self-assign admins?
+
+- [ ] Serve GA script from domain instead of 3rd party to prevent adblockers
+
+- [ ] 1 FAQ all button hmong center text in button
+
+- [ ] 2 Messages#show buttons larger from bootstrap source code
+
+- [ ] 3 Messages#show make RTF font size larger for desktop view only
+
+- [ ] 4 Profiles#show text should not wrap
+
+- [ ] 4 Profiles on /about title/name/affiliation to make more dense
+
+- [ ] https://coronavirus.jhu.edu/map.html Stats
+
+- [ ] Share page links with social media (Facebook, twitter, email, copy link)
+
+- [ ] Research: Puny-code URL
+
+- [ ] Cookie compliance, ie GDPR?
+
+### Feedback from the CAB members:
+
+- [x] Add a disclaimer on the footer of each page
+
+- [x] Filter Messages by category like FAQs or Additional Resources
+
+- [ ] Add search to Messages by adding a hidden field of tags
+
+- [ ] Or Global Search?
+
+### For Healthwise:
+
+- [x] HealthWise as a resource
+
+- [x] Put it on it’s own page under resources
+
+- [x] Reach out to Marta to get Postman collection
+
+- [x] Oauth to get an access token, token lives for 24 hours.  All subsequent calls use access token
+
+- [x] Payload is loaded into <head> and <body> tags
+
+- [x] Upvote and downvote, and comment individual items
+
+
+# CHANGELOG:
+
+### 4 week sprint 5/18 - 5/25
+
+- [x] GA check to see what page is [not set]
+
+- [x] Add priority to callouts and sort and display by priority
+
+- [x] allocate mandarin audio under simplified and cantonese under traditional chinese
+
+- [x] add translated link to other audio language
+
+- [x] On Create, duplicate english article or topic onto missing language
+
+- [x] Add #refresh language method to HealthwiseArticles to fetch from API
+
+- [x] Add note to audio upload button to clarify filetype
+
+- [x] Investigate how much time it would take to hand-seed the custom translations
+
+- [x] check refresh on whether translated or not
+
+- [x] move `set simplified chinese` method higher in logic so it checks against whether it has custom translation so they can custom traditional translations
+
+- [x] Download button for audio?
 
 ### 4 week sprint 4/20 - 5/10
 
@@ -97,100 +196,6 @@ https://github.com/vchpp/covid-informed
 - [x] Integrate better audio playback with scrubbing
 
 - [x] Downloads - languages[] database migration
-
-### Feedback from the CAB members:
-
-- [x] Add a disclaimer on the footer of each page
-
-- [x] Filter Messages by category like FAQs or Additional Resources
-
-- [ ] Add search to Messages by adding a hidden field of tags
-
-- [ ] Or Global Search?
-
-
-
-### Stretch Goals:
-
-- [ ] `IN PROGRESS` - Refactor Message.images to Message.en_images to reduce code on Messages#Index and Messages#Show
-
-- [ ] Refactor 'External' model to 'Additional'
-
-- [ ] Searching, Liking, Commenting, and Filtering all AJAX requests
-
-- [ ] Super-admin priviledges to self-assign admins?
-
-- [ ] Serve GA script from domain instead of 3rd party to prevent adblockers
-
-- [ ] 1 FAQ all button hmong center text in button
-
-- [ ] 2 Messages#show buttons larger from bootstrap source code
-
-- [ ] 3 Messages#show make RTF font size larger for desktop view only
-
-- [ ] 4 Profiles#show text should not wrap
-
-- [ ] 4 Profiles on /about title/name/affiliation to make more dense
-
-- [ ] https://coronavirus.jhu.edu/map.html Stats
-
-- [ ] Share page links with social media (Facebook, twitter, email, copy link)
-
-- [ ] Research: Puny-code URL
-
-- [ ] Cookie compliance, ie GDPR?
-
-### For Healthwise:
-
-- [x] HealthWise as a resource
-
-- [x] Put it on it’s own page under resources
-
-- [x] Reach out to Marta to get Postman collection
-
-- [x] Oauth to get an access token, token lives for 24 hours.  All subsequent calls use access token
-
-- [x] Payload is loaded into <head> and <body> tags
-
-- [x] Upvote and downvote, and comment individual items
-
-### For Google Analytics:
-
-#### Things to measure:
-
-Where is the visitor coming from?
-
-What is the URL they’re hitting when they first enter the website, ie Messages/3
-
-What is the path they take after the message?  Internal or External links followed?
-
-How do they interact with the website (clicks, comments)
-
-Trial participants (RCT 1- 9999) Data organized by ID, with timestamp of pages visited
-
-Track visitors based on whether RCT users actually click the link with audio/downloads/like/message comments
-
-Regular visitors total traffic from cities
-
-What locale is used to make comments and upvotes
-
-Overall traffic for each page
-
-Languages being tracked
-
-Download activity as event
-
-Comment activity as event
-
-Like activity as event
-
-Audio playing as an event
-
-External resources and Statistics events (clicks, navigation to external websites)
-
-Track user by ID to see total pages they have visited per date
-
-# CHANGELOG:
 
 ### 1-week sprint 2/16-2/22
 
