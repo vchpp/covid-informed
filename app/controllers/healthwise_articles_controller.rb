@@ -80,8 +80,8 @@ class HealthwiseArticlesController < ApplicationController
       end
     end
 
-    set_simplified_chinese
     backfill_english_json
+    set_simplified_chinese
 
     # save
     respond_to do |format|
