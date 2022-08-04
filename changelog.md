@@ -6,7 +6,7 @@ https://github.com/vchpp/covid-informed
 
 #### Things to measure:
 
-Where is the visitor coming from?
+- [x] Where is the visitor coming from?
 
 What is the URL they’re hitting when they first enter the website, ie Messages/3
 
@@ -22,7 +22,7 @@ Regular visitors total traffic from cities
 
 What locale is used to make comments and upvotes
 
-Overall traffic for each page
+- [x] Overall traffic for each page
 
 Languages being tracked
 

@@ -168,3 +168,4 @@ After installing the dependencies, run
 * Audio files via HTML5 player
 * Consume external JSON API to display content
 * Use local caching
+* Use Metamagic to add meta data to each view
