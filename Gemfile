@@ -28,7 +28,7 @@ gem 'rails-i18n'
 gem 'image_processing', '~> 1.12'
 gem 'devise'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '~> 1.13', require: false
 # gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
