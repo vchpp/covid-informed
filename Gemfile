@@ -73,3 +73,5 @@ gem "nokogiri", ">= 1.11.4"
 gem "actionpack", ">= 6.1.4.1"
 gem "addressable", ">= 2.8.0"
 gem "net-smtp", require: false # for ruby > 3.1
+gem "net-imap", require: false # for ruby > 3.1
+gem "net-pop", require: false # for ruby > 3.1
