@@ -63,9 +63,13 @@ class LikesController < ApplicationController
 
   # DELETE /likes/1 or /likes/1.json
   def destroy
+    authenticate_admin!
+    @message = Message.friendly.find(params[:message_id]) if params[:message_id].present?
+    @healthwise_article = HealthwiseArticle.friendly.find(params[:healthwise_article_id]) if params[:healthwise_article_id].present?
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: "Like was successfully destroyed." }
+      format.html { redirect_to @message, notice: "Like was successfully destroyed." } if params[:message_id].present?
+      format.html { redirect_to @healthwise_article, notice: "Like was successfully destroyed." } if params[:healthwise_article_id].present?
       format.json { head :no_content }
     end
   end
