@@ -87,10 +87,8 @@
               <% if @healthwise_article.en_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <% @healthwise_article.en_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
+                    <%= form.label :en_json %>
+                    <%=  raw form.text_area :en_json, placeholder: "en_json", size: '70x5', class: 'form-control input-lg', html: {'data-type': 'json'} %>
                   </div>
                 </div>
               <% end %>
@@ -98,7 +96,7 @@
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :en_rich_text %>
-                  <%= form.rich_text_area :en_rich_text, placeholder: "en_rich_text"  %>
+                  <%= form.rich_text_area :en_rich_text, placeholder: "en_rich_text" %>
                 </div>
               </div>
             </div>
@@ -121,13 +119,12 @@
               <% if @healthwise_article.zh_tw_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <% @healthwise_article.zh_tw_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
+                    <%= form.label :zh_tw_json %>
+                    <%= form.text_area :zh_tw_json, placeholder: "zh_tw_json", size: '70x5', class: 'form-control input-lg' %>
                   </div>
                 </div>
               <% end %>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :zh_tw_rich_text %>
@@ -154,13 +151,12 @@
               <% if @healthwise_article.zh_cn_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <% @healthwise_article.zh_cn_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
+                    <%= form.label :zh_cn_json %>
+                    <%= form.text_area :zh_cn_json, placeholder: "zh_cn_json", size: '70x5', class: 'form-control input-lg' %>
                   </div>
                 </div>
               <% end %>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :zh_cn_rich_text %>
@@ -187,13 +183,12 @@
               <% if @healthwise_article.vi_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <% @healthwise_article.vi_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
+                    <%= form.label :vi_json %>
+                    <%= form.text_area :vi_json, placeholder: "vi_json", size: '70x5', class: 'form-control input-lg' %>
                   </div>
                 </div>
               <% end %>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :vi_rich_text %>
@@ -220,13 +215,12 @@
               <% if @healthwise_article.hmn_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                    <% @healthwise_article.hmn_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
+                    <%= form.label :hmn_json %>
+                    <%= form.text_area :hmn_json, placeholder: "hmn_json", size: '70x5', class: 'form-control input-lg' %>
                   </div>
                 </div>
               <% end %>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :hmn_rich_text %>

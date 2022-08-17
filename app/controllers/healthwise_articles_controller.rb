@@ -102,7 +102,7 @@ class HealthwiseArticlesController < ApplicationController
     @healthwise_article[:languages] = params[:healthwise_article][:languages].first.split("\r\n").map(&:strip)
     respond_to do |format|
       if @healthwise_article.update(healthwise_article_params)
-        logger.warn healthwise_article_params
+        logger.warn "PARAMS ON UPDATE: #{healthwise_article_params[:en_json]}"
         format.html { redirect_to @healthwise_article, notice: "Healthwise article was successfully updated." }
         format.json { render :show, status: :ok, location: @healthwise_article }
         logger.info "#{current_user.email} updated Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
@@ -122,7 +122,9 @@ class HealthwiseArticlesController < ApplicationController
       if @healthwise_article.send("#{CI_LOCALE[l]}_translated".downcase) ==  false
         response = fetch_article(@healthwise_article.article_or_topic, @healthwise_article.hwid, l)
          # set JSON
-        @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase,JSON.parse(response))
+        # @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase,JSON.parse(response))
+        @pretty_response = JSON.parse(response, symbolize_names: true)
+        @healthwise_article.send("#{CI_LOCALE[l]}_json=".downcase,@pretty_response)
         # set titles
         if @healthwise_article.article_or_topic == "Article"
           @healthwise_article.send("#{CI_LOCALE[l]}_title=".downcase, JSON.parse(response)["data"]["title"]["consumer"])

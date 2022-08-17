@@ -139,19 +139,20 @@ Which model fields?
 
 ## Requirements
 
-* Ruby 2.7.2
-* Rails 6.1.1
-* Cargo (For PDF previewing)
-* Trix (for RTF previewing)
+* Ruby 3.1.2
+* Rails 6.1.6.1
+* Yarn
+* Webpacker
 
 ## Instructions
 
 After installing the dependencies, run
 
 * $ `bundle install`
+* $ `npm install --global yarn`
+* $ `bin/rails webpacker:install`
 * $ `bin/rails action_text:install`
 * $ `bin/rails active_storage:install`
-* $ `rails g audit_log:install`
 
 # Things I've learned
 

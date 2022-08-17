@@ -87,10 +87,16 @@
               <% if @healthwise_article.en_json.present? %>
                 <div class="col-md-12">
                   <div class="field form-group">
-                  <% @healthwise_article.en_json['data'].each do |key, value| %>
-                    <%= form.label key %>
-                    <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
+
+                  <%= form.fields_for :en_json do |fields| %>
+                    <% @healthwise_article.en_json['data'].each do |k, v| %>
+                      <div>
+                        <%= fields.label(k.to_sym, k.humanize) %>
+                        <%= fields.text_field k.to_sym, height: '5', value: v %>
+                      </div>
+                    <% end %>
                   <% end %>
+
                   </div>
                 </div>
               <% end %>
@@ -225,6 +231,7 @@
                 <div class="field form-group">
                   <% @healthwise_article.hmn_json['data'].each do |key, value| %>
                     <%= form.label key %>
+                    <%# <%= form.text_area :healthwise_article[hmn_json]['data'][key], class: 'form-control', rows: 5 %> %>
                     <input name="healthwise_article[en_json]['data'][<%= key %>]" type="text" value="<%= value %>" />
                   <% end %>
                   </div>
