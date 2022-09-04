@@ -86,7 +86,7 @@ meta title: "COVID-INFORMED - Healthwise",
 
       <% if @wellness.any?  %>
         <div class="fh5co-spacer fh5co-spacer-md"></div>
-        <h2 class="fh5co-uppercase-heading-lg text-center">Wellness (t)</h2>
+        <h2 class="fh5co-uppercase-heading-lg text-center"><%= t('resources.external.wellness')%></h2>
         <%= render 'wellness', collection: @wellness %>
       <% end %>
 
