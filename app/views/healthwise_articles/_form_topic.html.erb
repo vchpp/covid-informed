@@ -77,24 +77,6 @@
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="field form-group">
-                  <%= form.label :en_translated? %>
-                  <%= form.check_box :en_translated %>
-                </div>
-              </div>
-
-              <% if @healthwise_article.en_json.present? %>
-                <div class="col-md-12">
-                  <div class="field form-group">
-                    <% @healthwise_article.en_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :en_rich_text %>
@@ -118,16 +100,26 @@
                 </div>
               </div>
 
-              <% if @healthwise_article.zh_tw_json.present? %>
-                <div class="col-md-12">
-                  <div class="field form-group">
-                    <% @healthwise_article.zh_tw_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <div class="col-md-12 text-center">
+                    <% if @healthwise_article.zh_tw_pdf.attached? %>
+                      <%= image_tag @healthwise_article.zh_tw_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <%= form.label :zh_tw_pdf %>
+                    <%= form.file_field :zh_tw_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <% if @healthwise_article.zh_tw_pdf.attached? %>
+                      <%= label_tag(:zh_tw_pdf_purge, "Delete zh_tw_pdf?") %>
+                      <%= check_box_tag(:zh_tw_pdf_purge) %>
                     <% end %>
                   </div>
                 </div>
-              <% end %>
+              </div>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :zh_tw_rich_text %>
@@ -151,16 +143,26 @@
                 </div>
               </div>
 
-              <% if @healthwise_article.zh_cn_json.present? %>
-                <div class="col-md-12">
-                  <div class="field form-group">
-                    <% @healthwise_article.zh_cn_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <div class="col-md-12 text-center">
+                    <% if @healthwise_article.zh_cn_pdf.attached? %>
+                      <%= image_tag @healthwise_article.zh_cn_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <%= form.label :zh_cn_pdf %>
+                    <%= form.file_field :zh_cn_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <% if @healthwise_article.zh_cn_pdf.attached? %>
+                      <%= label_tag(:zh_cn_pdf_purge, "Delete zh_cn_pdf?") %>
+                      <%= check_box_tag(:zh_cn_pdf_purge) %>
                     <% end %>
                   </div>
                 </div>
-              <% end %>
+              </div>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :zh_cn_rich_text %>
@@ -184,16 +186,26 @@
                 </div>
               </div>
 
-              <% if @healthwise_article.vi_json.present? %>
-                <div class="col-md-12">
-                  <div class="field form-group">
-                    <% @healthwise_article.vi_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <div class="col-md-12 text-center">
+                    <% if @healthwise_article.vi_pdf.attached? %>
+                      <%= image_tag @healthwise_article.vi_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <%= form.label :vi_pdf %>
+                    <%= form.file_field :vi_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <% if @healthwise_article.vi_pdf.attached? %>
+                      <%= label_tag(:vi_pdf_purge, "Delete vi_pdf?") %>
+                      <%= check_box_tag(:vi_pdf_purge) %>
                     <% end %>
                   </div>
                 </div>
-              <% end %>
+              </div>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :vi_rich_text %>
@@ -217,16 +229,26 @@
                 </div>
               </div>
 
-              <% if @healthwise_article.hmn_json.present? %>
-                <div class="col-md-12">
-                  <div class="field form-group">
-                    <% @healthwise_article.hmn_json['data']['topics'][0].each do |key, value| %>
-                      <%= form.label key %>
-                      <input name="healthwise_article[en_json]['data']['topics'][0][<%= key %>]" type="text" value="<%= value %>" />
+              <div class="col-md-12">
+                <div class="field form-group">
+                  <div class="col-md-12 text-center">
+                    <% if @healthwise_article.hmn_pdf.attached? %>
+                      <%= image_tag @healthwise_article.hmn_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <%= form.label :hmn_pdf %>
+                    <%= form.file_field :hmn_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <% if @healthwise_article.hmn_pdf.attached? %>
+                      <%= label_tag(:hmn_pdf_purge, "Delete hmn_pdf?") %>
+                      <%= check_box_tag(:hmn_pdf_purge) %>
                     <% end %>
                   </div>
                 </div>
-              <% end %>
+              </div>
+
               <div class="col-md-12">
                 <div class="field form-group">
                   <%= form.label :hmn_rich_text %>
