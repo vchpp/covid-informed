@@ -44,6 +44,10 @@ class HealthwiseArticlesController < ApplicationController
           send_data @healthwise_article.likes_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Likes-#{Date.today}.csv"
         end
       end
+      format.json do
+        # needs to be i18n'd
+        send_data @healthwise_article.en_json, filename: "en_json-#{Date.today}.json"
+      end
     end
   end
 
@@ -100,6 +104,21 @@ class HealthwiseArticlesController < ApplicationController
   # PATCH/PUT /healthwise_articles/1 or /healthwise_articles/1.json
   def update
     @healthwise_article[:languages] = params[:healthwise_article][:languages].first.split("\r\n").map(&:strip)
+
+    # needs to be i18n'd
+    # @healthwise_article.languages.each do |l|   # ["en-us", "vi-us"]
+       # set JSON
+      if params[:en_json].present?
+        file = params[:en_json].read 
+        @healthwise_article.send("#{"en"}_json=".downcase, JSON.parse(file))
+        # set titles
+        if @healthwise_article.article_or_topic == "Article"
+          @healthwise_article.send("#{"en"}_title=".downcase, JSON.parse(file)["data"]["title"]["consumer"])
+        else
+          @healthwise_article.send("#{"en"}_title=".downcase, JSON.parse(file)["data"]["topics"][0]["title"]["consumer"])
+        end
+      end
+
     respond_to do |format|
       if @healthwise_article.update(healthwise_article_params)
         logger.warn healthwise_article_params

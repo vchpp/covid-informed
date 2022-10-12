@@ -1,5 +1,5 @@
 <% if @healthwise_article.article_or_topic == 'Article' %>
-  <%= render 'article_form', healthwise_article: @healthwise_article %>
+  <%= render 'form_article', healthwise_article: @healthwise_article %>
 <% else %>
-  <%= render 'topic_form', healthwise_article: @healthwise_article %>
+  <%= render 'form_topic', healthwise_article: @healthwise_article %>
 <% end %>

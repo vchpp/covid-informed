@@ -217,6 +217,7 @@ meta title: "COVID-INFORMED - Healthwise: #{@healthwise_article.en_title}",
             <% if current_user.try(:admin?) %>
             <div class="col-md-12">
               <div class="actions">
+                <%= link_to 'Download JSON', healthwise_article_path(format: "json", format_data: "en_json"), class: "btn btn-primary btn-lg btn-block"  %>
                 <%= link_to "Refresh from API", refresh_healthwise_article_path(@healthwise_article), method: :get, class: "btn btn-primary btn-lg btn-block" %>
               </div>
               <div class="actions">
