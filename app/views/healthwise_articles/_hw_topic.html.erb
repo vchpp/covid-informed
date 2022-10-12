@@ -5,41 +5,45 @@
 <div class="fh5co-spacer fh5co-spacer-lg"></div>
 <section>
   <div class="container">
-    <div class="col-md-12">
-      <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"].map do |t| %>
-        <%= raw t["html"] %>
-      <% end %>
-    </div>
-
-
-    <div class="col-md-12">
-      <p>
-        <label> Reviewers:</label>
-        <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["credits"]["primaryReviewers"].map do |r| %>
-          <%= r["name"] %>,
+    <% if @healthwise_article.send("#{article_locale}_pdf").attached? %>
+      <%= image_tag @healthwise_article.send("#{article_locale}_pdf").representation(resize_to_limit: [1600, 2400]), class: "img-fluid", style: "height:auto;width:100%" %>
+    <% else %>
+      <div class="col-md-12">
+        <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"].map do |t| %>
+          <%= raw t["html"] %>
         <% end %>
-      </p>
-   </div>
-    <div class="col-md-12">
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["logoURL"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["copyrightText"] %>
-      <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["disclaimerText"] %>
+      </div>
 
-      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["termsOfUseUrl"] %> "target="_blank">Terms of Use</a> |
-      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["privacyPolicyUrl"] %> "target="_blank">Privacy Policy</a> |
-      <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["moreInformationUrl"] %> "target="_blank">More Information</a>
 
-      <p>
-        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["html"] %>
-        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["yourUseOfThisInformationHtml"] %>
-      </p>
-    </div>
+      <div class="col-md-12">
+        <p>
+          <label> Reviewers:</label>
+          <% @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["credits"]["primaryReviewers"].map do |r| %>
+            <%= r["name"] %>,
+          <% end %>
+        </p>
+     </div>
+      <div class="col-md-12">
+        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["logoURL"] %>
+        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["copyrightText"] %>
+        <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["disclaimerText"] %>
 
-    <div class="col-md-8 col-md-offset-2 rtf-mobile">
-      <% if @healthwise_article.send("#{article_locale}_rich_text").present? %>
-        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-        <div><%= @healthwise_article.send("#{article_locale}_rich_text") %></div>
-      <% end %>
-    </div>
+        <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["termsOfUseUrl"] %> "target="_blank">Terms of Use</a> |
+        <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["privacyPolicyUrl"] %> "target="_blank">Privacy Policy</a> |
+        <a href="<%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["moreInformationUrl"] %> "target="_blank">More Information</a>
+
+        <p>
+          <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["html"] %>
+          <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["topics"][0]["legal"]["yourUseOfThisInformationHtml"] %>
+        </p>
+      </div>
+
+      <div class="col-md-8 col-md-offset-2 rtf-mobile">
+        <% if @healthwise_article.send("#{article_locale}_rich_text").present? %>
+          <div class="fh5co-spacer fh5co-spacer-sm"></div>
+          <div><%= @healthwise_article.send("#{article_locale}_rich_text") %></div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </section>
