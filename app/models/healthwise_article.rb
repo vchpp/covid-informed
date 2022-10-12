@@ -6,6 +6,7 @@ class HealthwiseArticle < ApplicationRecord
   has_rich_text :zh_cn_rich_text
   has_rich_text :vi_rich_text
   has_rich_text :hmn_rich_text
+  has_one_attached :en_pdf
   has_one_attached :zh_tw_pdf
   has_one_attached :zh_cn_pdf
   has_one_attached :vi_pdf

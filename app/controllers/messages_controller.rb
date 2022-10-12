@@ -8,17 +8,6 @@ class MessagesController < ApplicationController
     @messages = Message.where(nil)
       .send("with_attached_#{I18n.locale}_images".downcase)
       .with_attached_images
-      # .with_attached_en_images
-      # .with_attached_zh_tw_images
-      # .with_attached_zh_cn_images
-      # .with_attached_vi_images
-      # .with_attached_hmn_images
-      .send("with_attached_#{I18n.locale}_audio".downcase)
-      # .with_attached_hmn_audio
-      # .with_attached_en_audio
-      # .with_attached_vi_audio
-      # .with_attached_zh_tw_audio
-      # .with_attached_zh_cn_audio
       .order('created_at ASC')
     @admin_messages = @messages.sort_by(&:category)
     @messages = @messages.where(archive: false)

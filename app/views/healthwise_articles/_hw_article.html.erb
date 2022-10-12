@@ -16,7 +16,7 @@ meta title: "#{@healthwise_article.send("#{article_locale}_json")["data"]["title
 <section id="fh5co-feature">
   <div class="container">
     <% if @healthwise_article.send("#{article_locale}_pdf").attached? %>
-      <%= image_tag @healthwise_article.send("#{article_locale}_pdf").representation(resize_to_limit: [1600, 2400]), class: "img-fluid", style: "height:auto;width:100%" %>
+      <%= image_tag @healthwise_article.send("#{article_locale}_pdf").representation(resize_to_limit: [800, 1200]), class: "img-fluid", style: "height:auto;width:100%" %>
     <% else %>
       <div class="col-md-12">
         <%= raw @healthwise_article.send("#{article_locale}_json")["data"]["pageTemplate"] %>

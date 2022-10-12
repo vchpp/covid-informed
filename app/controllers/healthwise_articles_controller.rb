@@ -100,6 +100,11 @@ class HealthwiseArticlesController < ApplicationController
   # PATCH/PUT /healthwise_articles/1 or /healthwise_articles/1.json
   def update
     @healthwise_article[:languages] = params[:healthwise_article][:languages].first.split("\r\n").map(&:strip)
+    @healthwise_article.hmn_pdf.purge if params[:hmn_pdf].present? || params[:hmn_pdf_purge].present?
+    @healthwise_article.vi_pdf.purge if params[:vi_pdf].present? || params[:vi_pdf_purge].present?
+    @healthwise_article.en_pdf.purge if params[:en_pdf].present? || params[:en_pdf_purge].present?
+    @healthwise_article.zh_tw_pdf.purge if params[:zh_tw_pdf].present? || params[:zh_tw_pdf_purge].present?
+    @healthwise_article.zh_cn_pdf.purge if params[:zh_cn_pdf].present? || params[:zh_cn_pdf_purge].present?
     respond_to do |format|
       if @healthwise_article.update(healthwise_article_params)
         logger.warn healthwise_article_params
@@ -166,6 +171,11 @@ class HealthwiseArticlesController < ApplicationController
 
   # DELETE /healthwise_articles/1 or /healthwise_articles/1.json
   def destroy
+    @healthwise_article.hmn_pdf.purge
+    @healthwise_article.vi_pdf.purge
+    @healthwise_article.en_pdf.purge
+    @healthwise_article.zh_tw_pdf.purge
+    @healthwise_article.zh_cn_pdf.purge
     logger.info "#{current_user.email} destroyed Healthwise #{@healthwise_article.id} with title #{@healthwise_article.en_title}"
     audit! :destroyed_healthwise_article, @healthwise_article, payload: @healthwise_article.attributes
     @healthwise_article.destroy
@@ -227,7 +237,7 @@ class HealthwiseArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
-      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_tw_pdf, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :zh_cn_pdf, :vi_title, :vi_json, :vi_translated, :vi_pdf, :hmn_title, :hmn_json, :hmn_translated, :hmn_pdf, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
+      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :en_pdf, :en_pdf_purge, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_tw_pdf, :zh_tw_pdf_purge, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :zh_cn_pdf, :zh_cn_pdf_purge, :vi_title, :vi_json, :vi_translated, :vi_pdf, :vi_pdf_purge, :hmn_title, :hmn_json, :hmn_translated, :hmn_pdf, :hmn_pdf_purge, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
     end
 
     def set_page
