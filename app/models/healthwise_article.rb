@@ -6,11 +6,11 @@ class HealthwiseArticle < ApplicationRecord
   has_rich_text :zh_cn_rich_text
   has_rich_text :vi_rich_text
   has_rich_text :hmn_rich_text
-  has_one_attached :en_pdf
-  has_one_attached :zh_tw_pdf
-  has_one_attached :zh_cn_pdf
-  has_one_attached :vi_pdf
-  has_one_attached :hmn_pdf
+  has_many_attached :en_pdf
+  has_many_attached :zh_tw_pdf
+  has_many_attached :zh_cn_pdf
+  has_many_attached :vi_pdf
+  has_many_attached :hmn_pdf
   extend FriendlyId
   friendly_id :en_title, use: %i(slugged history finders)
   scope :filter_by_search, -> (search) { where("en_title ilike ?", "%#{search}%").or(

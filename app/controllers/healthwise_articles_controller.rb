@@ -237,7 +237,7 @@ class HealthwiseArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def healthwise_article_params
-      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :en_pdf, :en_pdf_purge, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_tw_pdf, :zh_tw_pdf_purge, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :zh_cn_pdf, :zh_cn_pdf_purge, :vi_title, :vi_json, :vi_translated, :vi_pdf, :vi_pdf_purge, :hmn_title, :hmn_json, :hmn_translated, :hmn_pdf, :hmn_pdf_purge, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages)
+      params.require(:healthwise_article).permit(:hwid, :article_or_topic, :en_title, :en_json, :en_translated, :en_pdf_purge, :zh_tw_title, :zh_tw_json, :zh_tw_translated, :zh_tw_pdf_purge, :zh_cn_title, :zh_cn_json, :zh_cn_translated, :zh_cn_pdf_purge, :vi_title, :vi_json, :vi_translated, :vi_pdf_purge, :hmn_title, :hmn_json, :hmn_translated, :hmn_pdf_purge, :en_rich_text, :zh_tw_rich_text, :zh_cn_rich_text, :vi_rich_text, :hmn_rich_text, :category, :featured, :archive, :languages, en_pdf: [], zh_tw_pdf: [],  zh_cn_pdf: [], vi_pdf: [], hmn_pdf: [])
     end
 
     def set_page

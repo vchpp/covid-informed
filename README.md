@@ -141,7 +141,7 @@ Which model fields?
 
 * Ruby 2.7.2
 * Rails 6.1.1
-* Cargo (For PDF previewing)
+* Cairo (For PDF previewing)
 * Trix (for RTF previewing)
 
 ## Instructions
@@ -152,6 +152,8 @@ After installing the dependencies, run
 * $ `bin/rails action_text:install`
 * $ `bin/rails active_storage:install`
 * $ `rails g audit_log:install`
+* $ `gem install poppler` on local machine to view PDFs
+* $ `gem install imagemagick` on local machine for image variations
 
 # Things I've learned
 
