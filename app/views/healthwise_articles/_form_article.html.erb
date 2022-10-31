@@ -113,7 +113,7 @@
                   </div>
                   <div class="col-md-6 text-center">
                     <%= form.label :zh_tw_pdf %>
-                    <%= form.file_field :zh_tw_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                    <%= form.file_field :zh_tw_pdf, multiple: true, direct_upload: true, class: "form-control input-lg"  %>
                   </div>
                   <div class="col-md-6 text-center">
                     <% if @healthwise_article.zh_tw_pdf.attached? %>
@@ -160,7 +160,7 @@
                   </div>
                   <div class="col-md-6 text-center">
                     <%= form.label :zh_cn_pdf %>
-                    <%= form.file_field :zh_cn_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                    <%= form.file_field :zh_cn_pdf, multiple: true, direct_upload: true, class: "form-control input-lg"  %>
                   </div>
                   <div class="col-md-6 text-center">
                     <% if @healthwise_article.zh_cn_pdf.attached? %>
@@ -207,7 +207,7 @@
                   </div>
                   <div class="col-md-6 text-center">
                     <%= form.label :vi_pdf %>
-                    <%= form.file_field :vi_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                    <%= form.file_field :vi_pdf, multiple: true, direct_upload: true, class: "form-control input-lg"  %>
                   </div>
                   <div class="col-md-6 text-center">
                     <% if @healthwise_article.vi_pdf.attached? %>
@@ -254,7 +254,7 @@
                   </div>
                   <div class="col-md-6 text-center">
                     <%= form.label :hmn_pdf %>
-                    <%= form.file_field :hmn_pdf, direct_upload: true, class: "form-control input-lg"  %>
+                    <%= form.file_field :hmn_pdf, multiple: true, direct_upload: true, class: "form-control input-lg"  %>
                   </div>
                   <div class="col-md-6 text-center">
                     <% if @healthwise_article.hmn_pdf.attached? %>
