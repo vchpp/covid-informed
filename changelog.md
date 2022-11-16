@@ -2,6 +2,8 @@ https://github.com/vchpp/covid-informed
 
 # TO DO:
 
+- [] Add zh_CN to custom translated HW articles
+
 ### For Google Analytics:
 
 #### Things to measure:
@@ -124,6 +126,10 @@ Track user by ID to see total pages they have visited per date
 
 
 # CHANGELOG:
+
+### Since June 2022
+
+- [x] Any model that can be archived can be accessed by the deep link - add logic to redirect any archived deep links
 
 ### 4 week sprint 5/18 - 5/25
 

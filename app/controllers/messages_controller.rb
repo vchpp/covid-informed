@@ -22,7 +22,13 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
-    @message = Message.with_attached_images.friendly.find(params[:id])
+    if @message.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Message is currently archived"
+      else
+        redirect_to messages_url, alert: "Message not available."
+      end
+    end
     @likes = @message.likes.all.order('rct::integer ASC')
     @all_comments = @message.comments
     @admin_comments = @all_comments.order('rct::integer ASC')
@@ -136,7 +142,7 @@ class MessagesController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_message
-    @message = Message.friendly.find(params[:id])
+    @message = Message.with_attached_images.friendly.find(params[:id])
   end
 
   def set_page

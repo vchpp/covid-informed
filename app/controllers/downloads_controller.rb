@@ -10,13 +10,22 @@ class DownloadsController < ApplicationController
       .with_attached_zh_cn_file
       .with_attached_vi_file
       .with_attached_hmn_file
-      .where(archive: false).order('category ASC')
+      .order('category ASC')
+    @admin_downloads = @downloads.sort_by(&:category)
+    @downloads = @downloads.where(archive: false)
     @other = @downloads.where(category: "Other")
     @downloads = @downloads.filter_by_search(params[:search]) if (params[:search].present?)
   end
 
   # GET /downloads/1 or /downloads/1.json
   def show
+    if @download.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Download is currently archived"
+      else
+        redirect_to downloads_url, alert: "Download not available."
+      end
+    end
   end
 
   # GET /downloads/new
