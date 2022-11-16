@@ -26,6 +26,13 @@ class HealthwiseArticlesController < ApplicationController
 
   # GET /healthwise_articles/1 or /healthwise_articles/1.json
   def show
+    if @healthwise_article.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Healthwise Article is currently archived"
+      else
+        redirect_to healthwise_articles_url, alert: "Healthwise Article not available."
+      end
+    end
     @likes = @healthwise_article.likes.all.order('rct::integer ASC')
     if @healthwise_article.comments
       @all_comments = @healthwise_article.comments

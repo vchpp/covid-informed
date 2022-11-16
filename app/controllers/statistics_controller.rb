@@ -24,6 +24,13 @@ class StatisticsController < ApplicationController
 
   # GET /statistics/1 or /statistics/1.json
   def show
+    if @statistic.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Statistic is currently archived"
+      else
+        redirect_to statistics_url, alert: "Statistic not available."
+      end
+    end
   end
 
   # GET /statistics/new

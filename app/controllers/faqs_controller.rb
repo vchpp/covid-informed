@@ -11,6 +11,13 @@ class FaqsController < ApplicationController
 
   # GET /faqs/1 or /faqs/1.json
   def show
+    if @faq.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "FAQ is currently archived"
+      else
+        redirect_to faqs_url, alert: "FAQ not available."
+      end
+    end
   end
 
   # GET /faqs/new

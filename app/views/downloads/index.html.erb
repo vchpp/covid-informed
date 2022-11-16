@@ -151,7 +151,7 @@ meta title: "COVID-INFORMED - Downloads",
         </thead>
 
         <tbody>
-          <% @downloads.each do |download| %>
+          <% @admin_downloads.each do |download| %>
             <tr>
               <td><%= download.en_title %></td>
               <td><%= image_tag download.en_file.representation(resize_to_limit: [100, 200]), class: "img-fluid" if download.en_file.attached? %></td>

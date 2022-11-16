@@ -9,7 +9,13 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
-    @profile = Profile.with_attached_headshot.friendly.find(params[:id])
+    if @profile.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Profile is currently archived"
+      else
+        redirect_to profiles_url, alert: "Profile not available."
+      end
+    end
   end
 
   # GET /profiles/new
@@ -68,7 +74,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.friendly.find(params[:id])
+      @profile = Profile.with_attached_headshot.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

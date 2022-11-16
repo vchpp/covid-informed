@@ -25,6 +25,13 @@ class ExternalsController < ApplicationController
 
   # GET /externals/1 or /externals/1.json
   def show
+    if @external.archive?
+      if current_user.try(:admin?)
+        flash.now[:alert] = "Additional Resource is currently archived"
+      else
+        redirect_to externals_url, alert: "Additional Resource not available."
+      end
+    end
   end
 
   # GET /externals/new
