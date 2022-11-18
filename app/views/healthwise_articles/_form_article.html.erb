@@ -104,10 +104,12 @@
                 <div class="field form-group">
                   <div class="col-md-12 text-center">
                     <% if @healthwise_article.zh_tw_pdf.attached? %>
-                      <% if @healthwise_article.zh_tw_pdf.representable? %>
-                        <%= image_tag @healthwise_article.zh_tw_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
-                      <% else %>
-                        <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                      <% @healthwise_article.zh_tw_pdf.each do |pdf| %>
+                        <% if pdf.representable? %>
+                          <%= image_tag pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                        <% else %>
+                          <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>
@@ -151,10 +153,12 @@
                 <div class="field form-group">
                   <div class="col-md-12 text-center">
                     <% if @healthwise_article.zh_cn_pdf.attached? %>
-                      <% if @healthwise_article.zh_cn_pdf.representable? %>
-                        <%= image_tag @healthwise_article.zh_cn_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
-                      <% else %>
-                        <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                      <% @healthwise_article.zh_cn_pdf.each do |pdf| %>
+                        <% if pdf.representable? %>
+                          <%= image_tag pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                        <% else %>
+                          <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>
@@ -198,10 +202,12 @@
                 <div class="field form-group">
                   <div class="col-md-12 text-center">
                     <% if @healthwise_article.vi_pdf.attached? %>
-                      <% if @healthwise_article.vi_pdf.representable? %>
-                        <%= image_tag @healthwise_article.vi_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
-                      <% else %>
-                        <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                      <% @healthwise_article.vi_pdf.each do |pdf| %>
+                        <% if pdf.representable? %>
+                          <%= image_tag pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                        <% else %>
+                          <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>
@@ -245,10 +251,12 @@
                 <div class="field form-group">
                   <div class="col-md-12 text-center">
                     <% if @healthwise_article.hmn_pdf.attached? %>
-                      <% if @healthwise_article.hmn_pdf.representable? %>
-                        <%= image_tag @healthwise_article.hmn_pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
-                      <% else %>
-                        <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                      <% @healthwise_article.hmn_pdf.each do |pdf| %>
+                        <% if pdf.representable? %>
+                          <%= image_tag pdf.representation(resize_to_limit: [400, 600]), class: "img-fluid" %>
+                        <% else %>
+                          <i class="fh5co-align-left img-responsive ti-layout-placeholder" style="color:red;"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>
