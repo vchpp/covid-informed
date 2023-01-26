@@ -18,26 +18,43 @@ class HealthwiseArticle < ApplicationRecord
                                         where("vi_title ilike ?", "%#{search}%")).or(
                                         where("hmn_title ilike ?", "%#{search}%"))
                                         }
+  def self.to_csv
+    attributes = %w{created_at
+      hwid
+      article_or_topic
+      en_title
+      category
+      featured
+      archive
+      languages}
+
+    CSV.generate("\uFEFF", headers: true) do |csv|
+      csv << attributes
+      all.each do |hwa|
+        csv << [hwa.created_at, hwa.hwid, hwa.article_or_topic, hwa.en_title, hwa.category, hwa.featured, hwa.archive, hwa.languages]
+      end
+    end
+  end
 
   def comments_to_csv
-    attributes = %w{Created_at RCT Content}
+    attributes = %w{Created_at RCT Content Type ID}
     CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
       if comments
         comments.each do |comment|
-          csv << [comment.created_at, comment.rct, comment.content]
+          csv << [comment.created_at, comment.rct, comment.content, comment.commentable_type, comment.commentable_id]
         end
       end
     end
   end
 
   def likes_to_csv
-    attributes = %w{Created_at RCT Uplikes Downlikes}
+    attributes = %w{Created_at RCT Uplikes Downlikes Type ID}
     CSV.generate(headers: true) do |csv|
       csv << attributes
       if likes
         likes.each do |likes|
-          csv << [likes.created_at, likes.rct, likes.up, likes.down]
+          csv << [likes.created_at, likes.rct, likes.up, likes.down, likes.likeable_type, likes.likeable_id]
         end
       end
     end

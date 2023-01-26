@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ index new show edit destroy ]
 
   # GET /comments or /comments.json
   def index
     @comments = Comment.all
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.csv { send_data @comments.to_csv, filename: "Comments-#{Date.today}.csv" } if current_user.try(:admin?) 
+    end
   end
 
   # GET /comments/1 or /comments/1.json

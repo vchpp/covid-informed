@@ -40,6 +40,14 @@ meta title: "COVID-INFORMED - Admin",
           <%= link_to 'New Healthwise Article', new_healthwise_article_path, class: "btn btn-primary btn-lg btn-block" %>
         </div>
 
+        <div class="nav-item col-md-6">
+          <%= link_to 'Export Comments to CSV', comments_path(format: "csv"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
+
+        <div class="nav-item col-md-6">
+          <%= link_to 'Export Likes to CSV', likes_path(format: "csv"), class: "btn btn-primary btn-lg btn-block"  %>
+        </div>
+
         <div class="nav-item col-md-12">
           <a href="admin/audit-log" class="btn btn-primary btn-lg btn-block">Audit Logs</a>
         </div>

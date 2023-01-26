@@ -68,24 +68,24 @@ class Message < ApplicationRecord
   end
 
   def comments_to_csv
-    attributes = %w{Created_at RCT Content}
+    attributes = %w{Created_at RCT Content Type ID}
     CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
       if comments
         comments.each do |comment|
-          csv << [comment.created_at, comment.rct, comment.content]
+          csv << [comment.created_at, comment.rct, comment.content, comment.commentable_type, comment.commentable_id]
         end
       end
     end
   end
 
   def likes_to_csv
-    attributes = %w{Created_at RCT Uplikes Downlikes}
+    attributes = %w{Created_at RCT Uplikes Downlikes Type ID}
     CSV.generate(headers: true) do |csv|
       csv << attributes
       if likes
         likes.each do |likes|
-          csv << [likes.created_at, likes.rct, likes.up, likes.down]
+          csv << [likes.created_at, likes.rct, likes.up, likes.down, likes.likeable_type, likes.likeable_id]
         end
       end
     end

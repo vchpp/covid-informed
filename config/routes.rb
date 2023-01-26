@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         resources :votes
       end
     end
+    resources :likes
+    resources :comments
     devise_for :users
 
     get '/admin', to: 'admin#index'

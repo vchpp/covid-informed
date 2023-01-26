@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     # if @message.empty? redirect to new_message_path
     respond_to do |format|
       format.html
-      format.csv { send_data @messages.to_csv, filename: "Messages-#{Date.today}.csv" }
+      format.csv { send_data @messages.to_csv, filename: "Messages-#{Date.today}.csv" } if current_user.try(:admin?)
     end
   end
 
@@ -45,9 +45,9 @@ class MessagesController < ApplicationController
       format.html
       format.csv do
         if (params[:format_data] == 'comments')
-          send_data @message.comments_to_csv, filename: "Message##{@message.id}-Comments-#{Date.today}.csv"
+          send_data @message.comments_to_csv, filename: "Message##{@message.id}-Comments-#{Date.today}.csv" if current_user.try(:admin?)
         elsif (params[:format_data] == 'likes')
-          send_data @message.likes_to_csv, filename: "Message##{@message.id}-Likes-#{Date.today}.csv"
+          send_data @message.likes_to_csv, filename: "Message##{@message.id}-Likes-#{Date.today}.csv" if current_user.try(:admin?) 
         end
       end
     end
