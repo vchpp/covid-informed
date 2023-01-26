@@ -6,6 +6,7 @@ class HealthwiseArticlesController < ApplicationController
   # GET /healthwise_articles or /healthwise_articles.json
   def index
     @healthwise_articles = HealthwiseArticle.where(nil).order('en_title ASC') # creates an anonymous scope
+    @csv_healthwise_articles = @healthwise_articles
     @admin_healthwise_articles = @healthwise_articles.sort_by(&:category)
     @healthwise_articles = @healthwise_articles.where(archive: false)
     @healthwise_articles = @healthwise_articles.filter_by_search(params[:search]) if (params[:search].present?)
@@ -20,6 +21,10 @@ class HealthwiseArticlesController < ApplicationController
         @vaccination << h if h.category == "Vaccination"
         @wellness << h if h.category == "Wellness"
       end
+    end
+    respond_to do |format|
+      format.html
+      format.csv { send_data @csv_healthwise_articles.to_csv, filename: "HealthwiseArticles-#{Date.today}.csv"} if current_user.try(:admin?)
     end
     # logger.warn fetch_hw_token
   end
@@ -46,9 +51,9 @@ class HealthwiseArticlesController < ApplicationController
       format.html
       format.csv do
         if (params[:format_data] == 'comments')
-          send_data @healthwise_article.comments_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Comments-#{Date.today}.csv"
+          send_data @healthwise_article.comments_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Comments-#{Date.today}.csv" if current_user.try(:admin?)
         elsif (params[:format_data] == 'likes')
-          send_data @healthwise_article.likes_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Likes-#{Date.today}.csv"
+          send_data @healthwise_article.likes_to_csv, filename: "HealthwiseArticle##{@healthwise_article.id}-Likes-#{Date.today}.csv" if current_user.try(:admin?) 
         end
       end
     end

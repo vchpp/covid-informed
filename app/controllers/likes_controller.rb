@@ -1,9 +1,14 @@
 class LikesController < ApplicationController
   before_action :set_like, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ index new show edit destroy ]
 
   # GET /likes or /likes.json
   def index
     @likes = Like.all
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.csv { send_data @likes.to_csv, filename: "Likes-#{Date.today}.csv" } if current_user.try(:admin?) 
+    end
   end
 
   # GET /likes/1 or /likes/1.json
