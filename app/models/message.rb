@@ -32,7 +32,8 @@ class Message < ApplicationRecord
   scope :filter_by_category, -> (category) { where category: category }
 
   def self.to_csv
-    attributes = %w{created_at
+    attributes = %w{id
+      created_at
       en_name
       category
       archive}
