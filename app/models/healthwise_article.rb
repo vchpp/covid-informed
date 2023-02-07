@@ -20,6 +20,7 @@ class HealthwiseArticle < ApplicationRecord
                                         }
   def self.to_csv
     attributes = %w{created_at
+      id
       hwid
       article_or_topic
       en_title
@@ -31,7 +32,7 @@ class HealthwiseArticle < ApplicationRecord
     CSV.generate("\uFEFF", headers: true) do |csv|
       csv << attributes
       all.each do |hwa|
-        csv << [hwa.created_at, hwa.hwid, hwa.article_or_topic, hwa.en_title, hwa.category, hwa.featured, hwa.archive, hwa.languages]
+        csv << [hwa.created_at, hwa.id, hwa.hwid, hwa.article_or_topic, hwa.en_title, hwa.category, hwa.featured, hwa.archive, hwa.languages]
       end
     end
   end
